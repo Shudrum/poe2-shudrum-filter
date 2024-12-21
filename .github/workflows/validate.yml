@@ -1,0 +1,36 @@
+name: Validate pull request
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        working-directory: generator
+        run: npm install
+
+      - name: Run ESLint
+        working-directory: generator
+        run: npm run lint
+
+      - name: Check ShudrumFilterStandard.filter file
+        run: |
+          if git diff --name-only | grep -q '\.filter$'; then
+            echo "Error: .filter files contain changes. Please revert them.";
+            exit 1;
+          else
+            echo "Filter files are clean.";
+          fi

@@ -1,0 +1,43 @@
+name: Update filters
+
+on:
+  push:
+    branches:
+      - master
+
+concurrency:
+  group: update-filters
+  cancel-in-progress: true
+
+jobs:
+  update-filters:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        working-directory: generator
+        run: npm install
+
+      - name: Generate filters
+        working-directory: generator
+        run: npm run build
+
+      - name: Commit and push updated file
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add *.filter
+          git commit -m "Filters updated after merge"
+          git push origin master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

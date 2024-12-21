@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "nodemon index.js",
+    "build": "node index.js",
     "lint": "eslint ."
   },
   "devDependencies": {
