@@ -21,7 +21,7 @@ section.addBlock(new Block({
     MapIcon.COLORS.CYAN,
     MapIcon.SHAPES.DIAMOND,
   ),
-  effect: new Effect(Effect.COLOR_CYAN),
+  effect: new Effect(Effect.COLORS.CYAN),
   sound: new Sound(Sound.IMPORTANCE_6),
 }));
 
@@ -39,7 +39,7 @@ section.addBlock(new Block({
     MapIcon.COLORS.CYAN,
     MapIcon.SHAPES.STAR,
   ),
-  effect: new Effect(Effect.COLOR_CYAN),
+  effect: new Effect(Effect.COLORS.CYAN),
   sound: new Sound(Sound.IMPORTANCE_3),
 }));
 

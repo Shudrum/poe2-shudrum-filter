@@ -21,7 +21,7 @@ section.addBlock(new Block({
     MapIcon.COLORS.CYAN,
     MapIcon.SHAPES.CIRCLE,
   ),
-  effect: new Effect(Effect.COLOR_CYAN),
+  effect: new Effect(Effect.COLORS.CYAN),
   sound: new Sound(Sound.GEMS),
 
   continue: true,

@@ -26,7 +26,7 @@ section.addBlock(new Block({
     MapIcon.COLORS.PURPLE,
     MapIcon.SHAPES.HEXAGON,
   ),
-  effect: new Effect(Effect.COLOR_PURPLE),
+  effect: new Effect(Effect.COLORS.PURPLE),
   sound: new Sound(Sound.IMPORTANCE_7),
   continue: true,
 }));
@@ -36,7 +36,7 @@ section.addBlock(new Block({
   class: 'Relic',
   text: THEME.COLOR_EVENT,
   border: THEME.COLOR_EVENT,
-  effect: new Effect(Effect.COLOR_PURPLE),
+  effect: new Effect(Effect.COLORS.PURPLE),
   font: 40,
   icon: new MapIcon(
     MapIcon.SIZES.MEDIUM,

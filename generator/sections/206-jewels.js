@@ -19,7 +19,7 @@ section.addBlock(new Block({
     MapIcon.COLORS.GREEN,
     MapIcon.SHAPES.PENTAGON,
   ),
-  effect: new Effect(Effect.COLOR_GREEN, Effect.TEMPORARY),
+  effect: new Effect(Effect.COLORS.GREEN, Effect.TEMPORARY),
 }));
 
 export default section;

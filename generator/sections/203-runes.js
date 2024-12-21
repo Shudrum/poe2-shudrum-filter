@@ -12,7 +12,7 @@ section.addBlock(new Block({
   text: THEME.COLOR_RUNES,
   border: THEME.COLOR_RUNES,
   font: 35,
-  effect: new Effect(Effect.COLOR_CYAN, Effect.TEMPORARY),
+  effect: new Effect(Effect.COLORS.CYAN, Effect.TEMPORARY),
   icon: new MapIcon(
     MapIcon.SIZES.SMALL,
     MapIcon.COLORS.CYAN,

@@ -21,7 +21,7 @@ section.addBlock(new Block({
     MapIcon.COLORS.BROWN,
     MapIcon.SHAPES.STAR,
   ),
-  effect: new Effect(Effect.COLOR_BROWN),
+  effect: new Effect(Effect.COLORS.BROWN),
   sound: new Sound(Sound.UNIQUE),
 }));
 

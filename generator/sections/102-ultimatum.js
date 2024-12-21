@@ -21,7 +21,7 @@ section.addBlock(new Block({
     MapIcon.COLORS.PURPLE,
     MapIcon.SHAPES.HEXAGON,
   ),
-  effect: new Effect(Effect.COLOR_PURPLE),
+  effect: new Effect(Effect.COLORS.PURPLE),
   sound: new Sound(Sound.IMPORTANCE_7),
 }));
 

@@ -33,7 +33,7 @@ section.addBlock(new Block({
   text: THEME.COLOR_BLACK,
   font: 30,
   sound: new Sound(Sound.IMPORTANCE_4),
-  effect: new Effect(Effect.COLOR_YELLOW),
+  effect: new Effect(Effect.COLORS.YELLOW),
   icon: new MapIcon(
     MapIcon.SIZES.BIG,
     MapIcon.COLORS.YELLOW,
@@ -50,7 +50,7 @@ section.addBlock(new Block({
   text: THEME.COLOR_CURRENCY,
   font: 30,
   sound: new Sound(Sound.IMPORTANCE_8),
-  effect: new Effect(Effect.COLOR_YELLOW, Effect.TEMPORARY),
+  effect: new Effect(Effect.COLORS.YELLOW, Effect.TEMPORARY),
   icon: new MapIcon(
     MapIcon.SIZES.SMALL,
     MapIcon.COLORS.YELLOW,
@@ -99,7 +99,7 @@ section.addBlock(new Block({
   ],
   font: 30,
   sound: new Sound(Sound.IMPORTANCE_3),
-  effect: new Effect(Effect.COLOR_YELLOW, Effect.TEMPORARY),
+  effect: new Effect(Effect.COLORS.YELLOW, Effect.TEMPORARY),
   icon: new MapIcon(
     MapIcon.SIZES.SMALL,
     MapIcon.COLORS.YELLOW,
@@ -136,7 +136,7 @@ section.addBlock(new Block({
   background: THEME.COLOR_ALERT,
   text: THEME.COLOR_WHITE,
   border: THEME.COLOR_WHITE,
-  effect: new Effect(Effect.COLOR_RED),
+  effect: new Effect(Effect.COLORS.RED),
   sound: new Sound(Sound.IMPORTANCE_1),
   icon: new MapIcon(
     MapIcon.SIZES.BIG,

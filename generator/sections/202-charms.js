@@ -19,7 +19,7 @@ section.addBlock(new Block({
   border: THEME.COLOR_CHARMS,
   font: 30,
   quality: `>= ${MIN_QUALITY}`,
-  effect: new Effect(Effect.COLOR_PURPLE),
+  effect: new Effect(Effect.COLORS.PURPLE),
   icon: new MapIcon(
     MapIcon.SIZES.MEDIUM,
     MapIcon.COLORS.PURPLE,
