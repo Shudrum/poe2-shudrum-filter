@@ -32,7 +32,7 @@ section.addBlock(new Block({
   background: THEME.COLOR_CURRENCY,
   text: THEME.COLOR_BLACK,
   font: 30,
-  sound: new Sound(Sound.IMPORTANCE_4),
+  sound: new Sound(Sound.TYPES.IMPORTANCE_4),
   effect: new Effect(Effect.COLORS.YELLOW),
   icon: new MapIcon(
     MapIcon.SIZES.BIG,
@@ -49,7 +49,7 @@ section.addBlock(new Block({
   border: THEME.COLOR_CURRENCY,
   text: THEME.COLOR_CURRENCY,
   font: 30,
-  sound: new Sound(Sound.IMPORTANCE_8),
+  sound: new Sound(Sound.TYPES.IMPORTANCE_8),
   effect: new Effect(Effect.COLORS.YELLOW, Effect.TEMPORARY),
   icon: new MapIcon(
     MapIcon.SIZES.SMALL,
@@ -67,7 +67,7 @@ section.addBlock(new Block({
     'Artificer\'s Orb',
   ],
   font: 30,
-  sound: new Sound(Sound.IMPORTANCE_7),
+  sound: new Sound(Sound.TYPES.IMPORTANCE_7),
   icon: new MapIcon(
     MapIcon.SIZES.SMALL,
     MapIcon.COLORS.YELLOW,
@@ -83,7 +83,7 @@ section.addBlock(new Block({
     'Glassblower\'s Bauble',
   ],
   font: 35,
-  sound: new Sound(Sound.IMPORTANCE_6),
+  sound: new Sound(Sound.TYPES.IMPORTANCE_6),
   icon: new MapIcon(
     MapIcon.SIZES.BIG,
     MapIcon.COLORS.YELLOW,
@@ -98,7 +98,7 @@ section.addBlock(new Block({
     'Orb of Augmentation',
   ],
   font: 30,
-  sound: new Sound(Sound.IMPORTANCE_3),
+  sound: new Sound(Sound.TYPES.IMPORTANCE_3),
   effect: new Effect(Effect.COLORS.YELLOW, Effect.TEMPORARY),
   icon: new MapIcon(
     MapIcon.SIZES.SMALL,
@@ -116,7 +116,7 @@ section.addBlock(new Block({
     'Vaal Orb',
   ],
   font: 45,
-  sound: new Sound(Sound.IMPORTANCE_2),
+  sound: new Sound(Sound.TYPES.IMPORTANCE_2),
   icon: new MapIcon(
     MapIcon.SIZES.BIG,
     MapIcon.COLORS.YELLOW,
@@ -137,7 +137,7 @@ section.addBlock(new Block({
   text: THEME.COLOR_WHITE,
   border: THEME.COLOR_WHITE,
   effect: new Effect(Effect.COLORS.RED),
-  sound: new Sound(Sound.IMPORTANCE_1),
+  sound: new Sound(Sound.TYPES.IMPORTANCE_1),
   icon: new MapIcon(
     MapIcon.SIZES.BIG,
     MapIcon.COLORS.RED,

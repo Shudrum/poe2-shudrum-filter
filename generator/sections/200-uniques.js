@@ -22,7 +22,7 @@ section.addBlock(new Block({
     MapIcon.SHAPES.STAR,
   ),
   effect: new Effect(Effect.COLORS.BROWN),
-  sound: new Sound(Sound.UNIQUE),
+  sound: new Sound(Sound.TYPES.UNIQUE),
 }));
 
 export default section;

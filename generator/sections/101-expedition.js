@@ -22,7 +22,7 @@ section.addBlock(new Block({
     MapIcon.SHAPES.DIAMOND,
   ),
   effect: new Effect(Effect.COLORS.CYAN),
-  sound: new Sound(Sound.IMPORTANCE_6),
+  sound: new Sound(Sound.TYPES.IMPORTANCE_6),
 }));
 
 section.addBlock(new Block({
@@ -40,7 +40,7 @@ section.addBlock(new Block({
     MapIcon.SHAPES.STAR,
   ),
   effect: new Effect(Effect.COLORS.CYAN),
-  sound: new Sound(Sound.IMPORTANCE_3),
+  sound: new Sound(Sound.TYPES.IMPORTANCE_3),
 }));
 
 export default section;

@@ -22,7 +22,7 @@ section.addBlock(new Block({
     MapIcon.SHAPES.CIRCLE,
   ),
   effect: new Effect(Effect.COLORS.CYAN),
-  sound: new Sound(Sound.GEMS),
+  sound: new Sound(Sound.TYPES.GEMS),
 
   continue: true,
 }));
@@ -33,7 +33,7 @@ section.addBlock(new Block({
   visible: false,
   areaLevel: '>= 70',
   itemLevel: '<= 16',
-  sound: new Sound(Sound.DISABLE),
+  sound: new Sound(Sound.NONE),
   icon: new MapIcon(MapIcon.NONE),
 }));
 

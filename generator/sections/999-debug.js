@@ -13,7 +13,7 @@ section.addBlock(new Block({
   text: '255 0 0',
   background: '0 0 255',
   border: '0 255 0',
-  sound: new Sound(Sound.VIBRANT_2),
+  sound: new Sound(Sound.TYPES.VIBRANT_2),
   icon: new MapIcon(
     MapIcon.COLORS.PINK,
     MapIcon.SIZES.MEDIUM,

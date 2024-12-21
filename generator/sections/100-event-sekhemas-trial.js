@@ -27,7 +27,7 @@ section.addBlock(new Block({
     MapIcon.SHAPES.HEXAGON,
   ),
   effect: new Effect(Effect.COLORS.PURPLE),
-  sound: new Sound(Sound.IMPORTANCE_7),
+  sound: new Sound(Sound.TYPES.IMPORTANCE_7),
   continue: true,
 }));
 
@@ -43,7 +43,7 @@ section.addBlock(new Block({
     MapIcon.COLORS.PURPLE,
     MapIcon.SHAPES.DIAMOND,
   ),
-  sound: new Sound(Sound.IMPORTANCE_8),
+  sound: new Sound(Sound.TYPES.IMPORTANCE_8),
 }));
 
 // Different icons keys

@@ -17,7 +17,7 @@ section.addBlock(new Block({
   background: THEME.COLOR_WAYSTONES,
   border: THEME.COLOR_WAYSTONES,
   text: THEME.COLOR_WHITE,
-  sound: new Sound(Sound.WAYSTONE),
+  sound: new Sound(Sound.TYPES.WAYSTONE),
   effect: new Effect(Effect.COLORS.WHITE),
   continue: true,
 }));
@@ -54,7 +54,7 @@ for (let waystoneTier = 1; waystoneTier <= 20; waystoneTier++) {
       visible: false,
       areaLevel: `== ${MINIMUM_AREA_LEVEL + waystoneTier}`,
       waystoneTier: `<= ${waystoneTier - 4}`,
-      sound: new Sound(Sound.DISABLE),
+      sound: new Sound(Sound.NONE),
       icon: new MapIcon(MapIcon.NONE),
     }));
   }
@@ -75,7 +75,7 @@ section.addBlock(new Block({
   text: THEME.COLOR_WHITE,
   border: THEME.COLOR_TABLETS,
   background: THEME.COLOR_TABLETS,
-  sound: new Sound(Sound.IMPORTANCE_2),
+  sound: new Sound(Sound.TYPES.IMPORTANCE_2),
   effect: new Effect(Effect.COLORS.PURPLE),
   font: 45,
 }));
