@@ -1,7 +1,7 @@
 import Section from '../entities/section.js';
 import Block from '../entities/block.js';
 
-import MinimapIcon from '../entities/minimap-icon.js';
+import MapIcon from '../entities/map-icon.js';
 import Effect from '../entities/effect.js';
 import Sound from '../entities/sound.js';
 import { MINIMUM_AREA_LEVEL, THEME } from '../configuration.js';
@@ -27,10 +27,10 @@ for (let waystoneTier = 1; waystoneTier <= 20; waystoneTier++) {
     areaLevel: `== ${MINIMUM_AREA_LEVEL + waystoneTier}`,
     waystoneTier: `>= ${waystoneTier}`,
     font: 45,
-    icon: new MinimapIcon(
-      MinimapIcon.SIZE_BIG,
-      MinimapIcon.COLOR_WHITE,
-      MinimapIcon.SHAPE_SQUARE,
+    icon: new MapIcon(
+      MapIcon.SIZES.BIG,
+      MapIcon.COLORS.WHITE,
+      MapIcon.SHAPES.SQUARE,
     ),
   }));
 
@@ -40,10 +40,10 @@ for (let waystoneTier = 1; waystoneTier <= 20; waystoneTier++) {
       waystoneTier: `< ${waystoneTier}`,
       font: 30,
       effect: new Effect(Effect.COLOR_WHITE, Effect.TEMPORARY),
-      icon: new MinimapIcon(
-        MinimapIcon.SIZE_MEDIUM,
-        MinimapIcon.COLOR_WHITE,
-        MinimapIcon.SHAPE_SQUARE,
+      icon: new MapIcon(
+        MapIcon.SIZES.MEDIUM,
+        MapIcon.COLORS.WHITE,
+        MapIcon.SHAPES.SQUARE,
       ),
       continue: true,
     }));
@@ -55,7 +55,7 @@ for (let waystoneTier = 1; waystoneTier <= 20; waystoneTier++) {
       areaLevel: `== ${MINIMUM_AREA_LEVEL + waystoneTier}`,
       waystoneTier: `<= ${waystoneTier - 4}`,
       sound: new Sound(Sound.DISABLE),
-      icon: new MinimapIcon(MinimapIcon.DISABLE),
+      icon: new MapIcon(MapIcon.NONE),
     }));
   }
 }

@@ -1,7 +1,7 @@
 import Section from '../entities/section.js';
 import Block from '../entities/block.js';
 
-import MinimapIcon from '../entities/minimap-icon.js';
+import MapIcon from '../entities/map-icon.js';
 import Effect from '../entities/effect.js';
 import { MINIMUM_AREA_LEVEL, THEME } from '../configuration.js';
 
@@ -20,10 +20,10 @@ section.addBlock(new Block({
   font: 30,
   quality: `>= ${MIN_QUALITY}`,
   effect: new Effect(Effect.COLOR_PURPLE),
-  icon: new MinimapIcon(
-    MinimapIcon.SIZE_MEDIUM,
-    MinimapIcon.COLOR_PURPLE,
-    MinimapIcon.SHAPE_MOON,
+  icon: new MapIcon(
+    MapIcon.SIZES.MEDIUM,
+    MapIcon.COLORS.PURPLE,
+    MapIcon.SHAPES.MOON,
   ),
 }));
 

@@ -1,7 +1,7 @@
 import Section from '../entities/section.js';
 import Block from '../entities/block.js';
 
-import MinimapIcon from '../entities/minimap-icon.js';
+import MapIcon from '../entities/map-icon.js';
 import Effect from '../entities/effect.js';
 import Sound from '../entities/sound.js';
 import { MINIMUM_AREA_LEVEL, THEME } from '../configuration.js';
@@ -34,10 +34,10 @@ section.addBlock(new Block({
   font: 30,
   sound: new Sound(Sound.IMPORTANCE_4),
   effect: new Effect(Effect.COLOR_YELLOW),
-  icon: new MinimapIcon(
-    MinimapIcon.SIZE_BIG,
-    MinimapIcon.COLOR_YELLOW,
-    MinimapIcon.SHAPE_STAR,
+  icon: new MapIcon(
+    MapIcon.SIZES.BIG,
+    MapIcon.COLORS.YELLOW,
+    MapIcon.SHAPES.STAR,
   ),
   continue: true,
 }));
@@ -51,10 +51,10 @@ section.addBlock(new Block({
   font: 30,
   sound: new Sound(Sound.IMPORTANCE_8),
   effect: new Effect(Effect.COLOR_YELLOW, Effect.TEMPORARY),
-  icon: new MinimapIcon(
-    MinimapIcon.SIZE_SMALL,
-    MinimapIcon.COLOR_YELLOW,
-    MinimapIcon.SHAPE_CROSS,
+  icon: new MapIcon(
+    MapIcon.SIZES.SMALL,
+    MapIcon.COLORS.YELLOW,
+    MapIcon.SHAPES.CROSS,
   ),
 }));
 
@@ -68,10 +68,10 @@ section.addBlock(new Block({
   ],
   font: 30,
   sound: new Sound(Sound.IMPORTANCE_7),
-  icon: new MinimapIcon(
-    MinimapIcon.SIZE_SMALL,
-    MinimapIcon.COLOR_YELLOW,
-    MinimapIcon.SHAPE_CIRCLE,
+  icon: new MapIcon(
+    MapIcon.SIZES.SMALL,
+    MapIcon.COLORS.YELLOW,
+    MapIcon.SHAPES.CIRCLE,
   ),
 }));
 
@@ -84,10 +84,10 @@ section.addBlock(new Block({
   ],
   font: 35,
   sound: new Sound(Sound.IMPORTANCE_6),
-  icon: new MinimapIcon(
-    MinimapIcon.SIZE_BIG,
-    MinimapIcon.COLOR_YELLOW,
-    MinimapIcon.SHAPE_CROSS,
+  icon: new MapIcon(
+    MapIcon.SIZES.BIG,
+    MapIcon.COLORS.YELLOW,
+    MapIcon.SHAPES.CROSS,
   ),
 }));
 
@@ -100,10 +100,10 @@ section.addBlock(new Block({
   font: 30,
   sound: new Sound(Sound.IMPORTANCE_3),
   effect: new Effect(Effect.COLOR_YELLOW, Effect.TEMPORARY),
-  icon: new MinimapIcon(
-    MinimapIcon.SIZE_SMALL,
-    MinimapIcon.COLOR_YELLOW,
-    MinimapIcon.SHAPE_CIRCLE,
+  icon: new MapIcon(
+    MapIcon.SIZES.SMALL,
+    MapIcon.COLORS.YELLOW,
+    MapIcon.SHAPES.CIRCLE,
   ),
 }));
 
@@ -117,10 +117,10 @@ section.addBlock(new Block({
   ],
   font: 45,
   sound: new Sound(Sound.IMPORTANCE_2),
-  icon: new MinimapIcon(
-    MinimapIcon.SIZE_BIG,
-    MinimapIcon.COLOR_YELLOW,
-    MinimapIcon.SHAPE_STAR,
+  icon: new MapIcon(
+    MapIcon.SIZES.BIG,
+    MapIcon.COLORS.YELLOW,
+    MapIcon.SHAPES.STAR,
   ),
 }));
 
@@ -138,10 +138,10 @@ section.addBlock(new Block({
   border: THEME.COLOR_WHITE,
   effect: new Effect(Effect.COLOR_RED),
   sound: new Sound(Sound.IMPORTANCE_1),
-  icon: new MinimapIcon(
-    MinimapIcon.SIZE_BIG,
-    MinimapIcon.COLOR_RED,
-    MinimapIcon.SHAPE_STAR,
+  icon: new MapIcon(
+    MapIcon.SIZES.BIG,
+    MapIcon.COLORS.RED,
+    MapIcon.SHAPES.STAR,
   ),
 }));
 

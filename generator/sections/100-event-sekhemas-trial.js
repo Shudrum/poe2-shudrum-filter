@@ -1,7 +1,7 @@
 import Section from '../entities/section.js';
 import Block from '../entities/block.js';
 
-import MinimapIcon from '../entities/minimap-icon.js';
+import MapIcon from '../entities/map-icon.js';
 import Sound from '../entities/sound.js';
 import Effect from '../entities/effect.js';
 import { THEME } from '../configuration.js';
@@ -21,10 +21,10 @@ section.addBlock(new Block({
   background: THEME.COLOR_EVENT,
   font: 40,
 
-  icon: new MinimapIcon(
-    MinimapIcon.SIZE_MEDIUM,
-    MinimapIcon.COLOR_PURPLE,
-    MinimapIcon.SHAPE_HEXAGON,
+  icon: new MapIcon(
+    MapIcon.SIZES.MEDIUM,
+    MapIcon.COLORS.PURPLE,
+    MapIcon.SHAPES.HEXAGON,
   ),
   effect: new Effect(Effect.COLOR_PURPLE),
   sound: new Sound(Sound.IMPORTANCE_7),
@@ -38,10 +38,10 @@ section.addBlock(new Block({
   border: THEME.COLOR_EVENT,
   effect: new Effect(Effect.COLOR_PURPLE),
   font: 40,
-  icon: new MinimapIcon(
-    MinimapIcon.SIZE_MEDIUM,
-    MinimapIcon.COLOR_PURPLE,
-    MinimapIcon.SHAPE_DIAMOND,
+  icon: new MapIcon(
+    MapIcon.SIZES.MEDIUM,
+    MapIcon.COLORS.PURPLE,
+    MapIcon.SHAPES.DIAMOND,
   ),
   sound: new Sound(Sound.IMPORTANCE_8),
 }));
@@ -53,10 +53,10 @@ section.addBlock(new Block({
     'Silver Key',
     'Gold Key',
   ],
-  icon: new MinimapIcon(
-    MinimapIcon.SIZE_BIG,
-    MinimapIcon.COLOR_PURPLE,
-    MinimapIcon.SHAPE_STAR,
+  icon: new MapIcon(
+    MapIcon.SIZES.BIG,
+    MapIcon.COLORS.PURPLE,
+    MapIcon.SHAPES.STAR,
   ),
 }));
 

@@ -1,7 +1,7 @@
 import Section from '../entities/section.js';
 import Block from '../entities/block.js';
 
-import MinimapIcon from '../entities/minimap-icon.js';
+import MapIcon from '../entities/map-icon.js';
 import Effect from '../entities/effect.js';
 import { THEME } from '../configuration.js';
 
@@ -14,10 +14,10 @@ section.addBlock(new Block({
   border: THEME.COLOR_JEWELS,
   font: 40,
 
-  icon: new MinimapIcon(
-    MinimapIcon.SIZE_MEDIUM,
-    MinimapIcon.COLOR_GREEN,
-    MinimapIcon.SHAPE_PENTAGON,
+  icon: new MapIcon(
+    MapIcon.SIZES.MEDIUM,
+    MapIcon.COLORS.GREEN,
+    MapIcon.SHAPES.PENTAGON,
   ),
   effect: new Effect(Effect.COLOR_GREEN, Effect.TEMPORARY),
 }));

@@ -3,7 +3,7 @@ import Block from '../entities/block.js';
 
 import Sound from '../entities/sound.js';
 import { MINIMUM_AREA_LEVEL } from '../configuration.js';
-import MinimapIcon from '../entities/minimap-icon.js';
+import MapIcon from '../entities/map-icon.js';
 
 const section = new Section('Debug: 3 colors = not managed by the filter');
 
@@ -14,10 +14,10 @@ section.addBlock(new Block({
   background: '0 0 255',
   border: '0 255 0',
   sound: new Sound(Sound.VIBRANT_2),
-  icon: new MinimapIcon(
-    MinimapIcon.COLOR_PINK,
-    MinimapIcon.SIZE_MEDIUM,
-    MinimapIcon.SHAPE_UPSIDE_DOWN_HOUSE,
+  icon: new MapIcon(
+    MapIcon.COLORS.PINK,
+    MapIcon.SIZES.MEDIUM,
+    MapIcon.SHAPES.UPSIDE_DOWN_HOUSE,
   ),
 }));
 

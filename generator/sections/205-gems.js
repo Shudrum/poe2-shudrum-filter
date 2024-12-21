@@ -1,7 +1,7 @@
 import Section from '../entities/section.js';
 import Block from '../entities/block.js';
 
-import MinimapIcon from '../entities/minimap-icon.js';
+import MapIcon from '../entities/map-icon.js';
 import Sound from '../entities/sound.js';
 import Effect from '../entities/effect.js';
 import { THEME } from '../configuration.js';
@@ -16,10 +16,10 @@ section.addBlock(new Block({
   background: THEME.COLOR_GEMS,
   font: 35,
 
-  icon: new MinimapIcon(
-    MinimapIcon.SIZE_BIG,
-    MinimapIcon.COLOR_CYAN,
-    MinimapIcon.SHAPE_CIRCLE,
+  icon: new MapIcon(
+    MapIcon.SIZES.BIG,
+    MapIcon.COLORS.CYAN,
+    MapIcon.SHAPES.CIRCLE,
   ),
   effect: new Effect(Effect.COLOR_CYAN),
   sound: new Sound(Sound.GEMS),
@@ -33,8 +33,8 @@ section.addBlock(new Block({
   visible: false,
   areaLevel: '>= 70',
   itemLevel: '<= 16',
-  sound: new Sound(Sound.NONE),
-  icon: new MinimapIcon(MinimapIcon.NONE),
+  sound: new Sound(Sound.DISABLE),
+  icon: new MapIcon(MapIcon.NONE),
 }));
 
 export default section;
