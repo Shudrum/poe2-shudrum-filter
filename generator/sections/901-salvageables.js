@@ -9,7 +9,6 @@ export default (mode) => {
   section.setCommon({
     areaLevel: `>= ${MINIMUM_AREA_LEVEL}`,
     rarity: '<= Rare',
-    itemLevel: `< ${VARIABLES.MIN_ITEM_LEVEL_NORMAL_MAGIC_RARE[mode]}`,
     font: 30,
     icon: new MapIcon(
       MapIcon.SIZES.SMALL,
