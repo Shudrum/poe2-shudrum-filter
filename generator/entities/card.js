@@ -28,10 +28,10 @@ export default class Card {
           `SetBackgroundColor ${COLORS.DEFAULT_BACKGROUND}`,
           `SetFontSize ${this.#size}`,
         ].join('\n');
-      case Card.TYPES.HIGHLIGHT:
+      case Card.TYPES.OUTLINE:
         return [
           `SetTextColor ${this.#colorTheme.TEXT}`,
-          `SetBorderColor ${this.#colorTheme.TEXT} 0`,
+          `SetBorderColor ${this.#colorTheme.TEXT}`,
           `SetBackgroundColor ${COLORS.DEFAULT_BACKGROUND}`,
           `SetFontSize ${this.#size}`,
         ].join('\n');
@@ -48,7 +48,7 @@ export default class Card {
 
 Card.TYPES = {
   IMPORTANT: 'IMPORTANT',
-  HIGHLIGHT: 'HIGHLIGHT',
+  OUTLINE: 'OUTLINE',
   NORMAL: 'NORMAL',
 };
 

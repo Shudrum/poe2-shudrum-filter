@@ -82,6 +82,11 @@ export const THEMES = {
     FULL: '177 15 15',
     TEXT: '177 15 15',
   },
+  WAYSTONES: {
+    INVERSE: COLORS.WHITE,
+    FULL: '74 68 58',
+    TEXT: '146 135 115',
+  },
 };
 
 export const MODES = {

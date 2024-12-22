@@ -3,7 +3,8 @@ import Block from '../entities/block.js';
 import MapIcon from '../entities/map-icon.js';
 import Effect from '../entities/effect.js';
 import Sound from '../entities/sound.js';
-import { MINIMUM_AREA_LEVEL, COLORS, VARIABLES } from '../configuration.js';
+import Card from '../entities/card.js';
+import { MINIMUM_AREA_LEVEL, COLORS, VARIABLES, THEMES } from '../configuration.js';
 
 export default (mode) => {
   const section = new Section('Waystones');
@@ -14,9 +15,7 @@ export default (mode) => {
 
   section.addBlock(new Block({
     comment: 'Common',
-    background: COLORS.WAYSTONES,
-    border: COLORS.WAYSTONES,
-    text: COLORS.WHITE,
+    card: new Card(THEMES.WAYSTONES, Card.SIZES.MEDIUM, Card.TYPES.OUTLINE),
     sound: new Sound(Sound.TYPES.WAYSTONE),
     effect: new Effect(Effect.COLORS.WHITE),
     continue: true,
@@ -26,7 +25,7 @@ export default (mode) => {
     section.addBlock(new Block({
       areaLevel: `== ${MINIMUM_AREA_LEVEL + waystoneTier}`,
       waystoneTier: `>= ${waystoneTier}`,
-      font: 45,
+      card: new Card(THEMES.WAYSTONES, Card.SIZES.BIG, Card.TYPES.IMPORTANT),
       icon: new MapIcon(
         MapIcon.SIZES.BIG,
         MapIcon.COLORS.WHITE,
@@ -38,7 +37,7 @@ export default (mode) => {
       section.addBlock(new Block({
         areaLevel: `== ${MINIMUM_AREA_LEVEL + waystoneTier}`,
         waystoneTier: `< ${waystoneTier}`,
-        font: 30,
+        card: new Card(THEMES.WAYSTONES, Card.SIZES.MEDIUM, Card.TYPES.OUTLINE),
         effect: new Effect(Effect.COLORS.WHITE, Effect.TEMPORARY),
         icon: new MapIcon(
           MapIcon.SIZES.MEDIUM,
@@ -54,6 +53,7 @@ export default (mode) => {
         visible: false,
         areaLevel: `== ${MINIMUM_AREA_LEVEL + waystoneTier}`,
         waystoneTier: `<= ${waystoneTier - VARIABLES.WAYSTONES.HIDE_GAP[mode]}`,
+        card: new Card(THEMES.WAYSTONES, Card.SIZES.SMALL, Card.TYPES.OUTLINE),
         sound: new Sound(Sound.NONE),
         icon: new MapIcon(MapIcon.NONE),
       }));
