@@ -7,11 +7,8 @@ import { MINIMUM_AREA_LEVEL, COLORS, VARIABLES } from '../configuration.js';
 export default (mode) => {
   const section = new Section('Charms');
 
-  section.setCommon({
-    type: 'Charm',
-  });
-
   section.addBlock(new Block({
+    class: 'Charm',
     text: COLORS.CHARMS,
     border: COLORS.CHARMS,
     font: 30,
@@ -25,6 +22,7 @@ export default (mode) => {
 
   if (!VARIABLES.CHARMS_DISPLAY[mode]) {
     section.addBlock(new Block({
+      class: 'Charm',
       areaLevel: `>= ${MINIMUM_AREA_LEVEL}`,
       visible: false,
     }));
