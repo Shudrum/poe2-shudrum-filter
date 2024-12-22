@@ -4,16 +4,16 @@ import Block from '../entities/block.js';
 import MapIcon from '../entities/map-icon.js';
 import Sound from '../entities/sound.js';
 import Effect from '../entities/effect.js';
-import { THEME } from '../configuration.js';
+import { COLORS } from '../configuration.js';
 
 const section = new Section('Gems');
 
 // TODO: Spirit, Uncut and Skill gems should have a different display.
 section.addBlock(new Block({
   type: ['Uncut Spirit Gem', 'Uncut Support Gem', 'Uncut Skill Gem'],
-  text: THEME.COLOR_BLACK,
-  border: THEME.COLOR_GEMS,
-  background: THEME.COLOR_GEMS,
+  text: COLORS.BLACK,
+  border: COLORS.GEMS,
+  background: COLORS.GEMS,
   font: 35,
 
   icon: new MapIcon(

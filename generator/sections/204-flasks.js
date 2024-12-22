@@ -3,7 +3,7 @@ import Block from '../entities/block.js';
 
 import MapIcon from '../entities/map-icon.js';
 import Effect from '../entities/effect.js';
-import { THEME } from '../configuration.js';
+import { COLORS } from '../configuration.js';
 
 const section = new Section('Flasks');
 
@@ -13,8 +13,8 @@ section.setCommon({
 });
 
 section.addBlock(new Block({
-  text: THEME.COLOR_FLASKS,
-  border: THEME.COLOR_FLASKS,
+  text: COLORS.FLASKS,
+  border: COLORS.FLASKS,
   quality: '>= 10',
   font: 35,
   effect: new Effect(Effect.COLORS.CYAN, Effect.TEMPORARY),

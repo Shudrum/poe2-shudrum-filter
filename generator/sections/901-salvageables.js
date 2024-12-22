@@ -2,7 +2,7 @@ import Section from '../entities/section.js';
 import Block from '../entities/block.js';
 
 import MapIcon from '../entities/map-icon.js';
-import { MINIMUM_AREA_LEVEL, THEME } from '../configuration.js';
+import { MINIMUM_AREA_LEVEL, COLORS } from '../configuration.js';
 
 const section = new Section('Salvageables');
 
@@ -16,8 +16,8 @@ section.setCommon({
     MapIcon.COLORS.GREY,
     MapIcon.SHAPES.CIRCLE,
   ),
-  text: THEME.COLOR_CURRENCY,
-  border: THEME.COLOR_CURRENCY,
+  text: COLORS.CURRENCY,
+  border: COLORS.CURRENCY,
 });
 
 section.addBlock(new Block({

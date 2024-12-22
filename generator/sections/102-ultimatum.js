@@ -4,16 +4,16 @@ import Block from '../entities/block.js';
 import MapIcon from '../entities/map-icon.js';
 import Sound from '../entities/sound.js';
 import Effect from '../entities/effect.js';
-import { THEME } from '../configuration.js';
+import { COLORS } from '../configuration.js';
 
 const section = new Section('Event: Ultimatum');
 
 section.addBlock(new Block({
   type: 'Ultimatum',
 
-  text: THEME.COLOR_WHITE,
-  border: THEME.COLOR_EVENT,
-  background: THEME.COLOR_EVENT,
+  text: COLORS.WHITE,
+  border: COLORS.EVENT,
+  background: COLORS.EVENT,
   font: 40,
 
   icon: new MapIcon(

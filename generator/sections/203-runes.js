@@ -3,14 +3,14 @@ import Block from '../entities/block.js';
 
 import MapIcon from '../entities/map-icon.js';
 import Effect from '../entities/effect.js';
-import { THEME } from '../configuration.js';
+import { COLORS } from '../configuration.js';
 
 const section = new Section('Runes');
 
 section.addBlock(new Block({
   type: 'Rune',
-  text: THEME.COLOR_RUNES,
-  border: THEME.COLOR_RUNES,
+  text: COLORS.RUNES,
+  border: COLORS.RUNES,
   font: 35,
   effect: new Effect(Effect.COLORS.CYAN, Effect.TEMPORARY),
   icon: new MapIcon(

@@ -1,7 +1,7 @@
 import Section from '../entities/section.js';
 import Block from '../entities/block.js';
 
-import { MINIMUM_AREA_LEVEL, THEME } from '../configuration.js';
+import { MINIMUM_AREA_LEVEL, COLORS } from '../configuration.js';
 
 const section = new Section('Gold');
 
@@ -10,7 +10,7 @@ section.setCommon({
 });
 
 section.addBlock(new Block({
-  text: THEME.COLOR_GOLD,
+  text: COLORS.GOLD,
   font: 25,
   continue: true,
 }));
@@ -26,7 +26,7 @@ section.addBlock(new Block({
   section.addBlock(new Block({
     stackSize: `>= ${stackSize}`,
     font,
-    ...showBorder && { border: THEME.COLOR_GOLD },
+    ...showBorder && { border: COLORS.GOLD },
   }));
 });
 

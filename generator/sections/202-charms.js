@@ -3,7 +3,7 @@ import Block from '../entities/block.js';
 
 import MapIcon from '../entities/map-icon.js';
 import Effect from '../entities/effect.js';
-import { MINIMUM_AREA_LEVEL, THEME } from '../configuration.js';
+import { MINIMUM_AREA_LEVEL, COLORS } from '../configuration.js';
 
 const MIN_QUALITY = 1;
 
@@ -15,8 +15,8 @@ section.setCommon({
 });
 
 section.addBlock(new Block({
-  text: THEME.COLOR_CHARMS,
-  border: THEME.COLOR_CHARMS,
+  text: COLORS.CHARMS,
+  border: COLORS.CHARMS,
   font: 30,
   quality: `>= ${MIN_QUALITY}`,
   effect: new Effect(Effect.COLORS.PURPLE),

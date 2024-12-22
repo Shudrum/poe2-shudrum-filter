@@ -4,7 +4,7 @@ import Block from '../entities/block.js';
 import MapIcon from '../entities/map-icon.js';
 import Effect from '../entities/effect.js';
 import Sound from '../entities/sound.js';
-import { MINIMUM_AREA_LEVEL, THEME } from '../configuration.js';
+import { MINIMUM_AREA_LEVEL, COLORS } from '../configuration.js';
 
 const section = new Section('Waystones');
 
@@ -14,9 +14,9 @@ section.setCommon({
 
 section.addBlock(new Block({
   comment: 'Common',
-  background: THEME.COLOR_WAYSTONES,
-  border: THEME.COLOR_WAYSTONES,
-  text: THEME.COLOR_WHITE,
+  background: COLORS.WAYSTONES,
+  border: COLORS.WAYSTONES,
+  text: COLORS.WHITE,
   sound: new Sound(Sound.TYPES.WAYSTONE),
   effect: new Effect(Effect.COLORS.WHITE),
   continue: true,
@@ -72,9 +72,9 @@ section.addBlock(new Block({
     'Expedition Logbook',
     'Test of',
   ],
-  text: THEME.COLOR_WHITE,
-  border: THEME.COLOR_TABLETS,
-  background: THEME.COLOR_TABLETS,
+  text: COLORS.WHITE,
+  border: COLORS.TABLETS,
+  background: COLORS.TABLETS,
   sound: new Sound(Sound.TYPES.IMPORTANCE_2),
   effect: new Effect(Effect.COLORS.PURPLE),
   font: 45,
