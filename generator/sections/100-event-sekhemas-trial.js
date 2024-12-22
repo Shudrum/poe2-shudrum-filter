@@ -48,7 +48,7 @@ export default () => {
 
   // Different icons keys
   section.addBlock(new Block({
-    class: [
+    type: [
       'Bronze Key',
       'Silver Key',
       'Gold Key',
