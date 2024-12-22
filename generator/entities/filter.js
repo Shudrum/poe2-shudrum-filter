@@ -1,10 +1,14 @@
+import { pascalCase } from 'change-case';
+
 const WIDTH = 80;
 
 export default class Filter {
+  #header;
   #mode;
   #sections;
 
-  constructor(mode) {
+  constructor(mode, header) {
+    this.#header = header.replace('{MODE}', pascalCase(mode));
     this.#mode = mode;
     this.#sections = [];
   }
@@ -21,17 +25,6 @@ export default class Filter {
   }
 
   toString() {
-    const header = [
-      '#',
-      '# Shudrum filter',
-      '#',
-      '# Filter designed to keep a pleasant filter for every step of the late game.',
-      '# Repository: ',
-      '#',
-      '',
-      '',
-    ].join('\n');
-
     const sections = this.#sections.reduce((prev, section) => {
       return [
         ...prev,
@@ -43,6 +36,6 @@ export default class Filter {
       ];
     }, []).join('\n');
 
-    return `${header}${sections}`;
+    return `${this.#header}\n${sections}`;
   }
 }

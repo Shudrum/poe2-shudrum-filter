@@ -10,9 +10,10 @@ import { MODES, FILTER_NAME } from './configuration.js';
 
 (async () => {
   const sections = await loadSections();
+  const header = await fs.readFile('header.txt', 'utf-8');
 
   await Promise.all(Object.values(MODES).map(async (mode) => {
-    const filter = new Filter(mode);
+    const filter = new Filter(mode, header);
     filter.addSections(sections);
 
     const fileName = `${FILTER_NAME}${pascalCase(mode)}.filter`;
