@@ -3,7 +3,8 @@ import Block from '../entities/block.js';
 import MapIcon from '../entities/map-icon.js';
 import Effect from '../entities/effect.js';
 import Sound from '../entities/sound.js';
-import { MINIMUM_AREA_LEVEL, COLORS, VARIABLES } from '../configuration.js';
+import Card from '../entities/card.js';
+import { MINIMUM_AREA_LEVEL, COLORS, VARIABLES, THEMES } from '../configuration.js';
 
 export default (mode) => {
   const section = new Section('Currencies');
@@ -185,10 +186,7 @@ export default (mode) => {
       'Greater Jeweller\'s Orb',
       'Perfect Jeweller\'s Orb',
     ],
-    font: 45,
-    background: COLORS.ALERT,
-    text: COLORS.WHITE,
-    border: COLORS.WHITE,
+    card: new Card(THEMES.ALERT, Card.SIZES.BIG, Card.TYPES.IMPORTANT),
     effect: new Effect(Effect.COLORS.RED),
     sound: new Sound(Sound.TYPES.IMPORTANCE_1),
     icon: new MapIcon(

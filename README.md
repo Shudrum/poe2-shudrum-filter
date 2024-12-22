@@ -5,6 +5,40 @@
 
 [Jump to the installation guide.](#how-to-install)
 
+[Roadmap](#roadmap) bellow!
+
+# Objective
+
+Long story short, the three main keypoints for those filters are :
+
+- Having a more "verbose" mini map displaying items on ground.
+- Having a per area level tailored filter.
+- Having a theme driven look'n'feel.
+
+![Comparison screenshots](./.github/comparison.gif)
+
+<img align="left" src="./.github/minimap.png">
+
+Never miss anything on the ground—find items at a glance with these filters. Some
+might say it’s a bit too verbose, but I prefer being able to spot Rares, Waystones,
+or other items without running around everywhere.
+
+Since this filter is managed via a script, it allows for dynamic configurations
+based on your current map level. For example, you’ll always know if a dropped
+map is below or above your current tier, no matter what level you’re on.
+
+Theming is a key focus for this filter. I aim to keep a strong and visually
+appealing color scheme for events and alerts, while respecting the game’s
+established color code.
+
+There is currently two modes: Standard and Expert. I aim to add an intermediate
+one to allow advanced players to filter out more and more items they do not
+want.
+
+Do not hesitate to [contribute](#how-to-contribute), bring ideas on the
+[Issues](https://github.com/Shudrum/poe2-shudrum-filter/issues) section and help
+on the configuration tweaking of this filter.
+
 ## Motivation
 
 There are many great filters out there, but I always wanted something more
@@ -38,7 +72,11 @@ now seems like the perfect time to share it with the community!
 ## How to install
 
 Clic on the filter you want to install behind, then save it on your Path of Exile
-2 folder: `%userprofile%\Documents\My Games\Path of Exile 2`.
+2 folder:
+
+```
+%userprofile%\Documents\My Games\Path of Exile 2
+```
 
 - [Standard filter](https://raw.githubusercontent.com/Shudrum/poe2-shudrum-filter/refs/heads/master/ShudrumFilterStandard.filter)
 - [Expert filter](https://raw.githubusercontent.com/Shudrum/poe2-shudrum-filter/refs/heads/master/ShudrumFilterExpert.filter)
@@ -49,7 +87,7 @@ the dropdown box.
 ## How to contribute
 
 > [!NOTE]
-> To contribute, you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+> To contribute, you must have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 > and [node.js](https://nodejs.org/en/download/prebuilt-binaries) version 22 configured.
 
 After having cloned the repository, the scripts runs from the `generator` folder,

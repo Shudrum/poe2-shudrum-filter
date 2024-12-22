@@ -71,6 +71,24 @@ export const COLORS = {
   TABLETS: '38 0 86',
 };
 
+export const THEMES = {
+  UNIQUE: {
+    INVERSE: COLORS.BLACK,
+    FULL: '175 96 37',
+    TEXT: '175 96 37',
+  },
+  ALERT: {
+    INVERSE: COLORS.WHITE,
+    FULL: '177 15 15',
+    TEXT: '177 15 15',
+  },
+  WAYSTONES: {
+    INVERSE: COLORS.WHITE,
+    FULL: '74 68 58',
+    TEXT: '146 135 115',
+  },
+};
+
 export const MODES = {
   STANDARD: 'STANDARD',
   EXPERT: 'EXPERT',

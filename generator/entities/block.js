@@ -47,50 +47,52 @@ export default class Bloc {
       delete attributes.comment;
     }
 
-    const rows = Object.entries(attributes).map(([key, value]) => {
-      // Simple passthroughs
-      if ([
-        'areaLevel',
-        'itemLevel',
-        'stackSize',
-        'rarity',
-        'quality',
-        'waystoneTier',
-        'sockets',
-      ].includes(key)) {
-        return `${pascalCase(key)} ${value}`;
-      }
+    const rows = Object.entries(attributes).reduce((prev, [key, value]) => {
+      const getValue = () => {
+        switch (key) {
+          // Exact names
+          case 'areaLevel':
+          case 'itemLevel':
+          case 'stackSize':
+          case 'rarity':
+          case 'quality':
+          case 'waystoneTier':
+          case 'setFontSize':
+          case 'sockets':
+            return `${pascalCase(key)} ${value}`;
 
-      // Computed
-      switch (key) {
-        // Conditions
-        case 'class':
-          return `Class ${this.class.map((currentClass) => `"${currentClass}"`).join(' ')}`;
-        case 'type':
-          return `BaseType ${this.type.map((baseType) => `"${baseType}"`).join(' ')}`;
+          // Conditions
+          case 'class':
+            return `Class ${this.class.map((currentClass) => `"${currentClass}"`).join(' ')}`;
+          case 'type':
+            return `BaseType ${this.type.map((baseType) => `"${baseType}"`).join(' ')}`;
 
-        // Actions
-        case 'font':
-          return `SetFontSize ${Math.max(20, Math.min(value, 45))}`;
-        case 'text':
-          return `SetTextColor ${value}`;
-        case 'border':
-          return `SetBorderColor ${value}`;
-        case 'background':
-          return `SetBackgroundColor ${value}`;
-        case 'icon':
-        case 'effect':
-        case 'sound':
-          return `${value}`;
+          // Actions
+          case 'font':
+            return `SetFontSize ${Math.max(20, Math.min(value, 45))}`;
+          case 'text':
+            return `SetTextColor ${value}`;
+          case 'border':
+            return `SetBorderColor ${value}`;
+          case 'background':
+            return `SetBackgroundColor ${value}`;
+          case 'card':
+          case 'icon':
+          case 'effect':
+          case 'sound':
+            return `${value}`;
 
-        // Special
-        case 'continue':
-          return value ? 'Continue' : null;
+          // Special
+          case 'continue':
+            return value ? 'Continue' : null;
 
-        default:
-          throw new Error(`Unknown key: "${key}"`);
-      }
-    })
+          default:
+            throw new Error(`Unknown key: "${key}"`);
+        }
+      };
+
+      return [...prev, ...getValue().split('\n')];
+    }, [])
       .filter(Boolean)
       .map((row) => `  ${row}`);
 

@@ -15,6 +15,12 @@ export default (mode) => {
     continue: true,
   }));
 
+  section.addBlock(new Block({
+    visible: false,
+    areaLevel: `>= ${MINIMUM_AREA_LEVEL}`,
+    stackSize: `< ${VARIABLES.MIN_GOLD_TO_DISPLAY[mode]}`,
+  }));
+
   [
     [1000, 45, true],
     [750, 40],
@@ -22,20 +28,13 @@ export default (mode) => {
     [250, 30],
     [100, 25],
     [50, 20],
-  ].forEach(([stackSize, font, showBorder]) => {
+  ].forEach(([stackSize, setFontSize, showBorder]) => {
     section.addBlock(new Block({
       stackSize: `>= ${stackSize}`,
-      font,
+      setFontSize,
       ...showBorder && { border: COLORS.GOLD },
-      continue: true,
     }));
   });
-
-  section.addBlock(new Block({
-    visible: false,
-    areaLevel: `>= ${MINIMUM_AREA_LEVEL}`,
-    stackSize: `< ${VARIABLES.MIN_GOLD_TO_DISPLAY[mode]}`,
-  }));
 
   return section;
 };
