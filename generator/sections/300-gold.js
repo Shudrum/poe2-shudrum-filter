@@ -1,38 +1,46 @@
 import Section from '../entities/section.js';
 import Block from '../entities/block.js';
-import { MINIMUM_AREA_LEVEL, COLORS, VARIABLES } from '../configuration.js';
+import Card from '../entities/card.js';
+import { global, modes } from '../configuration/index.js';
 
-export default (mode) => {
+export default ({ modeId }) => {
   const section = new Section('Gold');
 
-  section.setCommon({
+  const common = {
+    class: 'Currency',
     type: 'Gold',
-  });
+  };
 
   section.addBlock(new Block({
-    text: COLORS.GOLD,
-    font: 25,
-    continue: true,
+    ...common,
+    areaLevel: `< ${global.startingAreaLevel}`,
+    card: new Card(Card.SIZES.SMALL, Card.THEMES.GOLD),
   }));
 
   section.addBlock(new Block({
-    visible: false,
-    areaLevel: `>= ${MINIMUM_AREA_LEVEL}`,
-    stackSize: `< ${VARIABLES.MIN_GOLD_TO_DISPLAY[mode]}`,
+    ...common,
+    areaLevel: `>= ${global.startingAreaLevel}`,
+    stackSize: `< ${modes.GoldMinimumDisplayedAmount[modeId]}`,
+    card: new Card(Card.SIZES.VALUE_15, Card.THEMES.GOLD),
   }));
 
-  [
-    [1000, 45, true],
-    [750, 40],
-    [500, 35],
-    [250, 30],
-    [100, 25],
-    [50, 20],
-  ].forEach(([stackSize, setFontSize, showBorder]) => {
+  function generateValues(from, to) {
+    const steps = 6;
+    const stepSize = (to - from) / (steps - 1);
+    return Array.from({ length: steps }, (_, i) => Math.round(from + i * stepSize));
+  }
+
+  generateValues(
+    modes.GoldMinimumDisplayedAmount[modeId],
+    modes.GoldCeilingDisplaySizeAmount[modeId],
+  ).forEach((stackSize, i) => {
     section.addBlock(new Block({
+      ...common,
+      areaLevel: `>= ${global.startingAreaLevel}`,
       stackSize: `>= ${stackSize}`,
-      setFontSize,
-      ...showBorder && { border: COLORS.GOLD },
+      ...i === 5
+        ? { card: new Card(20 + i * 5, Card.THEMES.GOLD) }
+        : { card: new Card(20 + i * 5, Card.THEMES.GOLD, Card.TYPES.OUTLINE) },
     }));
   });
 

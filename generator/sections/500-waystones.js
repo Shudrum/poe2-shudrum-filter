@@ -4,9 +4,9 @@ import MapIcon from '../entities/map-icon.js';
 import Effect from '../entities/effect.js';
 import Sound from '../entities/sound.js';
 import Card from '../entities/card.js';
-import { MINIMUM_AREA_LEVEL, COLORS, VARIABLES, THEMES } from '../configuration.js';
+import { global, modes } from '../configuration/index.js';
 
-export default (mode) => {
+export default ({ modeId }) => {
   const section = new Section('Waystones');
 
   const common = {
@@ -16,7 +16,7 @@ export default (mode) => {
   section.addBlock(new Block({
     ...common,
     comment: 'Common',
-    card: new Card(THEMES.WAYSTONES, Card.SIZES.MEDIUM, Card.TYPES.OUTLINE),
+    card: new Card(Card.THEMES.WAYSTONES, Card.SIZES.MEDIUM, Card.TYPES.OUTLINE),
     sound: new Sound(Sound.TYPES.WAYSTONE),
     effect: new Effect(Effect.COLORS.WHITE),
     continue: true,
@@ -25,9 +25,9 @@ export default (mode) => {
   for (let waystoneTier = 1; waystoneTier <= 20; waystoneTier++) {
     section.addBlock(new Block({
       ...common,
-      areaLevel: `== ${MINIMUM_AREA_LEVEL + (waystoneTier - 1)}`,
+      areaLevel: `== ${global.startingAreaLevel + (waystoneTier - 1)}`,
       waystoneTier: `>= ${waystoneTier}`,
-      card: new Card(THEMES.WAYSTONES, Card.SIZES.BIG, Card.TYPES.IMPORTANT),
+      card: new Card(Card.THEMES.WAYSTONES, Card.SIZES.BIG, Card.TYPES.IMPORTANT),
       icon: new MapIcon(
         MapIcon.SIZES.BIG,
         MapIcon.COLORS.WHITE,
@@ -38,9 +38,9 @@ export default (mode) => {
     if (waystoneTier >= 2) {
       section.addBlock(new Block({
         ...common,
-        areaLevel: `== ${MINIMUM_AREA_LEVEL + (waystoneTier - 1)}`,
+        areaLevel: `== ${global.startingAreaLevel + (waystoneTier - 1)}`,
         waystoneTier: `< ${waystoneTier}`,
-        card: new Card(THEMES.WAYSTONES, Card.SIZES.MEDIUM, Card.TYPES.OUTLINE),
+        card: new Card(Card.THEMES.WAYSTONES, Card.SIZES.MEDIUM, Card.TYPES.OUTLINE),
         effect: new Effect(Effect.COLORS.WHITE),
         icon: new MapIcon(
           MapIcon.SIZES.MEDIUM,
@@ -51,13 +51,13 @@ export default (mode) => {
       }));
     }
 
-    if (waystoneTier >= VARIABLES.WAYSTONES.HIDE_GAP[mode] + 1) {
+    if (waystoneTier >= modes.WaystonesHideStartingLevelGap[modeId] + 1) {
       section.addBlock(new Block({
         ...common,
         visible: false,
-        areaLevel: `== ${MINIMUM_AREA_LEVEL + (waystoneTier - 1)}`,
-        waystoneTier: `<= ${waystoneTier - VARIABLES.WAYSTONES.HIDE_GAP[mode]}`,
-        card: new Card(THEMES.WAYSTONES, Card.SIZES.SMALL, Card.TYPES.OUTLINE),
+        areaLevel: `== ${global.startingAreaLevel + (waystoneTier - 1)}`,
+        waystoneTier: `<= ${waystoneTier - modes.WaystonesHideStartingLevelGap[modeId]}`,
+        card: new Card(Card.THEMES.WAYSTONES, Card.SIZES.SMALL, Card.TYPES.OUTLINE),
         sound: new Sound(Sound.NONE),
         icon: new MapIcon(MapIcon.NONE),
       }));
@@ -78,12 +78,9 @@ export default (mode) => {
       'Expedition Logbook',
       'Test of',
     ],
-    text: COLORS.WHITE,
-    border: COLORS.TABLETS,
-    background: COLORS.TABLETS,
+    card: new Card(Card.THEMES.TABLETS, Card.TYPES.IMPORTANT, Card.SIZES.BIG),
     sound: new Sound(Sound.TYPES.IMPORTANCE_2),
     effect: new Effect(Effect.COLORS.PURPLE),
-    font: 45,
   }));
 
   return section;

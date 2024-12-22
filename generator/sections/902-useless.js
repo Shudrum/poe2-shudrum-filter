@@ -1,8 +1,8 @@
 import Section from '../entities/section.js';
 import Block from '../entities/block.js';
-import { MINIMUM_AREA_LEVEL, VARIABLES } from '../configuration.js';
+import { global, modes } from '../configuration/index.js';
 
-export default (mode) => {
+export default ({ modeId }) => {
   const section = new Section('Useless items');
 
   const classes = [
@@ -27,15 +27,16 @@ export default (mode) => {
     visible: false,
     class: classes,
     rarity: 'Magic',
-    areaLevel: `>= ${MINIMUM_AREA_LEVEL}`,
-    itemLevel: `< ${VARIABLES.MIN_ITEM_LEVEL_NORMAL_MAGIC_RARE[mode]}`,
+    areaLevel: `>= ${global.startingAreaLevel}`,
+    itemLevel: `< ${modes.EquipmentMinimumMagicItemLevel[modeId]}`,
   }));
 
   section.addBlock(new Block({
     visible: false,
     class: classes,
     rarity: 'Normal',
-    areaLevel: `>= ${MINIMUM_AREA_LEVEL}`,
+    areaLevel: `>= ${global.startingAreaLevel}`,
+    itemLevel: `< ${modes.EquipmentMinimumNormalItemLevel[modeId]}`,
   }));
 
   return section;

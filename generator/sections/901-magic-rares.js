@@ -1,18 +1,19 @@
 import Section from '../entities/section.js';
 import Block from '../entities/block.js';
 import MapIcon from '../entities/map-icon.js';
-import { MINIMUM_AREA_LEVEL, VARIABLES } from '../configuration.js';
+import { global, modes } from '../configuration/index.js';
 
-export default (mode) => {
+export default ({ modeId }) => {
   const section = new Section('Magic and rare items');
 
-  section.setCommon({
-    areaLevel: `>= ${MINIMUM_AREA_LEVEL}`,
-    itemLevel: `>= ${VARIABLES.MIN_ITEM_LEVEL_NORMAL_MAGIC_RARE[mode]}`,
-  });
+  const common = {
+    areaLevel: `>= ${global.startingAreaLevel}`,
+  };
 
   section.addBlock(new Block({
+    ...common,
     rarity: 'Magic',
+    itemLevel: `>= ${modes.EquipmentMinimumMagicItemLevel[modeId]}`,
     icon: new MapIcon(
       MapIcon.SIZES.SMALL,
       MapIcon.COLORS.BLUE,
@@ -21,7 +22,9 @@ export default (mode) => {
   }));
 
   section.addBlock(new Block({
+    ...common,
     rarity: 'Rare',
+    itemLevel: `>= ${modes.EquipmentMinimumRareItemLevel[modeId]}`,
     icon: new MapIcon(
       MapIcon.SIZES.SMALL,
       MapIcon.COLORS.YELLOW,

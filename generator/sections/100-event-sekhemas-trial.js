@@ -3,7 +3,7 @@ import Block from '../entities/block.js';
 import MapIcon from '../entities/map-icon.js';
 import Sound from '../entities/sound.js';
 import Effect from '../entities/effect.js';
-import { COLORS } from '../configuration.js';
+import Card from '../entities/card.js';
 
 export default () => {
   const section = new Section('Event: Sekhemas trial');
@@ -15,12 +15,7 @@ export default () => {
       'Silver Key',
       'Gold Key',
     ],
-
-    text: COLORS.WHITE,
-    border: COLORS.EVENT,
-    background: COLORS.EVENT,
-    font: 40,
-
+    card: new Card(Card.THEMES.EVENTS, Card.TYPES.IMPORTANT, Card.SIZES.BIG),
     icon: new MapIcon(
       MapIcon.SIZES.MEDIUM,
       MapIcon.COLORS.PURPLE,
@@ -34,10 +29,8 @@ export default () => {
   // Relics
   section.addBlock(new Block({
     class: 'Relic',
-    text: COLORS.EVENT,
-    border: COLORS.EVENT,
+    card: new Card(Card.THEMES.EVENTS, Card.TYPES.OUTLINE, Card.SIZES.BIG),
     effect: new Effect(Effect.COLORS.PURPLE),
-    font: 40,
     icon: new MapIcon(
       MapIcon.SIZES.MEDIUM,
       MapIcon.COLORS.PURPLE,
