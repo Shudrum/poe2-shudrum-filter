@@ -4,6 +4,33 @@
 #
 # A filter designed to provide a tailored experience for every stage of the late game.
 #
+# Objective
+# ---------
+#
+# Long story short, the three main keypoints for those filters are :
+# - Having a more "verbose" mini map displaying items on ground.
+# - Having a per area level tailored filter.
+# - Having a theme driven look'n'feel.
+#
+# Never miss anything on the ground—find items at a glance with these filters. Some
+# might say it’s a bit too verbose, but I prefer being able to spot Rares, Waystones,
+# or other items without running around everywhere.
+#
+# Since this filter is managed via a script, it allows for dynamic configurations
+# based on your current map level. For example, you’ll always know if a dropped
+# map is below or above your current tier, no matter what level you’re on.
+#
+# Theming is a key focus for this filter. I aim to keep a strong and visually
+# appealing color scheme for events and alerts, while respecting the game’s
+# established color code.
+#
+# There is currently two modes: Standard and Expert. I aim to add an intermediate
+# one to allow advanced players to filter out more and more items they do not
+# want.
+#
+# Do not hesitate to contribute, bring ideas on the issues section and help
+# on the configuration tweaking of this filter.
+#
 # Motivation
 # ----------
 #
