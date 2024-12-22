@@ -32,11 +32,18 @@ jobs:
         working-directory: generator
         run: npm run build
 
-      - name: Commit and push updated file
+      - name: Commit and push updated files
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
+
           git add *.filter
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit. Skipping commit step.";
+            exit 0;
+          fi
+
           git commit -m "Filters updated after merge"
           git push origin master
         env:
