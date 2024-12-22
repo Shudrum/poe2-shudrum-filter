@@ -5,7 +5,7 @@
   },
   "type": "module",
   "scripts": {
-    "dev": "nodemon index.js",
+    "dev": "cross-env NODE_ENV=development nodemon index.js",
     "build": "node index.js",
     "lint": "eslint ."
   },
@@ -13,6 +13,7 @@
     "@eslint/js": "^9.17.0",
     "@stylistic/eslint-plugin-js": "^2.12.1",
     "change-case": "^5.4.4",
+    "cross-env": "^7.0.3",
     "eslint": "^9.17.0",
     "globals": "^15.14.0",
     "nodemon": "^3.1.9"
