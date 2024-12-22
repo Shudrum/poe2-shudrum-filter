@@ -71,6 +71,14 @@ export const COLORS = {
   TABLETS: '38 0 86',
 };
 
+export const THEMES = {
+  UNIQUE: {
+    INVERSE: COLORS.BLACK,
+    FULL: '175 96 37',
+    TEXT: '175 96 37',
+  },
+};
+
 export const MODES = {
   STANDARD: 'STANDARD',
   EXPERT: 'EXPERT',
