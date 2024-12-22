@@ -6,7 +6,7 @@ import { MINIMUM_AREA_LEVEL, COLORS, VARIABLES } from '../configuration.js';
 export default (mode) => {
   const section = new Section('Salvageables');
 
-  section.setCommon({
+  const common = {
     areaLevel: `>= ${MINIMUM_AREA_LEVEL}`,
     rarity: '<= Rare',
     font: 30,
@@ -17,14 +17,16 @@ export default (mode) => {
     ),
     text: COLORS.CURRENCY,
     border: COLORS.CURRENCY,
-  });
+  };
 
   section.addBlock(new Block({
+    ...common,
     quality: `>= ${VARIABLES.SALVAGEABLE_MIN_QUALITY[mode]}`,
   }));
 
   section.addBlock(new Block({
-    sockets: '>= 1',
+    ...common,
+    sockets: '> 0',
   }));
 
   return section;
