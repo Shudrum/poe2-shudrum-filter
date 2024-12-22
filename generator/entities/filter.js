@@ -1,9 +1,11 @@
 const WIDTH = 80;
 
 export default class Filter {
+  #mode;
   #sections;
 
-  constructor() {
+  constructor(mode) {
+    this.#mode = mode;
     this.#sections = [];
   }
 
@@ -12,7 +14,10 @@ export default class Filter {
   }
 
   addSections(sections) {
-    this.#sections = [...this.#sections, ...sections];
+    this.#sections = [
+      ...this.#sections,
+      ...sections.map((section) => section(this.#mode)),
+    ].filter(Boolean);
   }
 
   toString() {

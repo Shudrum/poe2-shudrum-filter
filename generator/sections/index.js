@@ -2,8 +2,6 @@ import fs from 'node:fs/promises';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { DEBUG } from '../configuration.js';
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = join(__filename, '../');
 
@@ -19,7 +17,7 @@ const loadSections = async () => {
     }),
   );
 
-  return DEBUG ? sections : sections.filter((section) => section.name !== 'debug');
+  return sections;
 };
 
 export default loadSections;

@@ -1,6 +1,7 @@
 export default class Effect {
   #color = Effect.COLORS.WHITE;
   #temporary = false;
+  #disable = false;
 
   constructor(...args) {
     args.forEach((value) => {
@@ -8,6 +9,8 @@ export default class Effect {
         this.#color = value;
       } else if (value === Effect.TEMPORARY) {
         this.#temporary = true;
+      } else if (value === Effect.NONE) {
+        this.#disable = true;
       } else {
         throw new Error(`Invalid Effect argument: ${value}`);
       }
@@ -15,6 +18,9 @@ export default class Effect {
   }
 
   toString() {
+    if (this.#disable) {
+      return 'PlayEffect None';
+    }
     return `PlayEffect ${this.#color}${this.#temporary ? ' Temp' : ''}`;
   }
 }
@@ -34,3 +40,5 @@ Effect.COLORS = {
 };
 
 Effect.TEMPORARY = 'TEMPORARY';
+
+Effect.NONE = 'NONE';
