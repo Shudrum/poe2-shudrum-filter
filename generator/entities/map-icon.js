@@ -22,9 +22,9 @@ export default class MapIcon {
 
   toString() {
     if (this.#disable) {
-      return 'SetMinimapIcon -1';
+      return 'MinimapIcon -1';
     }
-    return `SetMinimapIcon ${this.#size} ${this.#color} ${this.#shape}`;
+    return `MinimapIcon ${this.#size} ${this.#color} ${this.#shape}`;
   }
 }
 
