@@ -1,0 +1,45 @@
+#
+# Shudrum Filter
+# ==============
+#
+# A filter designed to provide a tailored experience for every stage of the late game.
+#
+# Motivation
+# ----------
+#
+# There are many great filters out there, but I always wanted something more
+# flexible—a filter that adapts to the level I’m at in the game. I also wanted
+# event-based color schemes and a less aggressive display, while still keeping
+# important items easy to spot.
+#
+# Doing this by hand is a real hassle, so I decided to create a generator script.
+# It lets me—and maybe the community too—manage filters using code. For example,
+# it’s now possible to have a different map filter for every map level!
+#
+# These scripts might even allow for automated updates in the future, with help
+# from some APIs.
+#
+# I’m not the best PoE player, but I hope this filter will resonate with others.
+# I’ll do my best to keep it updated. And with the release of Path of Exile 2 EA,
+# now seems like the perfect time to share it with the community!
+#
+# Features
+# --------
+#
+# - Generates two levels of filters: Standard and Expert.
+# - The more gold is stacked, the larger the label becomes.
+# - The Waystone filter adapts dynamically to the current area level.
+# - The map displays more objects, even with small dots, making them easier to find.
+# - The filter is currently in "DEBUG" mode. If you see an item with a garish red,
+#   green, and blue label, it means it is not yet "filtered."
+#
+# Read more and contribute
+# ------------------------
+#
+# GitHub repository: https://github.com/Shudrum/poe2-shudrum-filter
+# You will find here:
+# - The issue tracker
+# - The roadmap
+#
+# Current filter mode: {MODE}
+#
