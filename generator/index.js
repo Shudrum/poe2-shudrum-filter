@@ -1,5 +1,6 @@
 import path from 'node:path';
 import fs from 'node:fs/promises';
+import { platform } from 'node:os';
 
 import { pascalCase } from 'change-case';
 
@@ -10,16 +11,19 @@ import { MODES, FILTER_NAME } from './configuration.js';
 (async () => {
   const sections = await loadSections();
   const header = await fs.readFile(path.resolve('./header.txt'), 'utf-8');
-  const gameDirectory = path.join(
-    process.env.USERPROFILE,
-    'Documents',
-    'My Games',
-    'Path of Exile 2',
-  );
+
+  const gameDirectory = process.env.NODE_ENV === 'development' && platform() === 'win32'
+    ? path.join(
+      process.env.USERPROFILE,
+      'Documents',
+      'My Games',
+      'Path of Exile 2',
+    )
+    : null;
 
   let deployFilters = false;
   if (process.env.NODE_ENV === 'development') {
-    if (!(await fs.stat(gameDirectory)).isDirectory()) {
+    if (gameDirectory && !(await fs.stat(gameDirectory)).isDirectory()) {
       console.log('Path of Exile 2 seems to not be installed. Skipping the filters deployment');
     } else {
       console.log('Path of Exile 2 in installed. Filters are goind to be deployed');
