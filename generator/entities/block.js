@@ -57,6 +57,7 @@ export default class Bloc {
           case 'rarity':
           case 'quality':
           case 'waystoneTier':
+          case 'setFontSize':
           case 'sockets':
             return `${pascalCase(key)} ${value}`;
 
