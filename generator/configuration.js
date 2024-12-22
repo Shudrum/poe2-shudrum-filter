@@ -77,6 +77,11 @@ export const THEMES = {
     FULL: '175 96 37',
     TEXT: '175 96 37',
   },
+  ALERT: {
+    INVERSE: COLORS.WHITE,
+    FULL: '177 15 15',
+    TEXT: '177 15 15',
+  },
 };
 
 export const MODES = {
