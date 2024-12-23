@@ -9,6 +9,10 @@ import { global } from './configuration/index.js';
 import { Filter } from './entities/filter/index.js';
 import loadSections from './sections/index.js';
 
+if (process.env.NODE_ENV === 'development') {
+  console.clear();
+}
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
