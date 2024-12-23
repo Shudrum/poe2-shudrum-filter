@@ -11,7 +11,7 @@ export default () => {
   section.addBlock({
     type: ['Uncut Spirit Gem', 'Uncut Support Gem', 'Uncut Skill Gem'],
     card: Card(Card.THEMES.GEMS, Card.SIZES.MEDIUM, Card.TYPES.IMPORTANT),
-    icon: new MapIcon(
+    icon: MapIcon(
       MapIcon.SIZES.BIG,
       MapIcon.COLORS.CYAN,
       MapIcon.SHAPES.CIRCLE,

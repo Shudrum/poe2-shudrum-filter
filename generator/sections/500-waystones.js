@@ -16,7 +16,7 @@ export default ({ modeId }) => {
       sound: new Sound(Sound.TYPES.WAYSTONE),
       effect: Effect(Effect.COLORS.WHITE),
       card: Card(Card.THEMES.WAYSTONES, Card.SIZES.BIG, Card.TYPES.IMPORTANT),
-      icon: new MapIcon(
+      icon: MapIcon(
         MapIcon.SIZES.BIG,
         MapIcon.COLORS.WHITE,
         MapIcon.SHAPES.SQUARE,
@@ -40,7 +40,7 @@ export default ({ modeId }) => {
         waystoneTier: `< ${waystoneTier}`,
         card: Card(Card.THEMES.WAYSTONES, Card.SIZES.MEDIUM, Card.TYPES.OUTLINE),
         effect: Effect(Effect.COLORS.WHITE, Effect.TEMPORARY),
-        icon: new MapIcon(
+        icon: MapIcon(
           MapIcon.SIZES.MEDIUM,
           MapIcon.COLORS.WHITE,
           MapIcon.SHAPES.SQUARE,

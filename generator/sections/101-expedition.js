@@ -11,7 +11,7 @@ export default () => {
     class: 'Currency',
     type: 'Artifact',
     card: Card(Card.THEMES.EXPEDITIONS, Card.TYPES.OUTLINE, Card.SIZES.MEDIUM),
-    icon: new MapIcon(
+    icon: MapIcon(
       MapIcon.SIZES.SMALL,
       MapIcon.COLORS.CYAN,
       MapIcon.SHAPES.DIAMOND,
@@ -24,7 +24,7 @@ export default () => {
     class: 'Currency',
     type: 'Exotic Coinage',
     card: Card(Card.THEMES.EXPEDITIONS, Card.TYPES.IMPORTANT, Card.SIZES.BIG),
-    icon: new MapIcon(
+    icon: MapIcon(
       MapIcon.SIZES.BIG,
       MapIcon.COLORS.CYAN,
       MapIcon.SHAPES.STAR,

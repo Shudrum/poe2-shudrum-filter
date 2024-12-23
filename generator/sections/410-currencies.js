@@ -17,7 +17,7 @@ export default ({ modeId }) => {
     effects: {
       sound: new Sound(Sound.TYPES.IMPORTANCE_8),
       effect: Effect(Effect.COLORS.YELLOW, Effect.TEMPORARY),
-      icon: new MapIcon(MapIcon.SIZES.SMALL, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.CROSS),
+      icon: MapIcon(MapIcon.SIZES.SMALL, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.CROSS),
     },
   };
 
@@ -46,7 +46,7 @@ export default ({ modeId }) => {
       'Artificer\'s Orb',
     ],
     sound: new Sound(Sound.TYPES.IMPORTANCE_7),
-    icon: new MapIcon(MapIcon.SIZES.SMALL, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.CIRCLE),
+    icon: MapIcon(MapIcon.SIZES.SMALL, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.CIRCLE),
   });
 
   section.addBlock({
@@ -57,7 +57,7 @@ export default ({ modeId }) => {
       'Glassblower\'s Bauble',
     ],
     sound: new Sound(Sound.TYPES.IMPORTANCE_6),
-    icon: new MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.CROSS),
+    icon: MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.CROSS),
   });
 
   section.addBlock({
@@ -70,7 +70,7 @@ export default ({ modeId }) => {
       ? {
         sound: new Sound(Sound.TYPES.IMPORTANCE_3),
         effect: Effect(Effect.COLORS.YELLOW, Effect.TEMPORARY),
-        icon: new MapIcon(MapIcon.SIZES.SMALL, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.CIRCLE),
+        icon: MapIcon(MapIcon.SIZES.SMALL, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.CIRCLE),
       }
       : { visible: false },
   });
@@ -85,7 +85,7 @@ export default ({ modeId }) => {
     ],
     card: Card(Card.THEMES.CURRENCY, Card.TYPES.OUTLINE, Card.SIZES.BIG),
     sound: new Sound(Sound.TYPES.IMPORTANCE_2),
-    icon: new MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.STAR),
+    icon: MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.STAR),
   });
 
   section.addBlock({
@@ -99,7 +99,7 @@ export default ({ modeId }) => {
     card: Card(Card.THEMES.ALERT, Card.SIZES.BIG, Card.TYPES.IMPORTANT),
     effect: Effect(Effect.COLORS.RED),
     sound: new Sound(Sound.TYPES.IMPORTANCE_1),
-    icon: new MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.RED, MapIcon.SHAPES.STAR),
+    icon: MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.RED, MapIcon.SHAPES.STAR),
   });
 
   // All remaining currencies
@@ -109,7 +109,7 @@ export default ({ modeId }) => {
     card: Card(Card.THEMES.CURRENCY, Card.TYPES.IMPORTANT, Card.SIZES.MEDIUM),
     sound: new Sound(Sound.TYPES.IMPORTANCE_4),
     effect: Effect(Effect.COLORS.YELLOW),
-    icon: new MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.STAR),
+    icon: MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.STAR),
   });
 
   return section;

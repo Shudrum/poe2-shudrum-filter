@@ -10,7 +10,7 @@ export default () => {
     class: 'Jewel',
     rarity: '<= Rare',
     card: Card(Card.THEMES.JEWELS, Card.SIZES.BIG, Card.TYPES.OUTLINE),
-    icon: new MapIcon(
+    icon: MapIcon(
       MapIcon.SIZES.MEDIUM,
       MapIcon.COLORS.GREEN,
       MapIcon.SHAPES.PENTAGON,

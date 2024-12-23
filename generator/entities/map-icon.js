@@ -1,31 +1,33 @@
-export default class MapIcon {
-  #size = MapIcon.SIZES.SMALL;
-  #color = MapIcon.COLORS.WHITE;
-  #shape = MapIcon.SHAPES.CIRCLE;
-  #disable = false;
+export default function MapIcon(...args) {
+  let size = MapIcon.SIZES.SMALL;
+  let color = MapIcon.COLORS.WHITE;
+  let shape = MapIcon.SHAPES.CIRCLE;
+  let disabled = false;
 
-  constructor(...args) {
-    args.forEach((value) => {
-      if (Object.values(MapIcon.SIZES).includes(value)) {
-        this.#size = value;
-      } else if (Object.values(MapIcon.COLORS).includes(value)) {
-        this.#color = value;
-      } else if (Object.values(MapIcon.SHAPES).includes(value)) {
-        this.#shape = value;
-      } else if (value === MapIcon.NONE) {
-        this.#disable = true;
-      } else {
-        throw new Error(`Invalid MapIcon argument: ${value}`);
-      }
-    });
-  }
-
-  toString() {
-    if (this.#disable) {
-      return 'MinimapIcon -1';
+  args.forEach((value) => {
+    if (Object.values(MapIcon.SIZES).includes(value)) {
+      size = value;
+    } else if (Object.values(MapIcon.COLORS).includes(value)) {
+      color = value;
+    } else if (Object.values(MapIcon.SHAPES).includes(value)) {
+      shape = value;
+    } else if (value === MapIcon.NONE) {
+      disabled = true;
+    } else {
+      throw new Error(`Invalid MapIcon argument: ${value}`);
     }
-    return `MinimapIcon ${this.#size} ${this.#color} ${this.#shape}`;
-  }
+  });
+
+  const instance = {
+    toString() {
+      if (disabled) {
+        return 'MinimapIcon -1';
+      }
+      return `MinimapIcon ${size} ${color} ${shape}`;
+    },
+  };
+
+  return instance;
 }
 
 MapIcon.SIZES = {

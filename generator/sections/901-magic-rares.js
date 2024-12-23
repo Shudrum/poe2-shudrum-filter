@@ -13,7 +13,7 @@ export default ({ modeId }) => {
     ...common,
     rarity: 'Magic',
     itemLevel: `>= ${modes.EquipmentMinimumMagicItemLevel[modeId]}`,
-    icon: new MapIcon(
+    icon: MapIcon(
       MapIcon.SIZES.SMALL,
       MapIcon.COLORS.BLUE,
       MapIcon.SHAPES.CIRCLE,
@@ -24,7 +24,7 @@ export default ({ modeId }) => {
     ...common,
     rarity: 'Rare',
     itemLevel: `>= ${modes.EquipmentMinimumRareItemLevel[modeId]}`,
-    icon: new MapIcon(
+    icon: MapIcon(
       MapIcon.SIZES.SMALL,
       MapIcon.COLORS.YELLOW,
       MapIcon.SHAPES.CIRCLE,

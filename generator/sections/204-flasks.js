@@ -17,7 +17,7 @@ export default ({ modeId }) => {
     ...common,
     quality: `>= ${modes.FlasksMinimumQuality[modeId]}`,
     effect: Effect(Effect.COLORS.CYAN, Effect.TEMPORARY),
-    icon: new MapIcon(
+    icon: MapIcon(
       MapIcon.SIZES.SMALL,
       MapIcon.COLORS.CYAN,
       MapIcon.SHAPES.TRIANGLE,

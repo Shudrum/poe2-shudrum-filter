@@ -10,7 +10,7 @@ export default ({ modeId }) => {
     areaLevel: `>= ${global.startingAreaLevel}`,
     rarity: '<= Rare',
     card: Card(Card.THEMES.CURRENCY, Card.TYPES.OUTLINE, Card.SIZES.MEDIUM),
-    icon: new MapIcon(
+    icon: MapIcon(
       MapIcon.SIZES.SMALL,
       MapIcon.COLORS.GREY,
       MapIcon.SHAPES.CIRCLE,

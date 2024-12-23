@@ -14,7 +14,7 @@ export default () => {
       Card.TYPES.IMPORTANT,
       Card.SIZES.BIG,
     ),
-    icon: new MapIcon(
+    icon: MapIcon(
       MapIcon.SIZES.BIG,
       MapIcon.COLORS.BROWN,
       MapIcon.SHAPES.STAR,
