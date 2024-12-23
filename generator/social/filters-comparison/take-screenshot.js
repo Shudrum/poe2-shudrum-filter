@@ -26,7 +26,7 @@ const __dirname = path.dirname(__filename);
     },
   )
     .filter(Boolean)
-    .sort((a, b) => b.order - a.order);
+    .sort((a, b) => a.order - b.order);
 
   const browser = await chromium.launch();
   const page = await browser.newPage({

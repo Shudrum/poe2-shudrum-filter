@@ -28,9 +28,37 @@ jobs:
         working-directory: generator
         run: npm install
 
+      - name: Install chromium
+        working-directory: generator
+        run: npx playwright install
+
       - name: Generate filters
         working-directory: generator
         run: npm run build
+
+      - name: Compute current MD5 of modes configuration
+        id: compute-md5
+        working-directory: generator
+        run: |
+          md5sum configuration/modes.json > .github/filters-comparison-md5-new
+          if [ -f .github/filters-comparison-md5 ]; then
+            cmp --silent .github/filters-comparison-md5 .github/filters-comparison-md5-new && echo "No changes in configuration." && exit 0
+          fi
+          echo "Configuration changed, proceeding with table generation."
+
+      - name: Install chromium
+        if: steps.compute-md5.outcome == 'success'
+        working-directory: generator
+        run: npx playwright install
+
+      - name: Generate table image
+        if: steps.compute-md5.outcome == 'success'
+        working-directory: generator
+        run: npm run build:table
+
+      - name: Update current MD5 file of modes configuration
+        if: steps.compute-md5.outcome == 'success'
+        run: mv .github/filters-comparison-md5-new .github/filters-comparison-md5
 
       - name: Commit and push updated files
         run: |
@@ -38,6 +66,8 @@ jobs:
           git config user.email "actions@github.com"
 
           git add *.filter
+          git add .github/filters-comparison-md5
+          git add .github/filters-comparison.png
 
           if git diff --cached --quiet; then
             echo "No changes to commit. Skipping commit step.";
