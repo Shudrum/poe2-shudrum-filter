@@ -1,4 +1,4 @@
-import Section from '../entities/section.js';
+import Section from '../entities/filter-components/section.js';
 import hexToFilterColor from '../tools/hex-to-filter-color.js';
 import { global } from '../configuration/index.js';
 

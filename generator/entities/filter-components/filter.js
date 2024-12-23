@@ -1,6 +1,6 @@
 import { pascalCase } from 'change-case';
 
-import { global } from '../configuration/index.js';
+import { global } from '../../configuration/index.js';
 
 const WIDTH = 80;
 

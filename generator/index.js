@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { pascalCase } from 'change-case';
 
 import { global } from './configuration/index.js';
-import Filter from './entities/filter.js';
+import Filter from './entities/filter-components/filter.js';
 import loadSections from './sections/index.js';
 
 const __filename = fileURLToPath(import.meta.url);

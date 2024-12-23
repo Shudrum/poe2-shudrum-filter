@@ -1,4 +1,4 @@
-import Section from '../entities/section.js';
+import Section from '../entities/filter-components/section.js';
 import Card from '../entities/card.js';
 import { global, modes } from '../configuration/index.js';
 

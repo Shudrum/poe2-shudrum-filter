@@ -1,4 +1,4 @@
-import Section from '../entities/section.js';
+import Section from '../entities/filter-components/section.js';
 import Sound from '../entities/sound.js';
 import MapIcon from '../entities/map-icon.js';
 import { global } from '../configuration/index.js';
