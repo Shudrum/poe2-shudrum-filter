@@ -36,13 +36,14 @@ const __dirname = path.dirname(__filename);
   }
 
   await Promise.all(Object.values(global.modes).map(async (mode) => {
-    const filter = new Filter(mode, header);
-    filter.setSections(sections);
+    const generatedFilter = new Filter(mode, header)
+      .setSections(sections)
+      .generateText();
 
     const fileName = global.filterName.replace('{{mode}}', pascalCase(mode));
-    await fs.writeFile(path.resolve('..', fileName), filter.generateText(), 'utf-8');
+    await fs.writeFile(path.resolve('..', fileName), generatedFilter, 'utf-8');
     if (deployFilters) {
-      await fs.writeFile(path.resolve(gameDirectory, fileName), filter.generateText(), 'utf-8');
+      await fs.writeFile(path.resolve(gameDirectory, fileName), generatedFilter, 'utf-8');
     }
   }));
 })();

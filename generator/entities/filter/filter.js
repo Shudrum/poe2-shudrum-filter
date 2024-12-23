@@ -14,6 +14,7 @@ export default function Filter(mode, header) {
       sectionsList.map((section) => {
         sections.push(section({ mode, modeId }));
       }).filter(Boolean);
+      return instance;
     },
     generateText() {
       return sections.reduce((prev, section) => {
