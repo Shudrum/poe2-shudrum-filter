@@ -172,31 +172,11 @@ Show
   SetBackgroundColor 0 0 0 224
   SetFontSize 45
 
-Show
-  Class "Amulets" "Rings" "Belts"
-  AreaLevel >= 65
-  ItemLevel >= 65
-  Rarity Magic
-  SetTextColor 136 136 255
-  SetBorderColor 136 136 255
-  SetBackgroundColor 0 0 0 224
-  SetFontSize 45
-
-Show
-  Class "Amulets" "Rings" "Belts"
-  AreaLevel >= 65
-  ItemLevel >= 65
-  Rarity Rare
-  SetTextColor 255 255 119
-  SetBorderColor 255 255 119
-  SetBackgroundColor 0 0 0 224
-  SetFontSize 45
-
 #
 # CHARMS
 #
 
-Show
+Hide
   Class "Charm"
   SetTextColor 192 128 254
   SetBorderColor 192 128 254
@@ -208,7 +188,7 @@ Show
 # RUNES
 #
 
-Show
+Hide
   BaseType "Rune"
   SetTextColor 27 162 155
   SetBorderColor 27 162 155
@@ -239,7 +219,7 @@ Show
   PlayEffect Cyan Temp
   MinimapIcon 2 Cyan Triangle
 
-Show
+Hide
   BaseType "Flask"
   Rarity <= Magic
   SetTextColor 30 231 238
@@ -262,7 +242,27 @@ Show
 #
 
 Show
-  BaseType "Uncut Spirit Gem" "Uncut Support Gem" "Uncut Skill Gem"
+  BaseType "Uncut Support Gem"
+  SetTextColor 27 162 155
+  SetBorderColor 27 162 155
+  SetBackgroundColor 0 0 0 224
+  SetFontSize 35
+  MinimapIcon 2 Cyan Circle
+  PlayEffect Cyan Temp
+  PlayAlertSound 12 300
+
+Show
+  BaseType "Uncut Spirit Gem"
+  SetTextColor 0 0 0
+  SetBorderColor 27 162 155
+  SetBackgroundColor 27 162 155
+  SetFontSize 45
+  MinimapIcon 0 Cyan Circle
+  PlayEffect Cyan
+  PlayAlertSound 12 300
+
+Show
+  BaseType "Uncut Skill Gem"
   SetTextColor 0 0 0
   SetBorderColor 27 162 155
   SetBackgroundColor 27 162 155
@@ -271,7 +271,7 @@ Show
   PlayEffect Cyan
   PlayAlertSound 12 300
 
-Show
+Hide
   BaseType "Uncut Skill Gem"
   AreaLevel >= 70
   ItemLevel <= 16
@@ -307,7 +307,7 @@ Show
   SetBackgroundColor 0 0 0 224
   SetFontSize 25
 
-Show
+Hide
   Class "Currency"
   BaseType "Gold"
   AreaLevel >= 65
@@ -321,49 +321,19 @@ Show
   Class "Currency"
   BaseType "Gold"
   AreaLevel >= 65
-  StackSize >= 250
+  StackSize >= 3500
   SetTextColor 197 170 88
   SetBorderColor 197 170 88
   SetBackgroundColor 0 0 0 224
-  SetFontSize 20
+  SetFontSize 45
 
 Show
   Class "Currency"
   BaseType "Gold"
   AreaLevel >= 65
-  StackSize >= 800
+  StackSize >= 2850
   SetTextColor 197 170 88
-  SetBorderColor 197 170 88
-  SetBackgroundColor 0 0 0 224
-  SetFontSize 25
-
-Show
-  Class "Currency"
-  BaseType "Gold"
-  AreaLevel >= 65
-  StackSize >= 1350
-  SetTextColor 197 170 88
-  SetBorderColor 197 170 88
-  SetBackgroundColor 0 0 0 224
-  SetFontSize 30
-
-Show
-  Class "Currency"
-  BaseType "Gold"
-  AreaLevel >= 65
-  StackSize >= 1900
-  SetTextColor 197 170 88
-  SetBorderColor 197 170 88
-  SetBackgroundColor 0 0 0 224
-  SetFontSize 35
-
-Show
-  Class "Currency"
-  BaseType "Gold"
-  AreaLevel >= 65
-  StackSize >= 2450
-  SetTextColor 197 170 88
-  SetBorderColor 197 170 88
+  SetBorderColor 0 0 0 0
   SetBackgroundColor 0 0 0 224
   SetFontSize 40
 
@@ -371,17 +341,47 @@ Show
   Class "Currency"
   BaseType "Gold"
   AreaLevel >= 65
-  StackSize >= 3000
+  StackSize >= 2200
   SetTextColor 197 170 88
   SetBorderColor 0 0 0 0
   SetBackgroundColor 0 0 0 224
-  SetFontSize 45
+  SetFontSize 35
+
+Show
+  Class "Currency"
+  BaseType "Gold"
+  AreaLevel >= 65
+  StackSize >= 1550
+  SetTextColor 197 170 88
+  SetBorderColor 0 0 0 0
+  SetBackgroundColor 0 0 0 224
+  SetFontSize 30
+
+Show
+  Class "Currency"
+  BaseType "Gold"
+  AreaLevel >= 65
+  StackSize >= 900
+  SetTextColor 197 170 88
+  SetBorderColor 0 0 0 0
+  SetBackgroundColor 0 0 0 224
+  SetFontSize 25
+
+Show
+  Class "Currency"
+  BaseType "Gold"
+  AreaLevel >= 65
+  StackSize >= 250
+  SetTextColor 197 170 88
+  SetBorderColor 0 0 0 0
+  SetBackgroundColor 0 0 0 224
+  SetFontSize 20
 
 #
 # SCROLLS OF WISDOM
 #
 
-Show
+Hide
   BaseType "Scroll of Wisdom"
   AreaLevel >= 65
 
@@ -392,7 +392,7 @@ Show
 # CURRENCIES
 #
 
-Show
+Hide
   Class "Currency"
   BaseType "Chance Shard"
   SetTextColor 170 158 130
@@ -400,7 +400,7 @@ Show
   SetBackgroundColor 0 0 0 224
   SetFontSize 35
 
-Show
+Hide
   Class "Currency"
   BaseType "Shard"
   SetTextColor 170 158 130
@@ -420,16 +420,22 @@ Show
   PlayAlertSound 10 300
   MinimapIcon 0 Yellow Cross
 
-Show
+Hide
   Class "Currency"
   BaseType "Orb of Transmutation" "Orb of Augmentation"
+  SetTextColor 0 0 0
+  SetBorderColor 170 158 130
+  SetBackgroundColor 170 158 130
+  SetFontSize 35
+  AreaLevel >= 65
 
 Show
   Class "Currency"
   BaseType "Regal Orb" "Chaos Orb" "Exalted Orb" "Vaal Orb"
-  SetTextColor 170 158 130
+  PlayEffect Yellow
+  SetTextColor 0 0 0
   SetBorderColor 170 158 130
-  SetBackgroundColor 0 0 0 224
+  SetBackgroundColor 170 158 130
   SetFontSize 45
   PlayAlertSound 5 300
   MinimapIcon 0 Yellow Star
@@ -506,7 +512,7 @@ Show
   SetFontSize 45
   MinimapIcon 0 White Square
 
-Show
+Hide
   Class "Waystone"
   AreaLevel == 67
   WaystoneTier <= 1
@@ -538,7 +544,7 @@ Show
   SetFontSize 45
   MinimapIcon 0 White Square
 
-Show
+Hide
   Class "Waystone"
   AreaLevel == 68
   WaystoneTier <= 2
@@ -570,7 +576,7 @@ Show
   SetFontSize 45
   MinimapIcon 0 White Square
 
-Show
+Hide
   Class "Waystone"
   AreaLevel == 69
   WaystoneTier <= 3
@@ -602,7 +608,7 @@ Show
   SetFontSize 45
   MinimapIcon 0 White Square
 
-Show
+Hide
   Class "Waystone"
   AreaLevel == 70
   WaystoneTier <= 4
@@ -634,7 +640,7 @@ Show
   SetFontSize 45
   MinimapIcon 0 White Square
 
-Show
+Hide
   Class "Waystone"
   AreaLevel == 71
   WaystoneTier <= 5
@@ -666,7 +672,7 @@ Show
   SetFontSize 45
   MinimapIcon 0 White Square
 
-Show
+Hide
   Class "Waystone"
   AreaLevel == 72
   WaystoneTier <= 6
@@ -698,7 +704,7 @@ Show
   SetFontSize 45
   MinimapIcon 0 White Square
 
-Show
+Hide
   Class "Waystone"
   AreaLevel == 73
   WaystoneTier <= 7
@@ -730,7 +736,7 @@ Show
   SetFontSize 45
   MinimapIcon 0 White Square
 
-Show
+Hide
   Class "Waystone"
   AreaLevel == 74
   WaystoneTier <= 8
@@ -762,7 +768,7 @@ Show
   SetFontSize 45
   MinimapIcon 0 White Square
 
-Show
+Hide
   Class "Waystone"
   AreaLevel == 75
   WaystoneTier <= 9
@@ -794,7 +800,7 @@ Show
   SetFontSize 45
   MinimapIcon 0 White Square
 
-Show
+Hide
   Class "Waystone"
   AreaLevel == 76
   WaystoneTier <= 10
@@ -826,7 +832,7 @@ Show
   SetFontSize 45
   MinimapIcon 0 White Square
 
-Show
+Hide
   Class "Waystone"
   AreaLevel == 77
   WaystoneTier <= 11
@@ -858,7 +864,7 @@ Show
   SetFontSize 45
   MinimapIcon 0 White Square
 
-Show
+Hide
   Class "Waystone"
   AreaLevel == 78
   WaystoneTier <= 12
@@ -890,7 +896,7 @@ Show
   SetFontSize 45
   MinimapIcon 0 White Square
 
-Show
+Hide
   Class "Waystone"
   AreaLevel == 79
   WaystoneTier <= 13
@@ -922,7 +928,7 @@ Show
   SetFontSize 45
   MinimapIcon 0 White Square
 
-Show
+Hide
   Class "Waystone"
   AreaLevel == 80
   WaystoneTier <= 14
@@ -954,7 +960,7 @@ Show
   SetFontSize 45
   MinimapIcon 0 White Square
 
-Show
+Hide
   Class "Waystone"
   AreaLevel == 81
   WaystoneTier <= 15
@@ -986,7 +992,7 @@ Show
   SetFontSize 45
   MinimapIcon 0 White Square
 
-Show
+Hide
   Class "Waystone"
   AreaLevel == 82
   WaystoneTier <= 16
@@ -1018,7 +1024,7 @@ Show
   SetFontSize 45
   MinimapIcon 0 White Square
 
-Show
+Hide
   Class "Waystone"
   AreaLevel == 83
   WaystoneTier <= 17
@@ -1050,7 +1056,7 @@ Show
   SetFontSize 45
   MinimapIcon 0 White Square
 
-Show
+Hide
   Class "Waystone"
   AreaLevel == 84
   WaystoneTier <= 18
@@ -1101,7 +1107,7 @@ Show
   SetBackgroundColor 0 0 0 224
   SetFontSize 35
   MinimapIcon 2 Grey Circle
-  Sockets > 0
+  Sockets > 1
 
 #
 # MAGIC AND RARE ITEMS
@@ -1123,17 +1129,16 @@ Show
 # USELESS ITEMS
 #
 
-Show
-  Class "Boots" "QuarterStaff" "Crossbow" "Body Armour" "Two Hand Mace" "Gloves" "Focus" "Wand" "One Hand Mace" "Helmet" "Shield" "Quiver" "Sceptre" "Bow" "Staff"
+Hide
+  Class "Body Armour" "Boots" "Bow" "Crossbow" "Focus" "Gloves" "Helmet" "One Hand Mace" "QuarterStaff" "Quiver" "Sceptre" "Shield" "Staff" "Two Hand Mace" "Wand"
   Rarity Magic
   AreaLevel >= 65
   ItemLevel < 65
 
-Show
-  Class "Boots" "QuarterStaff" "Crossbow" "Body Armour" "Two Hand Mace" "Gloves" "Focus" "Wand" "One Hand Mace" "Helmet" "Shield" "Quiver" "Sceptre" "Bow" "Staff"
+Hide
+  Class "Body Armour" "Boots" "Bow" "Crossbow" "Focus" "Gloves" "Helmet" "One Hand Mace" "QuarterStaff" "Quiver" "Sceptre" "Shield" "Staff" "Two Hand Mace" "Wand"
   Rarity Normal
   AreaLevel >= 65
-  ItemLevel < 65
 
 #
 # DEBUG: 3 COLORS = NOT MANAGED BY THE FILTER
