@@ -8,11 +8,7 @@ export default () => {
     class: 'Currency',
     type: 'Artifact',
     card: Card(Card.THEMES.EXPEDITIONS, Card.TYPES.OUTLINE, Card.SIZES.MEDIUM),
-    icon: MapIcon(
-      MapIcon.SIZES.SMALL,
-      MapIcon.COLORS.CYAN,
-      MapIcon.SHAPES.DIAMOND,
-    ),
+    icon: MapIcon(MapIcon.SIZES.SMALL, MapIcon.COLORS.CYAN, MapIcon.SHAPES.DIAMOND),
     effect: Effect(Effect.COLORS.CYAN),
     sound: Sound(Sound.TYPES.IMPORTANCE_6),
   });
@@ -21,11 +17,7 @@ export default () => {
     class: 'Currency',
     type: 'Exotic Coinage',
     card: Card(Card.THEMES.EXPEDITIONS, Card.TYPES.IMPORTANT, Card.SIZES.BIG),
-    icon: MapIcon(
-      MapIcon.SIZES.BIG,
-      MapIcon.COLORS.CYAN,
-      MapIcon.SHAPES.STAR,
-    ),
+    icon: MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.CYAN, MapIcon.SHAPES.STAR),
     effect: Effect(Effect.COLORS.CYAN),
     sound: Sound(Sound.TYPES.IMPORTANCE_3),
   });

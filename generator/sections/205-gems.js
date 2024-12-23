@@ -28,11 +28,7 @@ export default () => {
   section.addBlock({
     type: ['Uncut Skill Gem'],
     card: Card(Card.THEMES.GEMS, Card.SIZES.MEDIUM, Card.TYPES.IMPORTANT),
-    icon: MapIcon(
-      MapIcon.SIZES.BIG,
-      MapIcon.COLORS.CYAN,
-      MapIcon.SHAPES.CIRCLE,
-    ),
+    icon: MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.CYAN, MapIcon.SHAPES.CIRCLE),
     effect: Effect(Effect.COLORS.CYAN),
     sound: Sound(Sound.TYPES.GEMS),
   });

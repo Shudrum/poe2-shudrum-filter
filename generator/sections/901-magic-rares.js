@@ -13,22 +13,14 @@ export default ({ modeId }) => {
     ...common,
     rarity: 'Magic',
     itemLevel: `>= ${modes.EquipmentMinimumMagicItemLevel[modeId]}`,
-    icon: MapIcon(
-      MapIcon.SIZES.SMALL,
-      MapIcon.COLORS.BLUE,
-      MapIcon.SHAPES.CIRCLE,
-    ),
+    icon: MapIcon(MapIcon.SIZES.SMALL, MapIcon.COLORS.BLUE, MapIcon.SHAPES.CIRCLE),
   });
 
   section.addBlock({
     ...common,
     rarity: 'Rare',
     itemLevel: `>= ${modes.EquipmentMinimumRareItemLevel[modeId]}`,
-    icon: MapIcon(
-      MapIcon.SIZES.SMALL,
-      MapIcon.COLORS.YELLOW,
-      MapIcon.SHAPES.CIRCLE,
-    ),
+    icon: MapIcon(MapIcon.SIZES.SMALL, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.CIRCLE),
   });
 
   return section;

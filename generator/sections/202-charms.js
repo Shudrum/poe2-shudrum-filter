@@ -14,11 +14,7 @@ export default ({ modeId }) => {
     section.addBlock({
       ...common,
       effect: Effect(Effect.COLORS.PURPLE, Effect.TEMPORARY),
-      icon: MapIcon(
-        MapIcon.SIZES.SMALL,
-        MapIcon.COLORS.PURPLE,
-        MapIcon.SHAPES.MOON,
-      ),
+      icon: MapIcon(MapIcon.SIZES.SMALL, MapIcon.COLORS.PURPLE, MapIcon.SHAPES.MOON),
     });
   } else {
     section.addBlock({
