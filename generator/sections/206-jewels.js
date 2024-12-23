@@ -8,11 +8,7 @@ export default () => {
     class: 'Jewel',
     rarity: '<= Rare',
     card: Card(Card.THEMES.JEWELS, Card.SIZES.BIG, Card.TYPES.OUTLINE),
-    icon: MapIcon(
-      MapIcon.SIZES.MEDIUM,
-      MapIcon.COLORS.GREEN,
-      MapIcon.SHAPES.PENTAGON,
-    ),
+    icon: MapIcon(MapIcon.SIZES.MEDIUM, MapIcon.COLORS.GREEN, MapIcon.SHAPES.PENTAGON),
     effect: Effect(Effect.COLORS.GREEN, Effect.TEMPORARY),
   });
 

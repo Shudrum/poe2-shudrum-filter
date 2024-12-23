@@ -5,7 +5,9 @@ export default function Section(name) {
 
   const instance = {
     addBlock(definition) {
-      blocks.push(Block(definition));
+      const block = Block(definition);
+      blocks.push(block);
+      return block;
     },
     generateText() {
       return blocks.reduce((prev, block) => [

@@ -6,16 +6,8 @@ export default () => {
 
   section.addBlock({
     rarity: 'Unique',
-    card: Card(
-      Card.THEMES.UNIQUES,
-      Card.TYPES.IMPORTANT,
-      Card.SIZES.BIG,
-    ),
-    icon: MapIcon(
-      MapIcon.SIZES.BIG,
-      MapIcon.COLORS.BROWN,
-      MapIcon.SHAPES.STAR,
-    ),
+    card: Card(Card.THEMES.UNIQUES, Card.TYPES.IMPORTANT, Card.SIZES.BIG),
+    icon: MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.BROWN, MapIcon.SHAPES.STAR),
     effect: Effect(Effect.COLORS.BROWN),
     sound: Sound(Sound.TYPES.UNIQUE),
   });

@@ -9,11 +9,7 @@ export default ({ modeId }) => {
     areaLevel: `>= ${global.startingAreaLevel}`,
     rarity: '<= Rare',
     card: Card(Card.THEMES.CURRENCY, Card.TYPES.OUTLINE, Card.SIZES.MEDIUM),
-    icon: MapIcon(
-      MapIcon.SIZES.SMALL,
-      MapIcon.COLORS.GREY,
-      MapIcon.SHAPES.CIRCLE,
-    ),
+    icon: MapIcon(MapIcon.SIZES.SMALL, MapIcon.COLORS.GREY, MapIcon.SHAPES.CIRCLE),
   };
 
   section.addBlock({
@@ -23,7 +19,7 @@ export default ({ modeId }) => {
 
   section.addBlock({
     ...common,
-    sockets: '> 0',
+    sockets: `> ${modes.EquipmentMinimumSalvageableSockets[modeId] - 1}`,
   });
 
   return section;

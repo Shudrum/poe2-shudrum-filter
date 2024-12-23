@@ -15,11 +15,7 @@ export default ({ modeId }) => {
     section.addBlock({
       ...common,
       effect: Effect(Effect.COLORS.CYAN, Effect.TEMPORARY),
-      icon: MapIcon(
-        MapIcon.SIZES.SMALL,
-        MapIcon.COLORS.CYAN,
-        MapIcon.SHAPES.CIRCLE,
-      ),
+      icon: MapIcon(MapIcon.SIZES.SMALL, MapIcon.COLORS.CYAN, MapIcon.SHAPES.CIRCLE),
     });
   } else {
     section.addBlock({

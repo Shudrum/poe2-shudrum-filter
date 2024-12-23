@@ -16,7 +16,10 @@ export default function Effect(...args) {
   });
 
   const instance = {
-    toString() {
+    [Symbol.for('nodejs.util.inspect.custom')]() {
+      return { color, temporary, disabled };
+    },
+    toText() {
       if (disabled) {
         return 'PlayEffect None';
       }

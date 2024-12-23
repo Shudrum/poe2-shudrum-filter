@@ -1,5 +1,5 @@
 import { Section } from '../entities/filter/index.js';
-import { Card, Effect, MapIcon, Sound } from '../entities/generators/index.js';
+import { Area, Card, Effect, MapIcon, Sound } from '../entities/generators/index.js';
 import { modes } from '../configuration/index.js';
 
 export default ({ modeId }) => {
@@ -57,20 +57,39 @@ export default ({ modeId }) => {
     icon: MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.CROSS),
   });
 
-  section.addBlock({
+  //
+  // Tier 3 currencies
+  //
+
+  const commonTier3Currency = {
     class: 'Currency',
     type: [
       'Orb of Transmutation',
       'Orb of Augmentation',
     ],
-    ...modes.CurrenciesDisplayTier2[modeId]
-      ? {
-        sound: Sound(Sound.TYPES.IMPORTANCE_3),
-        effect: Effect(Effect.COLORS.YELLOW, Effect.TEMPORARY),
-        icon: MapIcon(MapIcon.SIZES.SMALL, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.CIRCLE),
-      }
-      : { visible: false },
-  });
+    card: Card(Card.THEMES.CURRENCY, Card.TYPES.IMPORTANT, Card.SIZES.MEDIUM),
+  };
+
+  if (modes.CurrenciesDisplayTier3[modeId]) {
+    // Displayed
+    section.addBlock({
+      ...commonTier3Currency,
+      sound: Sound(Sound.TYPES.IMPORTANCE_3),
+      effect: Effect(Effect.COLORS.YELLOW, Effect.TEMPORARY),
+      icon: MapIcon(MapIcon.SIZES.SMALL, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.CIRCLE),
+    });
+  } else {
+    // Hidden only for Area > 65
+    section.addBlock({
+      ...commonTier3Currency,
+      visible: false,
+      area: Area.FROM_STARTING_AREA,
+    });
+  }
+
+  //
+  // Tier 2 currencies
+  //
 
   section.addBlock({
     class: 'Currency',
@@ -80,10 +99,15 @@ export default ({ modeId }) => {
       'Exalted Orb',
       'Vaal Orb',
     ],
-    card: Card(Card.THEMES.CURRENCY, Card.TYPES.OUTLINE, Card.SIZES.BIG),
+    effect: Effect(Effect.COLORS.YELLOW),
+    card: Card(Card.THEMES.CURRENCY, Card.TYPES.IMPORTANT, Card.SIZES.BIG),
     sound: Sound(Sound.TYPES.IMPORTANCE_2),
     icon: MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.STAR),
   });
+
+  //
+  // Tier 1 currencies
+  //
 
   section.addBlock({
     class: 'Currency',

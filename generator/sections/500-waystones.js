@@ -37,11 +37,7 @@ export default ({ modeId }) => {
         waystoneTier: `< ${waystoneTier}`,
         card: Card(Card.THEMES.WAYSTONES, Card.SIZES.MEDIUM, Card.TYPES.OUTLINE),
         effect: Effect(Effect.COLORS.WHITE, Effect.TEMPORARY),
-        icon: MapIcon(
-          MapIcon.SIZES.MEDIUM,
-          MapIcon.COLORS.WHITE,
-          MapIcon.SHAPES.SQUARE,
-        ),
+        icon: MapIcon(MapIcon.SIZES.MEDIUM, MapIcon.COLORS.WHITE, MapIcon.SHAPES.SQUARE),
       });
     }
   }

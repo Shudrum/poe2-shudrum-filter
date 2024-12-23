@@ -6,6 +6,9 @@
   "type": "module",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon index.js",
+    "dev:standard": "cross-env NODE_ENV=development MODE=standard nodemon index.js",
+    "dev:intermediate": "cross-env NODE_ENV=development MODE=intermediate nodemon index.js",
+    "dev:expert": "cross-env NODE_ENV=development nodemon MODE=expert index.js",
     "build": "node index.js",
     "build:table": "node social/filters-comparison/take-screenshot.js",
     "lint": "eslint .",

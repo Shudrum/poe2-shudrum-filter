@@ -18,6 +18,7 @@ export default ({ modeId }) => {
 
   section.addBlock({
     ...common,
+    visible: false,
     areaLevel: `>= ${global.startingAreaLevel}`,
     stackSize: `< ${modes.GoldMinimumDisplayedAmount[modeId]}`,
     card: Card(Card.SIZES.VALUE_15, Card.THEMES.GOLD),
@@ -32,14 +33,14 @@ export default ({ modeId }) => {
   generateValues(
     modes.GoldMinimumDisplayedAmount[modeId],
     modes.GoldCeilingDisplaySizeAmount[modeId],
-  ).forEach((stackSize, i) => {
+  ).reverse().forEach((stackSize, i) => {
     section.addBlock({
       ...common,
       areaLevel: `>= ${global.startingAreaLevel}`,
       stackSize: `>= ${stackSize}`,
-      ...i === 5
-        ? { card: Card(20 + i * 5, Card.THEMES.GOLD) }
-        : { card: Card(20 + i * 5, Card.THEMES.GOLD, Card.TYPES.OUTLINE) },
+      ...i === 0
+        ? { card: Card(20 + (5 - i) * 5, Card.THEMES.GOLD, Card.TYPES.OUTLINE) }
+        : { card: Card(20 + (5 - i) * 5, Card.THEMES.GOLD) },
     });
   });
 

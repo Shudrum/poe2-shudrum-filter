@@ -40,7 +40,10 @@ export default function Card(...args) {
   }
 
   const instance = {
-    toString() {
+    [Symbol.for('nodejs.util.inspect.custom')]() {
+      return { theme, size, type };
+    },
+    toText() {
       switch (type) {
         case Card.TYPES.NORMAL:
           return [
