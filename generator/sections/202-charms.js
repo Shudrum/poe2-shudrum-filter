@@ -2,29 +2,32 @@ import Section from '../entities/section.js';
 import Block from '../entities/block.js';
 import MapIcon from '../entities/map-icon.js';
 import Effect from '../entities/effect.js';
-import { MINIMUM_AREA_LEVEL, COLORS, VARIABLES } from '../configuration.js';
+import Card from '../entities/card.js';
+import { global, modes } from '../configuration/index.js';
 
-export default (mode) => {
+export default ({ modeId }) => {
   const section = new Section('Charms');
 
-  section.addBlock(new Block({
+  const common = {
     class: 'Charm',
-    text: COLORS.CHARMS,
-    border: COLORS.CHARMS,
-    font: 30,
-    effect: new Effect(Effect.COLORS.PURPLE, Effect.TEMPORARY),
-    icon: new MapIcon(
-      MapIcon.SIZES.SMALL,
-      MapIcon.COLORS.PURPLE,
-      MapIcon.SHAPES.MOON,
-    ),
-  }));
+    card: new Card(Card.THEMES.CHARMS, Card.SIZES.MEDIUM, Card.TYPES.OUTLINE),
+  };
 
-  if (!VARIABLES.CHARMS_DISPLAY[mode]) {
+  if (modes.CharmsDisplay[modeId]) {
     section.addBlock(new Block({
-      class: 'Charm',
-      areaLevel: `>= ${MINIMUM_AREA_LEVEL}`,
+      ...common,
+      effect: new Effect(Effect.COLORS.PURPLE, Effect.TEMPORARY),
+      icon: new MapIcon(
+        MapIcon.SIZES.SMALL,
+        MapIcon.COLORS.PURPLE,
+        MapIcon.SHAPES.MOON,
+      ),
+    }));
+  } else {
+    section.addBlock(new Block({
+      ...common,
       visible: false,
+      areaLevel: `>= ${global.startingAreaLevel}`,
     }));
   }
 

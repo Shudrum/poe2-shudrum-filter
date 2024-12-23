@@ -2,7 +2,7 @@ import Section from '../entities/section.js';
 import Block from '../entities/block.js';
 import MapIcon from '../entities/map-icon.js';
 import Effect from '../entities/effect.js';
-import { COLORS } from '../configuration.js';
+import Card from '../entities/card.js';
 
 export default () => {
   const section = new Section('Jewels');
@@ -10,10 +10,7 @@ export default () => {
   section.addBlock(new Block({
     class: 'Jewel',
     rarity: '<= Rare',
-    text: COLORS.JEWELS,
-    border: COLORS.JEWELS,
-    font: 40,
-
+    card: new Card(Card.THEMES.JEWELS, Card.SIZES.BIG, Card.TYPES.OUTLINE),
     icon: new MapIcon(
       MapIcon.SIZES.MEDIUM,
       MapIcon.COLORS.GREEN,

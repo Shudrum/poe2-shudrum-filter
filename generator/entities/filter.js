@@ -1,15 +1,19 @@
 import { pascalCase } from 'change-case';
 
+import { global } from '../configuration/index.js';
+
 const WIDTH = 80;
 
 export default class Filter {
   #header;
   #mode;
+  #modeId;
   #sections;
 
   constructor(mode, header) {
     this.#header = header.replace('{MODE}', pascalCase(mode));
     this.#mode = mode;
+    this.#modeId = global.modes.indexOf(this.#mode);
     this.#sections = [];
   }
 
@@ -20,7 +24,7 @@ export default class Filter {
   addSections(sections) {
     this.#sections = [
       ...this.#sections,
-      ...sections.map((section) => section(this.#mode)),
+      ...sections.map((section) => section({ mode: this.#mode, modeId: this.#modeId })),
     ].filter(Boolean);
   }
 

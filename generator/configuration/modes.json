@@ -1,0 +1,15 @@
+{
+  "CharmsDisplay": [true, true, false, { "label": "Charms" }],
+  "CurrenciesDisplayShards": [true, false, false, { "label": "Shards" }],
+  "CurrenciesDisplayChanceShards": [true, true, false, { "label": "Chance shards" }],
+  "CurrenciesDisplayTier2": [true, true, false, { "label": "Tier 2 currencies displayed" }],
+  "EquipmentMinimumMagicItemLevel": [65, 65, 65, { "label": "Minimum magic items levels" }],
+  "EquipmentMinimumRareItemLevel": [65, 65, 65, { "label": "Minimum rare items levels" }],
+  "EquipmentMinimumNormalItemLevel": [65, 65, 65],
+  "EquipmentMinimumSalvageableQuality": [1, 5, 10, { "label": "Minimum salvageable item quality" }],
+  "FlasksMinimumQuality": [5, 10, 15, { "label": "Flasks minimum quality" }],
+  "GoldMinimumDisplayedAmount": [50, 100, 250, { "label": "Gold starting value", "order": 1 }],
+  "GoldCeilingDisplaySizeAmount": [1000, 2000, 3000],
+  "RunesDisplayBasic": [true, true, false, { "label": "Basic runes" }],
+  "WaystonesHideStartingLevelGap": [6, 4, 2, { "label": "Waystones maximum gap" }]
+}

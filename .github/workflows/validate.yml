@@ -29,8 +29,13 @@ jobs:
       - name: Check ShudrumFilterStandard.filter file
         run: |
           if git diff --name-only | grep -q '\.filter$'; then
-            echo "Error: .filter files contain changes. Please revert them.";
+            echo "Error: Filter files (.filter) are modified. Please revert them.";
             exit 1;
-          else
-            echo "Filter files are clean.";
           fi
+
+          if git diff --name-only | grep -E '.github/filters-comparison-md5|.github/filters-comparison.png'; then
+            echo "Error: MD5 file or comparison image is modified. Please revert them.";
+            exit 1;
+          fi
+
+          echo "Validation passed: No unintended modifications detected.";

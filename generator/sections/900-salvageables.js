@@ -1,27 +1,26 @@
 import Section from '../entities/section.js';
 import Block from '../entities/block.js';
 import MapIcon from '../entities/map-icon.js';
-import { MINIMUM_AREA_LEVEL, COLORS, VARIABLES } from '../configuration.js';
+import Card from '../entities/card.js';
+import { global, modes } from '../configuration/index.js';
 
-export default (mode) => {
+export default ({ modeId }) => {
   const section = new Section('Salvageables');
 
   const common = {
-    areaLevel: `>= ${MINIMUM_AREA_LEVEL}`,
+    areaLevel: `>= ${global.startingAreaLevel}`,
     rarity: '<= Rare',
-    font: 30,
+    card: new Card(Card.THEMES.CURRENCY, Card.TYPES.OUTLINE, Card.SIZES.MEDIUM),
     icon: new MapIcon(
       MapIcon.SIZES.SMALL,
       MapIcon.COLORS.GREY,
       MapIcon.SHAPES.CIRCLE,
     ),
-    text: COLORS.CURRENCY,
-    border: COLORS.CURRENCY,
   };
 
   section.addBlock(new Block({
     ...common,
-    quality: `>= ${VARIABLES.SALVAGEABLE_MIN_QUALITY[mode]}`,
+    quality: `>= ${modes.EquipmentMinimumSalvageableQuality[modeId]}`,
   }));
 
   section.addBlock(new Block({

@@ -1,0 +1,15 @@
+{
+  "filterName": "ShudrumFilter{{mode}}.filter",
+  "startingAreaLevel": 65,
+  "debug": true,
+  "modes": [
+    "standard",
+    "intermediate",
+    "expert"
+  ],
+  "primaryColors": {
+    "black": "000",
+    "white": "c8c8c8"
+  },
+  "defaultTransparency": "000000e0"
+}

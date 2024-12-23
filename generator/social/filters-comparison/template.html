@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Configuration</title>
+    <style>
+      @font-face {
+        /* A font by Jos Buivenga (exljbris) -> www.exljbris.com */
+        font-family: 'Fontin';
+        src: url(data:font/ttf;base64,{{fontData}}) format('truetype');
+        font-weight: bold;
+      }
+      body {
+        font-family: 'Fontin';
+        background-color: transparent;
+        color: rgb(220, 220, 220);
+        margin: 10px;
+      }
+      #capture-zone {
+        display: flex;
+        width: fit-content;
+        padding: 10px;
+      }
+      #table-container {
+        display: flex;
+        background: #090909;
+        border-radius: 10px;
+        padding: 10px;
+      }
+      table {
+        table-layout: auto;
+        border-collapse: collapse;
+        width: auto;
+      }
+      .title {
+        width: 120px;
+        border-radius: 5px;
+        color: #000;
+        padding: 7px 0;
+        margin-bottom: 5px;
+      }
+      .title-1 {
+        background-color: rgb(136, 136, 255);
+      }
+      .title-2 {
+        background-color: rgb(255, 255, 119);
+      }
+      .title-3 {
+        background-color: rgb(175, 96, 37);
+      }
+      .space {
+        width: 10px;
+      }
+      .green {
+        fill: rgb(27, 162, 155);
+      }
+      .red {
+        fill: rgba(255, 255, 255, 0.2);
+      }
+      tr td {
+        padding: 6px 0;
+      }
+      td {
+        text-align: center;
+      }
+      td:first-child {
+        text-align: left;
+        padding: 0 20px 0 10px;
+      }
+      th td {
+        border: none;
+      }
+      tr:nth-child(even) {
+        background-color: rgba(255, 255, 255, 0.04);
+      }
+      tr:nth-child(even) td:first-child {
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+      }
+      tr:nth-child(even) td:last-child {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+      tr:nth-child(odd) td {
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
+      tr:first-child td {
+        border: none;
+      }
+      svg {
+        width: 16px;
+        transform: translateY(2.5px);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="capture-zone">
+      <div id="table-container">
+        <table>
+          <thead>
+            <tr class="header">
+              <th></th>
+              <th><div class="title title-1">Standard</th>
+              <th class="space"></th>
+              <th><div class="title title-2">Intermediate</div></th>
+              <th class="space"></th>
+              <th><div class="title title-3">Expert</div></th>
+            </tr>
+          </thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

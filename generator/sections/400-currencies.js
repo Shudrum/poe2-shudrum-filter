@@ -4,18 +4,18 @@ import MapIcon from '../entities/map-icon.js';
 import Effect from '../entities/effect.js';
 import Sound from '../entities/sound.js';
 import Card from '../entities/card.js';
-import { MINIMUM_AREA_LEVEL, COLORS, VARIABLES, THEMES } from '../configuration.js';
+import { global, modes } from '../configuration/index.js';
 
-export default (mode) => {
+export default ({ modeId }) => {
   const section = new Section('Currencies');
 
   // Before we add the blocks for the scrolls of wisdom
 
   section.addBlock(new Block({
-    visible: false,
-    comment: `We hide all the scrolls of wisdom starging level ${MINIMUM_AREA_LEVEL}`,
     type: 'Scroll of Wisdom',
-    areaLevel: `>= ${MINIMUM_AREA_LEVEL}`,
+    visible: false,
+    comment: `We hide all the scrolls of wisdom starging level ${global.startingAreaLevel}`,
+    areaLevel: `>= ${global.startingAreaLevel}`,
   }));
 
   section.addBlock(new Block({
@@ -24,15 +24,14 @@ export default (mode) => {
 
   // Then we add the other currencies
 
-  section.setCommon({
+  const common = {
     class: 'Currency',
-  });
+  };
 
   section.addBlock(new Block({
+    ...common,
     comment: 'Common',
-    background: COLORS.CURRENCY,
-    text: COLORS.BLACK,
-    font: 30,
+    card: new Card(Card.THEMES.CURRENCY, Card.TYPES.IMPORTANT, Card.SIZES.MEDIUM),
     sound: new Sound(Sound.TYPES.IMPORTANCE_4),
     effect: new Effect(Effect.COLORS.YELLOW),
     icon: new MapIcon(
@@ -44,10 +43,7 @@ export default (mode) => {
   }));
 
   const shardsSettings = {
-    background: COLORS.DEFAULT_BACKGROUND,
-    border: COLORS.CURRENCY,
-    text: COLORS.CURRENCY,
-    font: 30,
+    card: new Card(Card.THEMES.CURRENCY, Card.TYPES.OUTLINE, Card.SIZES.MEDIUM),
     sound: new Sound(Sound.TYPES.IMPORTANCE_8),
     effect: new Effect(Effect.COLORS.YELLOW, Effect.TEMPORARY),
     icon: new MapIcon(
@@ -58,21 +54,19 @@ export default (mode) => {
   };
 
   section.addBlock(new Block({
+    ...common,
     comment: 'Chance shard specific rule depending on modes.',
     type: 'Chance Shard',
-
-    ...VARIABLES.CURRENCIES.DISPLAY_CHANCE_SHARDS[mode]
+    ...modes.CurrenciesDisplayChanceShards[modeId]
       ? shardsSettings
       : { visible: false },
   }));
 
   section.addBlock(new Block({
+    ...common,
     comment: 'Shard',
     type: 'Shard',
-    background: COLORS.DEFAULT_BACKGROUND,
-    border: COLORS.CURRENCY,
-    text: COLORS.CURRENCY,
-    font: 30,
+    card: new Card(Card.THEMES.CURRENCY, Card.TYPES.OUTLINE, Card.SIZES.MEDIUM),
     sound: new Sound(Sound.TYPES.IMPORTANCE_8),
     effect: new Effect(Effect.COLORS.YELLOW, Effect.TEMPORARY),
     icon: new MapIcon(
@@ -83,8 +77,9 @@ export default (mode) => {
     continue: true,
   }));
 
-  if (!VARIABLES.CURRENCIES.DISPLAY_CHANCE_SHARDS[mode]) {
+  if (!modes.CurrenciesDisplayChanceShards[modeId]) {
     section.addBlock(new Block({
+      ...common,
       type: 'Chance Shard',
       visible: false,
       sound: new Sound(Sound.NONE),
@@ -94,12 +89,14 @@ export default (mode) => {
   } else {
     // We must stop the propagation because of the all shards rule bellow
     section.addBlock(new Block({
+      ...common,
       type: 'Chance Shard',
     }));
   }
 
-  if (!VARIABLES.CURRENCIES.DISPLAY_SHARDS[mode]) {
+  if (!modes.CurrenciesDisplayShards[modeId]) {
     section.addBlock(new Block({
+      ...common,
       type: 'Shard',
       visible: false,
       sound: new Sound(Sound.NONE),
@@ -109,6 +106,7 @@ export default (mode) => {
   }
 
   section.addBlock(new Block({
+    ...common,
     comment: 'Equipment upgrade',
     type: [
       'Arcanist\'s Etcher',
@@ -116,7 +114,6 @@ export default (mode) => {
       'Blacksmith\'s Whetstone',
       'Artificer\'s Orb',
     ],
-    font: 30,
     sound: new Sound(Sound.TYPES.IMPORTANCE_7),
     icon: new MapIcon(
       MapIcon.SIZES.SMALL,
@@ -126,13 +123,13 @@ export default (mode) => {
   }));
 
   section.addBlock(new Block({
+    ...common,
     comment: 'Gem\'s and Flask\'s upgrades',
     type: [
       'Lesser Jeweller\'s Orb',
       'Gemcutter\'s Prism',
       'Glassblower\'s Bauble',
     ],
-    font: 35,
     sound: new Sound(Sound.TYPES.IMPORTANCE_6),
     icon: new MapIcon(
       MapIcon.SIZES.BIG,
@@ -142,14 +139,14 @@ export default (mode) => {
   }));
 
   section.addBlock(new Block({
+    ...common,
     comment: 'Tier 2',
     type: [
       'Orb of Transmutation',
       'Orb of Augmentation',
     ],
-    ...VARIABLES.CURRENCIES.DISPLAY_TIER_2[mode]
+    ...modes.CurrenciesDisplayTier2[modeId]
       ? {
-        font: 30,
         sound: new Sound(Sound.TYPES.IMPORTANCE_3),
         effect: new Effect(Effect.COLORS.YELLOW, Effect.TEMPORARY),
         icon: new MapIcon(
@@ -162,6 +159,7 @@ export default (mode) => {
   }));
 
   section.addBlock(new Block({
+    ...common,
     comment: 'Tier 1',
     type: [
       'Regal Orb',
@@ -169,7 +167,7 @@ export default (mode) => {
       'Exalted Orb',
       'Vaal Orb',
     ],
-    font: 45,
+    card: new Card(Card.THEMES.CURRENCY, Card.TYPES.OUTLINE, Card.SIZES.BIG),
     sound: new Sound(Sound.TYPES.IMPORTANCE_2),
     icon: new MapIcon(
       MapIcon.SIZES.BIG,
@@ -179,6 +177,7 @@ export default (mode) => {
   }));
 
   section.addBlock(new Block({
+    ...common,
     comment: 'Tier 0',
     type: [
       'Divine Orb',
@@ -186,7 +185,7 @@ export default (mode) => {
       'Greater Jeweller\'s Orb',
       'Perfect Jeweller\'s Orb',
     ],
-    card: new Card(THEMES.ALERT, Card.SIZES.BIG, Card.TYPES.IMPORTANT),
+    card: new Card(Card.THEMES.ALERT, Card.SIZES.BIG, Card.TYPES.IMPORTANT),
     effect: new Effect(Effect.COLORS.RED),
     sound: new Sound(Sound.TYPES.IMPORTANCE_1),
     icon: new MapIcon(

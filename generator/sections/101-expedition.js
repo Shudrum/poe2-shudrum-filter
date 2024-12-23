@@ -3,7 +3,7 @@ import Block from '../entities/block.js';
 import MapIcon from '../entities/map-icon.js';
 import Sound from '../entities/sound.js';
 import Effect from '../entities/effect.js';
-import { COLORS } from '../configuration.js';
+import Card from '../entities/card.js';
 
 export default () => {
   const section = new Section('Event: Expedition');
@@ -11,11 +11,7 @@ export default () => {
   section.addBlock(new Block({
     class: 'Currency',
     type: 'Artifact',
-
-    text: COLORS.EXPEDITION,
-    border: COLORS.EXPEDITION,
-    font: 30,
-
+    card: new Card(Card.THEMES.EXPEDITIONS, Card.TYPES.OUTLINE, Card.SIZES.MEDIUM),
     icon: new MapIcon(
       MapIcon.SIZES.SMALL,
       MapIcon.COLORS.CYAN,
@@ -28,12 +24,7 @@ export default () => {
   section.addBlock(new Block({
     class: 'Currency',
     type: 'Exotic Coinage',
-
-    text: COLORS.BLACK,
-    border: COLORS.EXPEDITION,
-    background: COLORS.EXPEDITION,
-    font: 40,
-
+    card: new Card(Card.THEMES.EXPEDITIONS, Card.TYPES.IMPORTANT, Card.SIZES.BIG),
     icon: new MapIcon(
       MapIcon.SIZES.BIG,
       MapIcon.COLORS.CYAN,

@@ -1,34 +1,33 @@
 import Section from '../entities/section.js';
 import Block from '../entities/block.js';
-import { MINIMUM_AREA_LEVEL, COLORS } from '../configuration.js';
+import { global, modes } from '../configuration/index.js';
+import Card from '../entities/card.js';
 
-export default () => {
+export default ({ modeId }) => {
   const section = new Section('Amulets, rings & belts');
 
-  section.setCommon({
+  const common = {
     class: ['Amulets', 'Rings', 'Belts'],
-    areaLevel: `>= ${MINIMUM_AREA_LEVEL}`,
-    itemLevel: `>= ${MINIMUM_AREA_LEVEL}`,
-  });
+    areaLevel: `>= ${global.startingAreaLevel}`,
+    itemLevel: `>= ${modes.EquipmentMinimumNormalItemLevel[modeId]}`,
+  };
 
   section.addBlock(new Block({
+    ...common,
     rarity: 'Normal',
-    font: 40,
-    text: COLORS.WHITE,
-    border: COLORS.WHITE,
-    continue: true,
+    card: new Card(Card.THEMES.NORMAL, Card.SIZES.BIG, Card.TYPES.OUTLINE),
   }));
 
   section.addBlock(new Block({
+    ...common,
     rarity: 'Magic',
-    text: COLORS.MAGIC,
-    border: COLORS.MAGIC,
+    card: new Card(Card.THEMES.MAGICS, Card.SIZES.BIG, Card.TYPES.OUTLINE),
   }));
 
   section.addBlock(new Block({
+    ...common,
     rarity: 'Rare',
-    text: COLORS.RARE,
-    border: COLORS.RARE,
+    card: new Card(Card.THEMES.RARES, Card.SIZES.BIG, Card.TYPES.OUTLINE),
   }));
 
   return section;
