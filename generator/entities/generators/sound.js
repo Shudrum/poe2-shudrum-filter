@@ -43,7 +43,7 @@ Sound.TYPES = {
   VIBRANT_4: 14,
   VIBRANT_5: 15,
 
-  WAYSTONE: 11,
+  WAYSTONE: 4,
   UNIQUE: 6,
   GEMS: 12,
 };
