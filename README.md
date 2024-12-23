@@ -64,9 +64,11 @@ now seems like the perfect time to share it with the community!
 ## Roadmap
 
 - [ ] Improve color theming.
+  - [X] Technically
+  - [ ] Color tunning
 - [ ] Add custom filters for `Breach`.
 - [ ] Add custom filters for `Delirium`.
-- [ ] Consider adding an `Intermediate` mode.
+- [X] Consider adding an `Intermediate` mode.
 - [ ] Properly configure Gems to hide depending on the area level.
 - [ ] Find a way to automate the inclusion of important uniques/bases based on
       a market API.
