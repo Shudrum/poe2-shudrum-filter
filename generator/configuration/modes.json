@@ -11,5 +11,5 @@
   "GoldMinimumDisplayedAmount": [50, 100, 250, { "label": "Gold starting value", "order": 1 }],
   "GoldCeilingDisplaySizeAmount": [1000, 2000, 3000],
   "RunesDisplayBasic": [true, true, false, { "label": "Basic runes" }],
-  "WaystonesHideStartingLevelGap": [6, 4, 2, { "label": "Waystones maximum gap" }]
+  "WaystonesHideStartingLevelGap": [6, 4, 2, { "label": "Waystones maximum gap", "order": 2 }]
 }
