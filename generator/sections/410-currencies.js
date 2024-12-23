@@ -123,6 +123,7 @@ export default ({ modeId }) => {
   section.addBlock({
     class: 'Currency',
     type: [
+      'Orb of Chance',
       'Divine Orb',
       'Mirror',
       'Greater Jeweller\'s Orb',
