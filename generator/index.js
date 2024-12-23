@@ -9,6 +9,8 @@ import { global } from './configuration/index.js';
 import { Filter } from './entities/filter/index.js';
 import loadSections from './sections/index.js';
 
+import './tools/debug.js';
+
 if (process.env.NODE_ENV === 'development') {
   console.clear();
 }
