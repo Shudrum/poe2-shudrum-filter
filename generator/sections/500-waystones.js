@@ -1,8 +1,5 @@
 import { Section } from '../entities/filter/index.js';
-import MapIcon from '../entities/map-icon.js';
-import Effect from '../entities/effect.js';
-import Sound from '../entities/sound.js';
-import Card from '../entities/card.js';
+import { Card, Effect, MapIcon, Sound } from '../entities/generators/index.js';
 import { global, modes } from '../configuration/index.js';
 
 export default ({ modeId }) => {

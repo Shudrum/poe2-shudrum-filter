@@ -1,6 +1,6 @@
 import { Section } from '../entities/filter/index.js';
 import { global, modes } from '../configuration/index.js';
-import Card from '../entities/card.js';
+import { Card } from '../entities/generators/index.js';
 
 export default ({ modeId }) => {
   const section = Section('Amulets, rings & belts');

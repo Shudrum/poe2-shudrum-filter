@@ -1,6 +1,6 @@
-import hexToRgba from '../tools/hex-to-rgba.js';
-import hexToFilterColor from '../tools/hex-to-filter-color.js';
-import { global, themes } from '../configuration/index.js';
+import hexToRgba from '../../tools/hex-to-rgba.js';
+import hexToFilterColor from '../../tools/hex-to-filter-color.js';
+import { global, themes } from '../../configuration/index.js';
 
 export default function Card(...args) {
   let theme = Card.THEMES.NORMAL;
