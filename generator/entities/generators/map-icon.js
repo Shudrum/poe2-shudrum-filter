@@ -19,6 +19,9 @@ export default function MapIcon(...args) {
   });
 
   const instance = {
+    [Symbol.for('nodejs.util.inspect.custom')]() {
+      return { size, color, shape, disabled };
+    },
     toText() {
       if (disabled) {
         return 'MinimapIcon -1';

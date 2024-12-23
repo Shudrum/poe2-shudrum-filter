@@ -1,20 +1,23 @@
 export default function Sound(...args) {
   let sound = Sound.TYPES.IMPORTANCE_3;
-  let disable = false;
+  let disabled = false;
 
   args.forEach((value) => {
     if (Object.values(Sound.TYPES).includes(value)) {
       sound = value;
     } else if (value === Sound.NONE) {
-      disable = true;
+      disabled = true;
     } else {
       throw new Error(`Invalid Sound argument: ${value}`);
     }
   });
 
   const instance = {
+    [Symbol.for('nodejs.util.inspect.custom')]() {
+      return { sound, disabled };
+    },
     toText() {
-      if (disable) {
+      if (disabled) {
         return 'PlayAlertSound None';
       }
       return `PlayAlertSound ${sound} 300`;
