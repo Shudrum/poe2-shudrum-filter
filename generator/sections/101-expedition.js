@@ -10,7 +10,7 @@ export default () => {
   section.addBlock({
     class: 'Currency',
     type: 'Artifact',
-    card: new Card(Card.THEMES.EXPEDITIONS, Card.TYPES.OUTLINE, Card.SIZES.MEDIUM),
+    card: Card(Card.THEMES.EXPEDITIONS, Card.TYPES.OUTLINE, Card.SIZES.MEDIUM),
     icon: new MapIcon(
       MapIcon.SIZES.SMALL,
       MapIcon.COLORS.CYAN,
@@ -23,7 +23,7 @@ export default () => {
   section.addBlock({
     class: 'Currency',
     type: 'Exotic Coinage',
-    card: new Card(Card.THEMES.EXPEDITIONS, Card.TYPES.IMPORTANT, Card.SIZES.BIG),
+    card: Card(Card.THEMES.EXPEDITIONS, Card.TYPES.IMPORTANT, Card.SIZES.BIG),
     icon: new MapIcon(
       MapIcon.SIZES.BIG,
       MapIcon.COLORS.CYAN,

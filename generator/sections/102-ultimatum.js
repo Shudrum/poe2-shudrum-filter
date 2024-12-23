@@ -9,7 +9,7 @@ export default () => {
 
   section.addBlock({
     type: 'Ultimatum',
-    card: new Card(Card.THEMES.EVENTS, Card.TYPES.IMPORTANT, Card.SIZES.BIG),
+    card: Card(Card.THEMES.EVENTS, Card.TYPES.IMPORTANT, Card.SIZES.BIG),
     icon: new MapIcon(
       MapIcon.SIZES.MEDIUM,
       MapIcon.COLORS.PURPLE,

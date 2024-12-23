@@ -13,14 +13,14 @@ export default ({ modeId }) => {
   section.addBlock({
     ...common,
     areaLevel: `< ${global.startingAreaLevel}`,
-    card: new Card(Card.SIZES.SMALL, Card.THEMES.GOLD),
+    card: Card(Card.SIZES.SMALL, Card.THEMES.GOLD),
   });
 
   section.addBlock({
     ...common,
     areaLevel: `>= ${global.startingAreaLevel}`,
     stackSize: `< ${modes.GoldMinimumDisplayedAmount[modeId]}`,
-    card: new Card(Card.SIZES.VALUE_15, Card.THEMES.GOLD),
+    card: Card(Card.SIZES.VALUE_15, Card.THEMES.GOLD),
   });
 
   function generateValues(from, to) {
@@ -38,8 +38,8 @@ export default ({ modeId }) => {
       areaLevel: `>= ${global.startingAreaLevel}`,
       stackSize: `>= ${stackSize}`,
       ...i === 5
-        ? { card: new Card(20 + i * 5, Card.THEMES.GOLD) }
-        : { card: new Card(20 + i * 5, Card.THEMES.GOLD, Card.TYPES.OUTLINE) },
+        ? { card: Card(20 + i * 5, Card.THEMES.GOLD) }
+        : { card: Card(20 + i * 5, Card.THEMES.GOLD, Card.TYPES.OUTLINE) },
     });
   });
 

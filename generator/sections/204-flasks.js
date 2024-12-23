@@ -10,7 +10,7 @@ export default ({ modeId }) => {
   const common = {
     type: 'Flask',
     rarity: '<= Magic',
-    card: new Card(Card.THEMES.FLASKS, Card.SIZES.MEDIUM, Card.TYPES.OUTLINE),
+    card: Card(Card.THEMES.FLASKS, Card.SIZES.MEDIUM, Card.TYPES.OUTLINE),
   };
 
   section.addBlock({

@@ -15,7 +15,7 @@ export default ({ modeId }) => {
       waystoneTier: `>= ${waystoneTier}`,
       sound: new Sound(Sound.TYPES.WAYSTONE),
       effect: new Effect(Effect.COLORS.WHITE),
-      card: new Card(Card.THEMES.WAYSTONES, Card.SIZES.BIG, Card.TYPES.IMPORTANT),
+      card: Card(Card.THEMES.WAYSTONES, Card.SIZES.BIG, Card.TYPES.IMPORTANT),
       icon: new MapIcon(
         MapIcon.SIZES.BIG,
         MapIcon.COLORS.WHITE,
@@ -29,7 +29,7 @@ export default ({ modeId }) => {
         visible: false,
         areaLevel: `== ${global.startingAreaLevel + (waystoneTier - 1)}`,
         waystoneTier: `<= ${waystoneTier - modes.WaystonesHideStartingLevelGap[modeId]}`,
-        card: new Card(Card.THEMES.WAYSTONES, Card.SIZES.SMALL, Card.TYPES.OUTLINE),
+        card: Card(Card.THEMES.WAYSTONES, Card.SIZES.SMALL, Card.TYPES.OUTLINE),
       });
     }
 
@@ -38,7 +38,7 @@ export default ({ modeId }) => {
         class: 'Waystone',
         areaLevel: `== ${global.startingAreaLevel + (waystoneTier - 1)}`,
         waystoneTier: `< ${waystoneTier}`,
-        card: new Card(Card.THEMES.WAYSTONES, Card.SIZES.MEDIUM, Card.TYPES.OUTLINE),
+        card: Card(Card.THEMES.WAYSTONES, Card.SIZES.MEDIUM, Card.TYPES.OUTLINE),
         effect: new Effect(Effect.COLORS.WHITE, Effect.TEMPORARY),
         icon: new MapIcon(
           MapIcon.SIZES.MEDIUM,
@@ -62,7 +62,7 @@ export default ({ modeId }) => {
       'Expedition Logbook',
       'Test of',
     ],
-    card: new Card(Card.THEMES.TABLETS, Card.TYPES.IMPORTANT, Card.SIZES.BIG),
+    card: Card(Card.THEMES.TABLETS, Card.TYPES.IMPORTANT, Card.SIZES.BIG),
     sound: new Sound(Sound.TYPES.IMPORTANCE_2),
     effect: new Effect(Effect.COLORS.PURPLE),
   });

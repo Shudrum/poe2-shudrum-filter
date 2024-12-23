@@ -9,7 +9,7 @@ export default ({ modeId }) => {
 
   const common = {
     class: 'Charm',
-    card: new Card(Card.THEMES.CHARMS, Card.SIZES.MEDIUM, Card.TYPES.OUTLINE),
+    card: Card(Card.THEMES.CHARMS, Card.SIZES.MEDIUM, Card.TYPES.OUTLINE),
   };
 
   if (modes.CharmsDisplay[modeId]) {

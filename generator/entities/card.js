@@ -2,32 +2,30 @@ import hexToRgba from '../tools/hex-to-rgba.js';
 import hexToFilterColor from '../tools/hex-to-filter-color.js';
 import { global, themes } from '../configuration/index.js';
 
-export default class Card {
-  #theme = Card.THEMES.NORMAL;
-  #type = Card.TYPES.NORMAL;
-  #size = Card.SIZES.MEDIUM;
+export default function Card(...args) {
+  let theme = Card.THEMES.NORMAL;
+  let type = Card.TYPES.NORMAL;
+  let size = Card.SIZES.MEDIUM;
 
-  constructor(...args) {
-    args.forEach((value) => {
-      if (Object.values(Card.TYPES).includes(value)) {
-        this.#type = value;
-      } else if (Object.values(Card.SIZES).includes(value)) {
-        this.#size = value;
-      } else if (Object.values(Card.THEMES).includes(value)) {
-        this.#theme = value;
-      } else if (Object.keys(value).includes('FULL') && Object.keys(value).includes('TEXT')) {
-        this.#theme = value;
-      } else {
-        throw new Error(`Invalid MapIcon argument: ${value}`);
-      }
-    });
-  }
+  args.forEach((value) => {
+    if (Object.values(Card.TYPES).includes(value)) {
+      type = value;
+    } else if (Object.values(Card.SIZES).includes(value)) {
+      size = value;
+    } else if (Object.values(Card.THEMES).includes(value)) {
+      theme = value;
+    } else if (Object.keys(value).includes('FULL') && Object.keys(value).includes('TEXT')) {
+      theme = value;
+    } else {
+      throw new Error(`Invalid Card argument: ${value}`);
+    }
+  });
 
-  color(theme, type) {
+  function color(theme, type) {
     return hexToFilterColor(themes[theme][type === 'light' ? 1 : 0]);
   }
 
-  getTextColor(backgroundHex) {
+  function getTextColor(backgroundHex) {
     const { r, g, b } = hexToRgba(backgroundHex);
 
     const linearR = r / 255 <= 0.03928 ? r / 255 / 12.92 : Math.pow((r / 255 + 0.055) / 1.055, 2.4);
@@ -41,31 +39,35 @@ export default class Card {
       : hexToFilterColor(global.primaryColors.white);
   }
 
-  toString() {
-    switch (this.#type) {
-      case Card.TYPES.NORMAL:
-        return [
-          `SetTextColor ${this.color(this.#theme, 'light')}`,
-          `SetBorderColor ${hexToFilterColor('0000')}`,
-          `SetBackgroundColor ${hexToFilterColor(global.defaultTransparency)}`,
-          `SetFontSize ${this.#size}`,
-        ].join('\n');
-      case Card.TYPES.OUTLINE:
-        return [
-          `SetTextColor ${this.color(this.#theme, 'light')}`,
-          `SetBorderColor ${this.color(this.#theme, 'light')}`,
-          `SetBackgroundColor ${hexToFilterColor(global.defaultTransparency)}`,
-          `SetFontSize ${this.#size}`,
-        ].join('\n');
-      case Card.TYPES.IMPORTANT:
-        return [
-          `SetTextColor ${this.getTextColor(themes[this.#theme][0])}`,
-          `SetBorderColor ${this.color(this.#theme, 'normal')}`,
-          `SetBackgroundColor ${this.color(this.#theme, 'normal')}`,
-          `SetFontSize ${this.#size}`,
-        ].join('\n');
-    }
-  }
+  const instance = {
+    toString() {
+      switch (type) {
+        case Card.TYPES.NORMAL:
+          return [
+            `SetTextColor ${color(theme, 'light')}`,
+            `SetBorderColor ${hexToFilterColor('0000')}`,
+            `SetBackgroundColor ${hexToFilterColor(global.defaultTransparency)}`,
+            `SetFontSize ${size}`,
+          ].join('\n');
+        case Card.TYPES.OUTLINE:
+          return [
+            `SetTextColor ${color(theme, 'light')}`,
+            `SetBorderColor ${color(theme, 'light')}`,
+            `SetBackgroundColor ${hexToFilterColor(global.defaultTransparency)}`,
+            `SetFontSize ${size}`,
+          ].join('\n');
+        case Card.TYPES.IMPORTANT:
+          return [
+            `SetTextColor ${getTextColor(themes[theme][0])}`,
+            `SetBorderColor ${color(theme, 'normal')}`,
+            `SetBackgroundColor ${color(theme, 'normal')}`,
+            `SetFontSize ${size}`,
+          ].join('\n');
+      }
+    },
+  };
+
+  return instance;
 }
 
 Card.THEMES = {

@@ -9,7 +9,7 @@ export default ({ modeId }) => {
 
   const common = {
     type: 'Rune',
-    card: new Card(Card.THEMES.RUNES, Card.SIZES.MEDIUM, Card.TYPES.OUTLINE),
+    card: Card(Card.THEMES.RUNES, Card.SIZES.MEDIUM, Card.TYPES.OUTLINE),
     areaLevel: `>= ${global.startingAreaLevel}`,
   };
 

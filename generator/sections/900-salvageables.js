@@ -9,7 +9,7 @@ export default ({ modeId }) => {
   const common = {
     areaLevel: `>= ${global.startingAreaLevel}`,
     rarity: '<= Rare',
-    card: new Card(Card.THEMES.CURRENCY, Card.TYPES.OUTLINE, Card.SIZES.MEDIUM),
+    card: Card(Card.THEMES.CURRENCY, Card.TYPES.OUTLINE, Card.SIZES.MEDIUM),
     icon: new MapIcon(
       MapIcon.SIZES.SMALL,
       MapIcon.COLORS.GREY,

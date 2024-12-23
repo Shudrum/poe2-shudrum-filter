@@ -12,7 +12,7 @@ export default () => {
 
   section.addBlock({
     areaLevel: `>= ${global.startingAreaLevel}`,
-    card: new Card(Card.SIZES.BIG, Card.TYPES.IMPORTANT, Card.THEMES.ALERT),
+    card: Card(Card.SIZES.BIG, Card.TYPES.IMPORTANT, Card.THEMES.ALERT),
     effect: new Effect(Effect.COLORS.GREEN),
     sound: new Sound(Sound.TYPES.VIBRANT_2),
     icon: new MapIcon(MapIcon.COLORS.PINK, MapIcon.SIZES.MEDIUM, MapIcon.SHAPES.UPSIDE_DOWN_HOUSE),

@@ -9,7 +9,7 @@ export default () => {
 
   section.addBlock({
     rarity: 'Unique',
-    card: new Card(
+    card: Card(
       Card.THEMES.UNIQUES,
       Card.TYPES.IMPORTANT,
       Card.SIZES.BIG,

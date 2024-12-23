@@ -9,7 +9,7 @@ export default () => {
   section.addBlock({
     class: 'Jewel',
     rarity: '<= Rare',
-    card: new Card(Card.THEMES.JEWELS, Card.SIZES.BIG, Card.TYPES.OUTLINE),
+    card: Card(Card.THEMES.JEWELS, Card.SIZES.BIG, Card.TYPES.OUTLINE),
     icon: new MapIcon(
       MapIcon.SIZES.MEDIUM,
       MapIcon.COLORS.GREEN,

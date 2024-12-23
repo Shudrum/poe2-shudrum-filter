@@ -10,7 +10,7 @@ export default () => {
   // TODO: Spirit, Uncut and Skill gems should have a different display.
   section.addBlock({
     type: ['Uncut Spirit Gem', 'Uncut Support Gem', 'Uncut Skill Gem'],
-    card: new Card(Card.THEMES.GEMS, Card.SIZES.MEDIUM, Card.TYPES.IMPORTANT),
+    card: Card(Card.THEMES.GEMS, Card.SIZES.MEDIUM, Card.TYPES.IMPORTANT),
     icon: new MapIcon(
       MapIcon.SIZES.BIG,
       MapIcon.COLORS.CYAN,
@@ -26,7 +26,7 @@ export default () => {
     visible: false,
     areaLevel: '>= 70',
     itemLevel: '<= 16',
-    card: new Card(Card.THEMES.GEMS, Card.SIZES.MEDIUM, Card.TYPES.IMPORTANT),
+    card: Card(Card.THEMES.GEMS, Card.SIZES.MEDIUM, Card.TYPES.IMPORTANT),
   });
 
   return section;

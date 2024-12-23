@@ -10,7 +10,7 @@ export default () => {
   // Baryas and keys are important
 
   const important = {
-    card: new Card(Card.THEMES.EVENTS, Card.TYPES.IMPORTANT, Card.SIZES.BIG),
+    card: Card(Card.THEMES.EVENTS, Card.TYPES.IMPORTANT, Card.SIZES.BIG),
     effect: new Effect(Effect.COLORS.PURPLE),
     sound: new Sound(Sound.TYPES.IMPORTANCE_7),
   };
@@ -31,7 +31,7 @@ export default () => {
 
   section.addBlock({
     class: 'Relic',
-    card: new Card(Card.THEMES.EVENTS, Card.TYPES.OUTLINE, Card.SIZES.BIG),
+    card: Card(Card.THEMES.EVENTS, Card.TYPES.OUTLINE, Card.SIZES.BIG),
     effect: new Effect(Effect.COLORS.PURPLE),
     icon: new MapIcon(MapIcon.SIZES.MEDIUM, MapIcon.COLORS.PURPLE, MapIcon.SHAPES.DIAMOND),
     sound: new Sound(Sound.TYPES.IMPORTANCE_8),

@@ -13,7 +13,7 @@ export default ({ modeId }) => {
   //
 
   const shard = {
-    card: new Card(Card.THEMES.CURRENCY, Card.TYPES.OUTLINE, Card.SIZES.MEDIUM),
+    card: Card(Card.THEMES.CURRENCY, Card.TYPES.OUTLINE, Card.SIZES.MEDIUM),
     effects: {
       sound: new Sound(Sound.TYPES.IMPORTANCE_8),
       effect: new Effect(Effect.COLORS.YELLOW, Effect.TEMPORARY),
@@ -83,7 +83,7 @@ export default ({ modeId }) => {
       'Exalted Orb',
       'Vaal Orb',
     ],
-    card: new Card(Card.THEMES.CURRENCY, Card.TYPES.OUTLINE, Card.SIZES.BIG),
+    card: Card(Card.THEMES.CURRENCY, Card.TYPES.OUTLINE, Card.SIZES.BIG),
     sound: new Sound(Sound.TYPES.IMPORTANCE_2),
     icon: new MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.STAR),
   });
@@ -96,7 +96,7 @@ export default ({ modeId }) => {
       'Greater Jeweller\'s Orb',
       'Perfect Jeweller\'s Orb',
     ],
-    card: new Card(Card.THEMES.ALERT, Card.SIZES.BIG, Card.TYPES.IMPORTANT),
+    card: Card(Card.THEMES.ALERT, Card.SIZES.BIG, Card.TYPES.IMPORTANT),
     effect: new Effect(Effect.COLORS.RED),
     sound: new Sound(Sound.TYPES.IMPORTANCE_1),
     icon: new MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.RED, MapIcon.SHAPES.STAR),
@@ -106,7 +106,7 @@ export default ({ modeId }) => {
 
   section.addBlock({
     class: 'Currency',
-    card: new Card(Card.THEMES.CURRENCY, Card.TYPES.IMPORTANT, Card.SIZES.MEDIUM),
+    card: Card(Card.THEMES.CURRENCY, Card.TYPES.IMPORTANT, Card.SIZES.MEDIUM),
     sound: new Sound(Sound.TYPES.IMPORTANCE_4),
     effect: new Effect(Effect.COLORS.YELLOW),
     icon: new MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.STAR),
