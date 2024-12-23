@@ -1,85 +1,71 @@
 import { pascalCase } from 'change-case';
 
-export default class Bloc {
-  #attributes;
+const PASCAL_CASE_VALUES = [
+  'areaLevel',
+  'itemLevel',
+  'stackSize',
+  'rarity',
+  'quality',
+  'waystoneTier',
+  'setFontSize',
+  'sockets',
+];
 
-  constructor(attributes) {
-    this.#attributes = attributes || {};
+const TO_STRING_VALUES = [
+  'card',
+  'icon',
+  'effect',
+  'sound',
+];
+
+export default function Block(definition) {
+  function arrayToList(array) {
+    return array.map((entry) => `"${entry}"`).join(' ');
   }
 
-  get class() {
-    if (!this.#attributes.class) return [];
-
-    return Array.isArray(this.#attributes.class)
-      ? this.#attributes.class
-      : [this.#attributes.class];
+  function ensureArray(key) {
+    if (!definition[key] || Array.isArray(definition[key])) return;
+    definition[key] = [definition[key]];
   }
 
-  get type() {
-    if (!this.#attributes.type) return [];
-
-    return Array.isArray(this.#attributes.type)
-      ? this.#attributes.type
-      : [this.#attributes.type];
-  }
-
-  generate() {
-    const attributes = { ...this.#attributes };
-
-    let visible = true;
-    if (Object.keys(attributes).includes('visible')) {
-      visible = Boolean(attributes.visible);
-      delete attributes.visible;
+  function getKeyValue(key) {
+    if (PASCAL_CASE_VALUES.includes(key)) {
+      return `${pascalCase(key)} ${definition[key]}`;
     }
 
-    const rows = Object.entries(attributes).reduce((prev, [key, value]) => {
-      const getValue = () => {
-        switch (key) {
-          // Exact names
-          case 'areaLevel':
-          case 'itemLevel':
-          case 'stackSize':
-          case 'rarity':
-          case 'quality':
-          case 'waystoneTier':
-          case 'setFontSize':
-          case 'sockets':
-            return `${pascalCase(key)} ${value}`;
+    if (TO_STRING_VALUES.includes(key)) {
+      return `${definition[key]}`;
+    }
 
-          // Conditions
-          case 'class':
-            return `Class ${this.class.map((currentClass) => `"${currentClass}"`).join(' ')}`;
-          case 'type':
-            return `BaseType ${this.type.map((baseType) => `"${baseType}"`).join(' ')}`;
+    if (key === 'class') return `Class ${arrayToList(definition[key])}`;
+    if (key === 'type') return `BaseType ${arrayToList(definition[key])}`;
 
-          // Actions
-          case 'font':
-            return `SetFontSize ${Math.max(20, Math.min(value, 45))}`;
-          case 'text':
-            return `SetTextColor ${value}`;
-          case 'border':
-            return `SetBorderColor ${value}`;
-          case 'background':
-            return `SetBackgroundColor ${value}`;
-          case 'card':
-          case 'icon':
-          case 'effect':
-          case 'sound':
-            return `${value}`;
-
-          default:
-            throw new Error(`Unknown key: "${key}"`);
-        }
-      };
-
-      return [...prev, ...getValue().split('\n')];
-    }, [])
-      .filter(Boolean)
-      .map((row) => `  ${row}`);
-
-    return [
-      visible ? 'Show' : 'Hide',
-      ...rows,
-    ].filter(Boolean);
+    throw new Error(`Unknown key: "${key}"`);
   }
+
+  ensureArray('class');
+  ensureArray('type');
+
+  const visible = typeof definition.visible === Boolean
+    ? definition.visible
+    : true;
+
+  delete definition.visible;
+
+  const instance = {
+    generate() {
+      const rows = Object.keys(definition).reduce((prev, key) => {
+        return [...prev, ...getKeyValue(key).split('\n')];
+      }, [])
+        .filter(Boolean)
+        .map((row) => `  ${row}`);
+
+      return [
+        visible ? 'Show' : 'Hide',
+        ...rows,
+      ].filter(Boolean);
+    },
+  };
+
+  return instance;
 }

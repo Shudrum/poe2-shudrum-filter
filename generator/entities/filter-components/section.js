@@ -22,6 +22,6 @@ export default class Section {
   }
 
   addBlock(blocDefinition) {
-    this.#blocks.push(new Block(blocDefinition));
+    this.#blocks.push(Block(blocDefinition));
   }
 }

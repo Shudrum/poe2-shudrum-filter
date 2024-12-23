@@ -1,6 +1,8 @@
 import Section from '../entities/filter-components/section.js';
 import Sound from '../entities/sound.js';
 import MapIcon from '../entities/map-icon.js';
+import Card from '../entities/card.js';
+import Effect from '../entities/effect.js';
 import { global } from '../configuration/index.js';
 
 export default () => {
@@ -10,16 +12,10 @@ export default () => {
 
   section.addBlock({
     areaLevel: `>= ${global.startingAreaLevel}`,
-    font: 40,
-    text: '255 0 0',
-    background: '0 0 255',
-    border: '0 255 0',
+    card: new Card(Card.SIZES.BIG, Card.TYPES.IMPORTANT, Card.THEMES.ALERT),
+    effect: new Effect(Effect.COLORS.GREEN),
     sound: new Sound(Sound.TYPES.VIBRANT_2),
-    icon: new MapIcon(
-      MapIcon.COLORS.PINK,
-      MapIcon.SIZES.MEDIUM,
-      MapIcon.SHAPES.UPSIDE_DOWN_HOUSE,
-    ),
+    icon: new MapIcon(MapIcon.COLORS.PINK, MapIcon.SIZES.MEDIUM, MapIcon.SHAPES.UPSIDE_DOWN_HOUSE),
   });
 
   return section;
