@@ -55,6 +55,14 @@ export default function Block(definition) {
   delete updatedDefinition.visible;
 
   const instance = {
+    [Symbol.for('nodejs.util.inspect.custom')]() {
+      return {
+        entity: 'Block',
+        definition,
+        updatedDefinition,
+        generatedText: instance.generate().join('\n'),
+      };
+    },
     generate() {
       const rows = Object.keys(updatedDefinition).reduce((prev, key) => {
         return [...prev, ...getKeyValue(key).split('\n')];
@@ -66,14 +74,6 @@ export default function Block(definition) {
         visible ? 'Show' : 'Hide',
         ...rows,
       ].filter(Boolean);
-    },
-    debug() {
-      return {
-        type: 'Block',
-        sourceDefinition: definition,
-        updatedDefinition,
-        generatedText: instance.generate(),
-      };
     },
   };
 
