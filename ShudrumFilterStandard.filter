@@ -145,14 +145,28 @@ Show
   PlayAlertSound 3 300
 
 #
+# EVENT: BREACH
+#
+
+Show
+  BaseType "Breach"
+  SetTextColor 200 200 200
+  SetBorderColor 144 82 215
+  SetBackgroundColor 144 82 215
+  SetFontSize 35
+  MinimapIcon 1 Purple Kite
+  PlayEffect Purple
+  PlayAlertSound 10 300
+
+#
 # UNIQUES
 #
 
 Show
   Rarity Unique
-  SetTextColor 200 200 200
-  SetBorderColor 175 96 37
-  SetBackgroundColor 175 96 37
+  SetTextColor 0 0 0
+  SetBorderColor 239 105 22
+  SetBackgroundColor 239 105 22
   SetFontSize 45
   MinimapIcon 0 Brown Star
   PlayEffect Brown
@@ -246,8 +260,8 @@ Show
 
 Show
   BaseType "Uncut Support Gem"
-  SetTextColor 27 162 155
-  SetBorderColor 27 162 155
+  SetTextColor 115 200 189
+  SetBorderColor 115 200 189
   SetBackgroundColor 0 0 0 224
   SetFontSize 35
   MinimapIcon 2 Cyan Circle
@@ -257,8 +271,8 @@ Show
 Show
   BaseType "Uncut Spirit Gem"
   SetTextColor 0 0 0
-  SetBorderColor 27 162 155
-  SetBackgroundColor 27 162 155
+  SetBorderColor 0 0 0}
+  SetBackgroundColor 115 200 189
   SetFontSize 45
   MinimapIcon 0 Cyan Circle
   PlayEffect Cyan
@@ -267,8 +281,8 @@ Show
 Show
   BaseType "Uncut Skill Gem"
   SetTextColor 0 0 0
-  SetBorderColor 27 162 155
-  SetBackgroundColor 27 162 155
+  SetBorderColor 115 200 189
+  SetBackgroundColor 115 200 189
   SetFontSize 35
   MinimapIcon 0 Cyan Circle
   PlayEffect Cyan
@@ -279,8 +293,8 @@ Hide
   AreaLevel >= 70
   ItemLevel <= 16
   SetTextColor 0 0 0
-  SetBorderColor 27 162 155
-  SetBackgroundColor 27 162 155
+  SetBorderColor 115 200 189
+  SetBackgroundColor 115 200 189
   SetFontSize 35
 
 #
@@ -402,7 +416,7 @@ Show
   SetBorderColor 170 158 130
   SetBackgroundColor 0 0 0 224
   SetFontSize 35
-  PlayAlertSound 16 300
+  PlayAlertSound 11 300
   PlayEffect Yellow Temp
   MinimapIcon 2 Yellow Cross
 
@@ -417,12 +431,18 @@ Show
 Show
   Class "Currency"
   BaseType "Arcanist's Etcher" "Armourer's Scrap" "Blacksmith's Whetstone" "Artificer's Orb"
-  PlayAlertSound 3 300
-  MinimapIcon 2 Yellow Circle
+  PlayAlertSound 11 300
+  PlayEffect Yellow Temp
+  MinimapIcon 2 Yellow Cross
 
 Show
   Class "Currency"
   BaseType "Lesser Jeweller's Orb" "Gemcutter's Prism" "Glassblower's Bauble"
+  SetTextColor 0 0 0
+  SetBorderColor 170 158 130
+  SetBackgroundColor 170 158 130
+  SetFontSize 35
+  PlayEffect Yellow
   PlayAlertSound 10 300
   MinimapIcon 0 Yellow Cross
 
@@ -442,7 +462,7 @@ Show
   BaseType "Regal Orb" "Chaos Orb" "Exalted Orb" "Vaal Orb"
   PlayEffect Yellow
   SetTextColor 0 0 0
-  SetBorderColor 170 158 130
+  SetBorderColor 0 0 0}
   SetBackgroundColor 170 158 130
   SetFontSize 45
   PlayAlertSound 5 300
@@ -450,9 +470,9 @@ Show
 
 Show
   Class "Currency"
-  BaseType "Divine Orb" "Mirror" "Greater Jeweller's Orb" "Perfect Jeweller's Orb"
+  BaseType "Orb of Chance" "Divine Orb" "Mirror" "Greater Jeweller's Orb" "Perfect Jeweller's Orb"
   SetTextColor 200 200 200
-  SetBorderColor 177 15 15
+  SetBorderColor 200 200 200}
   SetBackgroundColor 177 15 15
   SetFontSize 45
   PlayEffect Red
@@ -465,7 +485,7 @@ Show
   SetBorderColor 170 158 130
   SetBackgroundColor 170 158 130
   SetFontSize 35
-  PlayAlertSound 4 300
+  PlayAlertSound 11 300
   PlayEffect Yellow
   MinimapIcon 0 Yellow Star
 
@@ -475,12 +495,24 @@ Show
 
 Show
   Class "Waystone"
-  AreaLevel == 65
-  WaystoneTier >= 1
-  PlayAlertSound 11 300
+  AreaLevel == 64
+  WaystoneTier >= 0
+  PlayAlertSound 4 300
   PlayEffect White
   SetTextColor 200 200 200
-  SetBorderColor 74 68 58
+  SetBorderColor 200 200 200}
+  SetBackgroundColor 74 68 58
+  SetFontSize 45
+  MinimapIcon 0 White Square
+
+Show
+  Class "Waystone"
+  AreaLevel == 65
+  WaystoneTier >= 1
+  PlayAlertSound 4 300
+  PlayEffect White
+  SetTextColor 200 200 200
+  SetBorderColor 200 200 200}
   SetBackgroundColor 74 68 58
   SetFontSize 45
   MinimapIcon 0 White Square
@@ -489,33 +521,22 @@ Show
   Class "Waystone"
   AreaLevel == 66
   WaystoneTier >= 2
-  PlayAlertSound 11 300
+  PlayAlertSound 4 300
   PlayEffect White
   SetTextColor 200 200 200
-  SetBorderColor 74 68 58
+  SetBorderColor 200 200 200}
   SetBackgroundColor 74 68 58
   SetFontSize 45
   MinimapIcon 0 White Square
-
-Show
-  Class "Waystone"
-  AreaLevel == 66
-  WaystoneTier < 2
-  SetTextColor 146 135 135
-  SetBorderColor 146 135 135
-  SetBackgroundColor 0 0 0 224
-  SetFontSize 35
-  PlayEffect White Temp
-  MinimapIcon 1 White Square
 
 Show
   Class "Waystone"
   AreaLevel == 67
   WaystoneTier >= 3
-  PlayAlertSound 11 300
+  PlayAlertSound 4 300
   PlayEffect White
   SetTextColor 200 200 200
-  SetBorderColor 74 68 58
+  SetBorderColor 200 200 200}
   SetBackgroundColor 74 68 58
   SetFontSize 45
   MinimapIcon 0 White Square
@@ -523,22 +544,23 @@ Show
 Show
   Class "Waystone"
   AreaLevel == 67
-  WaystoneTier < 3
-  SetTextColor 146 135 135
-  SetBorderColor 146 135 135
-  SetBackgroundColor 0 0 0 224
+  WaystoneTier >= 1
+  PlayAlertSound 4 300
+  PlayEffect White
+  SetTextColor 200 200 200
+  SetBorderColor 74 68 58
+  SetBackgroundColor 74 68 58
   SetFontSize 35
-  PlayEffect White Temp
   MinimapIcon 1 White Square
 
 Show
   Class "Waystone"
   AreaLevel == 68
   WaystoneTier >= 4
-  PlayAlertSound 11 300
+  PlayAlertSound 4 300
   PlayEffect White
   SetTextColor 200 200 200
-  SetBorderColor 74 68 58
+  SetBorderColor 200 200 200}
   SetBackgroundColor 74 68 58
   SetFontSize 45
   MinimapIcon 0 White Square
@@ -546,22 +568,23 @@ Show
 Show
   Class "Waystone"
   AreaLevel == 68
-  WaystoneTier < 4
-  SetTextColor 146 135 135
-  SetBorderColor 146 135 135
-  SetBackgroundColor 0 0 0 224
+  WaystoneTier >= 2
+  PlayAlertSound 4 300
+  PlayEffect White
+  SetTextColor 200 200 200
+  SetBorderColor 74 68 58
+  SetBackgroundColor 74 68 58
   SetFontSize 35
-  PlayEffect White Temp
   MinimapIcon 1 White Square
 
 Show
   Class "Waystone"
   AreaLevel == 69
   WaystoneTier >= 5
-  PlayAlertSound 11 300
+  PlayAlertSound 4 300
   PlayEffect White
   SetTextColor 200 200 200
-  SetBorderColor 74 68 58
+  SetBorderColor 200 200 200}
   SetBackgroundColor 74 68 58
   SetFontSize 45
   MinimapIcon 0 White Square
@@ -569,22 +592,23 @@ Show
 Show
   Class "Waystone"
   AreaLevel == 69
-  WaystoneTier < 5
-  SetTextColor 146 135 135
-  SetBorderColor 146 135 135
-  SetBackgroundColor 0 0 0 224
+  WaystoneTier >= 3
+  PlayAlertSound 4 300
+  PlayEffect White
+  SetTextColor 200 200 200
+  SetBorderColor 74 68 58
+  SetBackgroundColor 74 68 58
   SetFontSize 35
-  PlayEffect White Temp
   MinimapIcon 1 White Square
 
 Show
   Class "Waystone"
   AreaLevel == 70
   WaystoneTier >= 6
-  PlayAlertSound 11 300
+  PlayAlertSound 4 300
   PlayEffect White
   SetTextColor 200 200 200
-  SetBorderColor 74 68 58
+  SetBorderColor 200 200 200}
   SetBackgroundColor 74 68 58
   SetFontSize 45
   MinimapIcon 0 White Square
@@ -592,461 +616,464 @@ Show
 Show
   Class "Waystone"
   AreaLevel == 70
-  WaystoneTier < 6
-  SetTextColor 146 135 135
-  SetBorderColor 146 135 135
-  SetBackgroundColor 0 0 0 224
+  WaystoneTier >= 4
+  PlayAlertSound 4 300
+  PlayEffect White
+  SetTextColor 200 200 200
+  SetBorderColor 74 68 58
+  SetBackgroundColor 74 68 58
   SetFontSize 35
-  PlayEffect White Temp
   MinimapIcon 1 White Square
 
 Show
   Class "Waystone"
   AreaLevel == 71
   WaystoneTier >= 7
-  PlayAlertSound 11 300
+  PlayAlertSound 4 300
   PlayEffect White
   SetTextColor 200 200 200
-  SetBorderColor 74 68 58
+  SetBorderColor 200 200 200}
   SetBackgroundColor 74 68 58
   SetFontSize 45
   MinimapIcon 0 White Square
 
-Hide
+Show
   Class "Waystone"
   AreaLevel == 71
-  WaystoneTier <= 1
-  SetTextColor 146 135 135
-  SetBorderColor 146 135 135
-  SetBackgroundColor 0 0 0 224
-  SetFontSize 25
+  WaystoneTier >= 5
+  PlayAlertSound 4 300
+  PlayEffect White
+  SetTextColor 200 200 200
+  SetBorderColor 74 68 58
+  SetBackgroundColor 74 68 58
+  SetFontSize 35
+  MinimapIcon 1 White Square
 
 Show
   Class "Waystone"
   AreaLevel == 71
-  WaystoneTier < 7
+  WaystoneTier >= 1
   SetTextColor 146 135 135
   SetBorderColor 146 135 135
   SetBackgroundColor 0 0 0 224
-  SetFontSize 35
+  SetFontSize 25
   PlayEffect White Temp
-  MinimapIcon 1 White Square
 
 Show
   Class "Waystone"
   AreaLevel == 72
   WaystoneTier >= 8
-  PlayAlertSound 11 300
+  PlayAlertSound 4 300
   PlayEffect White
   SetTextColor 200 200 200
-  SetBorderColor 74 68 58
+  SetBorderColor 200 200 200}
   SetBackgroundColor 74 68 58
   SetFontSize 45
   MinimapIcon 0 White Square
 
-Hide
+Show
   Class "Waystone"
   AreaLevel == 72
-  WaystoneTier <= 2
-  SetTextColor 146 135 135
-  SetBorderColor 146 135 135
-  SetBackgroundColor 0 0 0 224
-  SetFontSize 25
+  WaystoneTier >= 6
+  PlayAlertSound 4 300
+  PlayEffect White
+  SetTextColor 200 200 200
+  SetBorderColor 74 68 58
+  SetBackgroundColor 74 68 58
+  SetFontSize 35
+  MinimapIcon 1 White Square
 
 Show
   Class "Waystone"
   AreaLevel == 72
-  WaystoneTier < 8
+  WaystoneTier >= 2
   SetTextColor 146 135 135
   SetBorderColor 146 135 135
   SetBackgroundColor 0 0 0 224
-  SetFontSize 35
+  SetFontSize 25
   PlayEffect White Temp
-  MinimapIcon 1 White Square
 
 Show
   Class "Waystone"
   AreaLevel == 73
   WaystoneTier >= 9
-  PlayAlertSound 11 300
+  PlayAlertSound 4 300
   PlayEffect White
   SetTextColor 200 200 200
-  SetBorderColor 74 68 58
+  SetBorderColor 200 200 200}
   SetBackgroundColor 74 68 58
   SetFontSize 45
   MinimapIcon 0 White Square
 
-Hide
+Show
   Class "Waystone"
   AreaLevel == 73
-  WaystoneTier <= 3
-  SetTextColor 146 135 135
-  SetBorderColor 146 135 135
-  SetBackgroundColor 0 0 0 224
-  SetFontSize 25
+  WaystoneTier >= 7
+  PlayAlertSound 4 300
+  PlayEffect White
+  SetTextColor 200 200 200
+  SetBorderColor 74 68 58
+  SetBackgroundColor 74 68 58
+  SetFontSize 35
+  MinimapIcon 1 White Square
 
 Show
   Class "Waystone"
   AreaLevel == 73
-  WaystoneTier < 9
+  WaystoneTier >= 3
   SetTextColor 146 135 135
   SetBorderColor 146 135 135
   SetBackgroundColor 0 0 0 224
-  SetFontSize 35
+  SetFontSize 25
   PlayEffect White Temp
-  MinimapIcon 1 White Square
 
 Show
   Class "Waystone"
   AreaLevel == 74
   WaystoneTier >= 10
-  PlayAlertSound 11 300
+  PlayAlertSound 4 300
   PlayEffect White
   SetTextColor 200 200 200
-  SetBorderColor 74 68 58
+  SetBorderColor 200 200 200}
   SetBackgroundColor 74 68 58
   SetFontSize 45
   MinimapIcon 0 White Square
 
-Hide
+Show
   Class "Waystone"
   AreaLevel == 74
-  WaystoneTier <= 4
-  SetTextColor 146 135 135
-  SetBorderColor 146 135 135
-  SetBackgroundColor 0 0 0 224
-  SetFontSize 25
+  WaystoneTier >= 8
+  PlayAlertSound 4 300
+  PlayEffect White
+  SetTextColor 200 200 200
+  SetBorderColor 74 68 58
+  SetBackgroundColor 74 68 58
+  SetFontSize 35
+  MinimapIcon 1 White Square
 
 Show
   Class "Waystone"
   AreaLevel == 74
-  WaystoneTier < 10
+  WaystoneTier >= 4
   SetTextColor 146 135 135
   SetBorderColor 146 135 135
   SetBackgroundColor 0 0 0 224
-  SetFontSize 35
+  SetFontSize 25
   PlayEffect White Temp
-  MinimapIcon 1 White Square
 
 Show
   Class "Waystone"
   AreaLevel == 75
   WaystoneTier >= 11
-  PlayAlertSound 11 300
+  PlayAlertSound 4 300
   PlayEffect White
   SetTextColor 200 200 200
-  SetBorderColor 74 68 58
+  SetBorderColor 200 200 200}
   SetBackgroundColor 74 68 58
   SetFontSize 45
   MinimapIcon 0 White Square
 
-Hide
+Show
   Class "Waystone"
   AreaLevel == 75
-  WaystoneTier <= 5
-  SetTextColor 146 135 135
-  SetBorderColor 146 135 135
-  SetBackgroundColor 0 0 0 224
-  SetFontSize 25
+  WaystoneTier >= 9
+  PlayAlertSound 4 300
+  PlayEffect White
+  SetTextColor 200 200 200
+  SetBorderColor 74 68 58
+  SetBackgroundColor 74 68 58
+  SetFontSize 35
+  MinimapIcon 1 White Square
 
 Show
   Class "Waystone"
   AreaLevel == 75
-  WaystoneTier < 11
+  WaystoneTier >= 5
   SetTextColor 146 135 135
   SetBorderColor 146 135 135
   SetBackgroundColor 0 0 0 224
-  SetFontSize 35
+  SetFontSize 25
   PlayEffect White Temp
-  MinimapIcon 1 White Square
 
 Show
   Class "Waystone"
   AreaLevel == 76
   WaystoneTier >= 12
-  PlayAlertSound 11 300
+  PlayAlertSound 4 300
   PlayEffect White
   SetTextColor 200 200 200
-  SetBorderColor 74 68 58
+  SetBorderColor 200 200 200}
   SetBackgroundColor 74 68 58
   SetFontSize 45
   MinimapIcon 0 White Square
 
-Hide
+Show
   Class "Waystone"
   AreaLevel == 76
-  WaystoneTier <= 6
-  SetTextColor 146 135 135
-  SetBorderColor 146 135 135
-  SetBackgroundColor 0 0 0 224
-  SetFontSize 25
+  WaystoneTier >= 10
+  PlayAlertSound 4 300
+  PlayEffect White
+  SetTextColor 200 200 200
+  SetBorderColor 74 68 58
+  SetBackgroundColor 74 68 58
+  SetFontSize 35
+  MinimapIcon 1 White Square
 
 Show
   Class "Waystone"
   AreaLevel == 76
-  WaystoneTier < 12
+  WaystoneTier >= 6
   SetTextColor 146 135 135
   SetBorderColor 146 135 135
   SetBackgroundColor 0 0 0 224
-  SetFontSize 35
+  SetFontSize 25
   PlayEffect White Temp
-  MinimapIcon 1 White Square
 
 Show
   Class "Waystone"
   AreaLevel == 77
   WaystoneTier >= 13
-  PlayAlertSound 11 300
+  PlayAlertSound 4 300
   PlayEffect White
   SetTextColor 200 200 200
-  SetBorderColor 74 68 58
+  SetBorderColor 200 200 200}
   SetBackgroundColor 74 68 58
   SetFontSize 45
   MinimapIcon 0 White Square
 
-Hide
+Show
   Class "Waystone"
   AreaLevel == 77
-  WaystoneTier <= 7
-  SetTextColor 146 135 135
-  SetBorderColor 146 135 135
-  SetBackgroundColor 0 0 0 224
-  SetFontSize 25
+  WaystoneTier >= 11
+  PlayAlertSound 4 300
+  PlayEffect White
+  SetTextColor 200 200 200
+  SetBorderColor 74 68 58
+  SetBackgroundColor 74 68 58
+  SetFontSize 35
+  MinimapIcon 1 White Square
 
 Show
   Class "Waystone"
   AreaLevel == 77
-  WaystoneTier < 13
+  WaystoneTier >= 7
   SetTextColor 146 135 135
   SetBorderColor 146 135 135
   SetBackgroundColor 0 0 0 224
-  SetFontSize 35
+  SetFontSize 25
   PlayEffect White Temp
-  MinimapIcon 1 White Square
 
 Show
   Class "Waystone"
   AreaLevel == 78
   WaystoneTier >= 14
-  PlayAlertSound 11 300
+  PlayAlertSound 4 300
   PlayEffect White
   SetTextColor 200 200 200
-  SetBorderColor 74 68 58
+  SetBorderColor 200 200 200}
   SetBackgroundColor 74 68 58
   SetFontSize 45
   MinimapIcon 0 White Square
 
-Hide
+Show
   Class "Waystone"
   AreaLevel == 78
-  WaystoneTier <= 8
-  SetTextColor 146 135 135
-  SetBorderColor 146 135 135
-  SetBackgroundColor 0 0 0 224
-  SetFontSize 25
+  WaystoneTier >= 12
+  PlayAlertSound 4 300
+  PlayEffect White
+  SetTextColor 200 200 200
+  SetBorderColor 74 68 58
+  SetBackgroundColor 74 68 58
+  SetFontSize 35
+  MinimapIcon 1 White Square
 
 Show
   Class "Waystone"
   AreaLevel == 78
-  WaystoneTier < 14
+  WaystoneTier >= 8
   SetTextColor 146 135 135
   SetBorderColor 146 135 135
   SetBackgroundColor 0 0 0 224
-  SetFontSize 35
+  SetFontSize 25
   PlayEffect White Temp
-  MinimapIcon 1 White Square
 
 Show
   Class "Waystone"
   AreaLevel == 79
   WaystoneTier >= 15
-  PlayAlertSound 11 300
+  PlayAlertSound 4 300
   PlayEffect White
   SetTextColor 200 200 200
-  SetBorderColor 74 68 58
+  SetBorderColor 200 200 200}
   SetBackgroundColor 74 68 58
   SetFontSize 45
   MinimapIcon 0 White Square
 
-Hide
+Show
   Class "Waystone"
   AreaLevel == 79
-  WaystoneTier <= 9
-  SetTextColor 146 135 135
-  SetBorderColor 146 135 135
-  SetBackgroundColor 0 0 0 224
-  SetFontSize 25
+  WaystoneTier >= 13
+  PlayAlertSound 4 300
+  PlayEffect White
+  SetTextColor 200 200 200
+  SetBorderColor 74 68 58
+  SetBackgroundColor 74 68 58
+  SetFontSize 35
+  MinimapIcon 1 White Square
 
 Show
   Class "Waystone"
   AreaLevel == 79
-  WaystoneTier < 15
+  WaystoneTier >= 9
   SetTextColor 146 135 135
   SetBorderColor 146 135 135
   SetBackgroundColor 0 0 0 224
-  SetFontSize 35
+  SetFontSize 25
   PlayEffect White Temp
-  MinimapIcon 1 White Square
 
 Show
   Class "Waystone"
   AreaLevel == 80
   WaystoneTier >= 16
-  PlayAlertSound 11 300
+  PlayAlertSound 4 300
   PlayEffect White
   SetTextColor 200 200 200
-  SetBorderColor 74 68 58
+  SetBorderColor 200 200 200}
   SetBackgroundColor 74 68 58
   SetFontSize 45
   MinimapIcon 0 White Square
 
-Hide
+Show
   Class "Waystone"
   AreaLevel == 80
-  WaystoneTier <= 10
-  SetTextColor 146 135 135
-  SetBorderColor 146 135 135
-  SetBackgroundColor 0 0 0 224
-  SetFontSize 25
+  WaystoneTier >= 14
+  PlayAlertSound 4 300
+  PlayEffect White
+  SetTextColor 200 200 200
+  SetBorderColor 74 68 58
+  SetBackgroundColor 74 68 58
+  SetFontSize 35
+  MinimapIcon 1 White Square
 
 Show
   Class "Waystone"
   AreaLevel == 80
-  WaystoneTier < 16
+  WaystoneTier >= 10
   SetTextColor 146 135 135
   SetBorderColor 146 135 135
   SetBackgroundColor 0 0 0 224
-  SetFontSize 35
+  SetFontSize 25
   PlayEffect White Temp
-  MinimapIcon 1 White Square
 
 Show
   Class "Waystone"
   AreaLevel == 81
   WaystoneTier >= 17
-  PlayAlertSound 11 300
+  PlayAlertSound 4 300
   PlayEffect White
   SetTextColor 200 200 200
-  SetBorderColor 74 68 58
+  SetBorderColor 200 200 200}
   SetBackgroundColor 74 68 58
   SetFontSize 45
   MinimapIcon 0 White Square
 
-Hide
+Show
   Class "Waystone"
   AreaLevel == 81
-  WaystoneTier <= 11
-  SetTextColor 146 135 135
-  SetBorderColor 146 135 135
-  SetBackgroundColor 0 0 0 224
-  SetFontSize 25
+  WaystoneTier >= 15
+  PlayAlertSound 4 300
+  PlayEffect White
+  SetTextColor 200 200 200
+  SetBorderColor 74 68 58
+  SetBackgroundColor 74 68 58
+  SetFontSize 35
+  MinimapIcon 1 White Square
 
 Show
   Class "Waystone"
   AreaLevel == 81
-  WaystoneTier < 17
+  WaystoneTier >= 11
   SetTextColor 146 135 135
   SetBorderColor 146 135 135
   SetBackgroundColor 0 0 0 224
-  SetFontSize 35
+  SetFontSize 25
   PlayEffect White Temp
-  MinimapIcon 1 White Square
 
 Show
   Class "Waystone"
   AreaLevel == 82
   WaystoneTier >= 18
-  PlayAlertSound 11 300
+  PlayAlertSound 4 300
   PlayEffect White
   SetTextColor 200 200 200
-  SetBorderColor 74 68 58
+  SetBorderColor 200 200 200}
   SetBackgroundColor 74 68 58
   SetFontSize 45
   MinimapIcon 0 White Square
 
-Hide
+Show
   Class "Waystone"
   AreaLevel == 82
-  WaystoneTier <= 12
-  SetTextColor 146 135 135
-  SetBorderColor 146 135 135
-  SetBackgroundColor 0 0 0 224
-  SetFontSize 25
+  WaystoneTier >= 16
+  PlayAlertSound 4 300
+  PlayEffect White
+  SetTextColor 200 200 200
+  SetBorderColor 74 68 58
+  SetBackgroundColor 74 68 58
+  SetFontSize 35
+  MinimapIcon 1 White Square
 
 Show
   Class "Waystone"
   AreaLevel == 82
-  WaystoneTier < 18
+  WaystoneTier >= 12
   SetTextColor 146 135 135
   SetBorderColor 146 135 135
   SetBackgroundColor 0 0 0 224
-  SetFontSize 35
+  SetFontSize 25
   PlayEffect White Temp
-  MinimapIcon 1 White Square
 
 Show
   Class "Waystone"
   AreaLevel == 83
   WaystoneTier >= 19
-  PlayAlertSound 11 300
+  PlayAlertSound 4 300
   PlayEffect White
   SetTextColor 200 200 200
-  SetBorderColor 74 68 58
+  SetBorderColor 200 200 200}
   SetBackgroundColor 74 68 58
   SetFontSize 45
   MinimapIcon 0 White Square
 
-Hide
-  Class "Waystone"
-  AreaLevel == 83
-  WaystoneTier <= 13
-  SetTextColor 146 135 135
-  SetBorderColor 146 135 135
-  SetBackgroundColor 0 0 0 224
-  SetFontSize 25
-
 Show
   Class "Waystone"
   AreaLevel == 83
-  WaystoneTier < 19
-  SetTextColor 146 135 135
-  SetBorderColor 146 135 135
-  SetBackgroundColor 0 0 0 224
-  SetFontSize 35
-  PlayEffect White Temp
-  MinimapIcon 1 White Square
-
-Show
-  Class "Waystone"
-  AreaLevel == 84
-  WaystoneTier >= 20
-  PlayAlertSound 11 300
+  WaystoneTier >= 17
+  PlayAlertSound 4 300
   PlayEffect White
   SetTextColor 200 200 200
   SetBorderColor 74 68 58
   SetBackgroundColor 74 68 58
-  SetFontSize 45
-  MinimapIcon 0 White Square
+  SetFontSize 35
+  MinimapIcon 1 White Square
 
-Hide
+Show
   Class "Waystone"
-  AreaLevel == 84
-  WaystoneTier <= 14
+  AreaLevel == 83
+  WaystoneTier >= 13
   SetTextColor 146 135 135
   SetBorderColor 146 135 135
   SetBackgroundColor 0 0 0 224
   SetFontSize 25
+  PlayEffect White Temp
 
-Show
+Hide
   Class "Waystone"
-  AreaLevel == 84
-  WaystoneTier < 20
+  AreaLevel >= 65
   SetTextColor 146 135 135
   SetBorderColor 146 135 135
   SetBackgroundColor 0 0 0 224
-  SetFontSize 35
-  PlayEffect White Temp
-  MinimapIcon 1 White Square
+  SetFontSize 25
 
 Show
   BaseType "Simulacrum" "Tablet" "Breachstone" "Cowardly Fate" "Deadly Fate" "Victorious Fate" "Expedition Logbook" "Test of"
@@ -1089,12 +1116,20 @@ Show
   AreaLevel >= 65
   Rarity Magic
   ItemLevel >= 65
+  SetTextColor 122 150 253
+  SetBorderColor 0 0 0 0
+  SetBackgroundColor 0 0 0 224
+  SetFontSize 25
   MinimapIcon 2 Blue Circle
 
 Show
   AreaLevel >= 65
   Rarity Rare
   ItemLevel >= 65
+  SetTextColor 253 223 84
+  SetBorderColor 0 0 0 0
+  SetBackgroundColor 0 0 0 224
+  SetFontSize 35
   MinimapIcon 2 Yellow Circle
 
 #
