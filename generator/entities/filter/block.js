@@ -67,6 +67,14 @@ export default function Block(definition) {
         ...rows,
       ].filter(Boolean);
     },
+    debug() {
+      return {
+        type: 'Block',
+        sourceDefinition: definition,
+        updatedDefinition,
+        generatedText: instance.generate(),
+      };
+    },
   };
 
   return instance;
