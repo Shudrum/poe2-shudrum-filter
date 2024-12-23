@@ -57,6 +57,10 @@ export default ({ modeId }) => {
     icon: MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.CROSS),
   });
 
+  //
+  // Tier 3 currencies
+  //
+
   section.addBlock({
     class: 'Currency',
     type: [
@@ -72,6 +76,10 @@ export default ({ modeId }) => {
       : { visible: false },
   });
 
+  //
+  // Tier 2 currencies
+  //
+
   section.addBlock({
     class: 'Currency',
     type: [
@@ -80,10 +88,15 @@ export default ({ modeId }) => {
       'Exalted Orb',
       'Vaal Orb',
     ],
-    card: Card(Card.THEMES.CURRENCY, Card.TYPES.OUTLINE, Card.SIZES.BIG),
+    effect: Effect(Effect.COLORS.YELLOW),
+    card: Card(Card.THEMES.CURRENCY, Card.TYPES.IMPORTANT, Card.SIZES.BIG),
     sound: Sound(Sound.TYPES.IMPORTANCE_2),
     icon: MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.STAR),
   });
+
+  //
+  // Tier 1 currencies
+  //
 
   section.addBlock({
     class: 'Currency',
