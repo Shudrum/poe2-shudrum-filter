@@ -12,6 +12,14 @@ import loadSections from './sections/index.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+async function ensureGeneratedFolder() {
+  try {
+    await fs.mkdir(path.resolve(__dirname, 'generated'));
+  } catch {
+    // Do nothing
+  }
+}
+
 (async () => {
   const sections = await loadSections();
   const header = await fs.readFile(path.resolve(__dirname, 'configuration', 'header.txt'), 'utf-8');
@@ -25,13 +33,11 @@ const __dirname = path.dirname(__filename);
     )
     : null;
 
-  let deployFilters = false;
+  let deployFiltersToGame = false;
   if (process.env.NODE_ENV === 'development') {
     if (gameDirectory && (await fs.stat(gameDirectory)).isDirectory()) {
-      console.log('Path of Exile 2 is installed. Filters are goind to be deployed');
-      deployFilters = true;
-    } else {
-      console.log('Path of Exile 2 seems to not be installed. Skipping the filters deployment');
+      console.log('Path of Exile 2 is installed. Filters will be deployed on the game folder.');
+      deployFiltersToGame = true;
     }
   }
 
@@ -48,9 +54,16 @@ const __dirname = path.dirname(__filename);
       .generateText();
 
     const fileName = global.filterName.replace('{{mode}}', pascalCase(mode));
-    await fs.writeFile(path.resolve('..', fileName), generatedFilter, 'utf-8');
-    if (deployFilters) {
+
+    if (process.env.NODE_ENV === 'development' && deployFiltersToGame) {
       await fs.writeFile(path.resolve(gameDirectory, fileName), generatedFilter, 'utf-8');
+    }
+
+    if (process.env.NODE_ENV === 'development') {
+      await ensureGeneratedFolder();
+      await fs.writeFile(path.resolve(__dirname, 'generated', fileName), generatedFilter, 'utf-8');
+    } else {
+      await fs.writeFile(path.resolve('..', fileName), generatedFilter, 'utf-8');
     }
   }));
 })();
