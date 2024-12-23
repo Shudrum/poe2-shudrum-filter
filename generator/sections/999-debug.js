@@ -8,7 +8,7 @@ import { global } from '../configuration/index.js';
 export default () => {
   if (!global.debug) return null;
 
-  const section = new Section('Debug: 3 colors = not managed by the filter');
+  const section = Section('Debug: 3 colors = not managed by the filter');
 
   section.addBlock({
     areaLevel: `>= ${global.startingAreaLevel}`,

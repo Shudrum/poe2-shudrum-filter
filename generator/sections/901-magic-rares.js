@@ -3,7 +3,7 @@ import MapIcon from '../entities/map-icon.js';
 import { global, modes } from '../configuration/index.js';
 
 export default ({ modeId }) => {
-  const section = new Section('Magic and rare items');
+  const section = Section('Magic and rare items');
 
   const common = {
     areaLevel: `>= ${global.startingAreaLevel}`,

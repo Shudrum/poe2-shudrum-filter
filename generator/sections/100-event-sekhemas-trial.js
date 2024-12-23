@@ -5,7 +5,7 @@ import Effect from '../entities/effect.js';
 import Card from '../entities/card.js';
 
 export default () => {
-  const section = new Section('Event: Sekhemas trial');
+  const section = Section('Event: Sekhemas trial');
 
   // Baryas and keys are important
 

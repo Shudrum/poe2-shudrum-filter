@@ -6,7 +6,7 @@ import Card from '../entities/card.js';
 import { global, modes } from '../configuration/index.js';
 
 export default ({ modeId }) => {
-  const section = new Section('Waystones');
+  const section = Section('Waystones');
 
   for (let waystoneTier = 1; waystoneTier <= 20; waystoneTier++) {
     section.addBlock({

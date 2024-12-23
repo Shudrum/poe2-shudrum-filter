@@ -5,7 +5,7 @@ import Effect from '../entities/effect.js';
 import Card from '../entities/card.js';
 
 export default () => {
-  const section = new Section('Event: Ultimatum');
+  const section = Section('Event: Ultimatum');
 
   section.addBlock({
     type: 'Ultimatum',

@@ -5,7 +5,7 @@ import Card from '../entities/card.js';
 import { global, modes } from '../configuration/index.js';
 
 export default ({ modeId }) => {
-  const section = new Section('Flasks');
+  const section = Section('Flasks');
 
   const common = {
     type: 'Flask',

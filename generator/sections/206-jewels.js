@@ -4,7 +4,7 @@ import Effect from '../entities/effect.js';
 import Card from '../entities/card.js';
 
 export default () => {
-  const section = new Section('Jewels');
+  const section = Section('Jewels');
 
   section.addBlock({
     class: 'Jewel',

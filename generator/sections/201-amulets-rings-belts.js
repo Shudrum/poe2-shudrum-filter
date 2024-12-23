@@ -3,7 +3,7 @@ import { global, modes } from '../configuration/index.js';
 import Card from '../entities/card.js';
 
 export default ({ modeId }) => {
-  const section = new Section('Amulets, rings & belts');
+  const section = Section('Amulets, rings & belts');
 
   const common = {
     class: ['Amulets', 'Rings', 'Belts'],

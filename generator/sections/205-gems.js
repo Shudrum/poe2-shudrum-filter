@@ -5,7 +5,7 @@ import Effect from '../entities/effect.js';
 import Card from '../entities/card.js';
 
 export default () => {
-  const section = new Section('Gems');
+  const section = Section('Gems');
 
   // TODO: Spirit, Uncut and Skill gems should have a different display.
   section.addBlock({

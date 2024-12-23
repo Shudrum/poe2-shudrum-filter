@@ -2,7 +2,7 @@ import Section from '../entities/filter-components/section.js';
 import { global } from '../configuration/index.js';
 
 export default () => {
-  const section = new Section('Scrolls of wisdom');
+  const section = Section('Scrolls of wisdom');
 
   // Scrolls of wisdom are hidden
 

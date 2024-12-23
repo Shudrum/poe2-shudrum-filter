@@ -2,7 +2,7 @@ import Section from '../entities/filter-components/section.js';
 import { global, modes } from '../configuration/index.js';
 
 export default ({ modeId }) => {
-  const section = new Section('Useless items');
+  const section = Section('Useless items');
 
   const classes = [
     'Boots',

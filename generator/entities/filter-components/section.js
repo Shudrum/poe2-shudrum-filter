@@ -1,27 +1,25 @@
 import Block from './block.js';
 
-export default class Section {
-  #name;
-  #blocks;
+export default function Section(name) {
+  const blocks = [];
 
-  constructor(name) {
-    this.#name = name;
-    this.#blocks = [];
-  }
+  const instance = {
+    addBlock(definition) {
+      blocks.push(Block(definition));
+    },
+    generateText() {
+      return blocks.reduce((prev, block) => [
+        ...prev,
+        ...block.generate(),
+        '',
+      ], [
+        '#',
+        `# ${name.toUpperCase()}`,
+        '#',
+        '',
+      ]).join('\n');
+    },
+  };
 
-  get name() {
-    return this.#name;
-  }
-
-  generateBlocks() {
-    return this.#blocks.reduce((prev, block) => [
-      ...prev,
-      '',
-      ...block.generate(),
-    ], []);
-  }
-
-  addBlock(blocDefinition) {
-    this.#blocks.push(Block(blocDefinition));
-  }
+  return instance;
 }

@@ -2,8 +2,6 @@ import { pascalCase } from 'change-case';
 
 import { global } from '../../configuration/index.js';
 
-const WIDTH = 80;
-
 export default class Filter {
   #header;
   #mode;
@@ -29,17 +27,8 @@ export default class Filter {
   }
 
   toString() {
-    const sections = this.#sections.reduce((prev, section) => {
-      return [
-        ...prev,
-        ''.padEnd(WIDTH, '#'),
-        `## ${section.name.toUpperCase().padEnd(WIDTH - 6)} ##`,
-        ''.padEnd(WIDTH, '#'),
-        ...section.generateBlocks(),
-        '',
-      ];
-    }, []).join('\n');
-
-    return `${this.#header}\n${sections}`;
+    return this.#sections.reduce((prev, section) => {
+      return `${prev}\n${section.generateText()}`;
+    }, this.#header);
   }
 }
