@@ -28,10 +28,6 @@ export default class Bloc {
     return Boolean(this.#attributes.continue);
   }
 
-  addAttributes(attributes) {
-    this.#attributes = { ...this.#attributes, ...attributes };
-  }
-
   generate() {
     const attributes = { ...this.#attributes };
 
