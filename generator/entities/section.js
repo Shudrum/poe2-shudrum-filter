@@ -55,11 +55,4 @@ export default class Section {
   addBlock(bloc) {
     this.#blocks.push(bloc);
   }
-
-  addBlocks(blocs) {
-    this.#blocks = [
-      ...this.#blocks,
-      ...blocs.map((bloc) => ({ ...bloc })),
-    ];
-  }
 }
