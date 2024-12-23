@@ -1,41 +1,38 @@
-import Section from '../entities/section.js';
-import Block from '../entities/block.js';
-import MapIcon from '../entities/map-icon.js';
-import Effect from '../entities/effect.js';
-import Card from '../entities/card.js';
+import { Section } from '../entities/filter/index.js';
+import { Card, Effect, MapIcon } from '../entities/generators/index.js';
 import { global, modes } from '../configuration/index.js';
 
 export default ({ modeId }) => {
-  const section = new Section('Runes');
+  const section = Section('Runes');
 
   const common = {
     type: 'Rune',
-    card: new Card(Card.THEMES.RUNES, Card.SIZES.MEDIUM, Card.TYPES.OUTLINE),
+    card: Card(Card.THEMES.RUNES, Card.SIZES.MEDIUM, Card.TYPES.OUTLINE),
     areaLevel: `>= ${global.startingAreaLevel}`,
   };
 
   if (modes.RunesDisplayBasic[modeId]) {
-    section.addBlock(new Block({
+    section.addBlock({
       ...common,
-      effect: new Effect(Effect.COLORS.CYAN, Effect.TEMPORARY),
-      icon: new MapIcon(
+      effect: Effect(Effect.COLORS.CYAN, Effect.TEMPORARY),
+      icon: MapIcon(
         MapIcon.SIZES.SMALL,
         MapIcon.COLORS.CYAN,
         MapIcon.SHAPES.CIRCLE,
       ),
-    }));
+    });
   } else {
-    section.addBlock(new Block({
+    section.addBlock({
       ...common,
       areaLevel: `>= ${global.startingAreaLevel}`,
       visible: false,
-    }));
+    });
   }
 
-  section.addBlock(new Block({
+  section.addBlock({
     ...common,
     areaLevel: `< ${global.startingAreaLevel}`,
-  }));
+  });
 
   return section;
 };

@@ -1,24 +1,20 @@
-import Section from '../entities/section.js';
-import Block from '../entities/block.js';
-import MapIcon from '../entities/map-icon.js';
-import Sound from '../entities/sound.js';
-import Effect from '../entities/effect.js';
-import Card from '../entities/card.js';
+import { Section } from '../entities/filter/index.js';
+import { Card, Effect, MapIcon, Sound } from '../entities/generators/index.js';
 
 export default () => {
-  const section = new Section('Event: Ultimatum');
+  const section = Section('Event: Ultimatum');
 
-  section.addBlock(new Block({
+  section.addBlock({
     type: 'Ultimatum',
-    card: new Card(Card.THEMES.EVENTS, Card.TYPES.IMPORTANT, Card.SIZES.BIG),
-    icon: new MapIcon(
+    card: Card(Card.THEMES.EVENTS, Card.TYPES.IMPORTANT, Card.SIZES.BIG),
+    icon: MapIcon(
       MapIcon.SIZES.MEDIUM,
       MapIcon.COLORS.PURPLE,
       MapIcon.SHAPES.HEXAGON,
     ),
-    effect: new Effect(Effect.COLORS.PURPLE),
-    sound: new Sound(Sound.TYPES.IMPORTANCE_7),
-  }));
+    effect: Effect(Effect.COLORS.PURPLE),
+    sound: Sound(Sound.TYPES.IMPORTANCE_7),
+  });
 
   return section;
 };

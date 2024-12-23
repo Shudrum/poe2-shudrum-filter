@@ -1,28 +1,27 @@
-import Section from '../entities/section.js';
-import Block from '../entities/block.js';
-import Card from '../entities/card.js';
+import { Section } from '../entities/filter/index.js';
+import { Card } from '../entities/generators/index.js';
 import { global, modes } from '../configuration/index.js';
 
 export default ({ modeId }) => {
-  const section = new Section('Gold');
+  const section = Section('Gold');
 
   const common = {
     class: 'Currency',
     type: 'Gold',
   };
 
-  section.addBlock(new Block({
+  section.addBlock({
     ...common,
     areaLevel: `< ${global.startingAreaLevel}`,
-    card: new Card(Card.SIZES.SMALL, Card.THEMES.GOLD),
-  }));
+    card: Card(Card.SIZES.SMALL, Card.THEMES.GOLD),
+  });
 
-  section.addBlock(new Block({
+  section.addBlock({
     ...common,
     areaLevel: `>= ${global.startingAreaLevel}`,
     stackSize: `< ${modes.GoldMinimumDisplayedAmount[modeId]}`,
-    card: new Card(Card.SIZES.VALUE_15, Card.THEMES.GOLD),
-  }));
+    card: Card(Card.SIZES.VALUE_15, Card.THEMES.GOLD),
+  });
 
   function generateValues(from, to) {
     const steps = 6;
@@ -34,14 +33,14 @@ export default ({ modeId }) => {
     modes.GoldMinimumDisplayedAmount[modeId],
     modes.GoldCeilingDisplaySizeAmount[modeId],
   ).forEach((stackSize, i) => {
-    section.addBlock(new Block({
+    section.addBlock({
       ...common,
       areaLevel: `>= ${global.startingAreaLevel}`,
       stackSize: `>= ${stackSize}`,
       ...i === 5
-        ? { card: new Card(20 + i * 5, Card.THEMES.GOLD) }
-        : { card: new Card(20 + i * 5, Card.THEMES.GOLD, Card.TYPES.OUTLINE) },
-    }));
+        ? { card: Card(20 + i * 5, Card.THEMES.GOLD) }
+        : { card: Card(20 + i * 5, Card.THEMES.GOLD, Card.TYPES.OUTLINE) },
+    });
   });
 
   return section;

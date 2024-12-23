@@ -13,20 +13,17 @@ const __dirname = path.dirname(__filename);
   );
 
   const preparedData = Object.values(configuration).map(
-    ([standard, intermediate, expert, { label, order } = {}]) => {
+    ([standard, intermediate, expert, { label, title } = {}]) => {
       if (!label) return null;
-
       return {
         label,
-        order: order || Number.POSITIVE_INFINITY,
+        title,
         standard,
         intermediate,
         expert,
       };
     },
-  )
-    .filter(Boolean)
-    .sort((a, b) => a.order - b.order);
+  ).filter(Boolean);
 
   const browser = await chromium.launch();
   const page = await browser.newPage({
@@ -58,7 +55,15 @@ const __dirname = path.dirname(__filename);
     };
 
     const tableBody = document.getElementById('table-body');
-    data.forEach(({ label, standard, intermediate, expert }) => {
+    data.forEach(({ label, title, standard, intermediate, expert }) => {
+      if (title) {
+        const titleRow = document.createElement('tr');
+        titleRow.innerHTML = `
+          <td class="row-title" colspan="6">${title}</td>
+        `;
+        tableBody.appendChild(titleRow);
+      }
+
       const row = document.createElement('tr');
       row.innerHTML = `
         <td>${label}</td>

@@ -1,28 +1,24 @@
-import Section from '../entities/section.js';
-import Block from '../entities/block.js';
-import MapIcon from '../entities/map-icon.js';
-import Sound from '../entities/sound.js';
-import Effect from '../entities/effect.js';
-import Card from '../entities/card.js';
+import { Section } from '../entities/filter/index.js';
+import { Card, Effect, MapIcon, Sound } from '../entities/generators/index.js';
 
 export default () => {
-  const section = new Section('Uniques');
+  const section = Section('Uniques');
 
-  section.addBlock(new Block({
+  section.addBlock({
     rarity: 'Unique',
-    card: new Card(
+    card: Card(
       Card.THEMES.UNIQUES,
       Card.TYPES.IMPORTANT,
       Card.SIZES.BIG,
     ),
-    icon: new MapIcon(
+    icon: MapIcon(
       MapIcon.SIZES.BIG,
       MapIcon.COLORS.BROWN,
       MapIcon.SHAPES.STAR,
     ),
-    effect: new Effect(Effect.COLORS.BROWN),
-    sound: new Sound(Sound.TYPES.UNIQUE),
-  }));
+    effect: Effect(Effect.COLORS.BROWN),
+    sound: Sound(Sound.TYPES.UNIQUE),
+  });
 
   return section;
 };

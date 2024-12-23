@@ -1,40 +1,37 @@
-import Section from '../entities/section.js';
-import Block from '../entities/block.js';
-import MapIcon from '../entities/map-icon.js';
-import Effect from '../entities/effect.js';
-import Card from '../entities/card.js';
+import { Section } from '../entities/filter/index.js';
+import { Card, Effect, MapIcon } from '../entities/generators/index.js';
 import { global, modes } from '../configuration/index.js';
 
 export default ({ modeId }) => {
-  const section = new Section('Flasks');
+  const section = Section('Flasks');
 
   const common = {
     type: 'Flask',
     rarity: '<= Magic',
-    card: new Card(Card.THEMES.FLASKS, Card.SIZES.MEDIUM, Card.TYPES.OUTLINE),
+    card: Card(Card.THEMES.FLASKS, Card.SIZES.MEDIUM, Card.TYPES.OUTLINE),
   };
 
-  section.addBlock(new Block({
+  section.addBlock({
     ...common,
     quality: `>= ${modes.FlasksMinimumQuality[modeId]}`,
-    effect: new Effect(Effect.COLORS.CYAN, Effect.TEMPORARY),
-    icon: new MapIcon(
+    effect: Effect(Effect.COLORS.CYAN, Effect.TEMPORARY),
+    icon: MapIcon(
       MapIcon.SIZES.SMALL,
       MapIcon.COLORS.CYAN,
       MapIcon.SHAPES.TRIANGLE,
     ),
-  }));
+  });
 
-  section.addBlock(new Block({
+  section.addBlock({
     ...common,
     areaLevel: `>= ${global.startingAreaLevel}`,
     visible: false,
-  }));
+  });
 
-  section.addBlock(new Block({
+  section.addBlock({
     ...common,
     areaLevel: `< ${global.startingAreaLevel}`,
-  }));
+  });
 
   return section;
 };

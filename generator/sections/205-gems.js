@@ -1,34 +1,30 @@
-import Section from '../entities/section.js';
-import Block from '../entities/block.js';
-import MapIcon from '../entities/map-icon.js';
-import Sound from '../entities/sound.js';
-import Effect from '../entities/effect.js';
-import Card from '../entities/card.js';
+import { Section } from '../entities/filter/index.js';
+import { Card, Effect, MapIcon, Sound } from '../entities/generators/index.js';
 
 export default () => {
-  const section = new Section('Gems');
+  const section = Section('Gems');
 
   // TODO: Spirit, Uncut and Skill gems should have a different display.
-  section.addBlock(new Block({
+  section.addBlock({
     type: ['Uncut Spirit Gem', 'Uncut Support Gem', 'Uncut Skill Gem'],
-    card: new Card(Card.THEMES.GEMS, Card.SIZES.MEDIUM, Card.TYPES.IMPORTANT),
-    icon: new MapIcon(
+    card: Card(Card.THEMES.GEMS, Card.SIZES.MEDIUM, Card.TYPES.IMPORTANT),
+    icon: MapIcon(
       MapIcon.SIZES.BIG,
       MapIcon.COLORS.CYAN,
       MapIcon.SHAPES.CIRCLE,
     ),
-    effect: new Effect(Effect.COLORS.CYAN),
-    sound: new Sound(Sound.TYPES.GEMS),
-  }));
+    effect: Effect(Effect.COLORS.CYAN),
+    sound: Sound(Sound.TYPES.GEMS),
+  });
 
   // TODO: A proper loop should be defined to remove progressively the gems.
-  section.addBlock(new Block({
+  section.addBlock({
     type: 'Uncut Skill Gem',
     visible: false,
     areaLevel: '>= 70',
     itemLevel: '<= 16',
-    card: new Card(Card.THEMES.GEMS, Card.SIZES.MEDIUM, Card.TYPES.IMPORTANT),
-  }));
+    card: Card(Card.THEMES.GEMS, Card.SIZES.MEDIUM, Card.TYPES.IMPORTANT),
+  });
 
   return section;
 };

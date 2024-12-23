@@ -1,57 +1,38 @@
-import Section from '../entities/section.js';
-import Block from '../entities/block.js';
-import MapIcon from '../entities/map-icon.js';
-import Sound from '../entities/sound.js';
-import Effect from '../entities/effect.js';
-import Card from '../entities/card.js';
+import { Section } from '../entities/filter/index.js';
+import { Card, Effect, MapIcon, Sound } from '../entities/generators/index.js';
 
 export default () => {
-  const section = new Section('Event: Sekhemas trial');
+  const section = Section('Event: Sekhemas trial');
 
-  section.addBlock(new Block({
-    type: [
-      'Barya',
-      'Bronze Key',
-      'Silver Key',
-      'Gold Key',
-    ],
-    card: new Card(Card.THEMES.EVENTS, Card.TYPES.IMPORTANT, Card.SIZES.BIG),
-    icon: new MapIcon(
-      MapIcon.SIZES.MEDIUM,
-      MapIcon.COLORS.PURPLE,
-      MapIcon.SHAPES.HEXAGON,
-    ),
-    effect: new Effect(Effect.COLORS.PURPLE),
-    sound: new Sound(Sound.TYPES.IMPORTANCE_7),
-    continue: true,
-  }));
+  // Baryas and keys are important
+
+  const important = {
+    card: Card(Card.THEMES.EVENTS, Card.TYPES.IMPORTANT, Card.SIZES.BIG),
+    effect: Effect(Effect.COLORS.PURPLE),
+    sound: Sound(Sound.TYPES.IMPORTANCE_7),
+  };
+
+  section.addBlock({
+    type: 'Barya',
+    ...important,
+    icon: MapIcon(MapIcon.SIZES.MEDIUM, MapIcon.COLORS.PURPLE, MapIcon.SHAPES.HEXAGON),
+  });
+
+  section.addBlock({
+    type: ['Bronze Key', 'Silver Key', 'Gold Key'],
+    ...important,
+    icon: MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.PURPLE, MapIcon.SHAPES.STAR),
+  });
 
   // Relics
-  section.addBlock(new Block({
-    class: 'Relic',
-    card: new Card(Card.THEMES.EVENTS, Card.TYPES.OUTLINE, Card.SIZES.BIG),
-    effect: new Effect(Effect.COLORS.PURPLE),
-    icon: new MapIcon(
-      MapIcon.SIZES.MEDIUM,
-      MapIcon.COLORS.PURPLE,
-      MapIcon.SHAPES.DIAMOND,
-    ),
-    sound: new Sound(Sound.TYPES.IMPORTANCE_8),
-  }));
 
-  // Different icons keys
-  section.addBlock(new Block({
-    type: [
-      'Bronze Key',
-      'Silver Key',
-      'Gold Key',
-    ],
-    icon: new MapIcon(
-      MapIcon.SIZES.BIG,
-      MapIcon.COLORS.PURPLE,
-      MapIcon.SHAPES.STAR,
-    ),
-  }));
+  section.addBlock({
+    class: 'Relic',
+    card: Card(Card.THEMES.EVENTS, Card.TYPES.OUTLINE, Card.SIZES.BIG),
+    effect: Effect(Effect.COLORS.PURPLE),
+    icon: MapIcon(MapIcon.SIZES.MEDIUM, MapIcon.COLORS.PURPLE, MapIcon.SHAPES.DIAMOND),
+    sound: Sound(Sound.TYPES.IMPORTANCE_8),
+  });
 
   return section;
 };
