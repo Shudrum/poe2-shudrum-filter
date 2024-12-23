@@ -12,6 +12,7 @@ const PASCAL_CASE_VALUES = [
 ];
 
 const GENERATORS_VALUES = [
+  'area',
   'card',
   'icon',
   'effect',
