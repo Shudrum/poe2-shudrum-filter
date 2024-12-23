@@ -40,7 +40,7 @@ export default function Card(...args) {
   }
 
   const instance = {
-    toString() {
+    toText() {
       switch (type) {
         case Card.TYPES.NORMAL:
           return [

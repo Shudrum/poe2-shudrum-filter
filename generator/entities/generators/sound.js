@@ -13,7 +13,7 @@ export default function Sound(...args) {
   });
 
   const instance = {
-    toString() {
+    toText() {
       if (disable) {
         return 'PlayAlertSound None';
       }

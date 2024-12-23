@@ -19,7 +19,7 @@ export default function MapIcon(...args) {
   });
 
   const instance = {
-    toString() {
+    toText() {
       if (disabled) {
         return 'MinimapIcon -1';
       }

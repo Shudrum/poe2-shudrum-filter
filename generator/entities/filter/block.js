@@ -11,7 +11,7 @@ const PASCAL_CASE_VALUES = [
   'sockets',
 ];
 
-const TO_STRING_VALUES = [
+const GENERATORS_VALUES = [
   'card',
   'icon',
   'effect',
@@ -35,8 +35,8 @@ export default function Block(definition) {
       return `${pascalCase(key)} ${updatedDefinition[key]}`;
     }
 
-    if (TO_STRING_VALUES.includes(key)) {
-      return `${updatedDefinition[key]}`;
+    if (GENERATORS_VALUES.includes(key)) {
+      return updatedDefinition[key].toText();
     }
 
     if (key === 'class') return `Class ${arrayToList(updatedDefinition[key])}`;

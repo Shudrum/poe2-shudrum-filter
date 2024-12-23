@@ -16,7 +16,7 @@ export default function Effect(...args) {
   });
 
   const instance = {
-    toString() {
+    toText() {
       if (disabled) {
         return 'PlayEffect None';
       }
