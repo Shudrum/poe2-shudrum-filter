@@ -28,19 +28,14 @@ jobs:
         working-directory: generator
         run: npm install
 
-      - name: Install chromium
-        working-directory: generator
-        run: npx playwright install
-
       - name: Generate filters
         working-directory: generator
         run: npm run build
 
       - name: Compute current MD5 of modes configuration
         id: compute-md5
-        working-directory: generator
         run: |
-          md5sum configuration/modes.json > .github/filters-comparison-md5-new
+          md5sum generator/configuration/modes.json > .github/filters-comparison-md5-new
           if [ -f .github/filters-comparison-md5 ]; then
             cmp --silent .github/filters-comparison-md5 .github/filters-comparison-md5-new && echo "No changes in configuration." && exit 0
           fi
@@ -49,7 +44,7 @@ jobs:
       - name: Install chromium
         if: steps.compute-md5.outcome == 'success'
         working-directory: generator
-        run: npx playwright install
+        run: npx playwright install --with-deps
 
       - name: Generate table image
         if: steps.compute-md5.outcome == 'success'
