@@ -16,7 +16,7 @@ export default ({ modeId }) => {
   if (modes.RunesDisplayBasic[modeId]) {
     section.addBlock({
       ...common,
-      effect: new Effect(Effect.COLORS.CYAN, Effect.TEMPORARY),
+      effect: Effect(Effect.COLORS.CYAN, Effect.TEMPORARY),
       icon: new MapIcon(
         MapIcon.SIZES.SMALL,
         MapIcon.COLORS.CYAN,

@@ -16,7 +16,7 @@ export default () => {
       MapIcon.COLORS.CYAN,
       MapIcon.SHAPES.DIAMOND,
     ),
-    effect: new Effect(Effect.COLORS.CYAN),
+    effect: Effect(Effect.COLORS.CYAN),
     sound: new Sound(Sound.TYPES.IMPORTANCE_6),
   });
 
@@ -29,7 +29,7 @@ export default () => {
       MapIcon.COLORS.CYAN,
       MapIcon.SHAPES.STAR,
     ),
-    effect: new Effect(Effect.COLORS.CYAN),
+    effect: Effect(Effect.COLORS.CYAN),
     sound: new Sound(Sound.TYPES.IMPORTANCE_3),
   });
 

@@ -19,7 +19,7 @@ export default () => {
       MapIcon.COLORS.BROWN,
       MapIcon.SHAPES.STAR,
     ),
-    effect: new Effect(Effect.COLORS.BROWN),
+    effect: Effect(Effect.COLORS.BROWN),
     sound: new Sound(Sound.TYPES.UNIQUE),
   });
 

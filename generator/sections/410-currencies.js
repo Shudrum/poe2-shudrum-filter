@@ -16,7 +16,7 @@ export default ({ modeId }) => {
     card: Card(Card.THEMES.CURRENCY, Card.TYPES.OUTLINE, Card.SIZES.MEDIUM),
     effects: {
       sound: new Sound(Sound.TYPES.IMPORTANCE_8),
-      effect: new Effect(Effect.COLORS.YELLOW, Effect.TEMPORARY),
+      effect: Effect(Effect.COLORS.YELLOW, Effect.TEMPORARY),
       icon: new MapIcon(MapIcon.SIZES.SMALL, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.CROSS),
     },
   };
@@ -69,7 +69,7 @@ export default ({ modeId }) => {
     ...modes.CurrenciesDisplayTier2[modeId]
       ? {
         sound: new Sound(Sound.TYPES.IMPORTANCE_3),
-        effect: new Effect(Effect.COLORS.YELLOW, Effect.TEMPORARY),
+        effect: Effect(Effect.COLORS.YELLOW, Effect.TEMPORARY),
         icon: new MapIcon(MapIcon.SIZES.SMALL, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.CIRCLE),
       }
       : { visible: false },
@@ -97,7 +97,7 @@ export default ({ modeId }) => {
       'Perfect Jeweller\'s Orb',
     ],
     card: Card(Card.THEMES.ALERT, Card.SIZES.BIG, Card.TYPES.IMPORTANT),
-    effect: new Effect(Effect.COLORS.RED),
+    effect: Effect(Effect.COLORS.RED),
     sound: new Sound(Sound.TYPES.IMPORTANCE_1),
     icon: new MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.RED, MapIcon.SHAPES.STAR),
   });
@@ -108,7 +108,7 @@ export default ({ modeId }) => {
     class: 'Currency',
     card: Card(Card.THEMES.CURRENCY, Card.TYPES.IMPORTANT, Card.SIZES.MEDIUM),
     sound: new Sound(Sound.TYPES.IMPORTANCE_4),
-    effect: new Effect(Effect.COLORS.YELLOW),
+    effect: Effect(Effect.COLORS.YELLOW),
     icon: new MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.STAR),
   });
 

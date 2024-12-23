@@ -15,7 +15,7 @@ export default () => {
       MapIcon.COLORS.PURPLE,
       MapIcon.SHAPES.HEXAGON,
     ),
-    effect: new Effect(Effect.COLORS.PURPLE),
+    effect: Effect(Effect.COLORS.PURPLE),
     sound: new Sound(Sound.TYPES.IMPORTANCE_7),
   });
 

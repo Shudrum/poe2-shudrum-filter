@@ -1,28 +1,30 @@
-export default class Effect {
-  #color = Effect.COLORS.WHITE;
-  #temporary = false;
-  #disable = false;
+export default function Effect(...args) {
+  let color = Effect.COLORS.WHITE;
+  let temporary = false;
+  let disabled = false;
 
-  constructor(...args) {
-    args.forEach((value) => {
-      if (Object.values(Effect.COLORS).includes(value)) {
-        this.#color = value;
-      } else if (value === Effect.TEMPORARY) {
-        this.#temporary = true;
-      } else if (value === Effect.NONE) {
-        this.#disable = true;
-      } else {
-        throw new Error(`Invalid Effect argument: ${value}`);
-      }
-    });
-  }
-
-  toString() {
-    if (this.#disable) {
-      return 'PlayEffect None';
+  args.forEach((value) => {
+    if (Object.values(Effect.COLORS).includes(value)) {
+      color = value;
+    } else if (value === Effect.TEMPORARY) {
+      temporary = true;
+    } else if (value === Effect.NONE) {
+      disabled = true;
+    } else {
+      throw new Error(`Invalid Effect argument: ${value}`);
     }
-    return `PlayEffect ${this.#color}${this.#temporary ? ' Temp' : ''}`;
-  }
+  });
+
+  const instance = {
+    toString() {
+      if (disabled) {
+        return 'PlayEffect None';
+      }
+      return `PlayEffect ${color}${temporary ? ' Temp' : ''}`;
+    },
+  };
+
+  return instance;
 }
 
 Effect.COLORS = {

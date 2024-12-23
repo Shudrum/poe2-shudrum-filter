@@ -15,7 +15,7 @@ export default () => {
       MapIcon.COLORS.GREEN,
       MapIcon.SHAPES.PENTAGON,
     ),
-    effect: new Effect(Effect.COLORS.GREEN, Effect.TEMPORARY),
+    effect: Effect(Effect.COLORS.GREEN, Effect.TEMPORARY),
   });
 
   return section;

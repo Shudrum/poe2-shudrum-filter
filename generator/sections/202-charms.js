@@ -15,7 +15,7 @@ export default ({ modeId }) => {
   if (modes.CharmsDisplay[modeId]) {
     section.addBlock({
       ...common,
-      effect: new Effect(Effect.COLORS.PURPLE, Effect.TEMPORARY),
+      effect: Effect(Effect.COLORS.PURPLE, Effect.TEMPORARY),
       icon: new MapIcon(
         MapIcon.SIZES.SMALL,
         MapIcon.COLORS.PURPLE,

@@ -14,7 +14,7 @@ export default ({ modeId }) => {
       areaLevel: `== ${global.startingAreaLevel + (waystoneTier - 1)}`,
       waystoneTier: `>= ${waystoneTier}`,
       sound: new Sound(Sound.TYPES.WAYSTONE),
-      effect: new Effect(Effect.COLORS.WHITE),
+      effect: Effect(Effect.COLORS.WHITE),
       card: Card(Card.THEMES.WAYSTONES, Card.SIZES.BIG, Card.TYPES.IMPORTANT),
       icon: new MapIcon(
         MapIcon.SIZES.BIG,
@@ -39,7 +39,7 @@ export default ({ modeId }) => {
         areaLevel: `== ${global.startingAreaLevel + (waystoneTier - 1)}`,
         waystoneTier: `< ${waystoneTier}`,
         card: Card(Card.THEMES.WAYSTONES, Card.SIZES.MEDIUM, Card.TYPES.OUTLINE),
-        effect: new Effect(Effect.COLORS.WHITE, Effect.TEMPORARY),
+        effect: Effect(Effect.COLORS.WHITE, Effect.TEMPORARY),
         icon: new MapIcon(
           MapIcon.SIZES.MEDIUM,
           MapIcon.COLORS.WHITE,
@@ -64,7 +64,7 @@ export default ({ modeId }) => {
     ],
     card: Card(Card.THEMES.TABLETS, Card.TYPES.IMPORTANT, Card.SIZES.BIG),
     sound: new Sound(Sound.TYPES.IMPORTANCE_2),
-    effect: new Effect(Effect.COLORS.PURPLE),
+    effect: Effect(Effect.COLORS.PURPLE),
   });
 
   return section;

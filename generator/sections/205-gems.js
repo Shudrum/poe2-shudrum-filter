@@ -16,7 +16,7 @@ export default () => {
       MapIcon.COLORS.CYAN,
       MapIcon.SHAPES.CIRCLE,
     ),
-    effect: new Effect(Effect.COLORS.CYAN),
+    effect: Effect(Effect.COLORS.CYAN),
     sound: new Sound(Sound.TYPES.GEMS),
   });
 
