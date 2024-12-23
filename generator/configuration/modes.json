@@ -5,6 +5,7 @@
   "CurrenciesDisplayShards": [true, false, false, { "label": "Shards" }],
   "CurrenciesDisplayTier2": [true, true, false, { "label": "Tier 2 currencies" }],
   "GoldMinimumDisplayedAmount": [50, 100, 250, { "label": "Gold starting value" }],
+  "GoldCeilingDisplaySizeAmount": [1500, 2500, 3500],
 
   "EquipmentMinimumMagicItemLevel": [65, 65, 65, { "label": "Minimum magic items levels", "title": "Equipment" }],
   "EquipmentMinimumRareItemLevel": [65, 65, 65, { "label": "Minimum rare items levels" }],
@@ -13,7 +14,5 @@
 
   "CharmsDisplay": [true, true, false, { "label": "Charms", "title": "Miscellaneous" }],
   "FlasksMinimumQuality": [5, 10, 15, { "label": "Flasks minimum quality" }],
-  "RunesDisplayBasic": [true, true, false, { "label": "Basic runes" }],
-
-  "GoldCeilingDisplaySizeAmount": [1000, 2000, 3000]
+  "RunesDisplayBasic": [true, true, false, { "label": "Basic runes" }]
 }
