@@ -67,7 +67,7 @@ export default ({ modeId }) => {
       'Orb of Transmutation',
       'Orb of Augmentation',
     ],
-    ...modes.CurrenciesDisplayTier2[modeId]
+    ...modes.CurrenciesDisplayTier3[modeId]
       ? {
         sound: Sound(Sound.TYPES.IMPORTANCE_3),
         effect: Effect(Effect.COLORS.YELLOW, Effect.TEMPORARY),
