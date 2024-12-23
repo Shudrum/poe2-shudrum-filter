@@ -3,12 +3,10 @@ import Block from './block.js';
 export default class Section {
   #name;
   #blocks;
-  #common;
 
   constructor(name) {
     this.#name = name;
     this.#blocks = [];
-    this.#common = {};
   }
 
   get name() {
@@ -54,19 +52,14 @@ export default class Section {
     return blocks;
   }
 
-  setCommon(data) {
-    this.#common = { ...this.#common, ...data };
-  }
-
   addBlock(bloc) {
-    bloc.addAttributes(this.#common);
     this.#blocks.push(bloc);
   }
 
   addBlocks(blocs) {
     this.#blocks = [
       ...this.#blocks,
-      ...blocs.map((bloc) => ({ ...this.#common, ...bloc })),
+      ...blocs.map((bloc) => ({ ...bloc })),
     ];
   }
 }
