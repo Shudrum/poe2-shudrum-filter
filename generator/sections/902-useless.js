@@ -5,21 +5,21 @@ export default ({ modeId }) => {
   const section = Section('Useless items');
 
   const classes = [
-    'Boots',
-    'QuarterStaff',
-    'Crossbow',
     'Body Armour',
-    'Two Hand Mace',
-    'Gloves',
+    'Boots',
+    'Bow',
+    'Crossbow',
     'Focus',
-    'Wand',
-    'One Hand Mace',
+    'Gloves',
     'Helmet',
-    'Shield',
+    'One Hand Mace',
+    'QuarterStaff',
     'Quiver',
     'Sceptre',
-    'Bow',
+    'Shield',
     'Staff',
+    'Two Hand Mace',
+    'Wand',
   ];
 
   section.addBlock({
