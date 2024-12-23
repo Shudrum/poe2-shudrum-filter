@@ -57,6 +57,10 @@ I’m not the best PoE player, but I hope this filter will resonate with others.
 I’ll do my best to keep it updated. And with the release of Path of Exile 2 EA,
 now seems like the perfect time to share it with the community!
 
+## Modes comparison
+
+![Modes comparison](./.github/filters-comparison.png)
+
 ## Roadmap
 
 - [ ] Improve color theming.
@@ -108,6 +112,6 @@ If you want to submit your contribution, simply push your modification on a
 dedicated branch of your fork and open a Pull Request.
 
 > [!WARNING]
-> The filters files **MUST** not be comitted, as generated automatically from
-> the continuous integration. Avoid using `git add .`. If comitted, the automated
-> test will raise an error.
+> The filters files and `filters-comparison.png` file **MUST** not be comitted,
+> as generated automatically from the continuous integration. Avoid using
+> `git add .`. If comitted, the automated test will raise an error.
