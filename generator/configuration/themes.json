@@ -1,18 +1,19 @@
 {
   "alert": ["b10f0f", "b10f0f"],
+  "breach": ["9052d7", "9052d7"],
   "charms": ["c080fe", "c080fe"],
   "currency": ["aa9e82", "aa9e82"],
   "events": ["8f1acf", "8f1acf"],
   "expeditions": ["14e7ee", "14e7ee"],
   "flasks": ["1ee7ee", "1ee7ee"],
-  "gems": ["1ba29b", "1ba29b"],
+  "gems": ["73c8bd", "73c8bd"],
   "gold": ["c5aa58", "c5aa58"],
   "jewels": ["43ca1b", "43ca1b"],
-  "magics": ["8888ff", "8888ff"],
+  "magics": ["7a96fd", "7a96fd"],
   "normal": ["c8c8c8", "c8c8c8"],
-  "rares": ["ffff77", "ffff77"],
+  "rares": ["fddf54", "fddf54"],
   "runes": ["1ba29b", "1ba29b"],
   "tablets": ["260056", "260056"],
-  "uniques": ["af6025", "af6025"],
+  "uniques": ["ef6916", "ef6916"],
   "waystones": ["4a443a", "928787"]
 }

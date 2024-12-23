@@ -12,7 +12,7 @@ export default ({ modeId }) => {
   const shard = {
     card: Card(Card.THEMES.CURRENCY, Card.TYPES.OUTLINE, Card.SIZES.MEDIUM),
     effects: {
-      sound: Sound(Sound.TYPES.IMPORTANCE_8),
+      sound: Sound(Sound.TYPES.SIMPLE_SIGNAL),
       effect: Effect(Effect.COLORS.YELLOW, Effect.TEMPORARY),
       icon: MapIcon(MapIcon.SIZES.SMALL, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.CROSS),
     },
@@ -34,6 +34,10 @@ export default ({ modeId }) => {
     visible: modes.CurrenciesDisplayShards[modeId],
   });
 
+  //
+  // Upgrade tier 2
+  //
+
   section.addBlock({
     class: 'Currency',
     type: [
@@ -42,9 +46,14 @@ export default ({ modeId }) => {
       'Blacksmith\'s Whetstone',
       'Artificer\'s Orb',
     ],
-    sound: Sound(Sound.TYPES.IMPORTANCE_7),
-    icon: MapIcon(MapIcon.SIZES.SMALL, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.CIRCLE),
+    sound: Sound(Sound.TYPES.SIMPLE_SIGNAL),
+    effect: Effect(Effect.COLORS.YELLOW, Effect.TEMPORARY),
+    icon: MapIcon(MapIcon.SIZES.SMALL, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.CROSS),
   });
+
+  //
+  // Upgrade tier 1
+  //
 
   section.addBlock({
     class: 'Currency',
@@ -53,6 +62,8 @@ export default ({ modeId }) => {
       'Gemcutter\'s Prism',
       'Glassblower\'s Bauble',
     ],
+    card: Card(Card.SIZES.MEDIUM, Card.THEMES.CURRENCY, Card.TYPES.IMPORTANT),
+    effect: Effect(Effect.COLORS.YELLOW),
     sound: Sound(Sound.TYPES.IMPORTANCE_6),
     icon: MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.CROSS),
   });
@@ -100,7 +111,7 @@ export default ({ modeId }) => {
       'Vaal Orb',
     ],
     effect: Effect(Effect.COLORS.YELLOW),
-    card: Card(Card.THEMES.CURRENCY, Card.TYPES.IMPORTANT, Card.SIZES.BIG),
+    card: Card(Card.THEMES.CURRENCY, Card.TYPES.URGENT, Card.SIZES.BIG),
     sound: Sound(Sound.TYPES.IMPORTANCE_2),
     icon: MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.STAR),
   });
@@ -112,23 +123,27 @@ export default ({ modeId }) => {
   section.addBlock({
     class: 'Currency',
     type: [
+      'Orb of Chance',
       'Divine Orb',
       'Mirror',
       'Greater Jeweller\'s Orb',
       'Perfect Jeweller\'s Orb',
     ],
-    card: Card(Card.THEMES.ALERT, Card.SIZES.BIG, Card.TYPES.IMPORTANT),
+    card: Card(Card.THEMES.ALERT, Card.SIZES.BIG, Card.TYPES.URGENT),
     effect: Effect(Effect.COLORS.RED),
     sound: Sound(Sound.TYPES.IMPORTANCE_1),
     icon: MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.RED, MapIcon.SHAPES.STAR),
   });
 
+  //
   // All remaining currencies
+  // This is more of a "currency security", and should not happen
+  //
 
   section.addBlock({
     class: 'Currency',
     card: Card(Card.THEMES.CURRENCY, Card.TYPES.IMPORTANT, Card.SIZES.MEDIUM),
-    sound: Sound(Sound.TYPES.IMPORTANCE_4),
+    sound: Sound(Sound.TYPES.SIMPLE_SIGNAL),
     effect: Effect(Effect.COLORS.YELLOW),
     icon: MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.STAR),
   });

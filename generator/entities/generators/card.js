@@ -66,6 +66,13 @@ export default function Card(...args) {
             `SetBackgroundColor ${color(theme, 'normal')}`,
             `SetFontSize ${size}`,
           ].join('\n');
+        case Card.TYPES.URGENT:
+          return [
+            `SetTextColor ${getTextColor(themes[theme][0])}`,
+            `SetBorderColor ${getTextColor(themes[theme][0])}}`,
+            `SetBackgroundColor ${color(theme, 'normal')}`,
+            `SetFontSize ${size}`,
+          ].join('\n');
       }
     },
   };
@@ -75,6 +82,7 @@ export default function Card(...args) {
 
 Card.THEMES = {
   ALERT: 'alert',
+  BREACH: 'breach',
   CHARMS: 'charms',
   CURRENCY: 'currency',
   EVENTS: 'events',
@@ -93,6 +101,7 @@ Card.THEMES = {
 };
 
 Card.TYPES = {
+  URGENT: 'URGENT',
   IMPORTANT: 'IMPORTANT',
   OUTLINE: 'OUTLINE',
   NORMAL: 'NORMAL',

@@ -15,6 +15,7 @@ export default function Area(comparison) {
 
 Area.FROM = (value) => Area(`>= ${value}`);
 Area.UNDER = (value) => Area(`< ${value}`);
+Area.EQUAL = (value) => Area(`== ${value}`);
 
 Area.FROM_STARTING_AREA = Area.FROM(global.startingAreaLevel);
 Area.UNDER_STARTING_AREA = Area.UNDER(global.startingAreaLevel);
