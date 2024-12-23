@@ -1,4 +1,4 @@
-import Section from '../entities/filter-components/section.js';
+import { Section } from '../entities/filter/index.js';
 import MapIcon from '../entities/map-icon.js';
 import Effect from '../entities/effect.js';
 import Card from '../entities/card.js';

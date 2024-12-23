@@ -1,4 +1,4 @@
-import Section from '../entities/filter-components/section.js';
+import { Section } from '../entities/filter/index.js';
 import { global } from '../configuration/index.js';
 
 export default () => {
