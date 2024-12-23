@@ -68,7 +68,7 @@
 # - The issue tracker
 # - The roadmap
 #
-# Current filter mode: Standard
+# Current filter mode: Intermediate
 #
 
 ################################################################################
@@ -246,7 +246,7 @@ Show
   SetBorderColor 30 231 238
   SetBackgroundColor 0 0 0 224
   SetFontSize 35
-  Quality >= 5
+  Quality >= 10
   PlayEffect Cyan Temp
   MinimapIcon 2 Cyan Triangle
 
@@ -322,7 +322,7 @@ Show
   Class "Currency"
   BaseType "Gold"
   AreaLevel >= 65
-  StackSize < 50
+  StackSize < 100
   SetTextColor 197 170 88
   SetBorderColor 0 0 0 0
   SetBackgroundColor 0 0 0 224
@@ -332,7 +332,7 @@ Show
   Class "Currency"
   BaseType "Gold"
   AreaLevel >= 65
-  StackSize >= 50
+  StackSize >= 100
   SetTextColor 197 170 88
   SetBorderColor 197 170 88
   SetBackgroundColor 0 0 0 224
@@ -342,7 +342,7 @@ Show
   Class "Currency"
   BaseType "Gold"
   AreaLevel >= 65
-  StackSize >= 240
+  StackSize >= 480
   SetTextColor 197 170 88
   SetBorderColor 197 170 88
   SetBackgroundColor 0 0 0 224
@@ -352,7 +352,7 @@ Show
   Class "Currency"
   BaseType "Gold"
   AreaLevel >= 65
-  StackSize >= 430
+  StackSize >= 860
   SetTextColor 197 170 88
   SetBorderColor 197 170 88
   SetBackgroundColor 0 0 0 224
@@ -362,7 +362,7 @@ Show
   Class "Currency"
   BaseType "Gold"
   AreaLevel >= 65
-  StackSize >= 620
+  StackSize >= 1240
   SetTextColor 197 170 88
   SetBorderColor 197 170 88
   SetBackgroundColor 0 0 0 224
@@ -372,7 +372,7 @@ Show
   Class "Currency"
   BaseType "Gold"
   AreaLevel >= 65
-  StackSize >= 810
+  StackSize >= 1620
   SetTextColor 197 170 88
   SetBorderColor 197 170 88
   SetBackgroundColor 0 0 0 224
@@ -382,7 +382,7 @@ Show
   Class "Currency"
   BaseType "Gold"
   AreaLevel >= 65
-  StackSize >= 1000
+  StackSize >= 2000
   SetTextColor 197 170 88
   SetBorderColor 0 0 0 0
   SetBackgroundColor 0 0 0 224
@@ -440,6 +440,13 @@ Show
 Show
   Class "Currency"
   BaseType "Chance Shard"
+
+Hide
+  Class "Currency"
+  BaseType "Shard"
+  PlayAlertSound None
+  PlayEffect None
+  MinimapIcon -1
 
 # Equipment upgrade
 Show
@@ -607,6 +614,17 @@ Show
   MinimapIcon 1 White Square
   Continue
 
+Hide
+  Class "Waystone"
+  AreaLevel == 69
+  WaystoneTier <= 1
+  SetTextColor 146 135 135
+  SetBorderColor 146 135 135
+  SetBackgroundColor 0 0 0 224
+  SetFontSize 25
+  PlayAlertSound None
+  MinimapIcon -1
+
 Show
   Class "Waystone"
   AreaLevel == 70
@@ -628,6 +646,17 @@ Show
   PlayEffect White
   MinimapIcon 1 White Square
   Continue
+
+Hide
+  Class "Waystone"
+  AreaLevel == 70
+  WaystoneTier <= 2
+  SetTextColor 146 135 135
+  SetBorderColor 146 135 135
+  SetBackgroundColor 0 0 0 224
+  SetFontSize 25
+  PlayAlertSound None
+  MinimapIcon -1
 
 Show
   Class "Waystone"
@@ -654,7 +683,7 @@ Show
 Hide
   Class "Waystone"
   AreaLevel == 71
-  WaystoneTier <= 1
+  WaystoneTier <= 3
   SetTextColor 146 135 135
   SetBorderColor 146 135 135
   SetBackgroundColor 0 0 0 224
@@ -687,7 +716,7 @@ Show
 Hide
   Class "Waystone"
   AreaLevel == 72
-  WaystoneTier <= 2
+  WaystoneTier <= 4
   SetTextColor 146 135 135
   SetBorderColor 146 135 135
   SetBackgroundColor 0 0 0 224
@@ -720,7 +749,7 @@ Show
 Hide
   Class "Waystone"
   AreaLevel == 73
-  WaystoneTier <= 3
+  WaystoneTier <= 5
   SetTextColor 146 135 135
   SetBorderColor 146 135 135
   SetBackgroundColor 0 0 0 224
@@ -753,7 +782,7 @@ Show
 Hide
   Class "Waystone"
   AreaLevel == 74
-  WaystoneTier <= 4
+  WaystoneTier <= 6
   SetTextColor 146 135 135
   SetBorderColor 146 135 135
   SetBackgroundColor 0 0 0 224
@@ -786,7 +815,7 @@ Show
 Hide
   Class "Waystone"
   AreaLevel == 75
-  WaystoneTier <= 5
+  WaystoneTier <= 7
   SetTextColor 146 135 135
   SetBorderColor 146 135 135
   SetBackgroundColor 0 0 0 224
@@ -819,7 +848,7 @@ Show
 Hide
   Class "Waystone"
   AreaLevel == 76
-  WaystoneTier <= 6
+  WaystoneTier <= 8
   SetTextColor 146 135 135
   SetBorderColor 146 135 135
   SetBackgroundColor 0 0 0 224
@@ -852,7 +881,7 @@ Show
 Hide
   Class "Waystone"
   AreaLevel == 77
-  WaystoneTier <= 7
+  WaystoneTier <= 9
   SetTextColor 146 135 135
   SetBorderColor 146 135 135
   SetBackgroundColor 0 0 0 224
@@ -885,7 +914,7 @@ Show
 Hide
   Class "Waystone"
   AreaLevel == 78
-  WaystoneTier <= 8
+  WaystoneTier <= 10
   SetTextColor 146 135 135
   SetBorderColor 146 135 135
   SetBackgroundColor 0 0 0 224
@@ -918,7 +947,7 @@ Show
 Hide
   Class "Waystone"
   AreaLevel == 79
-  WaystoneTier <= 9
+  WaystoneTier <= 11
   SetTextColor 146 135 135
   SetBorderColor 146 135 135
   SetBackgroundColor 0 0 0 224
@@ -951,7 +980,7 @@ Show
 Hide
   Class "Waystone"
   AreaLevel == 80
-  WaystoneTier <= 10
+  WaystoneTier <= 12
   SetTextColor 146 135 135
   SetBorderColor 146 135 135
   SetBackgroundColor 0 0 0 224
@@ -984,7 +1013,7 @@ Show
 Hide
   Class "Waystone"
   AreaLevel == 81
-  WaystoneTier <= 11
+  WaystoneTier <= 13
   SetTextColor 146 135 135
   SetBorderColor 146 135 135
   SetBackgroundColor 0 0 0 224
@@ -1017,7 +1046,7 @@ Show
 Hide
   Class "Waystone"
   AreaLevel == 82
-  WaystoneTier <= 12
+  WaystoneTier <= 14
   SetTextColor 146 135 135
   SetBorderColor 146 135 135
   SetBackgroundColor 0 0 0 224
@@ -1050,7 +1079,7 @@ Show
 Hide
   Class "Waystone"
   AreaLevel == 83
-  WaystoneTier <= 13
+  WaystoneTier <= 15
   SetTextColor 146 135 135
   SetBorderColor 146 135 135
   SetBackgroundColor 0 0 0 224
@@ -1083,7 +1112,7 @@ Show
 Hide
   Class "Waystone"
   AreaLevel == 84
-  WaystoneTier <= 14
+  WaystoneTier <= 16
   SetTextColor 146 135 135
   SetBorderColor 146 135 135
   SetBackgroundColor 0 0 0 224
@@ -1117,7 +1146,7 @@ Show
   SetBackgroundColor 0 0 0 224
   SetFontSize 35
   MinimapIcon 2 Grey Circle
-  Quality >= 1
+  Quality >= 5
 
 Show
   AreaLevel >= 65
