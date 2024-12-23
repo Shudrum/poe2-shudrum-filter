@@ -37,12 +37,12 @@ const __dirname = path.dirname(__filename);
 
   await Promise.all(Object.values(global.modes).map(async (mode) => {
     const filter = new Filter(mode, header);
-    filter.addSections(sections);
+    filter.setSections(sections);
 
     const fileName = global.filterName.replace('{{mode}}', pascalCase(mode));
-    await fs.writeFile(path.resolve('..', fileName), `${filter}`, 'utf-8');
+    await fs.writeFile(path.resolve('..', fileName), filter.generateText(), 'utf-8');
     if (deployFilters) {
-      await fs.writeFile(path.resolve(gameDirectory, fileName), `${filter}`, 'utf-8');
+      await fs.writeFile(path.resolve(gameDirectory, fileName), filter.generateText(), 'utf-8');
     }
   }));
 })();

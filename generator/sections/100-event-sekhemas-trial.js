@@ -28,6 +28,7 @@ export default () => {
   });
 
   // Relics
+
   section.addBlock({
     class: 'Relic',
     card: new Card(Card.THEMES.EVENTS, Card.TYPES.OUTLINE, Card.SIZES.BIG),

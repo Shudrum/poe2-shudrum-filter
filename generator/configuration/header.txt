@@ -1,7 +1,7 @@
 #
 # Shudrum Filter
 # ==============
-# Filter mode: {MODE}
+# Filter mode: {{MODE}}
 #
 # A filter designed to provide a tailored experience for every stage of the late game.
 #
