@@ -14,7 +14,7 @@ export default () => {
     areaLevel: `>= ${global.startingAreaLevel}`,
     card: Card(Card.SIZES.BIG, Card.TYPES.IMPORTANT, Card.THEMES.ALERT),
     effect: Effect(Effect.COLORS.GREEN),
-    sound: new Sound(Sound.TYPES.VIBRANT_2),
+    sound: Sound(Sound.TYPES.VIBRANT_2),
     icon: MapIcon(MapIcon.COLORS.PINK, MapIcon.SIZES.MEDIUM, MapIcon.SHAPES.UPSIDE_DOWN_HOUSE),
   });
 

@@ -12,7 +12,7 @@ export default () => {
   const important = {
     card: Card(Card.THEMES.EVENTS, Card.TYPES.IMPORTANT, Card.SIZES.BIG),
     effect: Effect(Effect.COLORS.PURPLE),
-    sound: new Sound(Sound.TYPES.IMPORTANCE_7),
+    sound: Sound(Sound.TYPES.IMPORTANCE_7),
   };
 
   section.addBlock({
@@ -34,7 +34,7 @@ export default () => {
     card: Card(Card.THEMES.EVENTS, Card.TYPES.OUTLINE, Card.SIZES.BIG),
     effect: Effect(Effect.COLORS.PURPLE),
     icon: MapIcon(MapIcon.SIZES.MEDIUM, MapIcon.COLORS.PURPLE, MapIcon.SHAPES.DIAMOND),
-    sound: new Sound(Sound.TYPES.IMPORTANCE_8),
+    sound: Sound(Sound.TYPES.IMPORTANCE_8),
   });
 
   return section;

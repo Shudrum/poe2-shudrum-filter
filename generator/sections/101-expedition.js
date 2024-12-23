@@ -17,7 +17,7 @@ export default () => {
       MapIcon.SHAPES.DIAMOND,
     ),
     effect: Effect(Effect.COLORS.CYAN),
-    sound: new Sound(Sound.TYPES.IMPORTANCE_6),
+    sound: Sound(Sound.TYPES.IMPORTANCE_6),
   });
 
   section.addBlock({
@@ -30,7 +30,7 @@ export default () => {
       MapIcon.SHAPES.STAR,
     ),
     effect: Effect(Effect.COLORS.CYAN),
-    sound: new Sound(Sound.TYPES.IMPORTANCE_3),
+    sound: Sound(Sound.TYPES.IMPORTANCE_3),
   });
 
   return section;

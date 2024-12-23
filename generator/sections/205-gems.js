@@ -17,7 +17,7 @@ export default () => {
       MapIcon.SHAPES.CIRCLE,
     ),
     effect: Effect(Effect.COLORS.CYAN),
-    sound: new Sound(Sound.TYPES.GEMS),
+    sound: Sound(Sound.TYPES.GEMS),
   });
 
   // TODO: A proper loop should be defined to remove progressively the gems.

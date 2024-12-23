@@ -15,7 +15,7 @@ export default ({ modeId }) => {
   const shard = {
     card: Card(Card.THEMES.CURRENCY, Card.TYPES.OUTLINE, Card.SIZES.MEDIUM),
     effects: {
-      sound: new Sound(Sound.TYPES.IMPORTANCE_8),
+      sound: Sound(Sound.TYPES.IMPORTANCE_8),
       effect: Effect(Effect.COLORS.YELLOW, Effect.TEMPORARY),
       icon: MapIcon(MapIcon.SIZES.SMALL, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.CROSS),
     },
@@ -45,7 +45,7 @@ export default ({ modeId }) => {
       'Blacksmith\'s Whetstone',
       'Artificer\'s Orb',
     ],
-    sound: new Sound(Sound.TYPES.IMPORTANCE_7),
+    sound: Sound(Sound.TYPES.IMPORTANCE_7),
     icon: MapIcon(MapIcon.SIZES.SMALL, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.CIRCLE),
   });
 
@@ -56,7 +56,7 @@ export default ({ modeId }) => {
       'Gemcutter\'s Prism',
       'Glassblower\'s Bauble',
     ],
-    sound: new Sound(Sound.TYPES.IMPORTANCE_6),
+    sound: Sound(Sound.TYPES.IMPORTANCE_6),
     icon: MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.CROSS),
   });
 
@@ -68,7 +68,7 @@ export default ({ modeId }) => {
     ],
     ...modes.CurrenciesDisplayTier2[modeId]
       ? {
-        sound: new Sound(Sound.TYPES.IMPORTANCE_3),
+        sound: Sound(Sound.TYPES.IMPORTANCE_3),
         effect: Effect(Effect.COLORS.YELLOW, Effect.TEMPORARY),
         icon: MapIcon(MapIcon.SIZES.SMALL, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.CIRCLE),
       }
@@ -84,7 +84,7 @@ export default ({ modeId }) => {
       'Vaal Orb',
     ],
     card: Card(Card.THEMES.CURRENCY, Card.TYPES.OUTLINE, Card.SIZES.BIG),
-    sound: new Sound(Sound.TYPES.IMPORTANCE_2),
+    sound: Sound(Sound.TYPES.IMPORTANCE_2),
     icon: MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.STAR),
   });
 
@@ -98,7 +98,7 @@ export default ({ modeId }) => {
     ],
     card: Card(Card.THEMES.ALERT, Card.SIZES.BIG, Card.TYPES.IMPORTANT),
     effect: Effect(Effect.COLORS.RED),
-    sound: new Sound(Sound.TYPES.IMPORTANCE_1),
+    sound: Sound(Sound.TYPES.IMPORTANCE_1),
     icon: MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.RED, MapIcon.SHAPES.STAR),
   });
 
@@ -107,7 +107,7 @@ export default ({ modeId }) => {
   section.addBlock({
     class: 'Currency',
     card: Card(Card.THEMES.CURRENCY, Card.TYPES.IMPORTANT, Card.SIZES.MEDIUM),
-    sound: new Sound(Sound.TYPES.IMPORTANCE_4),
+    sound: Sound(Sound.TYPES.IMPORTANCE_4),
     effect: Effect(Effect.COLORS.YELLOW),
     icon: MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.STAR),
   });

@@ -1,25 +1,27 @@
-export default class Sound {
-  #sound = Sound.TYPES.IMPORTANCE_3;
-  #disable = false;
+export default function Sound(...args) {
+  let sound = Sound.TYPES.IMPORTANCE_3;
+  let disable = false;
 
-  constructor(...args) {
-    args.forEach((value) => {
-      if (Object.values(Sound.TYPES).includes(value)) {
-        this.#sound = value;
-      } else if (value === Sound.NONE) {
-        this.#disable = true;
-      } else {
-        throw new Error(`Invalid Sound argument: ${value}`);
-      }
-    });
-  }
-
-  toString() {
-    if (this.#disable) {
-      return 'PlayAlertSound None';
+  args.forEach((value) => {
+    if (Object.values(Sound.TYPES).includes(value)) {
+      sound = value;
+    } else if (value === Sound.NONE) {
+      disable = true;
+    } else {
+      throw new Error(`Invalid Sound argument: ${value}`);
     }
-    return `PlayAlertSound ${this.#sound} 300`;
-  }
+  });
+
+  const instance = {
+    toString() {
+      if (disable) {
+        return 'PlayAlertSound None';
+      }
+      return `PlayAlertSound ${sound} 300`;
+    },
+  };
+
+  return instance;
 }
 
 Sound.TYPES = {

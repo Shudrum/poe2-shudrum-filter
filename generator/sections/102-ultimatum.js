@@ -16,7 +16,7 @@ export default () => {
       MapIcon.SHAPES.HEXAGON,
     ),
     effect: Effect(Effect.COLORS.PURPLE),
-    sound: new Sound(Sound.TYPES.IMPORTANCE_7),
+    sound: Sound(Sound.TYPES.IMPORTANCE_7),
   });
 
   return section;

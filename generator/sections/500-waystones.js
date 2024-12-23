@@ -13,7 +13,7 @@ export default ({ modeId }) => {
       class: 'Waystone',
       areaLevel: `== ${global.startingAreaLevel + (waystoneTier - 1)}`,
       waystoneTier: `>= ${waystoneTier}`,
-      sound: new Sound(Sound.TYPES.WAYSTONE),
+      sound: Sound(Sound.TYPES.WAYSTONE),
       effect: Effect(Effect.COLORS.WHITE),
       card: Card(Card.THEMES.WAYSTONES, Card.SIZES.BIG, Card.TYPES.IMPORTANT),
       icon: MapIcon(
@@ -63,7 +63,7 @@ export default ({ modeId }) => {
       'Test of',
     ],
     card: Card(Card.THEMES.TABLETS, Card.TYPES.IMPORTANT, Card.SIZES.BIG),
-    sound: new Sound(Sound.TYPES.IMPORTANCE_2),
+    sound: Sound(Sound.TYPES.IMPORTANCE_2),
     effect: Effect(Effect.COLORS.PURPLE),
   });
 

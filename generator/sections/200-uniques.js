@@ -20,7 +20,7 @@ export default () => {
       MapIcon.SHAPES.STAR,
     ),
     effect: Effect(Effect.COLORS.BROWN),
-    sound: new Sound(Sound.TYPES.UNIQUE),
+    sound: Sound(Sound.TYPES.UNIQUE),
   });
 
   return section;
