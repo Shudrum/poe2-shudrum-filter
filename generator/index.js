@@ -36,6 +36,13 @@ const __dirname = path.dirname(__filename);
   }
 
   await Promise.all(Object.values(global.modes).map(async (mode) => {
+    // On the development environment, a single mode to build can be passed as
+    // the environment variable MODE. If defined and does not match: skip the
+    // build.
+    if (process.env.NODE_ENV === 'development' && process.env.MODE && process.env.MODE !== mode) {
+      return;
+    }
+
     const generatedFilter = new Filter(mode, header)
       .setSections(sections)
       .generateText();
