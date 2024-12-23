@@ -75,6 +75,7 @@ export default function Card(...args) {
 
 Card.THEMES = {
   ALERT: 'alert',
+  BREACH: 'breach',
   CHARMS: 'charms',
   CURRENCY: 'currency',
   EVENTS: 'events',
