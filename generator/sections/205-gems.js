@@ -4,6 +4,9 @@ import { Card, Effect, MapIcon, Sound } from '../entities/generators/index.js';
 // TODO: Spirit, Uncut and Skill gems should have a different display.
 // TODO: A proper loop should be defined to remove progressively the gems.
 
+// Area 67 / T03 / 14 - Boss 15
+// Area 75 / T10 / 16
+// Area 76 / T10 / 17
 // Area 77 / T12 / 17
 
 export default () => {
@@ -19,7 +22,7 @@ export default () => {
 
   section.addBlock({
     type: ['Uncut Spirit Gem'],
-    card: Card(Card.THEMES.GEMS, Card.SIZES.BIG, Card.TYPES.IMPORTANT),
+    card: Card(Card.THEMES.GEMS, Card.SIZES.BIG, Card.TYPES.URGENT),
     icon: MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.CYAN, MapIcon.SHAPES.CIRCLE),
     effect: Effect(Effect.COLORS.CYAN),
     sound: Sound(Sound.TYPES.GEMS),
