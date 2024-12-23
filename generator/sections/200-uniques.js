@@ -1,5 +1,4 @@
 import Section from '../entities/section.js';
-import Block from '../entities/block.js';
 import MapIcon from '../entities/map-icon.js';
 import Sound from '../entities/sound.js';
 import Effect from '../entities/effect.js';
@@ -8,7 +7,7 @@ import Card from '../entities/card.js';
 export default () => {
   const section = new Section('Uniques');
 
-  section.addBlock(new Block({
+  section.addBlock({
     rarity: 'Unique',
     card: new Card(
       Card.THEMES.UNIQUES,
@@ -22,7 +21,7 @@ export default () => {
     ),
     effect: new Effect(Effect.COLORS.BROWN),
     sound: new Sound(Sound.TYPES.UNIQUE),
-  }));
+  });
 
   return section;
 };

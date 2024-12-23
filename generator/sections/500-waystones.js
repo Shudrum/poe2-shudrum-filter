@@ -1,5 +1,4 @@
 import Section from '../entities/section.js';
-import Block from '../entities/block.js';
 import MapIcon from '../entities/map-icon.js';
 import Effect from '../entities/effect.js';
 import Sound from '../entities/sound.js';
@@ -13,17 +12,17 @@ export default ({ modeId }) => {
     class: 'Waystone',
   };
 
-  section.addBlock(new Block({
+  section.addBlock({
     ...common,
     comment: 'Common',
     card: new Card(Card.THEMES.WAYSTONES, Card.SIZES.MEDIUM, Card.TYPES.OUTLINE),
     sound: new Sound(Sound.TYPES.WAYSTONE),
     effect: new Effect(Effect.COLORS.WHITE),
     continue: true,
-  }));
+  });
 
   for (let waystoneTier = 1; waystoneTier <= 20; waystoneTier++) {
-    section.addBlock(new Block({
+    section.addBlock({
       ...common,
       areaLevel: `== ${global.startingAreaLevel + (waystoneTier - 1)}`,
       waystoneTier: `>= ${waystoneTier}`,
@@ -33,10 +32,10 @@ export default ({ modeId }) => {
         MapIcon.COLORS.WHITE,
         MapIcon.SHAPES.SQUARE,
       ),
-    }));
+    });
 
     if (waystoneTier >= 2) {
-      section.addBlock(new Block({
+      section.addBlock({
         ...common,
         areaLevel: `== ${global.startingAreaLevel + (waystoneTier - 1)}`,
         waystoneTier: `< ${waystoneTier}`,
@@ -48,11 +47,11 @@ export default ({ modeId }) => {
           MapIcon.SHAPES.SQUARE,
         ),
         continue: true,
-      }));
+      });
     }
 
     if (waystoneTier >= modes.WaystonesHideStartingLevelGap[modeId] + 1) {
-      section.addBlock(new Block({
+      section.addBlock({
         ...common,
         visible: false,
         areaLevel: `== ${global.startingAreaLevel + (waystoneTier - 1)}`,
@@ -60,13 +59,13 @@ export default ({ modeId }) => {
         card: new Card(Card.THEMES.WAYSTONES, Card.SIZES.SMALL, Card.TYPES.OUTLINE),
         sound: new Sound(Sound.NONE),
         icon: new MapIcon(MapIcon.NONE),
-      }));
+      });
     }
   }
 
   // TODO: There is super important loots to highlight here, like the Expedition
   //       Logbook
-  section.addBlock(new Block({
+  section.addBlock({
     comment: 'Tablets',
     type: [
       'Simulacrum',
@@ -81,7 +80,7 @@ export default ({ modeId }) => {
     card: new Card(Card.THEMES.TABLETS, Card.TYPES.IMPORTANT, Card.SIZES.BIG),
     sound: new Sound(Sound.TYPES.IMPORTANCE_2),
     effect: new Effect(Effect.COLORS.PURPLE),
-  }));
+  });
 
   return section;
 };

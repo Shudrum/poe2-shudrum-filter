@@ -1,5 +1,4 @@
 import Section from '../entities/section.js';
-import Block from '../entities/block.js';
 import MapIcon from '../entities/map-icon.js';
 import Effect from '../entities/effect.js';
 import Card from '../entities/card.js';
@@ -15,7 +14,7 @@ export default ({ modeId }) => {
   };
 
   if (modes.RunesDisplayBasic[modeId]) {
-    section.addBlock(new Block({
+    section.addBlock({
       ...common,
       effect: new Effect(Effect.COLORS.CYAN, Effect.TEMPORARY),
       icon: new MapIcon(
@@ -23,19 +22,19 @@ export default ({ modeId }) => {
         MapIcon.COLORS.CYAN,
         MapIcon.SHAPES.CIRCLE,
       ),
-    }));
+    });
   } else {
-    section.addBlock(new Block({
+    section.addBlock({
       ...common,
       areaLevel: `>= ${global.startingAreaLevel}`,
       visible: false,
-    }));
+    });
   }
 
-  section.addBlock(new Block({
+  section.addBlock({
     ...common,
     areaLevel: `< ${global.startingAreaLevel}`,
-  }));
+  });
 
   return section;
 };

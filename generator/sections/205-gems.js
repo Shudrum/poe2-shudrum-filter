@@ -1,5 +1,4 @@
 import Section from '../entities/section.js';
-import Block from '../entities/block.js';
 import MapIcon from '../entities/map-icon.js';
 import Sound from '../entities/sound.js';
 import Effect from '../entities/effect.js';
@@ -9,7 +8,7 @@ export default () => {
   const section = new Section('Gems');
 
   // TODO: Spirit, Uncut and Skill gems should have a different display.
-  section.addBlock(new Block({
+  section.addBlock({
     type: ['Uncut Spirit Gem', 'Uncut Support Gem', 'Uncut Skill Gem'],
     card: new Card(Card.THEMES.GEMS, Card.SIZES.MEDIUM, Card.TYPES.IMPORTANT),
     icon: new MapIcon(
@@ -19,16 +18,16 @@ export default () => {
     ),
     effect: new Effect(Effect.COLORS.CYAN),
     sound: new Sound(Sound.TYPES.GEMS),
-  }));
+  });
 
   // TODO: A proper loop should be defined to remove progressively the gems.
-  section.addBlock(new Block({
+  section.addBlock({
     type: 'Uncut Skill Gem',
     visible: false,
     areaLevel: '>= 70',
     itemLevel: '<= 16',
     card: new Card(Card.THEMES.GEMS, Card.SIZES.MEDIUM, Card.TYPES.IMPORTANT),
-  }));
+  });
 
   return section;
 };

@@ -1,5 +1,4 @@
 import Section from '../entities/section.js';
-import Block from '../entities/block.js';
 import MapIcon from '../entities/map-icon.js';
 import Card from '../entities/card.js';
 import { global, modes } from '../configuration/index.js';
@@ -18,15 +17,15 @@ export default ({ modeId }) => {
     ),
   };
 
-  section.addBlock(new Block({
+  section.addBlock({
     ...common,
     quality: `>= ${modes.EquipmentMinimumSalvageableQuality[modeId]}`,
-  }));
+  });
 
-  section.addBlock(new Block({
+  section.addBlock({
     ...common,
     sockets: '> 0',
-  }));
+  });
 
   return section;
 };

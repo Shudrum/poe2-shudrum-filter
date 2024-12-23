@@ -1,5 +1,4 @@
 import Section from '../entities/section.js';
-import Block from '../entities/block.js';
 import MapIcon from '../entities/map-icon.js';
 import Sound from '../entities/sound.js';
 import Effect from '../entities/effect.js';
@@ -8,7 +7,7 @@ import Card from '../entities/card.js';
 export default () => {
   const section = new Section('Event: Sekhemas trial');
 
-  section.addBlock(new Block({
+  section.addBlock({
     type: [
       'Barya',
       'Bronze Key',
@@ -24,10 +23,10 @@ export default () => {
     effect: new Effect(Effect.COLORS.PURPLE),
     sound: new Sound(Sound.TYPES.IMPORTANCE_7),
     continue: true,
-  }));
+  });
 
   // Relics
-  section.addBlock(new Block({
+  section.addBlock({
     class: 'Relic',
     card: new Card(Card.THEMES.EVENTS, Card.TYPES.OUTLINE, Card.SIZES.BIG),
     effect: new Effect(Effect.COLORS.PURPLE),
@@ -37,10 +36,10 @@ export default () => {
       MapIcon.SHAPES.DIAMOND,
     ),
     sound: new Sound(Sound.TYPES.IMPORTANCE_8),
-  }));
+  });
 
   // Different icons keys
-  section.addBlock(new Block({
+  section.addBlock({
     type: [
       'Bronze Key',
       'Silver Key',
@@ -51,7 +50,7 @@ export default () => {
       MapIcon.COLORS.PURPLE,
       MapIcon.SHAPES.STAR,
     ),
-  }));
+  });
 
   return section;
 };

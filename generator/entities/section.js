@@ -52,7 +52,7 @@ export default class Section {
     return blocks;
   }
 
-  addBlock(bloc) {
-    this.#blocks.push(bloc);
+  addBlock(blocDefinition) {
+    this.#blocks.push(new Block(blocDefinition));
   }
 }

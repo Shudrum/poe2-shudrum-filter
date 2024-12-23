@@ -1,5 +1,4 @@
 import Section from '../entities/section.js';
-import Block from '../entities/block.js';
 import MapIcon from '../entities/map-icon.js';
 import Effect from '../entities/effect.js';
 import Card from '../entities/card.js';
@@ -14,7 +13,7 @@ export default ({ modeId }) => {
     card: new Card(Card.THEMES.FLASKS, Card.SIZES.MEDIUM, Card.TYPES.OUTLINE),
   };
 
-  section.addBlock(new Block({
+  section.addBlock({
     ...common,
     quality: `>= ${modes.FlasksMinimumQuality[modeId]}`,
     effect: new Effect(Effect.COLORS.CYAN, Effect.TEMPORARY),
@@ -23,18 +22,18 @@ export default ({ modeId }) => {
       MapIcon.COLORS.CYAN,
       MapIcon.SHAPES.TRIANGLE,
     ),
-  }));
+  });
 
-  section.addBlock(new Block({
+  section.addBlock({
     ...common,
     areaLevel: `>= ${global.startingAreaLevel}`,
     visible: false,
-  }));
+  });
 
-  section.addBlock(new Block({
+  section.addBlock({
     ...common,
     areaLevel: `< ${global.startingAreaLevel}`,
-  }));
+  });
 
   return section;
 };

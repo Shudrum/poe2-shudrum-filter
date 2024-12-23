@@ -1,5 +1,4 @@
 import Section from '../entities/section.js';
-import Block from '../entities/block.js';
 import MapIcon from '../entities/map-icon.js';
 import Effect from '../entities/effect.js';
 import Sound from '../entities/sound.js';
@@ -11,16 +10,16 @@ export default ({ modeId }) => {
 
   // Before we add the blocks for the scrolls of wisdom
 
-  section.addBlock(new Block({
+  section.addBlock({
     type: 'Scroll of Wisdom',
     visible: false,
     comment: `We hide all the scrolls of wisdom starging level ${global.startingAreaLevel}`,
     areaLevel: `>= ${global.startingAreaLevel}`,
-  }));
+  });
 
-  section.addBlock(new Block({
+  section.addBlock({
     type: 'Scroll of Wisdom',
-  }));
+  });
 
   // Then we add the other currencies
 
@@ -28,7 +27,7 @@ export default ({ modeId }) => {
     class: 'Currency',
   };
 
-  section.addBlock(new Block({
+  section.addBlock({
     ...common,
     comment: 'Common',
     card: new Card(Card.THEMES.CURRENCY, Card.TYPES.IMPORTANT, Card.SIZES.MEDIUM),
@@ -40,7 +39,7 @@ export default ({ modeId }) => {
       MapIcon.SHAPES.STAR,
     ),
     continue: true,
-  }));
+  });
 
   const shardsSettings = {
     card: new Card(Card.THEMES.CURRENCY, Card.TYPES.OUTLINE, Card.SIZES.MEDIUM),
@@ -53,16 +52,16 @@ export default ({ modeId }) => {
     ),
   };
 
-  section.addBlock(new Block({
+  section.addBlock({
     ...common,
     comment: 'Chance shard specific rule depending on modes.',
     type: 'Chance Shard',
     ...modes.CurrenciesDisplayChanceShards[modeId]
       ? shardsSettings
       : { visible: false },
-  }));
+  });
 
-  section.addBlock(new Block({
+  section.addBlock({
     ...common,
     comment: 'Shard',
     type: 'Shard',
@@ -75,37 +74,37 @@ export default ({ modeId }) => {
       MapIcon.SHAPES.CROSS,
     ),
     continue: true,
-  }));
+  });
 
   if (!modes.CurrenciesDisplayChanceShards[modeId]) {
-    section.addBlock(new Block({
+    section.addBlock({
       ...common,
       type: 'Chance Shard',
       visible: false,
       sound: new Sound(Sound.NONE),
       effect: new Effect(Effect.NONE),
       icon: new MapIcon(MapIcon.NONE),
-    }));
+    });
   } else {
     // We must stop the propagation because of the all shards rule bellow
-    section.addBlock(new Block({
+    section.addBlock({
       ...common,
       type: 'Chance Shard',
-    }));
+    });
   }
 
   if (!modes.CurrenciesDisplayShards[modeId]) {
-    section.addBlock(new Block({
+    section.addBlock({
       ...common,
       type: 'Shard',
       visible: false,
       sound: new Sound(Sound.NONE),
       effect: new Effect(Effect.NONE),
       icon: new MapIcon(MapIcon.NONE),
-    }));
+    });
   }
 
-  section.addBlock(new Block({
+  section.addBlock({
     ...common,
     comment: 'Equipment upgrade',
     type: [
@@ -120,9 +119,9 @@ export default ({ modeId }) => {
       MapIcon.COLORS.YELLOW,
       MapIcon.SHAPES.CIRCLE,
     ),
-  }));
+  });
 
-  section.addBlock(new Block({
+  section.addBlock({
     ...common,
     comment: 'Gem\'s and Flask\'s upgrades',
     type: [
@@ -136,9 +135,9 @@ export default ({ modeId }) => {
       MapIcon.COLORS.YELLOW,
       MapIcon.SHAPES.CROSS,
     ),
-  }));
+  });
 
-  section.addBlock(new Block({
+  section.addBlock({
     ...common,
     comment: 'Tier 2',
     type: [
@@ -156,9 +155,9 @@ export default ({ modeId }) => {
         ),
       }
       : { visible: false },
-  }));
+  });
 
-  section.addBlock(new Block({
+  section.addBlock({
     ...common,
     comment: 'Tier 1',
     type: [
@@ -174,9 +173,9 @@ export default ({ modeId }) => {
       MapIcon.COLORS.YELLOW,
       MapIcon.SHAPES.STAR,
     ),
-  }));
+  });
 
-  section.addBlock(new Block({
+  section.addBlock({
     ...common,
     comment: 'Tier 0',
     type: [
@@ -193,7 +192,7 @@ export default ({ modeId }) => {
       MapIcon.COLORS.RED,
       MapIcon.SHAPES.STAR,
     ),
-  }));
+  });
 
   return section;
 };

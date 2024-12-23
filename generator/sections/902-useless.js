@@ -1,5 +1,4 @@
 import Section from '../entities/section.js';
-import Block from '../entities/block.js';
 import { global, modes } from '../configuration/index.js';
 
 export default ({ modeId }) => {
@@ -23,21 +22,21 @@ export default ({ modeId }) => {
     'Staff',
   ];
 
-  section.addBlock(new Block({
+  section.addBlock({
     visible: false,
     class: classes,
     rarity: 'Magic',
     areaLevel: `>= ${global.startingAreaLevel}`,
     itemLevel: `< ${modes.EquipmentMinimumMagicItemLevel[modeId]}`,
-  }));
+  });
 
-  section.addBlock(new Block({
+  section.addBlock({
     visible: false,
     class: classes,
     rarity: 'Normal',
     areaLevel: `>= ${global.startingAreaLevel}`,
     itemLevel: `< ${modes.EquipmentMinimumNormalItemLevel[modeId]}`,
-  }));
+  });
 
   return section;
 };

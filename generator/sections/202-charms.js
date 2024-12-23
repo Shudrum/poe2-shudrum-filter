@@ -1,5 +1,4 @@
 import Section from '../entities/section.js';
-import Block from '../entities/block.js';
 import MapIcon from '../entities/map-icon.js';
 import Effect from '../entities/effect.js';
 import Card from '../entities/card.js';
@@ -14,7 +13,7 @@ export default ({ modeId }) => {
   };
 
   if (modes.CharmsDisplay[modeId]) {
-    section.addBlock(new Block({
+    section.addBlock({
       ...common,
       effect: new Effect(Effect.COLORS.PURPLE, Effect.TEMPORARY),
       icon: new MapIcon(
@@ -22,13 +21,13 @@ export default ({ modeId }) => {
         MapIcon.COLORS.PURPLE,
         MapIcon.SHAPES.MOON,
       ),
-    }));
+    });
   } else {
-    section.addBlock(new Block({
+    section.addBlock({
       ...common,
       visible: false,
       areaLevel: `>= ${global.startingAreaLevel}`,
-    }));
+    });
   }
 
   return section;

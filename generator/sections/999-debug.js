@@ -1,5 +1,4 @@
 import Section from '../entities/section.js';
-import Block from '../entities/block.js';
 import Sound from '../entities/sound.js';
 import MapIcon from '../entities/map-icon.js';
 import { global } from '../configuration/index.js';
@@ -9,7 +8,7 @@ export default () => {
 
   const section = new Section('Debug: 3 colors = not managed by the filter');
 
-  section.addBlock(new Block({
+  section.addBlock({
     areaLevel: `>= ${global.startingAreaLevel}`,
     font: 40,
     text: '255 0 0',
@@ -21,7 +20,7 @@ export default () => {
       MapIcon.SIZES.MEDIUM,
       MapIcon.SHAPES.UPSIDE_DOWN_HOUSE,
     ),
-  }));
+  });
 
   return section;
 };
