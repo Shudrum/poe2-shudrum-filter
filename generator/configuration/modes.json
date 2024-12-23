@@ -8,12 +8,12 @@
 
   "EquipmentMinimumMagicItemLevel": [65, 65, 65, { "label": "Minimum magic items levels", "title": "Equipment" }],
   "EquipmentMinimumRareItemLevel": [65, 65, 65, { "label": "Minimum rare items levels" }],
+  "EquipmentMinimumBaseNormalItemLevel": [65, 65, 65, { "label": "Minimum white base items levels" }],
   "EquipmentMinimumSalvageableQuality": [1, 5, 10, { "label": "Minimum salvageable item quality" }],
 
   "CharmsDisplay": [true, true, false, { "label": "Charms", "title": "Miscellaneous" }],
   "FlasksMinimumQuality": [5, 10, 15, { "label": "Flasks minimum quality" }],
   "RunesDisplayBasic": [true, true, false, { "label": "Basic runes" }],
 
-  "EquipmentMinimumNormalItemLevel": [65, 65, 65],
   "GoldCeilingDisplaySizeAmount": [1000, 2000, 3000]
 }

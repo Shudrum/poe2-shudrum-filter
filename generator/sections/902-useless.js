@@ -35,7 +35,6 @@ export default ({ modeId }) => {
     class: classes,
     rarity: 'Normal',
     areaLevel: `>= ${global.startingAreaLevel}`,
-    itemLevel: `< ${modes.EquipmentMinimumNormalItemLevel[modeId]}`,
   });
 
   return section;

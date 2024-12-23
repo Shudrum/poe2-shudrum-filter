@@ -8,7 +8,7 @@ export default ({ modeId }) => {
   const common = {
     class: ['Amulets', 'Rings', 'Belts'],
     areaLevel: `>= ${global.startingAreaLevel}`,
-    itemLevel: `>= ${modes.EquipmentMinimumNormalItemLevel[modeId]}`,
+    itemLevel: `>= ${modes.EquipmentMinimumBaseNormalItemLevel[modeId]}`,
   };
 
   section.addBlock({
