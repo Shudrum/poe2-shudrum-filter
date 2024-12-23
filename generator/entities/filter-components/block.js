@@ -23,11 +23,6 @@ export default class Bloc {
       : [this.#attributes.type];
   }
 
-  get continue() {
-    if (!this.#attributes.continue) return false;
-    return Boolean(this.#attributes.continue);
-  }
-
   generate() {
     const attributes = { ...this.#attributes };
 
@@ -35,12 +30,6 @@ export default class Bloc {
     if (Object.keys(attributes).includes('visible')) {
       visible = Boolean(attributes.visible);
       delete attributes.visible;
-    }
-
-    let comment = null;
-    if (Object.keys(attributes).includes('comment')) {
-      comment = attributes.comment;
-      delete attributes.comment;
     }
 
     const rows = Object.entries(attributes).reduce((prev, [key, value]) => {
@@ -78,10 +67,6 @@ export default class Bloc {
           case 'sound':
             return `${value}`;
 
-          // Special
-          case 'continue':
-            return value ? 'Continue' : null;
-
           default:
             throw new Error(`Unknown key: "${key}"`);
         }
@@ -93,7 +78,6 @@ export default class Bloc {
       .map((row) => `  ${row}`);
 
     return [
-      comment && `# ${comment}`,
       visible ? 'Show' : 'Hide',
       ...rows,
     ].filter(Boolean);

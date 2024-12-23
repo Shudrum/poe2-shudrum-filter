@@ -8,24 +8,13 @@ import { global, modes } from '../configuration/index.js';
 export default ({ modeId }) => {
   const section = new Section('Waystones');
 
-  const common = {
-    class: 'Waystone',
-  };
-
-  section.addBlock({
-    ...common,
-    comment: 'Common',
-    card: new Card(Card.THEMES.WAYSTONES, Card.SIZES.MEDIUM, Card.TYPES.OUTLINE),
-    sound: new Sound(Sound.TYPES.WAYSTONE),
-    effect: new Effect(Effect.COLORS.WHITE),
-    continue: true,
-  });
-
   for (let waystoneTier = 1; waystoneTier <= 20; waystoneTier++) {
     section.addBlock({
-      ...common,
+      class: 'Waystone',
       areaLevel: `== ${global.startingAreaLevel + (waystoneTier - 1)}`,
       waystoneTier: `>= ${waystoneTier}`,
+      sound: new Sound(Sound.TYPES.WAYSTONE),
+      effect: new Effect(Effect.COLORS.WHITE),
       card: new Card(Card.THEMES.WAYSTONES, Card.SIZES.BIG, Card.TYPES.IMPORTANT),
       icon: new MapIcon(
         MapIcon.SIZES.BIG,
@@ -34,31 +23,28 @@ export default ({ modeId }) => {
       ),
     });
 
+    if (waystoneTier >= modes.WaystonesHideStartingLevelGap[modeId] + 1) {
+      section.addBlock({
+        class: 'Waystone',
+        visible: false,
+        areaLevel: `== ${global.startingAreaLevel + (waystoneTier - 1)}`,
+        waystoneTier: `<= ${waystoneTier - modes.WaystonesHideStartingLevelGap[modeId]}`,
+        card: new Card(Card.THEMES.WAYSTONES, Card.SIZES.SMALL, Card.TYPES.OUTLINE),
+      });
+    }
+
     if (waystoneTier >= 2) {
       section.addBlock({
-        ...common,
+        class: 'Waystone',
         areaLevel: `== ${global.startingAreaLevel + (waystoneTier - 1)}`,
         waystoneTier: `< ${waystoneTier}`,
         card: new Card(Card.THEMES.WAYSTONES, Card.SIZES.MEDIUM, Card.TYPES.OUTLINE),
-        effect: new Effect(Effect.COLORS.WHITE),
+        effect: new Effect(Effect.COLORS.WHITE, Effect.TEMPORARY),
         icon: new MapIcon(
           MapIcon.SIZES.MEDIUM,
           MapIcon.COLORS.WHITE,
           MapIcon.SHAPES.SQUARE,
         ),
-        continue: true,
-      });
-    }
-
-    if (waystoneTier >= modes.WaystonesHideStartingLevelGap[modeId] + 1) {
-      section.addBlock({
-        ...common,
-        visible: false,
-        areaLevel: `== ${global.startingAreaLevel + (waystoneTier - 1)}`,
-        waystoneTier: `<= ${waystoneTier - modes.WaystonesHideStartingLevelGap[modeId]}`,
-        card: new Card(Card.THEMES.WAYSTONES, Card.SIZES.SMALL, Card.TYPES.OUTLINE),
-        sound: new Sound(Sound.NONE),
-        icon: new MapIcon(MapIcon.NONE),
       });
     }
   }
@@ -66,7 +52,6 @@ export default ({ modeId }) => {
   // TODO: There is super important loots to highlight here, like the Expedition
   //       Logbook
   section.addBlock({
-    comment: 'Tablets',
     type: [
       'Simulacrum',
       'Tablet',
