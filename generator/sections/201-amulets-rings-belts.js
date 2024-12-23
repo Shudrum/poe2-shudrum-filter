@@ -17,17 +17,5 @@ export default ({ modeId }) => {
     card: Card(Card.THEMES.NORMAL, Card.SIZES.BIG, Card.TYPES.OUTLINE),
   });
 
-  section.addBlock({
-    ...common,
-    rarity: 'Magic',
-    card: Card(Card.THEMES.MAGICS, Card.SIZES.BIG, Card.TYPES.OUTLINE),
-  });
-
-  section.addBlock({
-    ...common,
-    rarity: 'Rare',
-    card: Card(Card.THEMES.RARES, Card.SIZES.BIG, Card.TYPES.OUTLINE),
-  });
-
   return section;
 };
