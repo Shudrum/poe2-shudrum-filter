@@ -19,26 +19,28 @@ const TO_STRING_VALUES = [
 ];
 
 export default function Block(definition) {
+  const updatedDefinition = { ...definition };
+
   function arrayToList(array) {
     return array.map((entry) => `"${entry}"`).join(' ');
   }
 
   function ensureArray(key) {
-    if (!definition[key] || Array.isArray(definition[key])) return;
-    definition[key] = [definition[key]];
+    if (!updatedDefinition[key] || Array.isArray(updatedDefinition[key])) return;
+    updatedDefinition[key] = [updatedDefinition[key]];
   }
 
   function getKeyValue(key) {
     if (PASCAL_CASE_VALUES.includes(key)) {
-      return `${pascalCase(key)} ${definition[key]}`;
+      return `${pascalCase(key)} ${updatedDefinition[key]}`;
     }
 
     if (TO_STRING_VALUES.includes(key)) {
-      return `${definition[key]}`;
+      return `${updatedDefinition[key]}`;
     }
 
-    if (key === 'class') return `Class ${arrayToList(definition[key])}`;
-    if (key === 'type') return `BaseType ${arrayToList(definition[key])}`;
+    if (key === 'class') return `Class ${arrayToList(updatedDefinition[key])}`;
+    if (key === 'type') return `BaseType ${arrayToList(updatedDefinition[key])}`;
 
     throw new Error(`Unknown key: "${key}"`);
   }
@@ -46,15 +48,15 @@ export default function Block(definition) {
   ensureArray('class');
   ensureArray('type');
 
-  const visible = typeof definition.visible === Boolean
-    ? definition.visible
+  const visible = typeof updatedDefinition.visible === 'boolean'
+    ? updatedDefinition.visible
     : true;
 
-  delete definition.visible;
+  delete updatedDefinition.visible;
 
   const instance = {
     generate() {
-      const rows = Object.keys(definition).reduce((prev, key) => {
+      const rows = Object.keys(updatedDefinition).reduce((prev, key) => {
         return [...prev, ...getKeyValue(key).split('\n')];
       }, [])
         .filter(Boolean)
