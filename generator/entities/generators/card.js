@@ -21,8 +21,8 @@ export default function Card(...args) {
     }
   });
 
-  function color(theme, type) {
-    return hexToFilterColor(themes[theme][type === 'light' ? 1 : 0]);
+  function color(theme) {
+    return hexToFilterColor(themes[theme][0]);
   }
 
   const instance = {
@@ -33,30 +33,30 @@ export default function Card(...args) {
       switch (type) {
         case Card.TYPES.NORMAL:
           return [
-            `SetTextColor ${color(theme, 'light')}`,
+            `SetTextColor ${color(theme)}`,
             `SetBorderColor ${hexToFilterColor('0000')}`,
             `SetBackgroundColor ${hexToFilterColor(global.defaultTransparency)}`,
             `SetFontSize ${size}`,
           ].join('\n');
         case Card.TYPES.OUTLINE:
           return [
-            `SetTextColor ${color(theme, 'light')}`,
-            `SetBorderColor ${color(theme, 'light')}`,
+            `SetTextColor ${color(theme)}`,
+            `SetBorderColor ${color(theme)}`,
             `SetBackgroundColor ${hexToFilterColor(global.defaultTransparency)}`,
             `SetFontSize ${size}`,
           ].join('\n');
         case Card.TYPES.IMPORTANT:
           return [
             `SetTextColor ${hexToFilterColor(getTextColor(themes[theme][0]))}`,
-            `SetBorderColor ${color(theme, 'normal')}`,
-            `SetBackgroundColor ${color(theme, 'normal')}`,
+            `SetBorderColor ${color(theme)}`,
+            `SetBackgroundColor ${color(theme)}`,
             `SetFontSize ${size}`,
           ].join('\n');
         case Card.TYPES.URGENT:
           return [
             `SetTextColor ${hexToFilterColor(getTextColor(themes[theme][0]))}`,
-            `SetBorderColor ${hexToFilterColor(getTextColor(themes[theme][0]))}}`,
-            `SetBackgroundColor ${color(theme, 'normal')}`,
+            `SetBorderColor ${hexToFilterColor(getTextColor(themes[theme][0]))}`,
+            `SetBackgroundColor ${color(theme)}`,
             `SetFontSize ${size}`,
           ].join('\n');
       }
