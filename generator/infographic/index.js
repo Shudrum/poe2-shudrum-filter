@@ -19,6 +19,9 @@ async function loadThemes() {
   return Object.values(Object.values(JSON.parse(
     await fs.readFile(path.resolve(__dirname, '../configuration/themes.json')),
   )).reduce((prev, current) => {
+    if (!current[1]) {
+      return prev;
+    }
     if (current[1].title) {
       prev.push({ title: current[1].title, items: [] });
     }

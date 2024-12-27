@@ -5,18 +5,18 @@
   "uniques": ["#ef6916", { "label": "Uniques" }],
   "currency": ["#aa9e82", { "label": "Currencies" }],
 
-  "alert": ["#b10f0f", { "label": "Important", "title": "Special" }],
+  "alert": ["#d21e1e", { "label": "Important", "title": "Special" }],
   "gold": ["#c5aa58", { "label": "Gold" }],
+  "events": ["#a354fd", { "label": "Events" }],
 
   "gems": ["#73c8bd", { "label": "Gems", "title": "Items" }],
-  "waystones": ["#4a443a", { "label": "Waystones" }],
-  "tablets": ["#260056", { "label": "Tablets" }],
-  "flasks": ["#1ee7ee", { "label": "Flasks" }],
-  "charms": ["#c080fe", { "label": "Charms" }],
-  "jewels": ["#43ca1b", { "label": "Jewels" }],
-  "runes": ["#1ba29b", { "label": "Runes" }],
+  "waystones": ["#e86767", { "label": "Waystones" }],
+  "tablets": ["#d354fd", { "label": "Tablets" }],
+  "flasks": ["#54fdef", { "label": "Flasks" }],
+  "charms": ["#fd54c7", { "label": "Charms" }],
+  "jewels": ["#54fd54", { "label": "Jewels" }],
+  "runes": ["#fdac7a", { "label": "Runes" }],
 
-  "breach": ["#9052d7", { "label": "Breach", "title": "Events" }],
-  "events": ["#8f1acf", { "label": "Events" }],
-  "expeditions": ["#14e7ee", { "label": "Expeditions" }]
+  "breach": ["#a354fd"],
+  "expeditions": ["#a354fd"]
 }
