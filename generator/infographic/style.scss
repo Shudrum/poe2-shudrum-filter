@@ -1,0 +1,170 @@
+$lightGrey: rgba(255, 255, 255, 0.4);
+
+div, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Fontin';
+  background-color: transparent;
+  color: rgb(220, 220, 220);
+  margin: 10px;
+  font-size: 16px;
+}
+
+h1 {
+  color: #aa9e82;
+  text-align: center;
+}
+
+h2 {
+  margin-top: 20px;
+  color: #ef6916;
+
+  span {
+    color: $lightGrey;
+    font-size: 14px;
+  }
+}
+
+h3 {
+  font-size: 12px;
+  color: $lightGrey;
+  margin-top: 10px;
+}
+
+#capture-zone {
+  width: 700px;
+  padding: 10px;
+}
+
+#main-container {
+  background: #191919;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+#modes {
+  .row {
+    display: flex;
+    height: 30px;
+    align-items: center;
+
+    .label {
+      flex-grow: 1;
+    }
+
+    svg {
+      width: 16px;
+      transform: translateY(2.5px);
+
+      &.green {
+        fill: rgb(27, 162, 155);
+      }
+      &.red {
+        fill: rgba(255, 255, 255, 0.2);
+      }
+    }
+
+    .col {
+      flex-shrink: 0;
+      flex-grow: 0;
+      flex-basis: 110px;
+      text-align: center;
+      margin-left: 10px;
+
+      .title {
+        display: inline-block;
+      }
+      .title-1 {
+        color: #7a96fd;
+        border-bottom: 2px solid #7a96fd;
+      }
+      .title-2 {
+        color: #fddf54;
+        border-bottom: 2px solid #fddf54;
+      }
+      .title-3 {
+        color: #ef6916;
+        border-bottom: 2px solid #ef6916;
+      }
+    }
+  }
+}
+
+#themes {
+  .items-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -5px;
+
+    .item {
+      width: 20%;
+      padding: 5px;
+
+      .label {
+        padding: 5px;
+        text-align: center;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+#system {
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+  }
+
+  .level {
+    $color: #9052d7;
+    $text: #c8c8c8;
+
+    color: $color;
+    background: #000;
+    border: 1px solid #000;
+    display: inline-block;
+    text-align: center;
+    padding: 5px 10px;
+    line-height: 1;
+
+    @mixin padding($substract: 0px) {
+      padding: 5px - $substract 10px - (2 * $substract);
+    }
+
+    &.level-0 {
+      @include padding(2px);
+      font-size: 10px;
+    }
+    &.level-1 {
+      @include padding(1px);
+      border: 1px solid $color;
+      font-size: 12px;
+    }
+    &.level-2 {
+      @include padding(1px);
+      border: 1px solid $color;
+      background: $color;
+      color: $text;
+      font-size: 14px;
+    }
+    &.level-3 {
+      @include padding();
+      border: 1px solid $text;
+      color: $text;
+      background: $color;
+      font-size: 16px;
+    }
+    &.level-4 {
+      @include padding();
+      color: #c8c8c8;
+      border: 1px solid #c8c8c8;
+      background-color: #b10f0f;
+      font-size: 16px;
+    }
+  }
+}

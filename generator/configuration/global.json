@@ -8,8 +8,8 @@
     "expert"
   ],
   "primaryColors": {
-    "black": "000",
-    "white": "c8c8c8"
+    "black": "#000",
+    "white": "#c8c8c8"
   },
   "defaultTransparency": "000000e0"
 }

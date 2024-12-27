@@ -1,19 +1,22 @@
 {
-  "alert": ["b10f0f", "b10f0f"],
-  "breach": ["9052d7", "9052d7"],
-  "charms": ["c080fe", "c080fe"],
-  "currency": ["aa9e82", "aa9e82"],
-  "events": ["8f1acf", "8f1acf"],
-  "expeditions": ["14e7ee", "14e7ee"],
-  "flasks": ["1ee7ee", "1ee7ee"],
-  "gems": ["73c8bd", "73c8bd"],
-  "gold": ["c5aa58", "c5aa58"],
-  "jewels": ["43ca1b", "43ca1b"],
-  "magics": ["7a96fd", "7a96fd"],
-  "normal": ["c8c8c8", "c8c8c8"],
-  "rares": ["fddf54", "fddf54"],
-  "runes": ["1ba29b", "1ba29b"],
-  "tablets": ["260056", "260056"],
-  "uniques": ["ef6916", "ef6916"],
-  "waystones": ["4a443a", "928787"]
+  "normal": ["#c8c8c8", { "label": "Normals", "title": "Classic" }],
+  "magics": ["#7a96fd", { "label": "Magics" }],
+  "rares": ["#fddf54", { "label": "Rares" }],
+  "uniques": ["#ef6916", { "label": "Uniques" }],
+  "currency": ["#aa9e82", { "label": "Currencies" }],
+
+  "alert": ["#b10f0f", { "label": "Important", "title": "Special" }],
+  "gold": ["#c5aa58", { "label": "Gold" }],
+
+  "gems": ["#73c8bd", { "label": "Gems", "title": "Items" }],
+  "waystones": ["#4a443a", { "label": "Waystones" }],
+  "tablets": ["#260056", { "label": "Tablets" }],
+  "flasks": ["#1ee7ee", { "label": "Flasks" }],
+  "charms": ["#c080fe", { "label": "Charms" }],
+  "jewels": ["#43ca1b", { "label": "Jewels" }],
+  "runes": ["#1ba29b", { "label": "Runes" }],
+
+  "breach": ["#9052d7", { "label": "Breach", "title": "Events" }],
+  "events": ["#8f1acf", { "label": "Events" }],
+  "expeditions": ["#14e7ee", { "label": "Expeditions" }]
 }

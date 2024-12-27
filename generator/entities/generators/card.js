@@ -1,5 +1,5 @@
-import hexToRgba from '../../tools/hex-to-rgba.js';
 import hexToFilterColor from '../../tools/hex-to-filter-color.js';
+import getTextColor from '../../tools/get-text-color.js';
 import { global, themes } from '../../configuration/index.js';
 
 export default function Card(...args) {
@@ -25,20 +25,6 @@ export default function Card(...args) {
     return hexToFilterColor(themes[theme][type === 'light' ? 1 : 0]);
   }
 
-  function getTextColor(backgroundHex) {
-    const { r, g, b } = hexToRgba(backgroundHex);
-
-    const linearR = r / 255 <= 0.03928 ? r / 255 / 12.92 : Math.pow((r / 255 + 0.055) / 1.055, 2.4);
-    const linearG = g / 255 <= 0.03928 ? g / 255 / 12.92 : Math.pow((g / 255 + 0.055) / 1.055, 2.4);
-    const linearB = b / 255 <= 0.03928 ? b / 255 / 12.92 : Math.pow((b / 255 + 0.055) / 1.055, 2.4);
-
-    const luminance = 0.2126 * linearR + 0.7152 * linearG + 0.0722 * linearB;
-
-    return luminance > 0.179
-      ? hexToFilterColor(global.primaryColors.black)
-      : hexToFilterColor(global.primaryColors.white);
-  }
-
   const instance = {
     [Symbol.for('nodejs.util.inspect.custom')]() {
       return { theme, size, type };
@@ -61,15 +47,15 @@ export default function Card(...args) {
           ].join('\n');
         case Card.TYPES.IMPORTANT:
           return [
-            `SetTextColor ${getTextColor(themes[theme][0])}`,
+            `SetTextColor ${hexToFilterColor(getTextColor(themes[theme][0]))}`,
             `SetBorderColor ${color(theme, 'normal')}`,
             `SetBackgroundColor ${color(theme, 'normal')}`,
             `SetFontSize ${size}`,
           ].join('\n');
         case Card.TYPES.URGENT:
           return [
-            `SetTextColor ${getTextColor(themes[theme][0])}`,
-            `SetBorderColor ${getTextColor(themes[theme][0])}}`,
+            `SetTextColor ${hexToFilterColor(getTextColor(themes[theme][0]))}`,
+            `SetBorderColor ${hexToFilterColor(getTextColor(themes[theme][0]))}}`,
             `SetBackgroundColor ${color(theme, 'normal')}`,
             `SetFontSize ${size}`,
           ].join('\n');
