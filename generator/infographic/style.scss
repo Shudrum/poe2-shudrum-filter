@@ -15,8 +15,17 @@ body {
 }
 
 h1 {
-  color: #aa9e82;
-  text-align: center;
+  $color: #aa9e82;
+  display: flex;
+  justify-content: center;
+
+  div {
+    display: inline-block;
+    border-top: 2px solid $color;
+    border-bottom: 2px solid $color;
+    border-radius: 4px;
+    color: $color;
+  }
 }
 
 h2 {
@@ -25,7 +34,7 @@ h2 {
 
   span {
     color: $lightGrey;
-    font-size: 14px;
+    font-size: 15px;
   }
 }
 
