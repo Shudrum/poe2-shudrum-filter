@@ -8,6 +8,7 @@ import { pascalCase } from 'change-case';
 import { global } from './configuration/index.js';
 import { Filter } from './entities/filter/index.js';
 import loadSections from './sections/index.js';
+import generatePreview from './preview/generate-preview.js';
 
 import './tools/debug.js';
 
@@ -67,6 +68,7 @@ async function ensureGeneratedFolder() {
 
     if (process.env.NODE_ENV === 'development') {
       await ensureGeneratedFolder();
+      await generatePreview();
       await fs.writeFile(path.resolve(__dirname, 'generated', fileName), generatedFilter, 'utf-8');
     } else {
       await fs.writeFile(path.resolve('..', fileName), generatedFilter, 'utf-8');

@@ -7,6 +7,7 @@ import * as sass from 'sass';
 import * as prettier from 'prettier';
 import { chromium } from 'playwright';
 
+import { modes, themes } from '../configuration/index.js';
 import getTextColor from '../tools/get-text-color.js';
 
 if (process.env.NODE_ENV === 'development') {
@@ -16,9 +17,7 @@ if (process.env.NODE_ENV === 'development') {
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 async function loadThemes() {
-  return Object.values(Object.values(JSON.parse(
-    await fs.readFile(path.resolve(__dirname, '../configuration/themes.json')),
-  )).reduce((prev, current) => {
+  return Object.values(themes).reduce((prev, current) => {
     if (!current[1]) {
       return prev;
     }
@@ -31,13 +30,11 @@ async function loadThemes() {
       color: current[0],
     });
     return prev;
-  }, []));
+  }, []);
 }
 
 async function loadModes() {
-  return Object.values(Object.values(JSON.parse(
-    await fs.readFile(path.resolve(__dirname, '../configuration/modes.json')),
-  )).reduce((prev, current) => {
+  return Object.values(Object.values(modes).reduce((prev, current) => {
     if (!current[3]) {
       return prev;
     }
@@ -70,7 +67,10 @@ async function loadStyle() {
     style: (await loadStyle()).css,
     themes: await loadThemes(),
     modes: await loadModes(),
-    fontData: await fs.readFile(path.resolve(__dirname, './fontin-small-caps.ttf'), 'base64'),
+    fontData: await fs.readFile(
+      path.resolve(__dirname, '../assets/fontin-small-caps.ttf'),
+      'base64',
+    ),
   }, {
     pretty: true,
     escape: false,
@@ -81,7 +81,7 @@ async function loadStyle() {
 
   await page.locator('#capture-zone').screenshot({
     path: process.env.NODE_ENV === 'development'
-      ? path.resolve(__dirname, '../generated', 'filters-comparison.png')
+      ? path.resolve(__dirname, '../generated', 'infographic.png')
       : path.resolve(__dirname, '../../.github', 'filters-comparison.png'),
     omitBackground: true,
   });

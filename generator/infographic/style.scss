@@ -145,37 +145,37 @@ h3 {
     padding: 5px 10px;
     line-height: 1;
 
-    @mixin padding($substract: 0px) {
-      padding: 5px - $substract 10px - (2 * $substract);
+    @mixin padding($size: 0px) {
+      padding: $size ($size * 2);
     }
 
     &.level-0 {
-      @include padding(2px);
-      font-size: 10px;
+      @include padding(1px);
+      font-size: 8px;
     }
     &.level-1 {
-      @include padding(1px);
+      @include padding(2px);
       border: 1px solid $color;
-      font-size: 12px;
+      font-size: 10px;
     }
     &.level-2 {
-      @include padding(1px);
+      @include padding(3px);
       border: 1px solid $color;
       background: $color;
       color: $text;
-      font-size: 14px;
+      font-size: 12px;
     }
     &.level-3 {
-      @include padding();
-      border: 1px solid $text;
+      @include padding(4px);
+      border: 1px solid $white;
       color: $text;
       background: $color;
-      font-size: 16px;
+      font-size: 14px;
     }
     &.level-4 {
-      @include padding();
-      color: #c8c8c8;
-      border: 1px solid #c8c8c8;
+      @include padding(5px);
+      color: $white;
+      border: 1px solid $white;
       background-color: #b10f0f;
       font-size: 16px;
     }
