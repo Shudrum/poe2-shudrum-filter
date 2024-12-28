@@ -37,7 +37,7 @@ export default function Block(definition) {
 
   function getKeyValue(key) {
     if (PASCAL_CASE_VALUES.includes(key)) {
-      return `${pascalCase(key)} ${updatedDefinition[key]}`;
+      return [`${pascalCase(key)} ${updatedDefinition[key]}`];
     }
 
     if (GENERATORS_VALUES.includes(key)) {

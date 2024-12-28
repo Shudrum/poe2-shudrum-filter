@@ -6,7 +6,7 @@ export default function Area(comparison) {
       return { comparison };
     },
     toText() {
-      return `AreaLevel ${comparison}`;
+      return [`AreaLevel ${comparison}`];
     },
   };
 

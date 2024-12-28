@@ -27,7 +27,7 @@ async function ensureGeneratedFolder() {
 
 (async () => {
   const sections = await loadSections();
-  const header = await fs.readFile(path.resolve(__dirname, 'configuration', 'header.txt'), 'utf-8');
+  const header = await fs.readFile(path.resolve(__dirname, 'assets/header.txt'), 'utf-8');
 
   const gameDirectory = process.env.NODE_ENV === 'development' && platform() === 'win32'
     ? path.join(
