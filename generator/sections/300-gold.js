@@ -1,27 +1,28 @@
 import { Section } from '../entities/filter/index.js';
-import { Card } from '../entities/generators/index.js';
-import { global, modes } from '../configuration/index.js';
+import { modes } from '../configuration/index.js';
+import Area from '../entities/generators/area.js';
+import ItemDisplay, { SIZE, THEME, TYPE } from '../entities/generators/item-display.js';
 
 export default ({ modeId }) => {
   const section = Section('Gold');
 
-  const common = {
-    class: 'Currency',
-    type: 'Gold',
+  const gold = {
+    class: ['Currency'],
+    type: ['Gold'],
   };
 
   section.addBlock({
-    ...common,
-    areaLevel: `< ${global.startingAreaLevel}`,
-    card: Card(Card.SIZES.SMALL, Card.THEMES.GOLD),
+    ...gold,
+    area: Area.UNDER_STARTING_AREA,
+    display: ItemDisplay(THEME.GOLD, SIZE.SMALL),
   });
 
   section.addBlock({
-    ...common,
+    ...gold,
     visible: false,
-    areaLevel: `>= ${global.startingAreaLevel}`,
+    area: Area.FROM_STARTING_AREA,
     stackSize: `< ${modes.GoldMinimumDisplayedAmount[modeId]}`,
-    card: Card(Card.SIZES.VALUE_15, Card.THEMES.GOLD),
+    display: ItemDisplay(THEME.GOLD, SIZE.TINY),
   });
 
   function generateValues(from, to) {
@@ -35,12 +36,16 @@ export default ({ modeId }) => {
     modes.GoldCeilingDisplaySizeAmount[modeId],
   ).reverse().forEach((stackSize, i) => {
     section.addBlock({
-      ...common,
-      areaLevel: `>= ${global.startingAreaLevel}`,
+      ...gold,
+      area: Area.FROM_STARTING_AREA,
       stackSize: `>= ${stackSize}`,
-      ...i === 0
-        ? { card: Card(20 + (5 - i) * 5, Card.THEMES.GOLD, Card.TYPES.OUTLINE) }
-        : { card: Card(20 + (5 - i) * 5, Card.THEMES.GOLD) },
+      display: ItemDisplay(THEME.GOLD, [
+        SIZE.BIG,
+        SIZE.MEDIUM,
+        SIZE.SMALL,
+        SIZE.SMALLEST,
+        SIZE.TINY,
+      ][i], i === 0 ? TYPE.OUTLINE : TYPE.NORMAL),
     });
   });
 

@@ -1,15 +1,13 @@
 import { Section } from '../entities/filter/index.js';
-import { Card, Effect, MapIcon } from '../entities/generators/index.js';
+import ItemDisplay, { BEAM, ICON, THEME } from '../entities/generators/item-display.js';
 
 export default () => {
   const section = Section('Jewels');
 
   section.addBlock({
-    class: 'Jewel',
+    class: ['Jewel'],
     rarity: '<= Rare',
-    card: Card(Card.THEMES.JEWELS, Card.SIZES.BIG, Card.TYPES.OUTLINE),
-    icon: MapIcon(MapIcon.SIZES.MEDIUM, MapIcon.COLORS.GREEN, MapIcon.SHAPES.PENTAGON),
-    effect: Effect(Effect.COLORS.GREEN, Effect.TEMPORARY),
+    display: ItemDisplay.MEDIUM(THEME.JEWELS, BEAM.TEMPORARY, ICON.PENTAGON),
   });
 
   return section;

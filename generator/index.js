@@ -10,8 +10,6 @@ import { Filter } from './entities/filter/index.js';
 import loadSections from './sections/index.js';
 import generatePreview from './preview/generate-preview.js';
 
-import './tools/debug.js';
-
 if (process.env.NODE_ENV === 'development') {
   console.clear();
 }

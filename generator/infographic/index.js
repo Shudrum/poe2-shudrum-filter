@@ -17,17 +17,16 @@ if (process.env.NODE_ENV === 'development') {
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 async function loadThemes() {
-  return Object.values(themes).reduce((prev, current) => {
-    if (!current[1]) {
+  return themes.reduce((prev, current) => {
+    if (!current.label) {
       return prev;
     }
-    if (current[1].title) {
-      prev.push({ title: current[1].title, items: [] });
+    if (current.title) {
+      prev.push({ title: current.title, items: [] });
     }
     prev.at(-1).items.push({
-      label: current[1].label,
-      text: getTextColor(current[0]),
-      color: current[0],
+      ...current,
+      text: getTextColor(current.color),
     });
     return prev;
   }, []);

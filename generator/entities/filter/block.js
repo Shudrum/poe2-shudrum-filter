@@ -12,15 +12,19 @@ const PASCAL_CASE_VALUES = [
 ];
 
 const GENERATORS_VALUES = [
+  'display',
   'area',
-  'card',
-  'icon',
-  'effect',
-  'sound',
 ];
 
 export default function Block(definition) {
   const updatedDefinition = { ...definition };
+
+  if (definition.class && !Array.isArray(definition.class)) {
+    throw new Error('The "class" attribute must be an array.');
+  }
+  if (definition.type && !Array.isArray(definition.type)) {
+    throw new Error('The "type" attribute must be an array.');
+  }
 
   function arrayToList(array) {
     return array.map((entry) => `"${entry}"`).join(' ');
@@ -40,8 +44,8 @@ export default function Block(definition) {
       return updatedDefinition[key].toText();
     }
 
-    if (key === 'class') return `Class ${arrayToList(updatedDefinition[key])}`;
-    if (key === 'type') return `BaseType ${arrayToList(updatedDefinition[key])}`;
+    if (key === 'class') return [`Class ${arrayToList(updatedDefinition[key])}`];
+    if (key === 'type') return [`BaseType ${arrayToList(updatedDefinition[key])}`];
 
     throw new Error(`Unknown key: "${key}"`);
   }
@@ -66,7 +70,7 @@ export default function Block(definition) {
     },
     generate() {
       const rows = Object.keys(updatedDefinition).reduce((prev, key) => {
-        return [...prev, ...getKeyValue(key).split('\n')];
+        return [...prev, ...getKeyValue(key)];
       }, [])
         .filter(Boolean)
         .map((row) => `  ${row}`);

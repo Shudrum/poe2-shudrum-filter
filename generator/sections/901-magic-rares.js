@@ -1,6 +1,7 @@
 import { Section } from '../entities/filter/index.js';
-import { Area, Card, MapIcon } from '../entities/generators/index.js';
 import { modes } from '../configuration/index.js';
+import Area from '../entities/generators/area.js';
+import ItemDisplay, { ICON, SIZE, THEME } from '../entities/generators/item-display.js';
 
 export default ({ modeId }) => {
   const section = Section('Magic and rare items');
@@ -13,16 +14,14 @@ export default ({ modeId }) => {
     ...common,
     rarity: 'Magic',
     itemLevel: `>= ${modes.EquipmentMinimumMagicItemLevel[modeId]}`,
-    card: Card(Card.THEMES.MAGICS, Card.SIZES.SMALL),
-    icon: MapIcon(MapIcon.SIZES.SMALL, MapIcon.COLORS.BLUE, MapIcon.SHAPES.CIRCLE),
+    display: ItemDisplay.LOWEST(THEME.MAGICS, ICON.CIRCLE),
   });
 
   section.addBlock({
     ...common,
     rarity: 'Rare',
     itemLevel: `>= ${modes.EquipmentMinimumRareItemLevel[modeId]}`,
-    card: Card(Card.THEMES.RARES, Card.SIZES.MEDIUM),
-    icon: MapIcon(MapIcon.SIZES.SMALL, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.CIRCLE),
+    display: ItemDisplay.LOWEST(THEME.MAGICS, SIZE.SMALL, ICON.CIRCLE),
   });
 
   return section;

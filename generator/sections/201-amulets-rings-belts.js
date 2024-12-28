@@ -1,6 +1,6 @@
 import { Section } from '../entities/filter/index.js';
 import { global, modes } from '../configuration/index.js';
-import { Card } from '../entities/generators/index.js';
+import ItemDisplay, { THEME } from '../entities/generators/item-display.js';
 
 export default ({ modeId }) => {
   const section = Section('Amulets, rings & belts');
@@ -14,7 +14,7 @@ export default ({ modeId }) => {
   section.addBlock({
     ...common,
     rarity: 'Normal',
-    card: Card(Card.THEMES.NORMAL, Card.SIZES.BIG, Card.TYPES.OUTLINE),
+    display: ItemDisplay.MEDIUM(THEME.NORMAL),
   });
 
   return section;

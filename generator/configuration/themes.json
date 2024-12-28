@@ -1,22 +1,19 @@
-{
-  "normal": ["#c8c8c8", { "label": "Normals", "title": "Classic" }],
-  "magics": ["#7a96fd", { "label": "Magics" }],
-  "rares": ["#fddf54", { "label": "Rares" }],
-  "uniques": ["#ef6916", { "label": "Uniques" }],
-  "currency": ["#aa9e82", { "label": "Currencies" }],
+[
+  { "key": "NORMAL", "color": "#c8c8c8", "gameColor": "white", "label": "Normals", "title": "Classic" },
+  { "key": "MAGICS", "color": "#7a96fd", "gameColor": "yellow", "label": "Magics" },
+  { "key": "RARES", "color": "#fddf54", "gameColor": "white", "label": "Rares" },
+  { "key": "UNIQUES", "color": "#ef6916", "gameColor": "white", "label": "Uniques" },
+  { "key": "CURRENCIES", "color": "#aa9e82", "gameColor": "white", "label": "Currencies" },
 
-  "alert": ["#d21e1e", { "label": "Important", "title": "Special" }],
-  "gold": ["#c5aa58", { "label": "Gold" }],
-  "events": ["#a354fd", { "label": "Events" }],
+  { "key": "ALERT", "color": "#d21e1e", "gameColor": "white", "label": "Important", "title": "Special" },
+  { "key": "GOLD", "color": "#c5aa58", "gameColor": "white", "label": "Gold" },
+  { "key": "EVENTS", "color": "#a354fd", "gameColor": "white", "label": "Events" },
 
-  "gems": ["#73c8bd", { "label": "Gems", "title": "Items" }],
-  "waystones": ["#e86767", { "label": "Waystones" }],
-  "tablets": ["#d354fd", { "label": "Tablets" }],
-  "flasks": ["#54fdef", { "label": "Flasks" }],
-  "charms": ["#fd54c7", { "label": "Charms" }],
-  "jewels": ["#54fd54", { "label": "Jewels" }],
-  "runes": ["#fdac7a", { "label": "Runes" }],
-
-  "breach": ["#a354fd"],
-  "expeditions": ["#a354fd"]
-}
+  { "key": "GEMS", "color": "#73c8bd", "gameColor": "white", "label": "Gems", "title": "Items" },
+  { "key": "WAYSTONES", "color": "#e86767", "gameColor": "white", "label": "Waystones" },
+  { "key": "TABLETS", "color": "#d354fd", "gameColor": "white", "label": "Tablets" },
+  { "key": "FLASKS", "color": "#54fdef", "gameColor": "white", "label": "Flasks" },
+  { "key": "CHARMS", "color": "#fd54c7", "gameColor": "white", "label": "Charms" },
+  { "key": "JEWELS", "color": "#54fd54", "gameColor": "white", "label": "Jewels" },
+  { "key": "RUNES", "color": "#fdac7a", "gameColor": "white", "label": "Runes" }
+]

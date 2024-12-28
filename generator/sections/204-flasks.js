@@ -1,32 +1,31 @@
 import { Section } from '../entities/filter/index.js';
-import { Card, Effect, MapIcon } from '../entities/generators/index.js';
-import { global, modes } from '../configuration/index.js';
+import { modes } from '../configuration/index.js';
+import ItemDisplay, { BEAM, ICON, THEME } from '../entities/generators/item-display.js';
+import Area from '../entities/generators/area.js';
 
 export default ({ modeId }) => {
   const section = Section('Flasks');
 
-  const common = {
-    type: 'Flask',
+  const flasks = {
+    type: ['Flask'],
     rarity: '<= Magic',
-    card: Card(Card.THEMES.FLASKS, Card.SIZES.MEDIUM, Card.TYPES.OUTLINE),
+    display: ItemDisplay.LOW(THEME.FLASKS, BEAM.TEMPORARY, ICON.TRIANGLE),
   };
 
   section.addBlock({
-    ...common,
+    ...flasks,
     quality: `>= ${modes.FlasksMinimumQuality[modeId]}`,
-    effect: Effect(Effect.COLORS.CYAN, Effect.TEMPORARY),
-    icon: MapIcon(MapIcon.SIZES.SMALL, MapIcon.COLORS.CYAN, MapIcon.SHAPES.TRIANGLE),
   });
 
   section.addBlock({
-    ...common,
-    areaLevel: `>= ${global.startingAreaLevel}`,
+    ...flasks,
+    area: Area.FROM_STARTING_AREA,
     visible: false,
   });
 
   section.addBlock({
-    ...common,
-    areaLevel: `< ${global.startingAreaLevel}`,
+    ...flasks,
+    area: Area.UNDER_STARTING_AREA,
   });
 
   return section;

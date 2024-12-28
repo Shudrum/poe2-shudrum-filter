@@ -13,12 +13,10 @@ import hexToRgba from '../tools/hex-to-rgba.js';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 async function getThemes() {
-  return Object.entries(themes).reduce((prev, [key, value]) => [
-    ...prev,
-    {
-      key: key.toUpperCase(),
-      color: value[0],
-      text: getTextColor(value[0]),
+  return themes.reduce((prev, value) => [
+    ...prev, {
+      ...value,
+      text: getTextColor(value.color),
     },
   ], []);
 }

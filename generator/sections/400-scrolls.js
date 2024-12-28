@@ -1,5 +1,5 @@
 import { Section } from '../entities/filter/index.js';
-import { global } from '../configuration/index.js';
+import Area from '../entities/generators/area.js';
 
 export default () => {
   const section = Section('Scrolls of wisdom');
@@ -8,12 +8,13 @@ export default () => {
 
   section.addBlock({
     visible: false,
-    type: 'Scroll of Wisdom',
-    areaLevel: `>= ${global.startingAreaLevel}`,
+    type: ['Scroll of Wisdom'],
+    area: Area.FROM_STARTING_AREA,
   });
 
   section.addBlock({
-    type: 'Scroll of Wisdom',
+    type: ['Scroll of Wisdom'],
+    area: Area.UNDER_STARTING_AREA,
   });
 
   return section;
