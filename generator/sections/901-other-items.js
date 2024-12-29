@@ -10,12 +10,32 @@ export default ({ modeId }) => {
     area: Area.FROM_STARTING_AREA,
   };
 
+  // Magic items
+
   section.addBlock({
     ...common,
     rarity: 'Magic',
-    itemLevel: `>= ${modes.EquipmentMinimumMagicItemLevel[modeId]}`,
+    type: ['Expert '],
+    area: Area.FROM_STARTING_AREA,
     display: ItemDisplay.LOWEST(THEME.MAGICS, ICON.CIRCLE),
   });
+
+  section.addBlock({
+    ...common,
+    visible: false,
+    rarity: 'Magic',
+    area: Area.FROM_STARTING_AREA,
+    display: ItemDisplay.LOWEST(THEME.MAGICS),
+  });
+
+  section.addBlock({
+    ...common,
+    rarity: 'Magic',
+    area: Area.UNDER_STARTING_AREA,
+    display: ItemDisplay.LOWEST(THEME.MAGICS, ICON.CIRCLE),
+  });
+
+  // Rare items
 
   section.addBlock({
     ...common,
