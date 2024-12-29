@@ -1,6 +1,33 @@
 /* eslint-disable @stylistic/js/max-len */
 
 export default {
+  waystones: {
+    hideStartingLevelGap: [6, 4, 2],
+  },
+  currencies: {
+    displayChanceShards: [true, true, false],
+    displayShards: [true, false, false],
+    displayTier3: [true, true, false],
+    gold: {
+      minimumDisplayedAmount: [100, 200, 300],
+      ceilingDisplaySizeAmount: [1500, 2000, 2500],
+    },
+  },
+  equipment: {
+    // TODO: To remove
+    minimumMagicItemLevel: [65, 65, 65],
+    // TODO: To remove
+    minimumRareItemLevel: [65, 65, 65],
+    // TODO: To remove
+    minimumBaseNormalItemLevel: [65, 65, 65],
+    salavageable: {
+      minimumArmourerQuality: [1, 5, 10],
+      minimumArcanistQuality: [1, 5, 10],
+      minimumWhetstoneQuality: [1, 5, 10],
+      minimumSockets: [1, 2, 2],
+    },
+  },
+
   WaystonesHideStartingLevelGap: [6, 4, 2, { label: 'Waystones maximum lower gap', title: 'Waystone' }],
 
   CurrenciesDisplayChanceShards: [true, true, false, { label: 'Chance shards', title: 'Currencies' }],
