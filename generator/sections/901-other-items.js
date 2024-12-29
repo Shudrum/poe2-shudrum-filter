@@ -24,5 +24,12 @@ export default ({ modeId }) => {
     display: ItemDisplay.LOWEST(THEME.RARES, SIZE.SMALL, ICON.CIRCLE),
   });
 
+  section.addBlock({
+    ...common,
+    visible: false,
+    rarity: 'Normal',
+    display: ItemDisplay.LOWEST(THEME.NORMAL, SIZE.SMALL),
+  });
+
   return section;
 };

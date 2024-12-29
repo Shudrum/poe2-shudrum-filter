@@ -5,10 +5,11 @@ import ItemDisplay, { BEAM, ICON, SOUND, THEME } from '../entities/generators/it
 // TODO: Spirit, Uncut and Skill gems should have a different display.
 // TODO: A proper loop should be defined to remove progressively the gems.
 
-// Area 67 / T03 / 14 - Boss 15
-// Area 75 / T10 / 16
-// Area 76 / T10 / 17
-// Area 77 / T12 / 17
+// Area 67 / 14 - Boss 15
+// Area 75 / 16
+// Area 76 / 17
+// Area 77 / 17
+// Area 78 / 18
 
 export default () => {
   const section = Section('Gems');

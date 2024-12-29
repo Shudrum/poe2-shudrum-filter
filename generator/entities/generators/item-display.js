@@ -305,5 +305,6 @@ ItemDisplay.CRITICAL = (...args) => ItemDisplay(
   TYPE.INVERTED_OUTLINE,
   BEAM.SHOW,
   ICON_SIZE.BIG,
+  SOUND.IMPORTANCE_1,
   ...args,
 );
