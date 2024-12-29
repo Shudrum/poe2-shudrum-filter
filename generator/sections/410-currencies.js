@@ -20,10 +20,10 @@ export default ({ modeId }) => {
   section.addBlock({
     class: ['Currency'],
     type: ['Chance Shard'],
-    visible: modes.CurrenciesDisplayChanceShards[modeId],
+    visible: modes.currencies.displayChanceShards[modeId],
     display: ItemDisplay.LOW(
       THEME.CURRENCIES,
-      ...modes.CurrenciesDisplayChanceShards[modeId]
+      ...modes.currencies.displayChanceShards[modeId]
         ? [SOUND.SIMPLE_SIGNAL, BEAM.TEMPORARY, ICON.CROSS]
         : [],
     ),
@@ -32,10 +32,10 @@ export default ({ modeId }) => {
   section.addBlock({
     class: ['Currency'],
     type: ['Shard'],
-    visible: modes.CurrenciesDisplayShards[modeId],
+    visible: modes.currencies.displayShards[modeId],
     display: ItemDisplay.LOW(
       THEME.CURRENCIES,
-      ...modes.CurrenciesDisplayShards[modeId]
+      ...modes.currencies.displayShards[modeId]
         ? [SOUND.SIMPLE_SIGNAL, BEAM.TEMPORARY, ICON.CROSS]
         : [],
     ),
@@ -54,7 +54,7 @@ export default ({ modeId }) => {
     display: ItemDisplay.LOW(THEME.CURRENCIES, BEAM.TEMPORARY, ICON.CROSS, SOUND.SIMPLE_SIGNAL),
   };
 
-  if (!modes.CurrenciesDisplayTier3[modeId]) {
+  if (!modes.currencies.displayTier3[modeId]) {
     section.addBlock({
       area: Area.FROM_STARTING_AREA,
       visible: false,

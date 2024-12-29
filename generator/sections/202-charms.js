@@ -11,7 +11,7 @@ export default ({ modeId }) => {
     display: ItemDisplay.LOW(THEME.CHARMS),
   };
 
-  if (modes.CharmsDisplay[modeId]) {
+  if (modes.charms.display[modeId]) {
     section.addBlock(charms);
   } else {
     section.addBlock({

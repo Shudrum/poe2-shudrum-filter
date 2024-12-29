@@ -1,7 +1,8 @@
 import { Section } from '../entities/filter/index.js';
-import { global, modes } from '../configuration/index.js';
+import Area from '../entities/generators/area.js';
+import ItemDisplay, { ICON, THEME } from '../entities/generators/item-display.js';
 
-export default ({ modeId }) => {
+export default () => {
   const section = Section('Useless items');
 
   const classes = [
@@ -22,19 +23,44 @@ export default ({ modeId }) => {
     'Wand',
   ];
 
+  //
+  // Magics
+  //
+
   section.addBlock({
     visible: false,
     class: classes,
     rarity: 'Magic',
-    areaLevel: `>= ${global.startingAreaLevel}`,
-    itemLevel: `< ${modes.EquipmentMinimumMagicItemLevel[modeId]}`,
+    area: Area.FROM_STARTING_AREA,
+    display: ItemDisplay.LOWEST(THEME.MAGICS),
+  });
+
+  section.addBlock({
+    visible: false,
+    class: classes,
+    rarity: 'Magic',
+    area: Area.UNDER_STARTING_AREA,
+    display: ItemDisplay.LOWEST(THEME.MAGICS, ICON.CIRCLE),
+  });
+
+  //
+  // Normals
+  //
+
+  section.addBlock({
+    visible: false,
+    class: classes,
+    rarity: 'Normal',
+    area: Area.FROM_STARTING_AREA,
+    display: ItemDisplay.LOWEST(THEME.NORMALS),
   });
 
   section.addBlock({
     visible: false,
     class: classes,
     rarity: 'Normal',
-    areaLevel: `>= ${global.startingAreaLevel}`,
+    area: Area.UNDER_STARTING_AREA,
+    display: ItemDisplay.LOWEST(THEME.NORMALS, ICON.CIRCLE),
   });
 
   return section;

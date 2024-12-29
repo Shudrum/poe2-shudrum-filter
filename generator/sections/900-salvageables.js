@@ -6,34 +6,126 @@ import Area from '../entities/generators/area.js';
 export default ({ modeId }) => {
   const section = Section('Salvageables');
 
-  const common = {
-    area: Area.FROM_STARTING_AREA,
-    rarity: '<= Magic',
-    display: ItemDisplay.LOW(THEME.CURRENCIES, ICON.CIRCLE),
+  const classes = {
+    armourer: ['Body Armour', 'Gloves', 'Boots', 'Helmet'],
+    arcanist: ['Sceptre', 'Staff', 'Wand'],
+    whetstone: [
+      'Bow', 'Crossbow', 'Focus', 'One Hand Mace', 'QuarterStaff', 'Quiver',
+      'Shield', 'Two Hand Mace',
+    ],
   };
 
+  //
   // Armourer's Scrap
+  //
 
   section.addBlock({
     area: Area.FROM_STARTING_AREA,
-    class: ['Body Armour', 'Gloves', 'Boots', 'Helmet'],
+    class: classes.armourer,
     rarity: '<= Magic',
     quality: `>= ${modes.equipment.salavageable.minimumArmourerQuality[modeId]}`,
     display: ItemDisplay.LOW(THEME.CURRENCIES, ICON.CIRCLE),
   });
 
-  // Others
-
   section.addBlock({
-    ...common,
-    display: ItemDisplay.LOW(THEME.NORMAL, ICON.CIRCLE),
-    quality: `>= ${modes.EquipmentMinimumSalvageableQuality[modeId]}`,
+    visible: false,
+    area: Area.FROM_STARTING_AREA,
+    class: classes.armourer,
+    rarity: '<= Magic',
+    quality: '> 0',
+    display: ItemDisplay.LOW(THEME.CURRENCIES),
   });
 
   section.addBlock({
-    ...common,
-    display: ItemDisplay.LOW(THEME.NORMAL, ICON.CIRCLE),
-    sockets: `> ${modes.EquipmentMinimumSalvageableSockets[modeId] - 1}`,
+    area: Area.UNDER_STARTING_AREA,
+    class: classes.armourer,
+    rarity: '<= Magic',
+    quality: '> 0',
+    display: ItemDisplay.LOW(THEME.CURRENCIES, ICON.CIRCLE),
+  });
+
+  //
+  // Arcanist's Scrap
+  //
+
+  section.addBlock({
+    area: Area.FROM_STARTING_AREA,
+    class: classes.arcanist,
+    rarity: '<= Magic',
+    display: ItemDisplay.LOW(THEME.CURRENCIES, ICON.CIRCLE),
+    quality: `>= ${modes.equipment.salavageable.minimumArcanistQuality[modeId]}`,
+  });
+
+  section.addBlock({
+    visible: false,
+    area: Area.FROM_STARTING_AREA,
+    class: classes.arcanist,
+    rarity: '<= Magic',
+    display: ItemDisplay.LOW(THEME.CURRENCIES),
+    quality: '> 0',
+  });
+
+  section.addBlock({
+    area: Area.UNDER_STARTING_AREA,
+    class: classes.arcanist,
+    rarity: '<= Magic',
+    display: ItemDisplay.LOW(THEME.CURRENCIES, ICON.CIRCLE),
+    quality: '> 0',
+  });
+
+  //
+  // Whetstone's Scrap
+  //
+
+  section.addBlock({
+    area: Area.FROM_STARTING_AREA,
+    class: classes.whetstone,
+    rarity: '<= Magic',
+    display: ItemDisplay.LOW(THEME.CURRENCIES, ICON.CIRCLE),
+    quality: `>= ${modes.equipment.salavageable.minimumWhetstoneQuality[modeId]}`,
+  });
+
+  section.addBlock({
+    visible: false,
+    area: Area.FROM_STARTING_AREA,
+    class: classes.whetstone,
+    rarity: '<= Magic',
+    display: ItemDisplay.LOW(THEME.CURRENCIES),
+    quality: '> 0',
+  });
+
+  section.addBlock({
+    area: Area.UNDER_STARTING_AREA,
+    class: classes.whetstone,
+    rarity: '<= Magic',
+    display: ItemDisplay.LOW(THEME.CURRENCIES, ICON.CIRCLE),
+    quality: '> 0',
+  });
+
+  //
+  // Sockets's Scrap
+  //
+
+  section.addBlock({
+    area: Area.FROM_STARTING_AREA,
+    rarity: '<= Magic',
+    display: ItemDisplay.LOW(THEME.CURRENCIES, ICON.CIRCLE),
+    sockets: `> ${modes.equipment.salavageable.minimumSockets[modeId] - 1}`,
+  });
+
+  section.addBlock({
+    visible: false,
+    area: Area.FROM_STARTING_AREA,
+    rarity: '<= Magic',
+    display: ItemDisplay.LOW(THEME.CURRENCIES),
+    quality: '> 0',
+  });
+
+  section.addBlock({
+    area: Area.UNDER_STARTING_AREA,
+    rarity: '<= Magic',
+    display: ItemDisplay.LOW(THEME.CURRENCIES, ICON.CIRCLE),
+    quality: '> 0',
   });
 
   return section;

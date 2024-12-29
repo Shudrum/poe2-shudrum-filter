@@ -48,7 +48,7 @@ const VALUES = {
 };
 
 export default function ItemDisplay(...args) {
-  let theme = THEME.NORMAL;
+  let theme = THEME.NORMALS;
   let type = TYPE.NORMAL;
   let size = SIZE.MEDIUM;
   let beam = BEAM.NONE;
@@ -195,7 +195,7 @@ export const THEME = {
   GOLD: 'GOLD',
   JEWELS: 'JEWELS',
   MAGICS: 'MAGICS',
-  NORMAL: 'NORMAL',
+  NORMALS: 'NORMALS',
   RARES: 'RARES',
   RUNES: 'RUNES',
   TABLETS: 'TABLETS',

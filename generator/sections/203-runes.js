@@ -12,7 +12,7 @@ export default ({ modeId }) => {
     area: Area.FROM_STARTING_AREA,
   };
 
-  if (modes.RunesDisplayBasic[modeId]) {
+  if (modes.runes.displayBasic[modeId]) {
     section.addBlock({
       ...runes,
     });

@@ -23,7 +23,7 @@ export default ({ modeId }) => {
     ...gold,
     visible: false,
     area: Area.FROM_STARTING_AREA,
-    stackSize: `< ${modes.GoldMinimumDisplayedAmount[modeId]}`,
+    stackSize: `< ${modes.currencies.gold.minimumDisplayedAmount[modeId]}`,
     display: ItemDisplay(THEME.GOLD, SIZE.TINY),
   });
 
@@ -40,8 +40,8 @@ export default ({ modeId }) => {
   }
 
   generateValues(
-    modes.GoldMinimumDisplayedAmount[modeId],
-    modes.GoldCeilingDisplaySizeAmount[modeId],
+    modes.currencies.gold.minimumDisplayedAmount[modeId],
+    modes.currencies.gold.ceilingDisplaySizeAmount[modeId],
   ).reverse().forEach((stackSize, i) => {
     section.addBlock({
       ...gold,

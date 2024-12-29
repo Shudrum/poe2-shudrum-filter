@@ -14,7 +14,7 @@ export default ({ modeId }) => {
 
   section.addBlock({
     ...flasks,
-    quality: `>= ${modes.FlasksMinimumQuality[modeId]}`,
+    quality: `>= ${modes.flasks.minimumQuality[modeId]}`,
   });
 
   section.addBlock({

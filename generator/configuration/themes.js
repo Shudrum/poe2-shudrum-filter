@@ -1,5 +1,5 @@
 export default [
-  { key: 'NORMAL', color: '#c8c8c8', gameColor: 'White', label: 'Normals', title: 'Classic' },
+  { key: 'NORMALS', color: '#c8c8c8', gameColor: 'White', label: 'Normals', title: 'Classic' },
   { key: 'MAGICS', color: '#7a96fd', gameColor: 'Blue', label: 'Magics' },
   { key: 'RARES', color: '#fddf54', gameColor: 'Yellow', label: 'Rares' },
   { key: 'UNIQUES', color: '#ef6916', gameColor: 'Brown', label: 'Uniques' },

@@ -26,10 +26,10 @@ export default ({ modeId }) => {
       });
     }
 
-    if (waystoneTier >= modes.WaystonesHideStartingLevelGap[modeId] + 1) {
+    if (waystoneTier >= modes.waystones.hideStartingLevelGap[modeId] + 1) {
       section.addBlock({
         ...common,
-        waystoneTier: `>= ${waystoneTier - modes.WaystonesHideStartingLevelGap[modeId]}`,
+        waystoneTier: `>= ${waystoneTier - modes.waystones.hideStartingLevelGap[modeId]}`,
         display: ItemDisplay.LOW(THEME.WAYSTONES, BEAM.TEMPORARY, ICON.SQUARE, SOUND.WAYSTONE),
       });
     }
