@@ -21,7 +21,7 @@ export default ({ modeId }) => {
     ...common,
     rarity: 'Rare',
     itemLevel: `>= ${modes.EquipmentMinimumRareItemLevel[modeId]}`,
-    display: ItemDisplay.LOWEST(THEME.MAGICS, SIZE.SMALL, ICON.CIRCLE),
+    display: ItemDisplay.LOWEST(THEME.RARES, SIZE.SMALL, ICON.CIRCLE),
   });
 
   return section;

@@ -8,8 +8,8 @@ export default ({ modeId }) => {
 
   const common = {
     area: Area.FROM_STARTING_AREA,
-    rarity: '<= Rare',
-    display: ItemDisplay.LOW(THEME.CURRENCIES, ICON.CIRCLE),
+    rarity: '<= Magic',
+    display: ItemDisplay.LOW(THEME.NORMAL, ICON.CIRCLE),
   };
 
   section.addBlock({

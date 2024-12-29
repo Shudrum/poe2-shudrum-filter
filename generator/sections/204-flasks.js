@@ -21,6 +21,7 @@ export default ({ modeId }) => {
     ...flasks,
     area: Area.FROM_STARTING_AREA,
     visible: false,
+    display: flasks.display(BEAM.NONE, ICON.NONE),
   });
 
   section.addBlock({

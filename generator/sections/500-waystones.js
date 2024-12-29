@@ -47,7 +47,7 @@ export default ({ modeId }) => {
     class: ['Waystone'],
     area: Area.FROM_STARTING_AREA,
     visible: false,
-    display: ItemDisplay.LOW(THEME.WAYSTONES, ICON.SQUARE),
+    display: ItemDisplay.LOW(THEME.WAYSTONES),
   });
 
   // TODO: There is super important loots to highlight here, like the Expedition

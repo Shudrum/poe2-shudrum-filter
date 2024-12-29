@@ -3,6 +3,8 @@ import { modes } from '../configuration/index.js';
 import Area from '../entities/generators/area.js';
 import ItemDisplay, { SIZE, THEME, TYPE } from '../entities/generators/item-display.js';
 
+const STEPS = 5;
+
 export default ({ modeId }) => {
   const section = Section('Gold');
 
@@ -26,9 +28,15 @@ export default ({ modeId }) => {
   });
 
   function generateValues(from, to) {
-    const steps = 6;
-    const stepSize = (to - from) / (steps - 1);
-    return Array.from({ length: steps }, (_, i) => Math.round(from + i * stepSize));
+    function easing(x) {
+      // EaseInQuad
+      return x * x;
+    }
+
+    return Array.from(
+      { length: STEPS },
+      (_, i) => Math.round(easing(i / (STEPS - 1)) * (to - from)) + from,
+    );
   }
 
   generateValues(

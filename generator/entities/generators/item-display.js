@@ -20,6 +20,7 @@ const VALUES = {
   SOUND_WAYSTONE: 4,
   SOUND_UNIQUE: 6,
   SOUND_GEMS: 12,
+
   ICON_NONE: '',
   ICON_CIRCLE: 'Circle',
   ICON_DIAMOND: 'Diamond',
@@ -33,12 +34,14 @@ const VALUES = {
   ICON_KITE: 'Kite',
   ICON_PENTAGON: 'Pentagon',
   ICON_UPSIDE_DOWN_HOUSE: 'UpsideDownHouse',
-  SIZE_TINY: 15,
-  SIZE_SMALLEST: 21,
-  SIZE_SMALL: 27,
-  SIZE_MEDIUM: 33,
+
+  SIZE_TINY: 25,
+  SIZE_SMALLEST: 27,
+  SIZE_SMALL: 30,
+  SIZE_MEDIUM: 34,
   SIZE_BIG: 39,
   SIZE_BIGGEST: 45,
+
   ICON_SIZE_SMALL: 2,
   ICON_SIZE_MEDIUM: 1,
   ICON_SIZE_BIG: 0,
@@ -48,7 +51,7 @@ export default function ItemDisplay(...args) {
   let theme = THEME.NORMAL;
   let type = TYPE.NORMAL;
   let size = SIZE.MEDIUM;
-  let beam = BEAM.HIDE;
+  let beam = BEAM.NONE;
   let icon = ICON.NONE;
   let iconSize = ICON_SIZE.SMALL;
   let sound = SOUND.NONE;
@@ -103,6 +106,7 @@ export default function ItemDisplay(...args) {
       beam,
       icon,
       iconSize,
+      sound,
     };
   };
 
@@ -113,7 +117,6 @@ export default function ItemDisplay(...args) {
       case TYPE.NORMAL:
         rows.push(
           `SetTextColor ${color(theme)}`,
-          `SetBorderColor ${hexToFilterColor(global.defaultTransparency)}`,
           `SetBackgroundColor ${hexToFilterColor(global.defaultTransparency)}`,
           `SetFontSize ${VALUES[size]}`,
         );
@@ -269,36 +272,38 @@ export const BEAM = {
   TEMPORARY: 'BEAM_TEMPORARY',
 };
 
-ItemDisplay.LOWEST = (theme) => ItemDisplay(
-  theme,
+ItemDisplay.LOWEST = (...args) => ItemDisplay(
   SIZE.SMALLEST,
   TYPE.NORMAL,
+  ...args,
 );
 
-ItemDisplay.LOW = (theme) => ItemDisplay(
-  theme,
+ItemDisplay.LOW = (...args) => ItemDisplay(
   SIZE.SMALL,
   TYPE.OUTLINE,
+  ...args,
 );
 
-ItemDisplay.MEDIUM = (theme) => ItemDisplay(
-  theme,
+ItemDisplay.MEDIUM = (...args) => ItemDisplay(
   SIZE.MEDIUM,
   TYPE.INVERTED,
+  BEAM.SHOW,
+  ...args,
 );
 
-ItemDisplay.IMPORTANT = (theme) => ItemDisplay(
-  theme,
+ItemDisplay.IMPORTANT = (...args) => ItemDisplay(
   SIZE.BIG,
   TYPE.INVERTED_OUTLINE,
   BEAM.SHOW,
   ICON_SIZE.MEDIUM,
+  ...args,
 );
 
-ItemDisplay.CRITICAL = () => ItemDisplay(
+ItemDisplay.CRITICAL = (...args) => ItemDisplay(
   THEME.ALERT,
   SIZE.BIGGEST,
   TYPE.INVERTED_OUTLINE,
   BEAM.SHOW,
   ICON_SIZE.BIG,
+  ...args,
 );
