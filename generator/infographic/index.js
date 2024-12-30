@@ -26,9 +26,6 @@ function getModes() {
   }, {
     title: 'Currencies',
     items: [{
-      label: 'Chance shards',
-      values: modes.currencies.displayChanceShards,
-    }, {
       label: 'Shards',
       values: modes.currencies.displayShards,
     }, {
