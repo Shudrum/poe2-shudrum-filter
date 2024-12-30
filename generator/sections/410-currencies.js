@@ -20,10 +20,10 @@ export default ({ modeId }) => {
   section.addBlock({
     class: ['Currency'],
     type: ['Chance Shard'],
-    visible: modes.currencies.displayChanceShards[modeId],
+    visible: modes.currencies.shards.chance[modeId],
     display: ItemDisplay.LOW(
       THEME.CURRENCIES,
-      ...modes.currencies.displayChanceShards[modeId]
+      ...modes.currencies.shards.chance[modeId]
         ? [SOUND.SIMPLE_SIGNAL, BEAM.TEMPORARY, ICON.CROSS]
         : [],
     ),
@@ -31,11 +31,23 @@ export default ({ modeId }) => {
 
   section.addBlock({
     class: ['Currency'],
-    type: ['Shard'],
-    visible: modes.currencies.displayShards[modeId],
+    type: ['Transmutation Shard'],
+    visible: modes.currencies.shards.transmutation[modeId],
     display: ItemDisplay.LOW(
       THEME.CURRENCIES,
-      ...modes.currencies.displayShards[modeId]
+      ...modes.currencies.shards.transmutation[modeId]
+        ? [SOUND.SIMPLE_SIGNAL, BEAM.TEMPORARY, ICON.CROSS]
+        : [],
+    ),
+  });
+
+  section.addBlock({
+    class: ['Currency'],
+    type: ['Regal Shard'],
+    visible: modes.currencies.shards.regal[modeId],
+    display: ItemDisplay.LOW(
+      THEME.CURRENCIES,
+      ...modes.currencies.shards.regal[modeId]
         ? [SOUND.SIMPLE_SIGNAL, BEAM.TEMPORARY, ICON.CROSS]
         : [],
     ),

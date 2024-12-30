@@ -26,11 +26,14 @@ function getModes() {
   }, {
     title: 'Currencies',
     items: [{
-      label: 'Shards',
-      values: modes.currencies.displayShards,
+      label: 'Transmutation shards',
+      values: modes.currencies.shards.transmutation,
+    }, {
+      label: 'Regal shards',
+      values: modes.currencies.shards.regal,
     }, {
       label: 'Chance shards',
-      values: modes.currencies.displayChanceShards,
+      values: modes.currencies.shards.chance,
     }, {
       label: 'Tier 3 currencies',
       values: modes.currencies.displayTier3,
