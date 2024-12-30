@@ -63,7 +63,7 @@ export default ({ modeId }) => {
       'Expedition Logbook',
       'Test of',
     ],
-    display: ItemDisplay.IMPORTANT(THEME.EVENTS, SOUND.IMPORTANCE_2),
+    display: ItemDisplay.IMPORTANT(THEME.EVENTS, SOUND.IMPORTANCE_2, ICON.SQUARE),
   });
 
   return section;

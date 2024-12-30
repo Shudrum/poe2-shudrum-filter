@@ -1,8 +1,7 @@
-/* eslint-disable @stylistic/js/max-len */
 
 export default {
   waystones: {
-    hideStartingLevelGap: [6, 4, 2],
+    hideStartingLevelGap: [4, 3, 2],
   },
   currencies: {
     displayChanceShards: [true, true, false],
@@ -17,7 +16,7 @@ export default {
     salavageable: {
       minimumArmourerQuality: [1, 5, 10],
       minimumArcanistQuality: [1, 5, 10],
-      minimumWhetstoneQuality: [1, 5, 10],
+      minimumWhetstoneQuality: [1, 7, 14],
       minimumSockets: [1, 2, 2],
     },
   },
