@@ -59,7 +59,7 @@ now seems like the perfect time to share it with the community!
 
 ## Modes comparison
 
-![Modes comparison](./.github/filters-comparison.png)
+![Modes comparison](./.github/infographic.png)
 
 ## Roadmap
 

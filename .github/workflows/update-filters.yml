@@ -35,9 +35,9 @@ jobs:
       - name: Compute current MD5 of modes configuration
         id: compute-md5
         run: |
-          cat generator/configuration/modes.json generator/configuration/globals.json generator/configuration/themes.json | md5sum > .github/filters-comparison-md5-new
-          if [ -f .github/filters-comparison-md5 ]; then
-            if cmp --silent .github/filters-comparison-md5 .github/filters-comparison-md5-new; then
+          cat generator/configuration/modes.json generator/configuration/globals.json generator/configuration/themes.json | md5sum > .github/infographic-md5-new
+          if [ -f .github/infographic-md5 ]; then
+            if cmp --silent .github/infographic-md5 .github/infographic-md5-new; then
               echo "No changes in configuration."
               echo "changed=false" >> $GITHUB_ENV
             else
@@ -61,7 +61,7 @@ jobs:
 
       - name: Update current MD5 file of modes configuration
         if: env.changed == 'true'
-        run: mv .github/filters-comparison-md5-new .github/filters-comparison-md5
+        run: mv .github/infographic-md5-new .github/infographic-md5
 
       - name: Commit and push updated files
         run: |
@@ -69,8 +69,8 @@ jobs:
           git config user.email "actions@github.com"
 
           git add *.filter
-          git add .github/filters-comparison-md5
-          git add .github/filters-comparison.png
+          git add .github/infographic-md5
+          git add .github/infographic.png
 
           if git diff --cached --quiet; then
             echo "No changes to commit. Skipping commit step.";

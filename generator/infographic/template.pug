@@ -26,6 +26,7 @@ html(lang="en")
               div.title.title-1 Standard
             div.col
               div.title.title-2 Intermediate
+                div.recommended Recommended
             div.col
               div.title.title-3 Expert
           each category in modes
@@ -33,10 +34,10 @@ html(lang="en")
             each item in category.items
               div.row
                 div.label #{item.label}
-                each column of ['standard', 'intermediate', 'expert']
-                  if (typeof item[column] !== 'boolean')
-                    div.col #{item[column]}
-                  else if item[column] === true
+                each column of [0, 1, 2]
+                  if (typeof item.values[column] !== 'boolean')
+                    div.col #{item.values[column]}
+                  else if item.values[column] === true
                     div.col
                       //- <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                       svg.green(xmlns="http://www.w3.org/2000/svg", viewBox="0 0 512 512")
@@ -50,15 +51,17 @@ html(lang="en")
         section#levels
           h2 Always evolving&nbsp;
             span for every step of progress
-          div The filter is dynamically generated for each area level:
+          div The filter can be dynamically generated for each area level:
           h3 Waystones
           div
             | You always know when a Waystone is at a higher or lower level than your current area.
             | Lower-level Waystones are hidden.
           h3 Skill gems
           div
-            | Lower-level uncut skill gems are hidden based on the area level,
-            | ensuring only the top-level gems for the area are displayed.
+            | Only top level skill gems per area are diplayed.
+          h3 Community driven
+          div
+            | Everyone can contribute on GitHub, the filter is automatically generated on configuration update.
 
         section#system
           h2 One common system&nbsp;

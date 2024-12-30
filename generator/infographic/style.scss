@@ -66,7 +66,7 @@ h3 {
     }
 
     svg {
-      width: 16px;
+      width: 14px;
       transform: translateY(2.5px);
 
       &.green {
@@ -83,6 +83,7 @@ h3 {
       flex-basis: 110px;
       text-align: center;
       margin-left: 10px;
+      position: relative;
 
       .title {
         display: inline-block;
@@ -98,6 +99,18 @@ h3 {
       .title-3 {
         color: #ef6916;
         border-bottom: 2px solid #ef6916;
+      }
+
+      .recommended {
+        position: absolute;
+        font-size: 10px;
+        color: black;
+        background-color: #fddf54;
+        border-radius: 4px;
+        padding: 1px 3px;
+        margin-top: 4px;
+        left: 50%;
+        transform: translateX(-50%);
       }
     }
   }
@@ -150,20 +163,20 @@ h3 {
     }
 
     &.level-0 {
-      @include padding(1px);
-      font-size: 8px;
+      @include padding(2px);
+      font-size: 10px;
     }
     &.level-1 {
       @include padding(2px);
       border: 1px solid $color;
-      font-size: 10px;
+      font-size: 12px;
     }
     &.level-2 {
       @include padding(3px);
       border: 1px solid $color;
       background: $color;
       color: $text;
-      font-size: 12px;
+      font-size: 13px;
     }
     &.level-3 {
       @include padding(4px);

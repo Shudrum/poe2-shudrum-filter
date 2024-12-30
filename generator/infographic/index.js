@@ -16,6 +16,73 @@ if (process.env.NODE_ENV === 'development') {
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
+function getModes() {
+  return [{
+    title: 'Waystone',
+    items: [{
+      label: 'Waystones maximum level gap',
+      values: modes.waystones.hideStartingLevelGap,
+    }],
+  }, {
+    title: 'Currencies',
+    items: [{
+      label: 'Chance shards',
+      values: modes.currencies.displayChanceShards,
+    }, {
+      label: 'Shards',
+      values: modes.currencies.displayShards,
+    }, {
+      label: 'Chance shards',
+      values: modes.currencies.displayChanceShards,
+    }, {
+      label: 'Tier 3 currencies',
+      values: modes.currencies.displayTier3,
+    }, {
+      label: 'Gold starting value',
+      values: modes.currencies.gold.minimumDisplayedAmount,
+    }],
+  }, {
+    title: 'Items',
+    items: [{
+      label: 'Display chanceable white bases',
+      values: [true, true, true],
+    }, {
+      label: 'Display only expert magics',
+      values: [true, true, true],
+    }, {
+      label: 'Display only expert rares',
+      values: [false, false, false],
+    }],
+  }, {
+    title: 'Salvageables',
+    items: [{
+      label: 'Minimum quality for Armourer',
+      values: modes.equipment.salavageable.minimumArmourerQuality,
+    }, {
+      label: 'Minimum quality for Arcanist',
+      values: modes.equipment.salavageable.minimumArcanistQuality,
+    }, {
+      label: 'Minimum quality for Whetstone',
+      values: modes.equipment.salavageable.minimumWhetstoneQuality,
+    }, {
+      label: 'Minimum sockets',
+      values: modes.equipment.salavageable.minimumSockets,
+    }],
+  }, {
+    title: 'Miscellaneous',
+    items: [{
+      label: 'Minimum flasks quality',
+      values: modes.flasks.minimumQuality,
+    }, {
+      label: 'Display charms',
+      values: modes.charms.display,
+    }, {
+      label: 'Display basic runes',
+      values: modes.runes.displayBasic,
+    }],
+  }];
+}
+
 async function loadThemes() {
   return themes.reduce((prev, current) => {
     if (!current.label) {
@@ -30,24 +97,6 @@ async function loadThemes() {
     });
     return prev;
   }, []);
-}
-
-async function loadModes() {
-  return Object.values(Object.values(modes).reduce((prev, current) => {
-    if (!current[3]) {
-      return prev;
-    }
-    if (current[3].title) {
-      prev.push({ title: current[3].title, items: [] });
-    }
-    prev.at(-1).items.push({
-      label: current[3].label,
-      standard: current[0],
-      intermediate: current[1],
-      expert: current[2],
-    });
-    return prev;
-  }, []));
 }
 
 async function loadStyle() {
@@ -65,7 +114,7 @@ async function loadStyle() {
   const html = pug.renderFile(path.resolve(__dirname, 'template.pug'), {
     style: (await loadStyle()).css,
     themes: await loadThemes(),
-    modes: await loadModes(),
+    modes: getModes(),
     fontData: await fs.readFile(
       path.resolve(__dirname, '../assets/fontin-small-caps.ttf'),
       'base64',
@@ -81,7 +130,7 @@ async function loadStyle() {
   await page.locator('#capture-zone').screenshot({
     path: process.env.NODE_ENV === 'development'
       ? path.resolve(__dirname, '../generated', 'infographic.png')
-      : path.resolve(__dirname, '../../.github', 'filters-comparison.png'),
+      : path.resolve(__dirname, '../../.github', 'infographic.png'),
     omitBackground: true,
   });
 
