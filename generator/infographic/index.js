@@ -104,9 +104,6 @@ async function loadStyle() {
   /* global document */
 
   const browser = await chromium.launch();
-  const page = await browser.newPage({
-    deviceScaleFactor: 4,
-  });
 
   const html = pug.renderFile(path.resolve(__dirname, 'template.pug'), {
     style: (await loadStyle()).css,
@@ -121,15 +118,24 @@ async function loadStyle() {
     escape: false,
   });
 
-  await page.setContent(html);
-  await page.waitForFunction(() => document.fonts.ready);
+  async function screenshot(deviceScaleFactor, location) {
+    const page = await browser.newPage({ deviceScaleFactor });
 
-  await page.locator('#capture-zone').screenshot({
-    path: process.env.NODE_ENV === 'development'
-      ? path.resolve(__dirname, '../generated', 'infographic.png')
-      : path.resolve(__dirname, '../../.github', 'infographic.png'),
-    omitBackground: true,
-  });
+    await page.setContent(html);
+    await page.waitForFunction(() => document.fonts.ready);
+
+    await page.locator('#capture-zone').screenshot({
+      path: path.resolve(__dirname, location, `infographic@${deviceScaleFactor}x.png`),
+      omitBackground: true,
+    });
+  }
+
+  await Promise.all([1, 2, 4].map((scale) => screenshot(
+    scale,
+    process.env.NODE_ENV === 'development'
+      ? '../generated'
+      : '../../.github',
+  )));
 
   if (process.env.NODE_ENV === 'development') {
     await fs.writeFile(
