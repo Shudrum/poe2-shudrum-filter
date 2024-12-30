@@ -299,7 +299,6 @@ Hide
   SetBorderColor 253 172 122
   SetBackgroundColor 0 0 0 221
   SetFontSize 30
-  MinimapIcon 2 Orange Circle
   AreaLevel >= 65
 
 Show
