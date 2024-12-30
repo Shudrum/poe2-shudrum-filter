@@ -1,0 +1,84 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    style.
+      @font-face {
+        /* A font by Jos Buivenga (exljbris) -> www.exljbris.com */
+        font-family: 'Fontin';
+        src: url(data:font/ttf;base64,#{fontData}) format('truetype');
+        font-weight: bold;
+      }
+    style!= style
+  body
+    div#capture-zone
+      div#main-container
+        h1
+          div ShudrumFilter
+
+        section#modes
+          h2 Three modes&nbsp;
+            span to fit your needs
+          div.row
+            div.label &nbsp;
+            div.col
+              div.title.title-1 Standard
+            div.col
+              div.title.title-2 Intermediate
+                div.recommended Recommended
+            div.col
+              div.title.title-3 Expert
+          each category in modes
+            h3 #{category.title}
+            each item in category.items
+              div.row
+                div.label #{item.label}
+                each column of [0, 1, 2]
+                  if (typeof item.values[column] !== 'boolean')
+                    div.col #{item.values[column]}
+                  else if item.values[column] === true
+                    div.col
+                      //- <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                      svg.green(xmlns="http://www.w3.org/2000/svg", viewBox="0 0 512 512")
+                        path(d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z")
+                  else
+                    div.col
+                      //- <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                      svg.red(xmlns="http://www.w3.org/2000/svg", viewBox="0 0 512 512")
+                        path(d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z")
+
+        section#levels
+          h2 Always evolving&nbsp;
+            span for every step of progress
+          div The filter can be dynamically generated for each area level:
+          h3 Waystones
+          div
+            | You always know when a Waystone is at a higher or lower level than your current area.
+            | Lower-level Waystones are hidden.
+          h3 Skill gems
+          div
+            | Only top level skill gems per area are diplayed.
+          h3 Community driven
+          div
+            | Everyone can contribute on GitHub, the filter is automatically generated on configuration update.
+
+        section#system
+          h2 One common system&nbsp;
+            span to higlight important loots
+          div.row
+            div.level.level-0 Not really<br>important
+            div.level.level-1 Maybe<br>interesting
+            div.level.level-2 Midly<br>interesting
+            div.level.level-3 Super<br>good loot
+            div.level.level-4 Take it<br>be happy
+
+        section#themes
+          h2 Distinctive&nbsp;
+            span item coloring
+          each category in themes
+            h3 #{category.title}
+            div.items-list
+              each item in category.items
+                div.item
+                  div.label(style={ background: item.color, color: item.text }) #{item.label}

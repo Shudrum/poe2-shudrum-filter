@@ -8,8 +8,7 @@ import { pascalCase } from 'change-case';
 import { global } from './configuration/index.js';
 import { Filter } from './entities/filter/index.js';
 import loadSections from './sections/index.js';
-
-import './tools/debug.js';
+import generatePreview from './preview/generate-preview.js';
 
 if (process.env.NODE_ENV === 'development') {
   console.clear();
@@ -28,7 +27,7 @@ async function ensureGeneratedFolder() {
 
 (async () => {
   const sections = await loadSections();
-  const header = await fs.readFile(path.resolve(__dirname, 'configuration', 'header.txt'), 'utf-8');
+  const header = await fs.readFile(path.resolve(__dirname, 'assets/header.txt'), 'utf-8');
 
   const gameDirectory = process.env.NODE_ENV === 'development' && platform() === 'win32'
     ? path.join(
@@ -67,6 +66,7 @@ async function ensureGeneratedFolder() {
 
     if (process.env.NODE_ENV === 'development') {
       await ensureGeneratedFolder();
+      await generatePreview();
       await fs.writeFile(path.resolve(__dirname, 'generated', fileName), generatedFilter, 'utf-8');
     } else {
       await fs.writeFile(path.resolve('..', fileName), generatedFilter, 'utf-8');

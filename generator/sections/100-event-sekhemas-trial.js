@@ -1,37 +1,38 @@
 import { Section } from '../entities/filter/index.js';
-import { Card, Effect, MapIcon, Sound } from '../entities/generators/index.js';
+import ItemDisplay, { ICON, SOUND, THEME } from '../entities/generators/item-display.js';
 
 export default () => {
   const section = Section('Event: Sekhemas trial');
 
+  const baseEvent = [
+    THEME.EVENTS,
+    SOUND.IMPORTANCE_7,
+  ];
+
   // Baryas and keys are important
 
-  const important = {
-    card: Card(Card.THEMES.EVENTS, Card.TYPES.IMPORTANT, Card.SIZES.BIG),
-    effect: Effect(Effect.COLORS.PURPLE),
-    sound: Sound(Sound.TYPES.IMPORTANCE_7),
-  };
-
   section.addBlock({
-    type: 'Barya',
-    ...important,
-    icon: MapIcon(MapIcon.SIZES.MEDIUM, MapIcon.COLORS.PURPLE, MapIcon.SHAPES.HEXAGON),
+    type: ['Barya'],
+    display: ItemDisplay.MEDIUM(...baseEvent, ICON.HEXAGON),
   });
 
   section.addBlock({
-    type: ['Bronze Key', 'Silver Key', 'Gold Key'],
-    ...important,
-    icon: MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.PURPLE, MapIcon.SHAPES.STAR),
+    type: ['Bronze Key', 'Silver Key'],
+    display: ItemDisplay.MEDIUM(...baseEvent, ICON.STAR),
+  });
+
+  // Gold keys are more important
+
+  section.addBlock({
+    type: ['Gold Key'],
+    display: ItemDisplay.IMPORTANT(...baseEvent, ICON.STAR),
   });
 
   // Relics
 
   section.addBlock({
-    class: 'Relic',
-    card: Card(Card.THEMES.EVENTS, Card.TYPES.OUTLINE, Card.SIZES.BIG),
-    effect: Effect(Effect.COLORS.PURPLE),
-    icon: MapIcon(MapIcon.SIZES.MEDIUM, MapIcon.COLORS.PURPLE, MapIcon.SHAPES.DIAMOND),
-    sound: Sound(Sound.TYPES.IMPORTANCE_8),
+    class: ['Relic'],
+    display: ItemDisplay.MEDIUM(...baseEvent, ICON.DIAMOND, SOUND.IMPORTANCE_8),
   });
 
   return section;

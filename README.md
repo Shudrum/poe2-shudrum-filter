@@ -59,20 +59,20 @@ now seems like the perfect time to share it with the community!
 
 ## Modes comparison
 
-![Modes comparison](./.github/filters-comparison.png)
+![Modes comparison](./.github/infographic.png)
 
 ## Roadmap
 
-- [ ] Improve color theming.
+- [X] Improve color theming.
   - [X] Technically
-  - [ ] Color tunning
-- [ ] Add custom filters for `Breach`.
-- [ ] Add custom filters for `Delirium`.
+  - [X] Color tunning
+- [X] Add custom filters for `Breach`.
+- [X] Add custom filters for `Delirium`.
 - [X] Consider adding an `Intermediate` mode.
 - [ ] Properly configure Gems to hide depending on the area level.
 - [ ] Find a way to automate the inclusion of important uniques/bases based on
       a market API.
-- [ ] Create a script to generate the current configuration state of the filter
+- [X] Create a script to generate the current configuration state of the filter
       modes for the forum.
 
 ## How to install

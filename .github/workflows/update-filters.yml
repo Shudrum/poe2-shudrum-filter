@@ -30,30 +30,38 @@ jobs:
 
       - name: Generate filters
         working-directory: generator
-        run: npm run build
+        run: npm run build:filter
 
       - name: Compute current MD5 of modes configuration
         id: compute-md5
         run: |
-          md5sum generator/configuration/modes.json > .github/filters-comparison-md5-new
-          if [ -f .github/filters-comparison-md5 ]; then
-            cmp --silent .github/filters-comparison-md5 .github/filters-comparison-md5-new && echo "No changes in configuration." && exit 0
+          cat generator/configuration/modes.json generator/configuration/globals.json generator/configuration/themes.json | md5sum > .github/infographic-md5-new
+          if [ -f .github/infographic-md5 ]; then
+            if cmp --silent .github/infographic-md5 .github/infographic-md5-new; then
+              echo "No changes in configuration."
+              echo "changed=false" >> $GITHUB_ENV
+            else
+              echo "Configuration changed, proceeding with table generation."
+              echo "changed=true" >> $GITHUB_ENV
+            fi
+          else
+            echo "No previous MD5 file found, assuming configuration changed."
+            echo "changed=true" >> $GITHUB_ENV
           fi
-          echo "Configuration changed, proceeding with table generation."
 
       - name: Install chromium
-        if: steps.compute-md5.outcome == 'success'
+        if: env.changed == 'true'
         working-directory: generator
         run: npx playwright install --with-deps
 
       - name: Generate table image
-        if: steps.compute-md5.outcome == 'success'
+        if: env.changed == 'true'
         working-directory: generator
-        run: npm run build:table
+        run: npm run build:infographic
 
       - name: Update current MD5 file of modes configuration
-        if: steps.compute-md5.outcome == 'success'
-        run: mv .github/filters-comparison-md5-new .github/filters-comparison-md5
+        if: env.changed == 'true'
+        run: mv .github/infographic-md5-new .github/infographic-md5
 
       - name: Commit and push updated files
         run: |
@@ -61,8 +69,8 @@ jobs:
           git config user.email "actions@github.com"
 
           git add *.filter
-          git add .github/filters-comparison-md5
-          git add .github/filters-comparison.png
+          git add .github/infographic-md5
+          git add .github/infographic.png
 
           if git diff --cached --quiet; then
             echo "No changes to commit. Skipping commit step.";

@@ -1,6 +1,7 @@
 import { Section } from '../entities/filter/index.js';
-import { Area, Card, Effect, MapIcon, Sound } from '../entities/generators/index.js';
 import { modes } from '../configuration/index.js';
+import ItemDisplay, { BEAM, ICON, SOUND, THEME } from '../entities/generators/item-display.js';
+import Area from '../entities/generators/area.js';
 
 export default ({ modeId }) => {
   const section = Section('Currencies');
@@ -9,46 +10,74 @@ export default ({ modeId }) => {
   // Shards
   //
 
-  const shard = {
-    card: Card(Card.THEMES.CURRENCY, Card.TYPES.OUTLINE, Card.SIZES.MEDIUM),
-    effects: {
-      sound: Sound(Sound.TYPES.SIMPLE_SIGNAL),
-      effect: Effect(Effect.COLORS.YELLOW, Effect.TEMPORARY),
-      icon: MapIcon(MapIcon.SIZES.SMALL, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.CROSS),
-    },
+  section.addBlock({
+    class: ['Currency'],
+    type: ['Shard', 'Chance Shard'],
+    area: Area.UNDER_STARTING_AREA,
+    display: ItemDisplay.LOW(THEME.CURRENCIES, SOUND.SIMPLE_SIGNAL, BEAM.TEMPORARY, ICON.CROSS),
+  });
+
+  section.addBlock({
+    class: ['Currency'],
+    type: ['Chance Shard'],
+    visible: modes.currencies.displayChanceShards[modeId],
+    display: ItemDisplay.LOW(
+      THEME.CURRENCIES,
+      ...modes.currencies.displayChanceShards[modeId]
+        ? [SOUND.SIMPLE_SIGNAL, BEAM.TEMPORARY, ICON.CROSS]
+        : [],
+    ),
+  });
+
+  section.addBlock({
+    class: ['Currency'],
+    type: ['Shard'],
+    visible: modes.currencies.displayShards[modeId],
+    display: ItemDisplay.LOW(
+      THEME.CURRENCIES,
+      ...modes.currencies.displayShards[modeId]
+        ? [SOUND.SIMPLE_SIGNAL, BEAM.TEMPORARY, ICON.CROSS]
+        : [],
+    ),
+  });
+
+  //
+  // Tier 3 currencies
+  //
+
+  const tier3Currencies = {
+    class: ['Currency'],
+    type: [
+      'Orb of Transmutation',
+      'Orb of Augmentation',
+    ],
+    display: ItemDisplay.LOW(THEME.CURRENCIES, BEAM.TEMPORARY, ICON.CROSS, SOUND.SIMPLE_SIGNAL),
   };
 
-  section.addBlock({
-    class: 'Currency',
-    type: 'Chance Shard',
-    card: shard.card,
-    ...modes.CurrenciesDisplayChanceShards[modeId]
-      ? shard.effects
-      : { visible: false },
-  });
+  if (!modes.currencies.displayTier3[modeId]) {
+    section.addBlock({
+      area: Area.FROM_STARTING_AREA,
+      visible: false,
+      ...tier3Currencies,
+      display: tier3Currencies.display(BEAM.NONE, ICON.NONE, SOUND.NONE),
+    });
+  }
 
-  section.addBlock({
-    class: 'Currency',
-    type: 'Shard',
-    card: shard.card,
-    visible: modes.CurrenciesDisplayShards[modeId],
-  });
+  section.addBlock(tier3Currencies);
 
   //
   // Upgrade tier 2
   //
 
   section.addBlock({
-    class: 'Currency',
+    class: ['Currency'],
     type: [
       'Arcanist\'s Etcher',
       'Armourer\'s Scrap',
       'Blacksmith\'s Whetstone',
       'Artificer\'s Orb',
     ],
-    sound: Sound(Sound.TYPES.SIMPLE_SIGNAL),
-    effect: Effect(Effect.COLORS.YELLOW, Effect.TEMPORARY),
-    icon: MapIcon(MapIcon.SIZES.SMALL, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.CROSS),
+    display: ItemDisplay.LOW(THEME.CURRENCIES, SOUND.SIMPLE_SIGNAL, BEAM.TEMPORARY, ICON.CROSS),
   });
 
   //
@@ -56,64 +85,28 @@ export default ({ modeId }) => {
   //
 
   section.addBlock({
-    class: 'Currency',
+    class: ['Currency'],
     type: [
       'Lesser Jeweller\'s Orb',
       'Gemcutter\'s Prism',
       'Glassblower\'s Bauble',
     ],
-    card: Card(Card.SIZES.MEDIUM, Card.THEMES.CURRENCY, Card.TYPES.IMPORTANT),
-    effect: Effect(Effect.COLORS.YELLOW),
-    sound: Sound(Sound.TYPES.IMPORTANCE_6),
-    icon: MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.CROSS),
+    display: ItemDisplay.MEDIUM(THEME.CURRENCIES, SOUND.IMPORTANCE_6, BEAM.SHOW, ICON.CROSS),
   });
-
-  //
-  // Tier 3 currencies
-  //
-
-  const commonTier3Currency = {
-    class: 'Currency',
-    type: [
-      'Orb of Transmutation',
-      'Orb of Augmentation',
-    ],
-    card: Card(Card.THEMES.CURRENCY, Card.TYPES.IMPORTANT, Card.SIZES.MEDIUM),
-  };
-
-  if (modes.CurrenciesDisplayTier3[modeId]) {
-    // Displayed
-    section.addBlock({
-      ...commonTier3Currency,
-      sound: Sound(Sound.TYPES.IMPORTANCE_3),
-      effect: Effect(Effect.COLORS.YELLOW, Effect.TEMPORARY),
-      icon: MapIcon(MapIcon.SIZES.SMALL, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.CIRCLE),
-    });
-  } else {
-    // Hidden only for Area > 65
-    section.addBlock({
-      ...commonTier3Currency,
-      visible: false,
-      area: Area.FROM_STARTING_AREA,
-    });
-  }
 
   //
   // Tier 2 currencies
   //
 
   section.addBlock({
-    class: 'Currency',
+    class: ['Currency'],
     type: [
       'Regal Orb',
       'Chaos Orb',
       'Exalted Orb',
       'Vaal Orb',
     ],
-    effect: Effect(Effect.COLORS.YELLOW),
-    card: Card(Card.THEMES.CURRENCY, Card.TYPES.URGENT, Card.SIZES.BIG),
-    sound: Sound(Sound.TYPES.IMPORTANCE_2),
-    icon: MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.STAR),
+    display: ItemDisplay.IMPORTANT(THEME.CURRENCIES, SOUND.IMPORTANCE_2, ICON.STAR),
   });
 
   //
@@ -121,7 +114,7 @@ export default ({ modeId }) => {
   //
 
   section.addBlock({
-    class: 'Currency',
+    class: ['Currency'],
     type: [
       'Orb of Chance',
       'Divine Orb',
@@ -129,10 +122,7 @@ export default ({ modeId }) => {
       'Greater Jeweller\'s Orb',
       'Perfect Jeweller\'s Orb',
     ],
-    card: Card(Card.THEMES.ALERT, Card.SIZES.BIG, Card.TYPES.URGENT),
-    effect: Effect(Effect.COLORS.RED),
-    sound: Sound(Sound.TYPES.IMPORTANCE_1),
-    icon: MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.RED, MapIcon.SHAPES.STAR),
+    display: ItemDisplay.CRITICAL(SOUND.IMPORTANCE_1, ICON.STAR),
   });
 
   //
@@ -141,11 +131,8 @@ export default ({ modeId }) => {
   //
 
   section.addBlock({
-    class: 'Currency',
-    card: Card(Card.THEMES.CURRENCY, Card.TYPES.IMPORTANT, Card.SIZES.MEDIUM),
-    sound: Sound(Sound.TYPES.SIMPLE_SIGNAL),
-    effect: Effect(Effect.COLORS.YELLOW),
-    icon: MapIcon(MapIcon.SIZES.BIG, MapIcon.COLORS.YELLOW, MapIcon.SHAPES.STAR),
+    class: ['Currency'],
+    display: ItemDisplay.MEDIUM(THEME.CURRENCIES),
   });
 
   return section;

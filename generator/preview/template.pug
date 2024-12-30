@@ -1,0 +1,84 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    style.
+      @font-face {
+        /* A font by Jos Buivenga (exljbris) -> www.exljbris.com */
+        font-family: 'Fontin';
+        src: url(data:font/ttf;base64,#{fontData}) format('truetype');
+        font-weight: bold;
+      }
+      body {
+        font-family: 'Fontin';
+        font-size: 16px;
+      }
+      .background {
+
+      }
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+      }
+      .level {
+        border: 1px solid red;
+        line-height: 1;
+        text-align: center;
+        background: #{defaultBackground};
+        border: 1px solid #{defaultBackground};
+      }
+      .level.level-0 {
+        padding: 1px 2px;
+        font-size: 8px;
+      }
+      .level.level-1 {
+        padding: 2px 4px;
+        font-size: 10px;
+      }
+      .level.level-2 {
+        padding: 3px 6px;
+        font-size: 12px;
+      }
+      .level.level-3 {
+        padding: 4px 8px;
+        font-size: 14px;
+      }
+      .level.level-4 {
+        padding: 5px 10px;
+        font-size: 16px;
+      }
+  body
+    div#capture-zone
+      div#main-container
+        each theme of themes
+          div.row
+            div.level.level-0(style={
+              'color': theme.color,
+            })
+              | Not really<br>important
+            div.level.level-1(style={
+              'color': theme.color,
+              'border-color': theme.color,
+            })
+              | Maybe<br>interesting
+            div.level.level-2(style={
+              'color': theme.text,
+              'background-color': theme.color,
+              'border-color': theme.color,
+            })
+              | Midly<br>interesting
+            div.level.level-3(style={
+              'color': theme.text,
+              'background-color': theme.color,
+              'border-color': themes.find(({ key }) => key === 'ALERT').text,
+            })
+              | Super<br>good loot
+            div.level.level-4(style={
+              'color': themes.find(({ key }) => key === 'ALERT').text,
+              'background-color': themes.find(({ key }) => key === 'ALERT').color,
+              'border-color': themes.find(({ key }) => key === 'ALERT').text,
+            })
+              | Take it<br>be happy

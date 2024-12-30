@@ -5,16 +5,17 @@
   },
   "type": "module",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon index.js",
-    "dev:standard": "cross-env NODE_ENV=development MODE=standard nodemon index.js",
-    "dev:intermediate": "cross-env NODE_ENV=development MODE=intermediate nodemon index.js",
-    "dev:expert": "cross-env NODE_ENV=development nodemon MODE=expert index.js",
-    "build": "node index.js",
-    "build:table": "node social/filters-comparison/take-screenshot.js",
+    "dev:filter": "cross-env NODE_ENV=development nodemon --ext js,pug,scss,json,txt index.js",
+    "dev:filter:standard": "cross-env NODE_ENV=development MODE=standard nodemon --ext js,pug,scss,json,txt index.js",
+    "dev:filter:intermediate": "cross-env NODE_ENV=development MODE=intermediate nodemon --ext js,pug,scss,json,txt index.js",
+    "dev:filter:expert": "cross-env NODE_ENV=development nodemon --ext js,pug,scss,json,txt MODE=expert index.js",
+    "dev:infographic": "cross-env NODE_ENV=development nodemon --ext js,pug,scss,json,txt infographic/index.js",
+    "build:filter": "node index.js",
+    "build:infographic": "node infographic/index.js",
     "lint": "eslint .",
     "lint:fix": "eslint --fix ."
   },
-  "devDependencies": {
+  "dependencies": {
     "@eslint/js": "^9.17.0",
     "@stylistic/eslint-plugin-js": "^2.12.1",
     "change-case": "^5.4.4",
@@ -22,6 +23,9 @@
     "eslint": "^9.17.0",
     "globals": "^15.14.0",
     "nodemon": "^3.1.9",
-    "playwright": "^1.49.1"
+    "playwright": "^1.49.1",
+    "prettier": "^3.4.2",
+    "pug": "^3.0.3",
+    "sass": "^1.83.0"
   }
 }
