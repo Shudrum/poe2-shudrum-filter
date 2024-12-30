@@ -20,7 +20,7 @@ export default ({ modeId }) => {
     section.addBlock({
       ...runes,
       visible: false,
-      display: runes.display(BEAM.NONE),
+      display: runes.display(ICON.NONE, BEAM.NONE),
     });
   }
 

@@ -35,7 +35,7 @@ jobs:
       - name: Compute current MD5 of modes configuration
         id: compute-md5
         run: |
-          cat generator/configuration/modes.json generator/configuration/globals.json generator/configuration/themes.json | md5sum > .github/infographic-md5-new
+          cat generator/infographic/index.js generator/configuration/modes.json generator/configuration/globals.json generator/configuration/themes.json | md5sum > .github/infographic-md5-new
           if [ -f .github/infographic-md5 ]; then
             if cmp --silent .github/infographic-md5 .github/infographic-md5-new; then
               echo "No changes in configuration."
