@@ -117,6 +117,7 @@ export default ({ modeId }) => {
       'Chaos Orb',
       'Exalted Orb',
       'Vaal Orb',
+      'Orb of Alchemy',
     ],
     display: ItemDisplay.IMPORTANT(THEME.CURRENCIES, SOUND.IMPORTANCE_2, ICON.STAR),
   });
