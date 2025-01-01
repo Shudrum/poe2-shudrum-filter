@@ -4,8 +4,11 @@ export default {
     hideStartingLevelGap: [4, 3, 2],
   },
   currencies: {
-    displayChanceShards: [true, true, false],
-    displayShards: [true, false, false],
+    shards: {
+      chance: [true, true, false],
+      regal: [true, true, false],
+      transmutation: [true, false, false],
+    },
     displayTier3: [true, true, false],
     gold: {
       minimumDisplayedAmount: [100, 200, 300],

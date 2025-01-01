@@ -14,6 +14,6 @@ export default [
   { key: 'TABLETS', color: '#d354fd', gameColor: 'White', label: 'Tablets' },
   { key: 'FLASKS', color: '#54fdef', gameColor: 'Cyan', label: 'Flasks' },
   { key: 'CHARMS', color: '#fd54c7', gameColor: 'White', label: 'Charms' },
-  { key: 'JEWELS', color: '#54fd54', gameColor: 'White', label: 'Jewels' },
+  { key: 'JEWELS', color: '#54fd54', gameColor: 'Green', label: 'Jewels' },
   { key: 'RUNES', color: '#fdac7a', gameColor: 'Orange', label: 'Runes' },
 ];

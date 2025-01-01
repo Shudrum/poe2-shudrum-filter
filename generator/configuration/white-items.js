@@ -1,8 +1,16 @@
 export default [{
   class: ['Rings'],
-  type: ['Amethyst Ring'],
+  type: [
+    'Amethyst Ring',
+    'Ruby Ring',
+    'Pearl Ring',
+    'Prismatic Ring',
+    'Emerald Ring',
+    'Sapphire Ring',
+    'Gold Ring',
+  ],
 }, {
-  class: ['Amulets', 'Rings'],
+  class: ['Amulets'],
 }, {
   class: ['Belts'],
   type: ['Heavy belt'],
