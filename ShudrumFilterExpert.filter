@@ -113,22 +113,22 @@ Show
   AreaLevel >= 65
   Rarity Normal
   Class "Rings"
-  BaseType "Amethyst Ring"
+  BaseType "Amethyst Ring" "Ruby Ring" "Pearl Ring" "Prismatic Ring" "Emerald Ring" "Sapphire Ring" "Gold Ring"
   SetTextColor 0 0 0
   SetBorderColor 200 200 200
   SetBackgroundColor 200 200 200
-  SetFontSize 34
+  SetFontSize 39
   PlayEffect White
   MinimapIcon 2 White Circle
 
 Show
   AreaLevel >= 65
   Rarity Normal
-  Class "Amulets" "Rings"
+  Class "Amulets"
   SetTextColor 0 0 0
   SetBorderColor 200 200 200
   SetBackgroundColor 200 200 200
-  SetFontSize 34
+  SetFontSize 39
   PlayEffect White
   MinimapIcon 2 White Circle
 
@@ -140,7 +140,7 @@ Show
   SetTextColor 0 0 0
   SetBorderColor 200 200 200
   SetBackgroundColor 200 200 200
-  SetFontSize 34
+  SetFontSize 39
   PlayEffect White
   MinimapIcon 2 White Circle
 
@@ -210,7 +210,7 @@ Show
   SetBackgroundColor 163 84 253
   SetFontSize 34
   PlayEffect Purple
-  PlayAlertSound 2 300
+  PlayAlertSound 5 300
   MinimapIcon 2 Purple Star
 
 #
@@ -292,6 +292,16 @@ Hide
 #
 # RUNES
 #
+
+Show
+  BaseType "Soul Core of"
+  SetTextColor 0 0 0
+  SetBorderColor 253 172 122
+  SetBackgroundColor 253 172 122
+  SetFontSize 34
+  PlayEffect Orange
+  PlayAlertSound 11 300
+  MinimapIcon 2 Orange Circle
 
 Hide
   BaseType "Rune"
@@ -404,8 +414,8 @@ Show
   SetBorderColor 84 253 84
   SetBackgroundColor 84 253 84
   SetFontSize 34
-  PlayEffect White Temp
-  MinimapIcon 2 White Pentagon
+  PlayEffect Green Temp
+  MinimapIcon 2 Green Pentagon
 
 #
 # GOLD
@@ -512,7 +522,15 @@ Hide
 
 Hide
   Class "Currency"
-  BaseType "Shard"
+  BaseType "Transmutation Shard"
+  SetTextColor 170 158 130
+  SetBorderColor 170 158 130
+  SetBackgroundColor 0 0 0 221
+  SetFontSize 30
+
+Hide
+  Class "Currency"
+  BaseType "Regal Shard"
   SetTextColor 170 158 130
   SetBorderColor 170 158 130
   SetBackgroundColor 0 0 0 221
@@ -562,13 +580,13 @@ Show
 
 Show
   Class "Currency"
-  BaseType "Regal Orb" "Chaos Orb" "Exalted Orb" "Vaal Orb"
+  BaseType "Regal Orb" "Chaos Orb" "Exalted Orb" "Vaal Orb" "Orb of Alchemy"
   SetTextColor 0 0 0
   SetBorderColor 238 238 238
   SetBackgroundColor 170 158 130
   SetFontSize 39
   PlayEffect Yellow
-  PlayAlertSound 5 300
+  PlayAlertSound 2 300
   MinimapIcon 1 Yellow Star
 
 Show
@@ -593,18 +611,6 @@ Show
 #
 # WAYSTONES
 #
-
-Show
-  Class "Waystone"
-  AreaLevel == 64
-  WaystoneTier >= 0
-  SetTextColor 0 0 0
-  SetBorderColor 238 238 238
-  SetBackgroundColor 232 103 103
-  SetFontSize 39
-  PlayEffect Red
-  PlayAlertSound 4 300
-  MinimapIcon 1 Red Square
 
 Show
   Class "Waystone"
@@ -1064,7 +1070,7 @@ Show
 
 Show
   Class "Waystone"
-  AreaLevel == 79
+  AreaLevel >= 79
   WaystoneTier >= 15
   SetTextColor 0 0 0
   SetBorderColor 238 238 238
@@ -1076,7 +1082,7 @@ Show
 
 Show
   Class "Waystone"
-  AreaLevel == 79
+  AreaLevel >= 79
   WaystoneTier >= 13
   SetTextColor 0 0 0
   SetBorderColor 232 103 103
@@ -1088,152 +1094,8 @@ Show
 
 Show
   Class "Waystone"
-  AreaLevel == 79
+  AreaLevel >= 79
   WaystoneTier >= 13
-  SetTextColor 232 103 103
-  SetBorderColor 232 103 103
-  SetBackgroundColor 0 0 0 221
-  SetFontSize 30
-  PlayEffect Red Temp
-  PlayAlertSound 4 300
-  MinimapIcon 2 Red Square
-
-Show
-  Class "Waystone"
-  AreaLevel == 80
-  WaystoneTier >= 16
-  SetTextColor 0 0 0
-  SetBorderColor 238 238 238
-  SetBackgroundColor 232 103 103
-  SetFontSize 39
-  PlayEffect Red
-  PlayAlertSound 4 300
-  MinimapIcon 1 Red Square
-
-Show
-  Class "Waystone"
-  AreaLevel == 80
-  WaystoneTier >= 14
-  SetTextColor 0 0 0
-  SetBorderColor 232 103 103
-  SetBackgroundColor 232 103 103
-  SetFontSize 34
-  PlayEffect Red
-  PlayAlertSound 4 300
-  MinimapIcon 2 Red Square
-
-Show
-  Class "Waystone"
-  AreaLevel == 80
-  WaystoneTier >= 14
-  SetTextColor 232 103 103
-  SetBorderColor 232 103 103
-  SetBackgroundColor 0 0 0 221
-  SetFontSize 30
-  PlayEffect Red Temp
-  PlayAlertSound 4 300
-  MinimapIcon 2 Red Square
-
-Show
-  Class "Waystone"
-  AreaLevel == 81
-  WaystoneTier >= 17
-  SetTextColor 0 0 0
-  SetBorderColor 238 238 238
-  SetBackgroundColor 232 103 103
-  SetFontSize 39
-  PlayEffect Red
-  PlayAlertSound 4 300
-  MinimapIcon 1 Red Square
-
-Show
-  Class "Waystone"
-  AreaLevel == 81
-  WaystoneTier >= 15
-  SetTextColor 0 0 0
-  SetBorderColor 232 103 103
-  SetBackgroundColor 232 103 103
-  SetFontSize 34
-  PlayEffect Red
-  PlayAlertSound 4 300
-  MinimapIcon 2 Red Square
-
-Show
-  Class "Waystone"
-  AreaLevel == 81
-  WaystoneTier >= 15
-  SetTextColor 232 103 103
-  SetBorderColor 232 103 103
-  SetBackgroundColor 0 0 0 221
-  SetFontSize 30
-  PlayEffect Red Temp
-  PlayAlertSound 4 300
-  MinimapIcon 2 Red Square
-
-Show
-  Class "Waystone"
-  AreaLevel == 82
-  WaystoneTier >= 18
-  SetTextColor 0 0 0
-  SetBorderColor 238 238 238
-  SetBackgroundColor 232 103 103
-  SetFontSize 39
-  PlayEffect Red
-  PlayAlertSound 4 300
-  MinimapIcon 1 Red Square
-
-Show
-  Class "Waystone"
-  AreaLevel == 82
-  WaystoneTier >= 16
-  SetTextColor 0 0 0
-  SetBorderColor 232 103 103
-  SetBackgroundColor 232 103 103
-  SetFontSize 34
-  PlayEffect Red
-  PlayAlertSound 4 300
-  MinimapIcon 2 Red Square
-
-Show
-  Class "Waystone"
-  AreaLevel == 82
-  WaystoneTier >= 16
-  SetTextColor 232 103 103
-  SetBorderColor 232 103 103
-  SetBackgroundColor 0 0 0 221
-  SetFontSize 30
-  PlayEffect Red Temp
-  PlayAlertSound 4 300
-  MinimapIcon 2 Red Square
-
-Show
-  Class "Waystone"
-  AreaLevel == 83
-  WaystoneTier >= 19
-  SetTextColor 0 0 0
-  SetBorderColor 238 238 238
-  SetBackgroundColor 232 103 103
-  SetFontSize 39
-  PlayEffect Red
-  PlayAlertSound 4 300
-  MinimapIcon 1 Red Square
-
-Show
-  Class "Waystone"
-  AreaLevel == 83
-  WaystoneTier >= 17
-  SetTextColor 0 0 0
-  SetBorderColor 232 103 103
-  SetBackgroundColor 232 103 103
-  SetFontSize 34
-  PlayEffect Red
-  PlayAlertSound 4 300
-  MinimapIcon 2 Red Square
-
-Show
-  Class "Waystone"
-  AreaLevel == 83
-  WaystoneTier >= 17
   SetTextColor 232 103 103
   SetBorderColor 232 103 103
   SetBackgroundColor 0 0 0 221
