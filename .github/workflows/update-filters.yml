@@ -1,4 +1,4 @@
-name: Update filters
+name: Update filters and infographics
 
 on:
   push:
@@ -35,7 +35,18 @@ jobs:
       - name: Compute current MD5 of modes configuration
         id: compute-md5
         run: |
-          cat generator/infographic/index.js generator/configuration/modes.json generator/configuration/globals.json generator/configuration/themes.json | md5sum > .github/infographic-md5-new
+          files="\
+            generator/assets/header.txt \
+            generator/infographic/index.js \
+            generator/infographic/style.scss \
+            generator/infographic/template.pug \
+            generator/configuration/globals.js \
+            generator/configuration/important-items.js \
+            generator/configuration/modes.js \
+            generator/configuration/themes.js \
+            generator/configuration/white-items.js"
+
+          cat $files | md5sum > .github/infographic-md5-new
           if [ -f .github/infographic-md5 ]; then
             if cmp --silent .github/infographic-md5 .github/infographic-md5-new; then
               echo "No changes in configuration."
@@ -54,7 +65,7 @@ jobs:
         working-directory: generator
         run: npx playwright install --with-deps
 
-      - name: Generate table image
+      - name: Generate infographics
         if: env.changed == 'true'
         working-directory: generator
         run: npm run build:infographic
@@ -69,8 +80,7 @@ jobs:
           git config user.email "actions@github.com"
 
           git add *.filter
-          git add .github/infographic-md5
-          git add .github/infographic.png
+          git add .github/infographic*
 
           if git diff --cached --quiet; then
             echo "No changes to commit. Skipping commit step.";
