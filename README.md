@@ -85,6 +85,7 @@ Clic on the filter you want to install behind, then save it on your Path of Exil
 ```
 
 - [Standard filter](https://raw.githubusercontent.com/Shudrum/poe2-shudrum-filter/refs/heads/master/ShudrumFilterStandard.filter)
+- **[Intermediate filter](https://raw.githubusercontent.com/Shudrum/poe2-shudrum-filter/refs/heads/master/ShudrumFilterIntermediate.filter)**
 - [Expert filter](https://raw.githubusercontent.com/Shudrum/poe2-shudrum-filter/refs/heads/master/ShudrumFilterExpert.filter)
 
 Then, in game: Escape -> Options -> Game -> Filters -> Select the filter from
