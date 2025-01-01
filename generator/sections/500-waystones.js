@@ -6,10 +6,12 @@ import ItemDisplay, { BEAM, ICON, SOUND, THEME } from '../entities/generators/it
 export default ({ modeId }) => {
   const section = Section('Waystones');
 
-  for (let waystoneTier = 0; waystoneTier < 20; waystoneTier++) {
+  for (let waystoneTier = 1; waystoneTier <= 15; waystoneTier++) {
     const common = {
       class: ['Waystone'],
-      area: Area.EQUAL(global.startingAreaLevel + (waystoneTier - 1)),
+      area: waystoneTier === 15
+        ? Area.FROM(global.startingAreaLevel + (waystoneTier - 1))
+        : Area.EQUAL(global.startingAreaLevel + (waystoneTier - 1)),
     };
 
     section.addBlock({
