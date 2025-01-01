@@ -1,6 +1,6 @@
 import { Section } from '../entities/filter/index.js';
 import { modes } from '../configuration/index.js';
-import ItemDisplay, { BEAM, ICON, THEME } from '../entities/generators/item-display.js';
+import ItemDisplay, { BEAM, ICON, SOUND, THEME } from '../entities/generators/item-display.js';
 import Area from '../entities/generators/area.js';
 
 export default ({ modeId }) => {
@@ -11,6 +11,11 @@ export default ({ modeId }) => {
     display: ItemDisplay.LOW(THEME.RUNES, ICON.CIRCLE, BEAM.TEMPORARY),
     area: Area.FROM_STARTING_AREA,
   };
+
+  section.addBlock({
+    type: ['Soul Core of'],
+    display: ItemDisplay.MEDIUM(THEME.RUNES, ICON.CIRCLE, BEAM.SHOW, SOUND.SIMPLE_SIGNAL),
+  });
 
   if (modes.runes.displayBasic[modeId]) {
     section.addBlock({
