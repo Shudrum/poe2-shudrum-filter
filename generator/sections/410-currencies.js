@@ -119,7 +119,7 @@ export default ({ modeId }) => {
       'Vaal Orb',
       'Orb of Alchemy',
     ],
-    display: ItemDisplay.IMPORTANT(THEME.CURRENCIES, SOUND.IMPORTANCE_2, ICON.STAR),
+    display: ItemDisplay.IMPORTANT(THEME.CURRENCIES, SOUND.IMPORTANT_CURRENCY, ICON.STAR),
   });
 
   //
@@ -135,7 +135,7 @@ export default ({ modeId }) => {
       'Greater Jeweller\'s Orb',
       'Perfect Jeweller\'s Orb',
     ],
-    display: ItemDisplay.CRITICAL(SOUND.IMPORTANCE_1, ICON.STAR),
+    display: ItemDisplay.CRITICAL(ICON.STAR),
   });
 
   //
