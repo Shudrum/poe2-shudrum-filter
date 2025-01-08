@@ -373,17 +373,6 @@ Show
   PlayAlertSound 12 300
   MinimapIcon 2 Cyan Circle
 
-Show
-  BaseType "Uncut Skill Gem"
-  AreaLevel >= 65
-  SetTextColor 115 200 189
-  SetBorderColor 115 200 189
-  SetBackgroundColor 0 0 0 221
-  SetFontSize 30
-  PlayEffect Cyan Temp
-  PlayAlertSound 12 300
-  MinimapIcon 2 Cyan Circle
-
 Hide
   BaseType "Uncut Skill Gem"
   AreaLevel >= 70
@@ -393,6 +382,17 @@ Hide
   SetBackgroundColor 115 200 189
   SetFontSize 34
   PlayEffect Cyan
+  PlayAlertSound 12 300
+  MinimapIcon 2 Cyan Circle
+
+Show
+  BaseType "Uncut Skill Gem"
+  AreaLevel >= 65
+  SetTextColor 115 200 189
+  SetBorderColor 115 200 189
+  SetBackgroundColor 0 0 0 221
+  SetFontSize 30
+  PlayEffect Cyan Temp
   PlayAlertSound 12 300
   MinimapIcon 2 Cyan Circle
 
