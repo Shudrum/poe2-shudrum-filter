@@ -27,16 +27,16 @@ export default () => {
 
   section.addBlock({
     type: ['Uncut Skill Gem'],
-    area: Area.FROM_STARTING_AREA,
-    display: ItemDisplay.LOW(THEME.GEMS, BEAM.TEMPORARY, ICON.CIRCLE, SOUND.GEMS),
-  });
-
-  section.addBlock({
-    type: ['Uncut Skill Gem'],
     visible: false,
     area: Area.FROM(70),
     itemLevel: '<= 16',
     display: ItemDisplay.MEDIUM(THEME.GEMS, BEAM.SHOW, ICON.CIRCLE, SOUND.GEMS),
+  });
+
+  section.addBlock({
+    type: ['Uncut Skill Gem'],
+    area: Area.FROM_STARTING_AREA,
+    display: ItemDisplay.LOW(THEME.GEMS, BEAM.TEMPORARY, ICON.CIRCLE, SOUND.GEMS),
   });
 
   return section;
