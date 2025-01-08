@@ -5,7 +5,7 @@ export default {
   },
   currencies: {
     shards: {
-      chance: [true, true, false],
+      chance: [true, true, true],
       regal: [true, true, false],
       transmutation: [true, false, false],
     },
