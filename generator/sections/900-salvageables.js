@@ -24,7 +24,7 @@ export default ({ modeId }) => {
     class: classes.armourer,
     rarity: '<= Magic',
     quality: `>= ${modes.equipment.salavageable.minimumArmourerQuality[modeId]}`,
-    display: ItemDisplay.LOW(THEME.CURRENCIES, ICON.CROSS),
+    display: ItemDisplay.MEDIUM(THEME.CURRENCIES, ICON.CROSS),
   });
 
   section.addBlock({
@@ -33,7 +33,7 @@ export default ({ modeId }) => {
     class: classes.armourer,
     rarity: '<= Magic',
     quality: '> 0',
-    display: ItemDisplay.LOW(THEME.CURRENCIES),
+    display: ItemDisplay.MEDIUM(THEME.CURRENCIES),
   });
 
   section.addBlock({
@@ -41,7 +41,7 @@ export default ({ modeId }) => {
     class: classes.armourer,
     rarity: '<= Magic',
     quality: '> 0',
-    display: ItemDisplay.LOW(THEME.CURRENCIES, ICON.CROSS),
+    display: ItemDisplay.MEDIUM(THEME.CURRENCIES, ICON.CROSS),
   });
 
   //
