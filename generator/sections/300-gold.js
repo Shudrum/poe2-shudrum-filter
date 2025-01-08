@@ -3,8 +3,6 @@ import { modes } from '../configuration/index.js';
 import Area from '../entities/generators/area.js';
 import ItemDisplay, { SIZE, THEME, TYPE } from '../entities/generators/item-display.js';
 
-const STEPS = 5;
-
 export default ({ modeId }) => {
   const section = Section('Gold');
 
@@ -27,6 +25,20 @@ export default ({ modeId }) => {
     display: ItemDisplay(THEME.GOLD, SIZE.TINY),
   });
 
+  const goldDisplays = [
+    [SIZE.SIZE_45, TYPE.OUTLINE],
+    [SIZE.SIZE_43, TYPE.NORMAL],
+    [SIZE.SIZE_41, TYPE.NORMAL],
+    [SIZE.SIZE_39, TYPE.NORMAL],
+    [SIZE.SIZE_37, TYPE.NORMAL],
+    [SIZE.SIZE_35, TYPE.NORMAL],
+    [SIZE.SIZE_33, TYPE.NORMAL],
+    [SIZE.SIZE_31, TYPE.NORMAL],
+    [SIZE.SIZE_29, TYPE.NORMAL],
+    [SIZE.SIZE_27, TYPE.NORMAL],
+    [SIZE.SIZE_25, TYPE.NORMAL],
+  ];
+
   function generateValues(from, to) {
     function easing(x) {
       // EaseInQuad
@@ -34,8 +46,8 @@ export default ({ modeId }) => {
     }
 
     return Array.from(
-      { length: STEPS },
-      (_, i) => Math.round(easing(i / (STEPS - 1)) * (to - from)) + from,
+      { length: goldDisplays.length },
+      (_, i) => Math.round(easing(i / (goldDisplays.length - 1)) * (to - from)) + from,
     );
   }
 
@@ -47,13 +59,7 @@ export default ({ modeId }) => {
       ...gold,
       area: Area.FROM_STARTING_AREA,
       stackSize: `>= ${stackSize}`,
-      display: ItemDisplay(THEME.GOLD, [
-        SIZE.BIG,
-        SIZE.MEDIUM,
-        SIZE.SMALL,
-        SIZE.SMALLEST,
-        SIZE.TINY,
-      ][i], i === 0 ? TYPE.OUTLINE : TYPE.NORMAL),
+      display: ItemDisplay(THEME.GOLD, ...goldDisplays[i]),
     });
   });
 
