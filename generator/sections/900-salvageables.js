@@ -7,11 +7,11 @@ export default ({ modeId }) => {
   const section = Section('Salvageables');
 
   const classes = {
-    armourer: ['Body Armour', 'Gloves', 'Boots', 'Helmet'],
+    armourer: ['Body Armour', 'Gloves', 'Boots', 'Helmet', 'Focus', 'Shield'],
     arcanist: ['Sceptre', 'Staff', 'Wand'],
     whetstone: [
-      'Bow', 'Crossbow', 'Focus', 'One Hand Mace', 'QuarterStaff', 'Quiver',
-      'Shield', 'Two Hand Mace',
+      'Bow', 'Crossbow', 'One Hand Mace', 'QuarterStaff', 'Quiver',
+      'Two Hand Mace',
     ],
   };
 
