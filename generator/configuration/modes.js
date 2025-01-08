@@ -17,7 +17,7 @@ export default {
   },
   equipment: {
     salavageable: {
-      minimumArmourerQuality: [1, 5, 10],
+      minimumArmourerQuality: [1, 5, 5],
       minimumArcanistQuality: [1, 5, 10],
       minimumWhetstoneQuality: [1, 7, 14],
       minimumSockets: [1, 2, 2],
