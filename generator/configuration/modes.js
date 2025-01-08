@@ -11,8 +11,8 @@ export default {
     },
     displayTier3: [true, true, false],
     gold: {
-      minimumDisplayedAmount: [100, 200, 300],
-      ceilingDisplaySizeAmount: [1500, 2000, 2500],
+      minimumDisplayedAmount: [200, 500, 1000],
+      ceilingDisplaySizeAmount: [2000, 4000, 6000],
     },
   },
   equipment: {
