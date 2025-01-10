@@ -105,6 +105,16 @@ Show
   PlayAlertSound 1 300
   MinimapIcon 0 White Star
 
+Show
+  Class "Omen"
+  SetTextColor 238 238 238
+  SetBorderColor 238 238 238
+  SetBackgroundColor 210 30 30
+  SetFontSize 45
+  PlayEffect White
+  PlayAlertSound 1 300
+  MinimapIcon 0 White Star
+
 #
 # WHITE ITEMS
 #
@@ -246,7 +256,7 @@ Show
 #
 
 Show
-  BaseType "Distilled"
+  BaseType "Distilled" "Simulacrum Splinter"
   SetTextColor 0 0 0
   SetBorderColor 163 84 253
   SetBackgroundColor 163 84 253
@@ -296,12 +306,12 @@ Hide
 Show
   BaseType "Soul Core of"
   SetTextColor 0 0 0
-  SetBorderColor 253 172 122
+  SetBorderColor 238 238 238
   SetBackgroundColor 253 172 122
-  SetFontSize 34
+  SetFontSize 39
   PlayEffect Orange
   PlayAlertSound 11 300
-  MinimapIcon 2 Orange Circle
+  MinimapIcon 1 Orange Circle
 
 Hide
   BaseType "Rune"
@@ -433,7 +443,7 @@ Hide
   Class "Currency"
   BaseType "Gold"
   AreaLevel >= 65
-  StackSize < 300
+  StackSize < 1000
   SetTextColor 197 170 88
   SetBackgroundColor 0 0 0 221
   SetFontSize 25
@@ -442,9 +452,36 @@ Show
   Class "Currency"
   BaseType "Gold"
   AreaLevel >= 65
-  StackSize >= 2500
+  StackSize >= 6000
   SetTextColor 197 170 88
   SetBorderColor 197 170 88
+  SetBackgroundColor 0 0 0 221
+  SetFontSize 45
+
+Show
+  Class "Currency"
+  BaseType "Gold"
+  AreaLevel >= 65
+  StackSize >= 5050
+  SetTextColor 197 170 88
+  SetBackgroundColor 0 0 0 221
+  SetFontSize 43
+
+Show
+  Class "Currency"
+  BaseType "Gold"
+  AreaLevel >= 65
+  StackSize >= 4200
+  SetTextColor 197 170 88
+  SetBackgroundColor 0 0 0 221
+  SetFontSize 41
+
+Show
+  Class "Currency"
+  BaseType "Gold"
+  AreaLevel >= 65
+  StackSize >= 3450
+  SetTextColor 197 170 88
   SetBackgroundColor 0 0 0 221
   SetFontSize 39
 
@@ -452,25 +489,52 @@ Show
   Class "Currency"
   BaseType "Gold"
   AreaLevel >= 65
-  StackSize >= 1538
+  StackSize >= 2800
   SetTextColor 197 170 88
   SetBackgroundColor 0 0 0 221
-  SetFontSize 34
+  SetFontSize 37
 
 Show
   Class "Currency"
   BaseType "Gold"
   AreaLevel >= 65
-  StackSize >= 850
+  StackSize >= 2250
   SetTextColor 197 170 88
   SetBackgroundColor 0 0 0 221
-  SetFontSize 30
+  SetFontSize 35
 
 Show
   Class "Currency"
   BaseType "Gold"
   AreaLevel >= 65
-  StackSize >= 438
+  StackSize >= 1800
+  SetTextColor 197 170 88
+  SetBackgroundColor 0 0 0 221
+  SetFontSize 33
+
+Show
+  Class "Currency"
+  BaseType "Gold"
+  AreaLevel >= 65
+  StackSize >= 1450
+  SetTextColor 197 170 88
+  SetBackgroundColor 0 0 0 221
+  SetFontSize 31
+
+Show
+  Class "Currency"
+  BaseType "Gold"
+  AreaLevel >= 65
+  StackSize >= 1200
+  SetTextColor 197 170 88
+  SetBackgroundColor 0 0 0 221
+  SetFontSize 29
+
+Show
+  Class "Currency"
+  BaseType "Gold"
+  AreaLevel >= 65
+  StackSize >= 1050
   SetTextColor 197 170 88
   SetBackgroundColor 0 0 0 221
   SetFontSize 27
@@ -479,7 +543,7 @@ Show
   Class "Currency"
   BaseType "Gold"
   AreaLevel >= 65
-  StackSize >= 300
+  StackSize >= 1000
   SetTextColor 197 170 88
   SetBackgroundColor 0 0 0 221
   SetFontSize 25
@@ -512,13 +576,16 @@ Show
   PlayAlertSound 11 300
   MinimapIcon 2 Yellow Cross
 
-Hide
+Show
   Class "Currency"
   BaseType "Chance Shard"
   SetTextColor 170 158 130
   SetBorderColor 170 158 130
   SetBackgroundColor 0 0 0 221
   SetFontSize 30
+  PlayEffect Yellow Temp
+  PlayAlertSound 11 300
+  MinimapIcon 2 Yellow Cross
 
 Hide
   Class "Currency"
@@ -1139,34 +1206,37 @@ Show
 
 Show
   AreaLevel >= 65
-  Class "Body Armour" "Gloves" "Boots" "Helmet"
+  Class "Body Armour" "Gloves" "Boots" "Helmet" "Focus" "Shield"
   Rarity <= Magic
-  Quality >= 10
-  SetTextColor 170 158 130
+  Quality >= 5
+  SetTextColor 0 0 0
   SetBorderColor 170 158 130
-  SetBackgroundColor 0 0 0 221
-  SetFontSize 30
+  SetBackgroundColor 170 158 130
+  SetFontSize 34
+  PlayEffect Yellow
   MinimapIcon 2 Yellow Cross
 
 Hide
   AreaLevel >= 65
-  Class "Body Armour" "Gloves" "Boots" "Helmet"
+  Class "Body Armour" "Gloves" "Boots" "Helmet" "Focus" "Shield"
   Rarity <= Magic
   Quality > 0
-  SetTextColor 170 158 130
+  SetTextColor 0 0 0
   SetBorderColor 170 158 130
-  SetBackgroundColor 0 0 0 221
-  SetFontSize 30
+  SetBackgroundColor 170 158 130
+  SetFontSize 34
+  PlayEffect Yellow
 
 Show
   AreaLevel < 65
-  Class "Body Armour" "Gloves" "Boots" "Helmet"
+  Class "Body Armour" "Gloves" "Boots" "Helmet" "Focus" "Shield"
   Rarity <= Magic
   Quality > 0
-  SetTextColor 170 158 130
+  SetTextColor 0 0 0
   SetBorderColor 170 158 130
-  SetBackgroundColor 0 0 0 221
-  SetFontSize 30
+  SetBackgroundColor 170 158 130
+  SetFontSize 34
+  PlayEffect Yellow
   MinimapIcon 2 Yellow Cross
 
 Show
@@ -1203,7 +1273,7 @@ Show
 
 Show
   AreaLevel >= 65
-  Class "Bow" "Crossbow" "Focus" "One Hand Mace" "QuarterStaff" "Quiver" "Shield" "Two Hand Mace"
+  Class "Bow" "Crossbow" "One Hand Mace" "QuarterStaff" "Quiver" "Two Hand Mace"
   Rarity <= Magic
   SetTextColor 170 158 130
   SetBorderColor 170 158 130
@@ -1214,7 +1284,7 @@ Show
 
 Hide
   AreaLevel >= 65
-  Class "Bow" "Crossbow" "Focus" "One Hand Mace" "QuarterStaff" "Quiver" "Shield" "Two Hand Mace"
+  Class "Bow" "Crossbow" "One Hand Mace" "QuarterStaff" "Quiver" "Two Hand Mace"
   Rarity <= Magic
   SetTextColor 170 158 130
   SetBorderColor 170 158 130
@@ -1224,7 +1294,7 @@ Hide
 
 Show
   AreaLevel < 65
-  Class "Bow" "Crossbow" "Focus" "One Hand Mace" "QuarterStaff" "Quiver" "Shield" "Two Hand Mace"
+  Class "Bow" "Crossbow" "One Hand Mace" "QuarterStaff" "Quiver" "Two Hand Mace"
   Rarity <= Magic
   SetTextColor 170 158 130
   SetBorderColor 170 158 130
