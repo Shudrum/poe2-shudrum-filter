@@ -7,11 +7,11 @@ export default ({ modeId }) => {
   const section = Section('Salvageables');
 
   const classes = {
-    armourer: ['Body Armour', 'Gloves', 'Boots', 'Helmet'],
+    armourer: ['Body Armour', 'Gloves', 'Boots', 'Helmet', 'Focus', 'Shield'],
     arcanist: ['Sceptre', 'Staff', 'Wand'],
     whetstone: [
-      'Bow', 'Crossbow', 'Focus', 'One Hand Mace', 'QuarterStaff', 'Quiver',
-      'Shield', 'Two Hand Mace',
+      'Bow', 'Crossbow', 'One Hand Mace', 'QuarterStaff', 'Quiver',
+      'Two Hand Mace',
     ],
   };
 
@@ -24,7 +24,7 @@ export default ({ modeId }) => {
     class: classes.armourer,
     rarity: '<= Magic',
     quality: `>= ${modes.equipment.salavageable.minimumArmourerQuality[modeId]}`,
-    display: ItemDisplay.LOW(THEME.CURRENCIES, ICON.CROSS),
+    display: ItemDisplay.MEDIUM(THEME.CURRENCIES, ICON.CROSS),
   });
 
   section.addBlock({
@@ -33,7 +33,7 @@ export default ({ modeId }) => {
     class: classes.armourer,
     rarity: '<= Magic',
     quality: '> 0',
-    display: ItemDisplay.LOW(THEME.CURRENCIES),
+    display: ItemDisplay.MEDIUM(THEME.CURRENCIES),
   });
 
   section.addBlock({
@@ -41,7 +41,7 @@ export default ({ modeId }) => {
     class: classes.armourer,
     rarity: '<= Magic',
     quality: '> 0',
-    display: ItemDisplay.LOW(THEME.CURRENCIES, ICON.CROSS),
+    display: ItemDisplay.MEDIUM(THEME.CURRENCIES, ICON.CROSS),
   });
 
   //

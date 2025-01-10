@@ -14,7 +14,7 @@ export default ({ modeId }) => {
 
   section.addBlock({
     type: ['Soul Core of'],
-    display: ItemDisplay.MEDIUM(THEME.RUNES, ICON.CIRCLE, BEAM.SHOW, SOUND.SIMPLE_SIGNAL),
+    display: ItemDisplay.IMPORTANT(THEME.RUNES, ICON.CIRCLE, BEAM.SHOW, SOUND.SIMPLE_SIGNAL),
   });
 
   if (modes.runes.displayBasic[modeId]) {

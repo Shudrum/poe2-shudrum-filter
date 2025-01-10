@@ -12,4 +12,6 @@ export default [{
   type: ['Distilled Isolation', 'Distilled Suffering'],
 }, {
   class: ['Pinnacle Keys'],
+}, {
+  class: ['Omen'],
 }];

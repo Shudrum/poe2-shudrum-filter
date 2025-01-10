@@ -5,19 +5,19 @@ export default {
   },
   currencies: {
     shards: {
-      chance: [true, true, false],
+      chance: [true, true, true],
       regal: [true, true, false],
       transmutation: [true, false, false],
     },
     displayTier3: [true, true, false],
     gold: {
-      minimumDisplayedAmount: [100, 200, 300],
-      ceilingDisplaySizeAmount: [1500, 2000, 2500],
+      minimumDisplayedAmount: [200, 500, 1000],
+      ceilingDisplaySizeAmount: [2000, 4000, 6000],
     },
   },
   equipment: {
     salavageable: {
-      minimumArmourerQuality: [1, 5, 10],
+      minimumArmourerQuality: [1, 5, 5],
       minimumArcanistQuality: [1, 5, 10],
       minimumWhetstoneQuality: [1, 7, 14],
       minimumSockets: [1, 2, 2],
