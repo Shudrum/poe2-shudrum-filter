@@ -5,7 +5,7 @@ export default () => {
   const section = Section('Event: Delirium');
 
   section.addBlock({
-    type: ['Distilled'],
+    type: ['Distilled', 'Simulacrum Splinter'],
     display: ItemDisplay.MEDIUM(THEME.EVENTS, SOUND.IMPORTANCE_6, ICON.KITE),
   });
 
